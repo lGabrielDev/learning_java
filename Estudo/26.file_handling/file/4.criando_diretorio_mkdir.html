@@ -1,0 +1,67 @@
+<!--
+mkdir
+
+Para criar um diretorio no java é bem simples.
+Usaremos o method "mkdir". O mesmo usado no ambiente linux/unix;
+
+
+
+1- Crie um objeto File que vai receber como argumento o caminho onde vou salvar meu diretorio;
+
+    File diretorio = new File("caminhoDoDiretorio\\nome_diretorio");
+    diretorio.mkdir();
+
+"Crio um objeto File que vai receber o caminho tal"
+"Crio um novo diretorio"
+
+
+2- Vamos colocar um arquivo nesse diretorio:
+
+    File arquivo = new File("caminhoDoArquivo\\nome_arquivo.txt");
+    arquivo.createNewFile();
+
+Beleza. Criamos um arquivo nessa nova pasta.
+
+
+
+-Apague esse arquivo.
+
+
+Outra forma de criar um arquivo nessa pasta, é passar o objeto do diretorio e depois o nome do arquivo:
+
+    File arquivo = new File(diretorio,"arquivo.txt");
+    arquivo.createNewFile();
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Renomeando um arquivo
+
+Para renomear um arquivo eu preciso criar um novo objeto File com o caminho e o nome do arquivo para qual vou renomear.
+
+    File arquivo = new File("caminhoDoArquivo\\nome_arquivo.txt");
+    arquivo.createNewFile();
+
+    File arquivoRenomeado = new File(diretorio,"novo_nome.txt");
+    arquivo.renameTo(arquivoRenomeado);
+
+
+    "Como o arquivo já existe, não sera criado um novo arquivo."
+    "Depois, eu renomeio o arquivo."
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Renomeando um diretorio
+
+Funciona da mesma forma de renomear um arquivo.
+
+-Crie um novo objeto File e renomeie o nome do diretorio com o method renameTo();
+
+
+    File diretorio = new File("caminhoDoDiretorio\\nome_diretorio");
+    diretorio.mkdir();
+
+    File renomearPasta = new File("caminhoDoDiretorio\\novo_nome_diretorio");
+
+    diretorio.renameTo(renomearPasta);
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-->

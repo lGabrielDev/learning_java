@@ -1,0 +1,129 @@
+<!--
+throw new
+Eu vou criar minha propria exception
+
+Criando uma exception
+
+Imagina um programa assim:
+Usuario vai digitar uma idade. Se o usuario digitar uma idade menor que 18 anos, vai aparecer um erro.
+Eu posso escolher qual o erro que vai aparecer. Lembra aquelas Classes de exceptions  (ArrayIndexOutOfBoundsException,ArithmeticException,etc...) ??
+
+Então... Eu posso atribuir um daqueles erros.
+Se o usuario digitar uma idadde menor que 18, vai aparecer tal erro.
+
+
+-Crie o programinha
+    Scanner scan = new Scanner(System.in);
+    System.out.print("Quantos anos você tem? ");
+    int number = scan.nextInt();
+
+
+-Agora criamos nosso erro. É só criar uma condicao if. Se a condicao for true, lance(throw) um novo erro.
+
+
+    if(number < 18){
+        throw new ArrayIndexOutOfBoundsException();
+    }
+    else{
+        System.out.println("Entrada permitida.");
+    }
+
+
+Sempre que eu uso um throw new "ExceptionTal"();
+Eu estou instanciando um objeto de class exception.
+Toda class exception, ao ser instanciada, ela insta manda uma mensagem de erro. Sacou??
+
+
+
+-Crie uma exception se o usuario digitar mais q tantos caracteres.... Esse exemplo e daora.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criando minha própria class exception
+
+Imagine que vc quer criar o mesmo programa de cima. Sò que ao invés de instanciar uma exception que já existe, vou criar a minha prórpria class.
+
+
+1-Crie um package "test" para criar suas próprias exceptions.
+
+2- Crie uma class para tratar o erro da idade.
+    "ErroMenorDeIdade.java"
+
+3-Toda class de exception vai extends a class Exception.
+Toda class de excessao vai ser filho da class pai Exception
+
+    public class MenorDeIdadeException extends Exception{
+
+    }
+
+4-Crie um construtor pra essa classe e crie um parametro para usar de mensagem. Ou seja, sempre que eu criar um objeto dessa classe, vou informar a mensagem de erro que vai aparecer.
+
+   public class MenorDeIdadeException extends Exception{
+        //constructor
+        public MenorDeIdadeException(String mensagem){
+        super(mensagem);
+        }
+    }
+
+Perceba que eu chamei o construtor pai (super).
+Basicamente, eu estou dizendo:
+
+"A mensagem de erro que vai ser exibida é a do construtor pai. Então, eu crio um parametro."
+"Assim que eu instanciar um objeto dessa exception, eu escolho a mensagem que vai aparecer, atraves desse meu construtor."
+
+
+
+
+5-Crie um method static lá na class do main para verificar a idade digitada.
+    -O metodo vai ter aquela condicao da idade menor que 18;
+
+        public static void checkAge(int age) throws MenorDeIdadeException{
+        if(age < 18){
+            throw new MenorDeIdadeException("Erro. Somente maiores de idade.");
+        }
+        else{
+            System.out.println("Acesso liberado.");
+        }
+
+Perceba que, assim q eu uso o "throw new", eu estou gerando o objeto erro.
+Então, eu preciso OBRIGATORIAMENTE tratar o erro agora, ou throws para quem chamar esse method tratar.
+
+Vou deixa para outro tratar, usando o throws.
+
+
+6-Crie o programinha onde o usuario vai digitar um numero e chame o method com o erro.
+
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Qual a sua idade?");
+            int numeroDigitado = scan.nextInt();
+            checkAge(numeroDigitado);
+        }
+
+
+Perceba que, no parametro do method eu coloquei a variable que o usuario digitou.
+
+
+Mesma coisa...Ou eu trato agora, ou jogo pra outro tratar.
+
+Como já estou no method main, vou tratar com o try catch.
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Qual a sua idade?");
+        int numeroDigitado = scan.nextInt();
+        try{
+            checkAge(numeroDigitado);
+        }
+        catch(MenorDeIdadeException e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+            scan.close();
+        }
+
+Sempre feche o objeto Scanner;
+Perceba que eu imprimi a mensagem de erro.
+Eu poderia tambem usar o "e.printStackTrace();"
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-->

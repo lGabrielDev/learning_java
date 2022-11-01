@@ -1,0 +1,185 @@
+<!--
+exceptions
+
+exception -> erro
+
+Mas pra quê tratar exceptions???
+
+Sempre que um erro acontece no meio do meu programa, aparece a mensagem de erro e meu programa fecha.
+
+Se eu tratar uma exception, eu mostro uma mensagem de erro mais amigável e o meu programa continua rodando ate o final. Ele não fecha.
+
+Resumindo:
+Uma exception é um erro que acontece no meu programa que impede o resto do programa de rodar.
+----------------------------------------------------------------------------------------------------------
+
+Criando um programa que vai dar uma exception(error).
+
+Exemplo1:
+
+-Crie um vetor com 5 posicoes:
+    int[] numbers = new int[5]; ou
+    int[] numbers = {1,2,3,4,5};
+
+-Imprima uma mensagem antes do erro.
+
+-Atriba um valor na posicao [20] desse vetor
+    numbers[20] = 100;
+
+-Imprima uma mensagem depois do erro.
+
+-Rode o programa
+
+Viu?? Apareceu só a primeira mensagem.
+A segunda mensagem não apareceu. Isso porque, sempre que tem uma exception(erro) no meu programa, todos os códigos seguintes não são executados. O programa não funciona mais.
+
+A exception(erro) ocorreu porque eu tentei acessar um índice [20] do meu vetor que tem apenas [5] posicoes. LÓGICO que ia dar erro.
+
+Se ligou??
+Perceba que, no console informa onde aconteceu o erro e em qual linha.
+
+
+Exemplo2:
+-Crie uma variable do type int e tente atribuir um valor do type String.
+    int number = "gato";
+-Rode o programa
+
+
+Resumo:
+Exceptions são erros.
+
+----------------------------------------------------------------------------------------------------------
+Try Catch - Como tratar exceptions
+
+try{}
+catch(){}  -> Têm 2 parâmetros (Classe da exception - nome do objeto/variablel)
+
+Quando eu uso o try e catch eu estou dizendo:
+"Teste esse bloco de código. Se der algum erro, trate o erro dessa forma.";
+
+
+Exemplo1:
+
+-Crie um array do tipo int com 5 posicoes.
+
+Vamos criar um erro:
+    -Atribua um valor na posicao 50 da array.
+        int[] numbers = new int[5];
+        numbers[50] = 235;
+    
+
+-Trate a exception com o try catch:
+
+    try{
+        int[] numbers = new int[5];
+        numbers[50] = 235;
+    } catch(Exception erro){
+        tem.out.println("Aconteceu um erro! Você tentou acessar um index inválido.");
+    }  
+
+
+
+----------------------------------------------------------------------------------------------------------
+Exemplo2:
+-Crie um programa onde o usuario vai digitar 2 numeros, e um vai dividir pelo outro.
+
+-Vamos tratar 2 exceptions:
+    -exception1 -> O usuario vai dividir por 0;
+    -exception2 -> O usuario vai dividir por uma String;
+
+-Primeiro tratamos as exceptions específicas e por último tratamos as exception genéricas.
+
+-trate a exception de dividir por 0:
+Scanner scan  = new Scanner(System.in);
+try{
+    System.out.println("Digite um número: ");
+    int numero1 = scan.nextInt();
+
+    System.out.println("Digite outro número:");
+    int numero2 = scan.nextInt();
+    int resultado = numero1 / numero2;
+    System.out.println("O resultado da é: "+resultado);
+}
+catch(ArithmeticException e){
+    System.out.println("Erro. Não é possível dividir por 0.");
+}
+
+
+-trate a outra exception de dividir por String:
+
+catch(InputMismatchException e){
+        System.out.println("Erro. Não é possível dividir por String.");
+    }
+
+-Crie um catch para tratar as exception genérica:
+    catch(Exception e){
+        System.out.println("Erro genérico.");
+    }
+
+
+-Tenha boas práticas. Crie um finally e feche objeto Scanner:
+    finally{
+            scan.close();
+        }
+
+
+Sempre que aparecer a exception(o erro) e mostrar de qual classe ela pertence, eu uso ela como parametro no catch.
+Se não aparecer, vou usar a class Exception padraozinha.
+
+
+Quando eu crio um try catch, eu estou dizendo: 
+"Tente executar esse código. Se aparecer o erro1 faça isso, se aparecer o erro2 faça isso, se aparecer qualquer outro tipo de erro faça isso."
+Sacou?
+
+
+
+----------------------------------------------------------------------------------------------------------  
+
+
+Exemplo4
+-Crie 2 vetores(array). Um vetor com index[5], o outro com index[4]:
+    int[] number1 = {10,32,44,80,10};
+    int[] number2 = {0,6,8,4};
+
+-O objetivo aqui é que tal posição do vetor1 vai dividir por tal posicao do vetor2;
+
+-Crie um loop para que a posicao 0 divida pela posicao 0, index 1 divida pelo index 1, index 2 divida pela index 2... E assim por diante.
+
+ int[] numbers1 = {10,20,40,80,100}, numbers2 = {0,2,0,2};
+
+
+    for(int i = 0; i<numbers1.length; i++){
+        try{
+            System.out.printf("%d / %d = %d\n",numbers1[i],numbers2[i],numbers1[i]/numbers2[i]);
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Index nao existe");
+        }
+        catch(ArithmeticException e){
+            System.out.println("Divisao por 0 não rola");
+        }
+    }
+
+
+Perceba que na primeira divisão (10/0) já temos uma exception. Não dá pra dividir um número por 0.
+Entao vou criar um catch para quando acontecer esse tipo de erro(exception). O erro de dividir por 0 é um erro "ArithmeticException". Então vou informar no parametro do catch.
+
+
+Depois, outro erro acontece.
+Eu tento dividir o index [4] do vetor1 pelo index [4] do vetor2;
+Porém, o vetor2 não tem index [4];
+Perceba que no loop eu coloquei que a condicao é que...Enquanto "i" for menor que o tamanho do vetor1, continue o loop.
+
+Entao, ele tentou dividir 10 por null. Ai deu erro. Sacou??
+
+Ai, eu criei outro catch para esse tipo de erro.
+E depois eu poderia colocar mais um catch com o parametro geralzao "Exception", para qualquer tipo de erro.
+
+
+Sempre colocar as exceptions específicas e no final colocar a genérica.
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+-->

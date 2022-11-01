@@ -1,0 +1,274 @@
+<!--
+methods
+method -> é um bloco de código que é executado sempre que é chamado
+
+
+-Olhe a imagem "method.jpg"
+
+-methods, variables    -> letra minuscula
+-class,interface,enum  -> letra MAIUSCULA
+
+
+Para chamar um method é so escrever o nome do method();
+
+-Crie um method fora do method main. Afinal de contas , eu quero criar um outro method.
+
+public static void enviarMensagem(){
+        System.out.println("Mensagem teste.");
+    }
+
+
+//Dentro do main, eu chamo o method criado.
+    public static void main(String[] args){
+        enviarMensagem();
+    }
+
+
+
+
+Perceba que, eu nao precisei criar um objeto para chamar o method.
+
+public static void methodName(){}
+
+Quando o method é static eu não preciso criar objeto.
+
+
+Agora, se ele fosse non-static:
+    public void methodName(){}
+
+Aí, eu precisaria criar um objeto.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+parameter and argument
+
+parameter  -> É uma variable que eu crio na definicao do method
+argument   -> É o valor que eu vou passar quando eu chamar o method.
+
+-Crie um method fora do method main
+    -Esse method vai imprimir uma mensagem "Hello"
+        public static void imprimirMensagem(){
+            System.out.println("Hello");
+        }
+
+    -Chame esse method no method main e execute o programa.
+        imprimirMensagem();
+
+    
+-Vamos criar um parametro nesse method
+    public static void imprimirMensagem(String nome){
+        System.out.println("Hello " + nome);
+    }
+
+Quando eu chamar esse method no method main, eu vou precisar passar o argumento do tipo String.
+
+-Chame o method no method main e passe o valor do argumento
+    imprimirMensagem("Gabriel");
+
+
+Resumindo:
+parameter  -> É uma variable que eu crio na definicao do method;
+argument   -> É o valor dessa variable. Esse valor, eu defino quando eu chamo o method.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+void and return
+
+void    -> Não retorna nada.
+return  -> Retorna algum valor(String,int,boolean,etc...).
+
+
+
+-Crie 2 variables int
+    int number1 = 5,
+        number2 = 10;
+
+
+-Crie um method, em baixo do method main, onde vai retornar a soma de 2 numeros.
+    public static int soma(int n1, int n2){
+        return n1 + n2;
+    }
+
+Perceba que eu criei 2 parametros.
+
+
+-Chame o method no method main:
+    int number1 = 5,
+        number2 = 10;
+    soma(number1, number2);
+
+
+-Crie uma variable que vai receber esse method com os argumentos preenchidos
+    int number1 = 5,
+    number2 = 10;
+    int soma = soma(number1, number2);
+
+
+-Imprima essa variable
+    System.out.println(soma);
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+overloaded methods
+
+Voce pode criar methods com o mesmo nome. Só que eles precisem ter parametros diferentes.
+
+overloaded methods -> methods com o mesmo nome, mas com parametros diferentes.
+
+O tipo pode ser diferente
+A quantidade pode ser diferente
+A ordem pode ser diferente
+
+
+
+-Crie um method que vai somar 2 números;
+    public static int somarNumeros(int n1, int n2){
+        return n1 + n2;
+    }
+
+
+-Crie mais 2 methods com o mesmo nome.
+
+    public static int somarNumeros(int n1, int n2){
+        System.out.println("Method #1");
+        return n1 + n2;
+    }
+
+    public static int somarNumeros(int n1, int n2,int n3){
+        System.out.println("Method #2");
+        return n1 + n2 + n3;
+    }
+
+    public static int somarNumeros(int n1, int n2, int n3, int n4){
+        System.out.println("Method #3");
+        return n1 + n2 + n3 + n4;
+    }
+
+
+
+O nome do method é igual, mas eles possuem parametros diferentes.
+
+
+-Crie uma variable e atribua o method pra ela
+    int soma = somarNumeros();
+
+-Coloque a quantidade de argumentos que deseja e imprima:
+    int soma = somarNumeros(5,9);
+    System.out.println(soma);
+
+-Mude os parametros e chame cada um dos methods.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Static vs. Non-Static
+
+
+static -> Pode ser acessado sem precisar criar objeto.
+
+Non-Static -> Só pode ser acessado se criar um objeto da class.
+
+
+1- Crie 1 method static para enviar uma mensagem:
+
+    public static void enviarMensagem(){
+        System.out.println("Mensagem enviada com sucesso!");
+    }
+
+-Chame o method no main
+
+
+
+
+2-Crie 1 method non-static para enviar uma mensagem
+public void enviarMensagem2(){
+    System.out.println("Mensagem enviada com sucesso!");
+}
+
+-Chame o method no main
+
+
+O method non-static só vai dar bom se eu criar um objeto primeiro:
+
+ClassName objeto1 = ClassName();
+objeto1.enviarMensagem2();
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Colocando parametro no meu method
+
+-Crie 2 methods static com parametro. Cada method vai exibir uma mensagem.
+
+method 1
+     public static void mensagemIncentivo(String personagem){
+        System.out.printf("%s é muito forte",personagem);
+    }
+
+
+method 2
+
+    public static void personagemMorrendo(String personagem){
+        System.out.printf("%s está morrendo",personagem);
+    }
+    
+
+-chame os 2 method na main e imprima.
+
+Parametro -> criar uma variable na declaracao do method.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Se o method for do tipo static e tiver na mesma class (no mesmo documento) eu consigo chamar ele de boas.
+
+Se o method for tipo static e tiver em outra class (em outro documento) eu preciso referenciar de qual classe ele vem.
+
+
+
+
+
+1- Crie um method static na class do programa main
+
+    public static void mensagem(){
+        System.out.println("olá!");
+    }
+
+-Chame esse method na main
+    mensagem();
+
+O method esta na mesma class do main, então eu apenas escrevo o nome do method.
+
+Agora, quando eu tenho um attribute/method em outra class eu preciso referenciar de qual classe ele vem.
+
+
+2- Crie um attribute e um method static em outra class
+
+
+-Crie uma class "Pessoa"
+-Crie um attribute "nome";
+    //attributes
+    public static String nome = "Pedro";
+
+
+
+-Crie um method
+    public static void Mensagem2(){
+        System.out.println("Oláaaaaaa");
+    }
+
+
+-Imprima esse atributo e esse method no method main
+
+
+    public static void main(String[] args) {
+        System.out.println(Pessoa.nome);
+
+        Pessoa.Mensagem2();
+    }
+
+Viu??
+
+Eu coloquei o nome da class <ponto> atributo
+
+-Tire o static do atributo.
+
+Agora eu precisaria criar um objeto.
+Easy!
+
+
+Resumindo:
+Eu posso usar um attribute/method static sem precisar criar um objeto. Mas se esse attribute/method tiver em outra class, eu preciso referenciar.
+
+Easy!
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-->

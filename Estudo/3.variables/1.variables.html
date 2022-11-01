@@ -1,0 +1,158 @@
+<!--
+(Apenas leia)
+Variables
+São espaços de memória reservados para colocar um tipo de dado(String, int, boolean,etc...).
+
+Syntax
+datatype variableName = value;
+
+
+
+1-Crie uma variable com datatype string com o valor "Gabriel".
+
+
+String name = "Gabriel";        criei a variable
+System.out.println(name);       imprimi na tela a variable              
+
+
+
+2-Crie uma variable com datatype int com o valor 35.
+
+int number = 35;                criei a variable
+System.out.println(number);     imprimi na tela a variable
+
+
+
+Eu posso criar uma variable com datatype geralzao
+
+var number = 35;
+System.out.println(number);
+
+Aqui, o próprio java identifica o datatype da variable. O java moderno consegue fazer isso.
+
+Geralmente usamos o nome do datatype mesmo;
+
+
+Eu não posso ter o mesmo nome de variable em um mesmo bloco de código {}.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Você também pode declarar uma variable primeiro e só depois atribuir um valor.
+
+int number;                     declaro a variable.
+number = 35;                    Atribuo um valor a ela.
+
+System.out.println(number);     Imprimo na tela
+
+
+
+-Faça o mesmo com uma string.
+
+String nome;
+nome = "Gabriel";
+
+System.out.println(nome);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Mudando o valor da variable
+
+int number = 50;                Crio a variable e atribuo um valor a variable.
+number = 200;                   Atribuo um outro valor a variable.
+
+
+int number = 50;
+System.out.println(number);
+
+number = 200;
+System.out.println(number);
+    
+
+
+
+Perceba que eu imprimi o primeiro valor da variable, depois eu atribui outro valor e imprimi novamente. Zica né??
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Final Variables
+Valor final da variable
+
+Aqui eu não consigo atribuir outro valor a variable. Esse é o valor final atribuído.
+
+Uso o final
+
+final int number = 5;
+number = 25;
+System.out.println(number);
+
+Vai dar erro porque minha variable é uma final variable.
+-Tire o final.
+-Agora sim, consigo atribuir outro valor.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Praticando...
+(APENAS LEIA)
+
+1-
+-Crie uma variable com seu nome
+-Escreva uma mensagem de boas vindas + variableName
+
+String nome = "Gabriel";
+System.out.println("Boas vindas " + nome);
+
+
+
+2- Outra forma de fazer...
+Vou criar mais uma variable para a mensagem:
+
+String nome = "Gabriel";                                Crio a variable do nome 
+String boasVindas = "Seja muito bem vindo ";            Crio a variable da mensagem    
+
+System.out.println(boasVindas + nome + ".");            Junto as duas variables    
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Declarando várias variables ao mesmo tempo
+Se eu tenho várias variables de um mesmo datatype, eu posso criá-las juntas.
+
+
+int x1 = 3,
+    x2 = 4,
+    x3 = 5;
+
+System.out.println(x1);
+System.out.println(x2);
+System.out.println(x3);
+
+
+LEMBRANDO... Elas precisam ter o mesmo datatype.
+
+
+Eu não consigo fazer isso com o var.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Colocando o mesmo valor em várias variables
+
+int x1, x2, x3;
+x1 = x2 = x3 = 100;
+
+System.out.println(x1);
+System.out.println(x2);
+System.out.println(x3);
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Identifiers
+Toda variable tem que ser identificado com um nome único.
+
+Os nomes das variables são os identifiers.
+
+É importante criar nomes bem explicativos para facilitar o entendimento.
+
+As regras gerais para nomear uma variable são:
+
+-Devem começar com letras minúsculas (siga o padrão camelCase)
+-Podem começar com underscore e dollar sign;
+-Podem conter letras, números, underscore, dollar sign
+-São case sensitive (carro é diferente de Carro).
+-Reserved words não podem ser usadas (System,main,String,int,class,public,etc..)
+-Não podem ter espaço;
+
+Escreva sempre o nome das variables (identifiers) em inglês. Seja mais profissional.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-->

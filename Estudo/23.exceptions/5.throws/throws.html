@@ -1,0 +1,159 @@
+<!--
+throws
+
+O throws é usado quando eu quero criar um metodo, mas não quero tratar um possível erro naquele momento.
+
+Quem vai tratar a exception daquele method vai ser quem o chamou.
+
+Ou seja...
+Eu vou LANÇAR uma excessao. -> throw an exception
+
+
+
+Quando eu uso o throws na declaracao de um method, eu estou dizendo:
+
+"Eu não vou tratar a exception aqui dentro. Quem vai tratar vai ser quem chamar o method."
+
+Quando eu chamo esse method, sou obrigado a tratar o erro ou usar o throws denovo para quem chamar tratar.
+
+Basicamente:
+
+
+"Eu nao quero tratar esse erro. Quem me chamar que trate."
+Quem receber esse method com erro, é obrigado:
+    1-Tratar o erro naquele momento, ou
+    2-Usar o throws novamente, e quem chamar o methodo atual, que resolva esse erro.
+
+
+
+A palavra reservada "throws" vai na declaração do método, na sua assinatura. 
+
+syntax:
+<modifier><retorno><methodName>() throws Exception
+<modifier><retorno><methodName>() throws AritmeticException
+<modifier><retorno><methodName>() throws NullPointException
+etc...
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exemplo 1:
+Usando 1 throws
+
+-Crie 1 method, fora do main, que vai retornar a divisao de 10 por 0:
+    public static int method1(){
+        return 10/0;
+    }
+
+Beleza, vai dar erro. Mas eu não quero tratar o erro aqui, entao vou usar o throws.
+
+Quem chamar o method que trate o erro, ou lance para outro tratar.
+
+    public static int method1() throws Exception{
+        return 10/0;
+    }
+
+
+-Crie outro method que vai receber o method anterior.
+
+    public static int method2() throws Exception{
+            return method1();
+        }
+
+Mesma coisa. Aqui sou obrigado a tratar o erro ou jogar para outro tratar.
+-Lance um throw denovo para o method main tratar.
+
+-No method main, chame o method2;
+Aí sim, eu vou tratar com o try catch;
+
+
+ public static void main(String[] args) {
+        try{
+            method2();
+        }
+        catch(Exception e){
+            System.out.println("Não é possível dividir por 0");
+        }
+        System.out.println("Programa finalizado.");  
+    }
+
+
+    public static int method2() throws Exception{
+        return method1();
+    }
+
+    public static int method1() throws Exception{
+        return 10/0;
+    }
+
+Eu poderia usar o throws denovo... Mas como está no method main, é melhor tratar;
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Exemplo 2:
+
+-Na mesma class do method main, crie outro method em baixo:
+    -Crie o method static(não quero criar um objeto para chama o method)
+    -O method consiste em retornar um numero double que o usuario vai digitar.
+    Então:
+        -Dentro desse method novo, eu vou criar o objeto Scanner
+        -Crio uma variable pro usuario inputar o numero
+        -Depois, retorne a variable. Sacou??
+
+            public static double lerNumero(){
+                Scanner scan = new Scanner(System.in);
+                double numero = scan.nextDouble();
+                return numero;
+            }
+
+Perceba que não é nextInt....Eu quero um double do usuario, então vai ser nextDouble.
+
+-Vamos chamar esse method no method main:
+    -Crie um sysout "Digite um numero"
+    -Como meu method retorna um double, eu vou criar uma variable que vai receber o retorno desse method
+    -Crie uma frase "Você digitou o número "+numero;
+    -Rode o programa.
+    -Digite um numero com "," -> 5,5
+    -Digite um numero com "." -> 5.5
+
+Seu pc está em portugues, por isso que o "." deu erro.
+
+Perceba que eu não tratei esse erro no method criado.
+Quem vai tratar o erro, vai ser quem o chamou.
+Para isso , fazemos:
+
+-Vá no method criado e diga que vc quer lancar uma exception
+    throws InputMismatchException
+
+        public static double lerNumero() throws InputMismatchException{
+        Scanner scan = new Scanner(System.in);
+        double numero = scan.nextDouble();
+        return numero;
+
+
+Se eu quisesse poderia lançar uma exception generica com o "throws Exception"
+            
+            
+Perceba que, o method que eu chamei no main deu ruim....
+Vamos tratar esse erro.
+        -Use um try catch bolado.
+
+    public static void main(String[] args){
+        System.out.print("Digite um número: ");
+        try{
+            double numero = lerNumero();
+            System.out.println("Você digitou o número "+numero);
+        }
+        catch(InputMismatchException e){
+            System.out.println("Erro. Numero digitado errado.");
+        } 
+    }
+
+Easy!
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-->

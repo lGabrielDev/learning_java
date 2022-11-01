@@ -1,0 +1,63 @@
+<!--
+
+Variable Scope
+
+O escopo de uma variable nada mais é do que tudo que está dentro de {} curly braces.
+
+
+-Crie uma variable no metho main e imprima ela
+
+    public static void main(String[] args){
+        int number1 = 50;
+        System.out.println(number1);
+    }
+
+Eu consegui imprimir a varaible, porque ela está dentro do escopo da main.
+
+
+-Crie outro method e tente chamar a variable criada na main
+Viu?? Não dá pra acessar. Isso porque a variable é uma variable local, que está dentro do escopo da main. E só quem tem acesso é o method main.
+
+
+-Crie uma variable dentro de outro method.
+    public void number2(){
+        int number2 = 100;
+    }
+
+-tente chamar essa variable no method main.
+Viu?? A mesma coisa acontece. Essa variable não está no scopo da main.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+(APENAS LEIA)
+-Crie uma classe
+-Crie um atributo/variable global
+-Crie um method e chame essa variable
+
+    public class Lutador {
+        //attributes
+        String name;
+
+        public void teste(){
+            name = "Anderson";
+        }
+    }
+
+Eu consegui chamar a variable porque ela está no escopo da class. Ou seja, ela é uma variable global.
+Tudo dentro dessa classe, pode chamar essa variable.
+
+Agora... Se eu crio uma variable dentro de um method, ela será uma variable local.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Resumindo:
+
+local variables  -> Declaradas dentro de um method. São visíveis somente naquele method.
+
+global variables -> Declaradas na classe. São visíveis para todos daquela classe. Qualquer method pode acessá-las.
+
+
+
+
+    
+-->

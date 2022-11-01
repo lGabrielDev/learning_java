@@ -1,0 +1,76 @@
+<!--
+
+Invertendo a ordem de uma array.
+-Crie uma array de String com alguns nomes:
+
+String[] nomes = {"Carlos","Roberto","Amanda","Patrícia"};
+
+-Inverta a ordem (Patricia,Amanda,etcc..)
+
+É só criar um for, onde o contador vai começar pela ultima posicao da array.
+
+for(int i=nomes.length-1; i>=0; i--){
+        System.out.print(nomes[i]+" ");
+    }
+
+-Imprima todos os nomes na ordem e depois na ordem inversa.
+------------------------------------------------------------------------------------------------------------------------------------------
+Invertendo a ordem de uma array com method.
+
+1-Crie uma array
+    String[] nomes = {"Carlos","Roberto","Amanda","Patrícia"};
+
+
+2-Crie uma segunda array, que vai ser a array invertida. Por enquanto, não atribua nenhum valor.
+    String[] nomes2;
+
+
+3-Crie um method,fora da main é claro, para inverter a array
+
+    public static String[] inverterValores(String[] nomes){
+        String[] nomesInvertidos = new String[nomes.length];
+        for(int i=0,j=nomes.length-1 ;  i<nomes.length  ;i++, j--){
+            nomesInvertidos[i] = nomes[j];
+        }
+        return nomesInvertidos
+    }
+
+-Perceba que esse method retorna uma array String. Então, no lugar de void eu coloco "String[]"
+
+-Eu criei um parâmetro array do tipo String, para receber a array que vai ser invertida. Aí, quando eu chamar o method, eu coloco o nome da array no parametro.
+
+-Eu criei uma array do mesmo tamanho da array informada no parâmetro.
+
+-Criei um for para fazer a alteração das posicoes.
+    Eu crio um contador i -> corresponde a primeira posicao
+    Eu crio um contador j -> corresponde a ultima posicao
+    Ai eu digo que.... A posição 0 da array vai receber a ultima posicao da array do parametro... Se ligou??
+
+-Depois do for, eu retorno a array criada.
+Pronto. Criamos nosso method.
+
+
+-Vá no method main e atribua esse methodo na 2 array criada (A array que inverte).
+    String[] nomes2 = inverterValores(nomes);
+
+Perceba que no parametro eu coloco a array que eu quero inverter. Voalá!
+
+-Crie um for para imprimir todas as posicoes.
+    for(int i=0; i<nomes2.length; i++){
+        System.out.print(nomes2[i]+" ");
+    }
+
+    ou
+
+    for(String i : nomes2){
+        System.out.println(i);
+    }   
+
+
+Easy!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    
+-->

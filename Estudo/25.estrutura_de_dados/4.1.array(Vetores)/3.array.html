@@ -1,0 +1,209 @@
+<!--
+vetore (array)
+É a estrutura de dados mais simples.
+
+Um vetor armazena uma sequencia de valores que são do mesmo tipo.
+
+Sempre coloque o nome da array em plural. Como tenho vários valores armazenados, é interessante dar um nome no plural.
+
+
+-Crie uma array que vai armazenar strings (carros)
+
+1º forma:
+    String[] cars = {"Ferrari","Camaro","Fusca"};
+
+    for(int i=0; i<cars.length; i++){
+        System.out.println(cars[i]);
+    }
+
+
+2º forma:
+
+    String[] cars = new String[3];
+    cars[0] = "Camaro";
+    cars[1] = "Ferrari";
+    cars[2] = "Fusca";
+
+    for(int i=0; i<cars.length; i++){
+        System.out.println(cars[i]);
+    }
+
+
+-Crie uma variable que vai receber a quantidade de carros.
+-Substitua o tamanho da array(3) por essa variable
+
+    int quantidadeDeCarros = 3;
+        String[] cars = new String[quantidadeDeCarros];
+        cars[0] = "Camaro";
+        cars[1] = "Ferrari";
+        cars[2] = "Fusca";
+
+        for(int i=0; i<cars.length; i++){
+            System.out.println(cars[i]);
+        }
+
+
+Sempre é melhor criar uma variable que vai receber a quantidade de posicoes da array. Assim, quando eu uso um for, fica tudo certinho.
+----------------------------------------------------------------------------------------------------------------------------------------
+
+IMPORTANTEEEEEEEEEEEE
+
+Vamos treinar o tratamento de erro, usando o do try catch.
+
+FAÇA!
+
+
+3- Crie um programa onde o professor(usuario) vai digitar a nota dos alunos e depois vai imprimir essas notas.
+
+
+-Crie um objeto Scanner
+-Crie uma variable para a quantidade de alunos (3);
+-Crie uma variable Boolean para tratar os erros;
+-Crie uma array Double que vai receber as notas dos alunos;
+-Crie um for para inserir a nota de cada aluno;
+-Trate o erro se o usuario digitar uma nota maior que 10;
+    Basta criar um if;
+
+-Trate o erro se o usuario digitar uma String;
+
+
+
+CÓDIGO COMPLETO
+
+Scanner scan = new Scanner(System.in);
+        Integer totalAlunos = 3;
+        Boolean valorCorreto = false;
+
+        Double[] notas = new Double[totalAlunos];
+
+        for(int i = 0; i<totalAlunos; i++){
+            do{
+                try{
+                    System.out.print("\nNota do aluno "+(i+1)+": ");
+                    notas[i] = scan.nextDouble();
+                    valorCorreto = true;
+        
+                    if(notas[i] > 10){
+                        valorCorreto = false;
+                        System.out.println("Nota maior que 10 não existe.\n");
+                    }
+                }
+                catch(Exception e){
+                    System.out.println("\nErro. Insira um número.");
+                    valorCorreto = false;
+                    scan.nextLine();
+                }
+            }
+            while(!(valorCorreto));
+        }
+        scan.close();
+    }
+
+
+
+Lembre-se
+Quando voce quer tratar erros de input, use sempre essas 2 formas:
+
+1-do{
+    try{}
+    catch(){}
+}
+while();
+
+
+OU
+
+
+2-do{
+    if(){}
+    else{}
+}
+while();
+
+
+
+
+-Imprima todas as notas;
+
+    System.out.println("*** Resultado final ***");
+        for(int i = 0; i<totalAlunos; i++){
+            System.out.println("Aluno "+(i+1)+": "+notas[i]);
+        }
+        scan.close();
+----------------------------------------------------------------------------------------------------------------------------------------
+(APENAS LEIA)
+Por padrão, sempre que eu crio um objeto do tipo primitivo ele vêm com valores padrao.
+
+
+int,double,float(qualquer type de número) -> 0
+String -> null
+boolean -> false
+
+Inclusive em arrays;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+(APENAS)
+5-
+
+Imagine que voce queira armazear a temperatura de um dia no periodo de uma semana.
+double tempDia001 = 25.5;
+double tempDia002 = 20.5;
+double tempDia003 = 17;
+double tempDia004 = 19;
+double tempDia005 = 25;
+double tempDia006 = 23.0;
+double tempDia007 = 29.3;
+
+Se eu precisasse tirar a media de temperatura nessa semana, tranquilo.. Eu somaria os 7 valores e divididir pela quantidade(7).
+Ok, tranquilo.
+
+Agora, imagina que eu queira armazenar um ano(365 dias)  de temperatura... Aí começa a complicar.
+Eu não preciso criar uma variable para cada dia.
+
+Aí que entra o vetor(array):
+-Crie uma array com 365 posicoes:
+    double[] temperaturas = new double [365];
+
+-Coloque 5 posicoes na array:
+    temperaturas[0] = 25;
+    temperaturas[1] = 25.2;
+    temperaturas[2] = 30.1;
+    temperaturas[3] = 17.4;
+    temperaturas[5] = 19;
+
+
+Todo array tem sua posicao inicial em 0.
+Então, nessa array de 365 posicoes, eu tenho o index(posicao) de 0 ate 364.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Criando um atributo vetor
+
+-Crie uma class "Pessoa" com os attributes:
+    String name;
+    String[] brinquedos;
+
+
+-Crie um constructor
+    public Pessoas(String name,Integer quantidadeBrinquedos){
+            this.name = name;
+            this.brinquedos = new String[quantidadeBrinquedos];
+        }
+
+
+- Crie 1 objeto "Pessoa" e passe os argumentos;
+    Pessoas p1 = new Pessoas("Gabriel",3);
+
+
+- Atribua valores para cada posicao
+        p1.getBrinquedos()[0] = "bola";
+        p1.getBrinquedos()[1] = "boneca";
+        p1.getBrinquedos()[2] = "carrinho";
+
+- Imprima todos os brinquedos da pessoa1;
+        for(String i : p1.getBrinquedos()){
+        System.out.println(i);
+    }
+
+    "Estou imprimindo todas as posicoes de uma array de um objeto"
+----------------------------------------------------------------------------------------------------------------------------------------
+-->

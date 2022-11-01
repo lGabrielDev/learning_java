@@ -1,0 +1,59 @@
+<!--
+Copiando um arquivo
+Files.copy();
+
+Se eu quero copiar um arquivo, eu preciso saber:
+1-Qual o arquivo que eu quero copiar;
+2-Para onde eu vou copiar esse arquivo;
+
+
+
+Vamos lá!
+
+Vamos
+-Crie um arquivo.txt no diretorio atual;
+Vamos copiar esse arquivo para o mesmo diretorio;
+
+
+1-Crie 2 objetos Path:
+    .Um vai receber o arquivo que eu quero copiar;
+    .O outro vai receber o local onde vai ser colado o arquivo;
+
+    Path arquivo = Paths.get("/caminho/arquivo999.txt");
+    Path arquivoNovo = Paths.get(arquivo.getParent().toString(),"arquivo_novo.txt");
+
+
+    Perceba que o novo arquivo recebe o caminho do pai transformado para String + nome desse novo arquivo;
+
+
+
+Pronto. 
+Temos agora um objeto "Path" com o arquivo que será copiado;
+Temos outro objeto "Path" com o novo lugar onde será colado.
+
+Agora é só copiar o arquivo;
+Use o method Files.copy();
+
+
+2- Files.copy();
+
+O method Files.copy(); da class Files recebe como argumento a origem e o destino;
+Quem eu quero copiar? e pra onde vou copiar;
+Esses argumentos são do tipo Path; Então, eu preciso passar 2 Path;
+
+
+    try{
+        Files.copy(arquivo,arquivoNovo);
+        System.out.println("Arquivo copiado com sucesso!");
+    }
+    catch(IOException e){
+        System.out.println("Erro.");
+    }
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Copiar um diretorio de forma recursiva (copiar o diretorio por completo)
+
+Ainda não aprendi.
+-->

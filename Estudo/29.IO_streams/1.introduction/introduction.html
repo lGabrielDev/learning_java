@@ -1,0 +1,91 @@
+<!--
+(Ler apenas)
+
+IO streams
+
+Representa um fluxo de dado que pode ser lido ou escrito.
+
+I -> Input  ->  entrada de dados -> vou ler esses dados
+O -> Output ->  saida de dados   -> vou escrever esses dados
+
+
+
+Uma stream significa uma sequencia ordenadade bytes.
+
+Input streams -> lê dados de alguma fonte / de algum lugar.
+
+Output streams -> escreve dados e envia pra algum lugar;
+
+Ex de input:
+-teclado
+-microfone
+-controle video game
+
+
+Ex de Output:
+-Monitor
+-Caixa de som
+
+
+Lembrando, que esses fluxos de dados são recebidos pelo computador com 0s e 1s;
+O computador lê apenas 0 e 1.
+
+-Veja a imagem "introducao.png"
+
+As streams transmitem dados em bytes.
+
+1 byte = 8 bits;
+
+cada bit é um 0 ou 1... sacou?
+
+
+
+
+RESUMINDO:
+streams transmitem dados e bytes.
+
+
+readers and writers
+
+readers -> transforma bytes em caracteres
+
+Quando o usuario quer ler um arquivo, o computador pega aqueles bytes da stream do arquivo(0s e 1s) e transforma em caracteres para que o usuario consiga ler.
+
+
+
+writers -> transforma caracteres em bytes
+
+Quando o usuario inputa/escreve algum dado, o computador transforma aqueles caracteres humanoides para bytes(0s e 1s) pra ele conseguir escrever.
+
+
+O computador só consegue ler 0s e 1s (bytes);
+
+
+Entao.... Quando eu digito um caracter , por exemplo "l", ele lê um byte(8 bits)
+
+"l" -> 01100100
+
+Sacou?
+
+Todos as exceptions/erros de IO (input and output) são os IOExceptions;
+
+Sempre que queremos fazer um input ou output de dados, estamos fazendo um IO;
+
+------------------------------------------------------------------------------------------------------------------------------------------
+FileReader x FileInputStream
+
+FileReader      -> Lê caracteres. Usado par ler textos.
+FileInputStream -> lê dados binarios (bytes). Usado para ler outros tipos de arquivo(audio,video,etc...);
+
+
+
+FileWriter x FileOutputStream
+FileWriter       -> Escreve caracteres. Usado par escrever textos em um arquivo.
+FileOutputStream -> Escreve dados binarios (bytes).
+
+
+Bem melhor usar o BufferedReader and BufferedWriter;
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+-->

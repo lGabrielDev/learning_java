@@ -1,0 +1,93 @@
+<!--
+Create a File
+Para criar um arquivo é bem simples.
+
+1- Crie um objeto da class File:
+    import java.io.File;
+    File arquivo = new File("criando_arquivo.txt");
+
+Perceba que eu coloquei o nome do arquivo que eu vou criar, e especifiquei o caminho onde ele vai ficar.
+
+
+.createNewFile()
+2- Crie um arquivo vazio, usando o .createNewFile();
+
+    import java.io.File;
+    import java.io.IOException;
+
+    Sempre que eu vou usar o createNewFile(); eu sou OBRIGADO a importar a class de erro IOException e usar o try catch;
+
+
+    Se eu tentar criar um arquivo que ja existe, pode dar erro. Então, eu importo essa class e uso também o try catch:
+
+
+    try{
+        if(arquivo.exists() == false){
+            arquivo.createNewFile();
+            System.out.println("Arquivo "+arquivo.getName()+" foi criado com sucesso!");
+        }
+        else{
+            System.out.println("Arquivo já existe.");
+        }
+    }
+    catch(IOException e){
+        System.out.println("Um erro aconteceu.");
+    }
+
+
+Lendo, fica assim:
+"Tente realizar esse código aqui.
+Se o arquivo tal não existir, crie um novo arquivo e printe a mensagem 'arquivo criado com sucesso'";
+
+"Caso contrário se o arquivo já existir, escreva essa mensagem."
+
+"Se acontecer algum erro, printe essa mensagem."
+
+Se ligou??
+
+Esse method de criar arquivo é obrigatorio o uso do try catch, juntamente com a importacao da IOException.
+
+Percebe que é um erro da máquina do usuario?? O arquivo fica na máquina do usuario, por isso que é IO... Percebe??
+
+
+
+- Tente executar o codigo, agora com o arquivo já criado.
+Voce vai tentar criar um arquivo que ja existe.
+
+Easy!
+
+
+.createNewFile(); Se o arquivo nao existir, ele cria um arquivo e retorna true;
+
+Se o arquivo existir, ele apenas retorna false e não cria nenhum arquivo.
+
+
+
+
+
+
+Outra forma de criar seria:
+
+    File file = new File("newFile.txt");
+
+    try {
+      boolean criadoComSucesso = file.createNewFile();
+      if (criadoComSucesso) {
+        System.out.println("The new file is created.");
+      }
+      else {
+        System.out.println("The file already exists.");
+      }
+    }
+    catch(Exception e) {
+      e.getStackTrace();
+    }
+
+"Java, tente fazer isso:"
+"Eu crio uma variable boolean que vai receber se o arquivo foi criado com sucesso ou nao"
+"Se a variable for TRUE, printa a mensagem com sucesso"
+"Se a variable for FALSE, printa a mensagem que o arquivo ja existe"
+
+
+Easy!!
+-->

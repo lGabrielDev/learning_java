@@ -1,0 +1,133 @@
+<!--
+File handling -> Manipulação de arquivos
+
+Manipulacao de arquivos é extremamente importante. Usando o java, voce pode usar alguns methods para ler,editar,criar ou deletar arquivos.
+
+
+
+
+As classes de manipulacao de arquivos são:
+
+1- File              ->   Instancia um objeto file;
+2- FileWriter        ->   Escreve em um objeto file;
+2- BufferedWriter    ->   Escreve em um objeto file mais otimizado;    
+3- FileReader        ->   Lê/scaneia um objeto file;
+3- BufferedReader    ->   Lê/scaneia um objeto file mais otimizado;
+
+
+
+
+Sempre use o BufferedWriter e o BufferedReader. Bem melhor!
+
+
+
+
+
+File Class
+A class "File" nos permite manipular arquivos.
+
+1- Antes de tudo, crie um arquivo simples com txt extension:
+    -Crie esse arquivo na area de trabalho
+
+    C:/Users/Gabriel/Desktop/praticando.txt
+        praticando.txt
+
+
+Pronto, temos um arquivo. Agora, vamos manipulá-lo.       
+
+2- Crie um objeto da class "File";
+
+    import java.io.File;
+    File arquivo = new File("C:\\Gabriel\\1.Study\\programacao\\02.Java\\praticando\\arquivo_teste.txt");
+
+Perceba que voce colocou o nome completo do arquivo, inclusive com a extensao do arquivo ".txt";
+
+E também especifiquei o caminho desse arquivo.
+Como em uma string o "\" é considerado caractere especial, eu precisei colocar "\\" sacou??
+
+
+Outra forma de colocar o caminho do arquivo seria usando a barra normal:
+    C:/Gabriel/1.Study/programacao/02.Java/praticando/arquivo_teste.txt
+
+
+    Eu posso colocar dessas duas formas:
+    barra invertida ->    C:\\Gabriel\\1.Study\\programacao\\02.Java\\praticando\\arquivo_teste.txt
+    barra normal    ->    C:/Gabriel/1.Study/programacao/02.Java/praticando/arquivo_teste.txt
+
+
+
+
+
+
+Testando alguns methods da class File
+
+
+.exists()
+Retorna se um arquivo existe ou nao
+
+3- Vamos usar um dos methods da class File:
+    .exists() -> Retorna um valor boolean se o arquivo existe;
+
+-Crie um if else e use o method .exists(); Se o arquivo existir printe uma mensagem, se não existir, printe outra;
+
+
+    if(arquivo.exists()){
+        System.out.println("O arquivo existe");
+    }
+    else{
+        System.out.println("O arquivo NÃO EXISTE.");
+    }
+
+
+
+
+
+
+
+.getAbsolutePath()
+Retorna o caminho completo do arquivo
+
+4- Imprima o caminho completo do arquivo:
+    System.out.println("O caminho completo do arquivo é:");
+    System.out.println(arquivo.getAbsolutePath());
+
+
+
+
+.isFile();
+Retorna se é um arquivo:
+    System.out.println(arquivo.isFile());
+    TRUE
+
+
+.isDirectory()
+Retorna se é um diretorio(pasta/folder):
+    System.out.println(arquivo.isDirectory());
+    FALSE
+
+
+.delete()
+Deleta o arquivo;
+    System.out.println(arquivo.delete());
+
+
+Teste cada um dos methods acima.
+------------------------------------------------------------------------------------------------------------------------------------------
+(Apenas leia)
+Java file methods
+
+exists()	            Boolean	    Retorna se um arquivo existe
+getAbsolutePath()	    String	    Returns o caminho completo do arquivo
+isFile();               Boolean     Returns se é um arquivo;
+isDirectory()           Boolean     Returns se é um diretorio(pasta/folder):
+delete()	            Boolean	    Deleta o arquivo
+canRead()	            Boolean	    Tests whether the file is readable or not
+canWrite()	            Boolean	    Tests whether the file is writable or not
+createNewFile()	        Boolean	    Creates an empty file
+getName()	            String	    Returns the name of the file
+length()	            Long	    Returns the size of the file in bytes
+list()	                String[]	Returns an array of the files in the directory
+mkdir()	                Boolean	    Creates a directory
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-->

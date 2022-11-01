@@ -1,0 +1,51 @@
+<!--
+array of objects
+
+Relembrando como criar uma array(vetor)
+    int[] numbers = new int[3];
+    String[] names = new String[3];
+
+Para criar uma array de objeto, funciona da mesma forma.
+
+1-Crie uma class "Food" com apenas 1 attribute:
+    //attributes
+    String name;
+
+2- Crie um constructor pra essa class
+    //constructor
+    public Food(String name){
+        this.name = name;
+    }
+
+
+3-Crie 3 objetos dessa classe:
+    Food food1 = new Food("hamburguer");
+    Food food2 = new Food("pizza");
+    Food food3 = new Food("hotdog");
+
+Agora sim, podemos criar nossa array de objeto.
+
+4-Crie uma array do tipo "Food" com index 3;
+    Food[] geladeira = new Food[3];
+
+5-Adicione os 3 objetos criados a essa array.
+    geladeira[0] = food1;
+    geladeira[1] = food2;
+    geladeira[2] = food3;
+
+    outra forma seria:
+    Food[] geladeira = {food1,food2,food3};
+
+
+6-Crie um for each e imprima o atributo "name" de cada objeto dessa array.
+    for(Food i: geladeira){
+        System.out.println(i.name);
+    }
+
+Esse for each eu leio assim:
+"O tipo de dado da array é 'Food', a posicao é representada por 'i' , a array é 'geladeira'"
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-->

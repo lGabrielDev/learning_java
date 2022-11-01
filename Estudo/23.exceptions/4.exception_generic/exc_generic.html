@@ -1,0 +1,37 @@
+<!--
+(APENAS LEIA)
+Exception
+
+Quando tiver arrumando uma exception, e quiser usar um catch com erro genérico, coloque a classe "Exception" com o objeto "exc" ou "e" . Abreviacao... Se ligou??.
+
+Mantenha as boas práticas.
+
+
+Lembrando que o catch genérico sempre fica por último. Primeiro eu saio varrendo os erros específicos e por último vem o catch generico.
+
+Blzinha. Já vimos isso.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(APENAS LEIA)
+Informando o erro para o desenvolvedor do jeito certo.
+
+Em vez de simplesmente criar um sysout com a mensagem de erro, vamos usar 2 methods da classe Exception:
+
+e.getMessage();        -> Mostra a mensagem de erro padrao do sistema
+e.printStackTrace();   -> Mostra onde o erro aconteceu
+
+
+
+Aí tu me pergunta.... Por que eu vou deixar a mensagem igual antes??
+Se eu não usar o catch, assim que o programa encontrar um erro o programa insta finaliza, e o resto do código não roda.
+
+Se eu usar o catch com essas mensagens de erro padrao, o programa continua rodando e a mensagem de erro continua igual do sistema.
+
+Ou seja... O programa não trava e o dev consegue localizar onde aconteceu os erros.
+
+Eu posso escrever as mensagem de erro com o sysout apenas, mas vamos manter uma boa prática.
+
+Lembrando.... essa mensagem tecnica (.getMessage(); and .printStackTrace();) eu uso quando estou testando o codigo com minha equipe.
+
+Para o usuario, eu envio uma mensagem amigável apenas.
+-->

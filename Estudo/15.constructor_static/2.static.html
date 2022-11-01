@@ -1,0 +1,147 @@
+<!--
+static keyword
+
+static -> quer dizer que eu não preciso criar um objeto para acessar tal atributo ou tal methodo.
+
+Ex:
+Quando eu chamo a class Math.max(), eu não preciso criar um objeto do tipo "Math."
+Isso porque esse method é static.
+
+Mesma coisa com a class Collection.sort(); Sacou??
+
+
+
+1-Na class do method main, cria 2 variables int simples;
+
+    1- Uma variable local dentro do method main
+    2- Uma variable global fora do method main
+
+
+    public class App{
+        int number1 = 5;
+
+        public static void main(String[] args){
+            int number2 = 10;
+        }
+    }
+
+    -Tente imprimir as duas variables
+
+    Perceba que a variable de fora não dá pra imprimir.
+
+    Isso porque, eu não tenho acesso as variables de fora. Pra isso, eu precisaria criar um objeto dessa Class, para poder acessá-lo.
+
+    -Crie um objeto e imprima as duas variables;
+
+        public class App{
+            //attributes
+            int number1 = 5;
+
+            public static void main(String[] args){
+                int number2 = 10;
+                
+                App objeto = new App();
+
+                System.out.println(objeto.number1);
+                System.out.println(number2);
+            }
+        }
+
+
+    Agora funcionou.
+    
+-Apague esse objeto.
+
+
+
+Agora, vamos usar a keyword "static".
+
+-Vá no atributo "number1" e altere para static.
+    static int number1 = 5;
+
+Agora sim , eu consigo imprimir o atributo, sem precisar criar um objeto.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Objetos compartilhando o mesmo atributo.
+
+Outra forma de utilizar o static, é para compartilhar o valor de um atributo.
+
+Ex:
+
+Imagine uma sala de aula com alunos diferentes. Porém, esses alunos compartilham o mesmo professor.
+
+Cada aluno vai ter seu nome unico, mas o professor vai ser o mesmo pra todos.
+
+1-Crie uma class aluno, com os attributes:
+    //attributes
+    String nome;
+    int age;
+    static String professor;
+
+name e age blz... Cada um tem o seu valor específico.
+Agora, "professor" precisa ser compartilhado por todos. É o mesmo professor pra todos os alunos.
+
+
+-Coloque o attribute "professor" como static
+
+-Vá na class do method main, e crie 3 objetos da class "Aluno";
+    Aluno aluno1 = new Aluno();
+    Aluno aluno2 = new Aluno();
+    Aluno aluno3 = new Aluno();
+
+-Atribua os valores para os atributos "nome" e "age". Coloque um valor diferente em cada.
+Não atribua para o professor ainda.
+
+    aluno1.name = "Paula";
+    aluno1.age = 34;
+
+    aluno2.name = "João";
+    aluno2.age = 25;
+
+    aluno3.name = "Roberta";
+    aluno4.age = 37;
+
+
+-Agora sim, vamos atribuir um valor ao atributo "professor".
+Como ele é um atributo static ou seja, é um atributo compartilhado, eu vou fazer assim:
+
+    Aluno.professor = "Pasqual";
+
+Nome da class . atributo = recebe tal.
+
+Eu escrevo apenas uma vez. Sacou??
+
+
+-Imprima todos os atributos e veja que o nome do professor será igual pra todos.
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Sempre que eu estiver com um atributo ou method "static", eu chamo esse attribute/method usando o nome da Class e não do objeto.
+
+non-static  -> Acesso através do objeto.
+static      -> Acesso através da class.
+
+
+Acessando um attribute/method non-static:
+    object1.name;
+    object2.name;
+    etc...
+
+Acessando um attribute/method static:
+    Class.name;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+RESUMINDO:
+
+static permite que voce acesse um atributo ou method sem precisar instanciar um objeto.
+
+static também faz com que um attribute seja compartilhado por outros objetos dessa class;
+------------------------------------------------------------------------------------------------------------------------------------------
+-->

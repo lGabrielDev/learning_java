@@ -1,0 +1,73 @@
+<!--
+OutputStream
+
+OutputStream é uma abstract class.
+Ela é pai de todas as outras output classes;
+
+Eu não posso criar um objeto dela pois ela é abstract. Então, vou usar suas classes filhas;
+
+
+
+InputStream -> Serve para ler os dados de um arquivo.
+
+OutputStream -> Serve para escrever dados para um destino;
+
+
+
+Veja a imagem .jpg;
+
+
+Perceba que eu tenho 2 classes abstratas pai (InputStream and OutputStream) e tenho 4 classes em cada uma delas:
+
+
+InputStream
+    FileInputStream
+    ByteArrayInputStream
+    FilterInputStream
+    ObjectInputStream
+
+
+OutputStream
+    FileOutputStream
+    ByteArrayOutputStream
+    FilterOutputStream
+    ObjectOutputStream
+
+
+
+
+Lembrando que , quando eu quiser ler um arquivo, é sempre mais fácil usar o BufferedReader -> FileReader -> File or Path.toFile();
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Lendo com InputStream
+
+1- Crie um arquivo de texto e escreva algumas linhas nele. Esse será o arquivo que vamos ler;
+
+2- Crie um objeto Path que vai receber o caminho do arquivo;
+
+3- Crie um objeto FileInputStream e passe dentro dele o objeto Path transformado para File;
+
+    Path arquivo = Paths.get("caminho/teste.txt");
+        
+    InputStream fis = new FileInputStream(arquivo.toFile());
+
+
+4- Crie uma variable int que vai receber o proximo byte do arquivo;
+5- Leia todos os bytes do arquivo e depois transforme em (char);
+
+        int caractere = 0;
+
+        while((caractere = fis.read()) != -1){
+            System.out.print((char)caractere);
+        }
+
+"A variable 'caractere' vai receber o proximo byte (caractere) do arquivo. Enquanto esse byte for diferente de -1, têm conteúdo nele. Se der -1 é pq não tem mais nada;
+
+
+"Eu imprimo o byte atual e casto/trasnformo ele em caractere"
+byte para caractere;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+-->

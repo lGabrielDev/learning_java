@@ -1,0 +1,29 @@
+Ideia 1
+
+1- Quando voce começar a aprender git, escreve o passo a passo dos seus exercicios lá.
+Ex:
+Colocar o passo a passo para ler arquivo csv,etc...
+Passo 1:
+Ler com Scanner
+
+Passo 2:
+Ler com o BufferReader
+
+etc...
+
+
+
+--------------------------------------------------------------------------------------------------
+Ideia 2
+
+2- Criar um projeto de leitura de arquivo; 
+
+O usuario vai digitar o nome do arquivo. Se o nome estiver correto, ele vai ler o arquivo tal.
+Se tiver errado vai aparecer a mensagem "Arquivo não encontrado."
+
+Colocar no github.
+
+A ideia nesse projeto é aplicar o conhecimento do BufferedReader, sacou?
+
+
+--------------------------------------------------------------------------------------------------

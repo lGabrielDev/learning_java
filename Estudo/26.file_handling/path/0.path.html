@@ -1,0 +1,177 @@
+<!--
+File Class
+É uma class que representa arquivos e diretorios e
+pertence ao pacote java.io;
+
+
+
+Path Class
+É uma class que também representa arquivos e diretorios, só que de uma forma melhorada.
+pertence ao pacote java.nio.file;
+
+
+
+
+Java Path Vs File
+As duas classes fazem praticamente a mesma coisa. Porém, a "Path" é uma interface melhorada.
+
+Usando a 'Path', conseguimos tratar erros mais facilmente.
+
+Vamos lá!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Criando um objeto
+
+Path  -> Interface
+Paths -> Classe
+Files -> Class com os methods usados para manipular arquivos
+
+
+
+Com Path, funciona assim:
+
+Para criar um objeto do tipo arquivo , que não seja File, vamos usar o "Path" interface e o "Paths" class;
+
+-Crie um objeto Path;
+
+    Path arquivo = Paths.get("caminho_do_arquivo/");
+
+"Uso a interface 'Path' -> nome do arquivo -> Uso a class 'Paths' e acesso o method get";
+
+
+Não esqueca de importar a interface e a class;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Criando um arquivo ou uma pasta;
+
+1- Criando um arquivo:
+Crie esse arquivo no diretorio atual;
+
+- Crie um objeto 'Path':
+    Path arquivo1 = Paths.get("caminho/nome_do_arquivo.txt");
+
+-Importe a interface e a class
+
+
+- Crie um arquivo usando o method Files.createFile();
+    Path criandoArquivo = Files.createFile(arquivo);
+
+
+Perceba que eu criei um objeto Path que vai receber o method createFile(); que está na classe Files;
+
+
+
+Perceba que esse method é static. Por isso, eu chamo primeiro a class 'Files' e uso o method createFile(), passando como argumento um 'Path';
+
+
+-Trate a exception. Afinal, eu estou tentando criar um arquivo. Se o arquivo existir, vai popar uma exception;
+
+Nao precisa usar try catch, use o throws mesmo.
+
+
+
+Beleza. Como eu nao tinha nenhum arquivo com esse nome, deu certo.
+-Execute o programa denovo, agora com o arquivo criado
+
+Viu?? Apareceu uma FileAlreadyExistsException;
+
+
+Uma maneira inteligente de criar um arquivo ou diretorio é sempre verificar antes se ele existe.
+
+Uma meneira de tratar isso seria... Eu só vou criar um arquivo se ele NÃO existir. Se o arquivo já existir não faça nada.
+
+    if(Files.notExists(arquivo)){
+        Path criarArquivo = Files.createFile(arquivo);
+    }
+
+easy!
+
+
+
+2- Criando um diretorio:
+Funciona da mesma forma;
+
+-Crie um objeto 'Path';
+    Path arquivo = Paths.get("caminho/nova_pasta");
+
+-Importe a interface 'Path' e a class "Paths";
+
+
+-Crie um diretorio, usando o method
+    Path criarDiretorio = Files.createDirectory(arquivo);
+
+Seja inteligente. Só crie a pasta se ela não existir.
+
+    if(Files.notExists(arquivo)){
+        Path criarDiretorio = Files.createDirectory(arquivo);
+    }
+
+
+Simples.
+
+
+-Apague a pasta criada.
+-Ao inves de criar apenas 1 pasta, vamos criar uma estrutura de diretorio;
+
+
+ 
+
+3- Criando uma estrutura de diretorios:
+Para criar uma estrutura de diretorio eu preciso usar outro method;
+
+    Path criarDiretorio = Files.createDirectories(arquivo);
+
+
+
+
+
+
+-Apague tudo
+
+
+4- Criando um arquivo de outra forma:
+
+O method "Paths.get();" pode receceber 1 string, que vai correspoder ao caminho do arquivo.
+
+
+Mas também pode receber várias Strings, que correspondem a partes do caminho do arquivo.
+
+
+
+
+O objetivo aqui é criarmos um arquivo que sera colocado em um diretorio;
+
+Vamos criar: 
+    .um objeto com o caminho do diretorio;
+    .um objeto com o caminho do arquivo; Aí aqui, eu coloco o objeto diretorio e transformo em String + nome do arquivo;
+
+
+
+
+-Crie um objeto Path que vai corresponder ao caminho de uma pasta;
+    Path diretorio = Paths.get("caminho_do_diretorio/");
+
+-Importe a interface "Path" e a class "Paths"
+
+-Crie outro objeto que vai corresponder ao nome do arquivo;
+    Path arquivo = Paths.get(diretorio.toString(), "arquivinho.txt");           OU
+    Path arquivo = Paths.get(diretorio.toString() + "/arquivinho.txt");        
+
+As duas formas funcionam.
+
+Esse method "Paths.get()" recebe como argumento apenas Strings.
+Entao, eu transformei aquele objeto "Path" em String e concatenei o resto da url(com o nome do arquivo), sacou??
+
+-Agora que voce tem o caminho e o nome do arquivo, crie esse arquivo. Seja inteligente. Crie apenas se ele não exisitr.
+
+    if(Files.notExists(arquivo)){
+        Path criarArquivo = Files.createFile(arquivo);
+    }
+
+
+-Apague tudo
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-->

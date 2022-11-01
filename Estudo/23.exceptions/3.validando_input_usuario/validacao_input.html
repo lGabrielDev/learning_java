@@ -1,0 +1,142 @@
+<!--
+Validar se o usuario inputou integer
+IMPORTANTÍSSIMO
+
+-Faça um programa onde o usuario vai digitar um numero e vai imprimir pra ele "Eba! Você digitou um numero."
+
+Se o usuario digitar uma String, vai dar erro. Então, temos que tratar essa exception.
+
+
+public static void main(String[] args){
+    Scanner s = new Scanner(System.in);
+    int numeroDigitado;
+    boolean isNumber = false;
+
+    do{
+        try{
+            System.out.print("Digite um numero: ");
+            numeroDigitado = s.nextInt();
+            System.out.println("Parabéns! Você digitou um número!");
+            isNumber = true;
+        }
+        catch(InputMismatchException e){
+            isNumber = false;
+            System.out.println("Erro. Você não digitou um número.\n");
+            s.next();
+        }
+    }
+    while(isNumber == false);  
+}
+
+
+Vamos lá:
+
+-Primeiro, eu crio o objeto Scanner
+-Crio a variable que vai receber o input do usuario
+-Crio uma variable boolean que vai ser minha condicao do while
+
+-try
+    -Digite um numero
+    -Usuario inputa o numero
+    -Se ele digitar um int, blz, aparece a mensagem final, e eu coloco o valor boolean como true para o whilie acabar.
+    -Se ele digitar uma string,boolean,double,etc... o resto do try nao é executado e vamos para o catch.
+
+-catch
+    -Eu coloco a minha condicao boolean para false, assim o while continua.
+    -Aparece uma mensagem de erro.
+    -objetoScanner.next();  -> Isso é pra n dar pau. Eu estou limpando o boofer do meu objeto Scanner.
+
+
+-Como caiu no catch e minha condicao boolean é false, o loop continua. Então o do > try é feito novamente. Sacou??
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Validando usando o if (input.hasNextInt())
+
+Scanner scan = new Scanner(System.in);
+    int numeroDigitado = 0;
+    
+    System.out.print("Digite um numero: ");
+    if(scan.hasNextInt() == true){
+        numeroDigitado = scan.nextInt();
+        System.out.println("Parabéns! Você digitou um número.");
+    }
+    else{
+        System.out.println("Erro. Você não digitou um número inteiro.");
+    }
+
+
+
+
+
+Aqui usamos a condicao hasNextInt();
+Ele é um method da classe Scanner.
+
+Esse method retorna um valor boolean(true/false).
+
+O código acima se traduz assim:
+
+-Eu crio um if....
+    -Dentro do if() eu coloco o method .hasNextInt() como condicao.
+    -A condição vai ser: "O próximo valor que o usuario digitar é int. ==  true"
+    -No bloco de execucao do if, eu coloco:
+        -Coloco o input do usuario.
+        -Mensagem dizendo que ele inputo um int com sucesso.
+
+
+Basicamente, eu estou dizendo:
+"Se o próximo valor que o usuario inputar for int, faça isso. Caso contrário, faça isso".
+
+
+
+
+
+Eu poderia colocar um loop nesse código também. Aí ficaria igual o primeiro exemplo, só que em vez de usarmos try catch , usamos o if else.
+
+
+-É só criar uma variable boolean e usar ela como condicao do if.
+
+Scanner scan = new Scanner(System.in);
+    int numeroDigitado = 0;
+    boolean numeroCorreto = false;
+    
+    do{
+        numeroCorreto = true;
+        System.out.print("Digite um numero: ");
+        if(scan.hasNextInt() == true){
+            numeroDigitado = scan.nextInt();
+            System.out.println("Parabéns! Você digitou um número.");
+        }
+        else{
+            numeroCorreto = false;
+            scan.next();
+            System.out.println("Erro. Você não digitou um número.\n");    
+        }
+    }
+    while(numeroCorreto != true);
+
+
+Easy!!
+
+
+RESUMO:
+
+do{
+    try
+    catch
+}
+
+
+OU
+
+
+do{
+    if(Scan.hasNextInt)
+    else
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-->

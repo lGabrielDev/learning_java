@@ -1,0 +1,184 @@
+    <!--
+Pilares da POO
+
+1-encapsulation
+2-inheritance(Herança)
+3-polymorphism
+------------------------------------------------------------------------------------------------------------------------------------------
+Inheritance(heranca)
+Uma class pode herdar atributos e methods de uma outra classe
+
+superclass (parent) - Classe pai que doa os atributos.
+subclass   (child) -  A classe filha que herda de outra classe.
+
+
+Se existir uma relação entre 2 classes, eu vou usar heranca.
+
+
+É uma relação de É um...
+
+carro É UM veículo
+nadador É UMA pessoa
+cachorro É UM animal
+
+
+se ligou?? Existe uma relação
+
+------------------------------------------------------------------------------------------------------------------------------------------
+this and super
+
+this  -> Acessa os attributes/methods da class atual daquele objeto;
+super -> Acessa os attributes/methods da superclass(classe pai/parent) daquele objeto;
+
+
+1- 
+Crie 2 class:
+    "Person"
+    "Hero"
+
+-Na class "Person" crie os attributes:
+    String name;
+    int age;
+
+Na class "Hero" crie o attibute:
+    String power;
+
+
+-A class "Hero" extends a class "Person". Ou seja:
+Heroi é uma Pessoa
+
+Hero vai receber todos os attributes and methods de Person;
+
+-Crie um constructor para a class "Hero" e sete todos os attributes, tanto do pai(super) quando da propria class(this):
+    //constructor
+    public Hero(String name,int age,String power){
+        super.name = name;
+        super.age = age;
+        this.power = power;
+    }
+
+
+-Crie um objeto da class "Hero" e imprima todos os attributes.
+
+Em vez de chamar cada attribute do constructor pai, eu posso chamar o constructor direto.
+
+-Pra ficar melhor, eu poderia criar um construtor no pai "Person" e chamar o construtor pai no construtor filho.
+
+
+    //constructor
+    public Hero(String name,int age,String power){
+    super(name,age);
+    this.power = power;
+    }
+
+Basicamente, eu criei 2 construtores. Um no pai e um no filho.
+No constructor filho "Hero", eu estou chamando o constructor pai e dizendo que o parametro do pai vai receber o parametro do filho.
+
+
+
+
+-Crie 1 method toString(); na class "Person";
+Retorne os 2 attributes:
+    //methods
+    @Override
+    public String toString(){
+        return "Name: "+this.name+"\nAge: "+this.age;
+    }
+
+
+
+-Crie 1 method toString(); na class "Hero";
+
+Mas, vamos aproveitar o method já criado na classe pai;
+    //methods
+    public String toString(){
+        return super.toString()+"\nPower: "+power;
+    };
+
+
+-Crie 1 objeto da class "Hero" e chame o method toString();
+Easy!!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Criando um atributo do tipo de uma class
+
+3- Crie 2 classes
+    .Class Pessoa
+    .Class Endereco
+
+-Coloque os atributos em Pessoa:
+    nome
+    idade
+  
+
+-Coloque os atributos na class Endereco
+    country
+    city
+    
+Eu quero que a classe Pessoa também tenha os atributos (Rua,numero,cidade,bairro,etc...).
+
+Porém eu não quero escrever novamente esses atributos.
+
+Vamos aproveitar uma class que já contem esses atributos.
+
+Vamos usar a class Endereco
+
+-Volte na class Pessoa e coloque o atributo "Endereco":
+    
+    String nome
+    int idade
+    Endereco enderecoCompleto
+
+
+
+Se ligou??
+
+Em vez de repetir os atributos da class Endereco na class Pessoa, eu crio um atributo do tipo Endereco...
+
+Endereco enderecoCompleto
+
+Se ligou????
+
+-Crie um objeto Endereco
+-Crie um objeto Pessoa
+
+-Mostre o status com os atributos de pessoa e endereco.
+
+Se der o erro "NullPointerExzception:"  é porque voce não colocou o objeto dentro do parametro
+
+Coloca apenas o objeto e pronto.
+
+Para especificar o atributo do objeto, eu uso no methods toString();
+
+
+    Endereco e = new Endereco("Rua tal",10,"Bairro tal","São Paulo","SP");
+    Pessoa p =  new Pessoa("Gabriel",55,e);
+
+    p.mostrarPessoa();
+
+
+Na hora de criar o construtor eu faço normal:
+
+public Pessoa(String nome,int idade,Endereco endereco){
+    this.nome = nome;
+    this.idade = idade;
+    this.endereco = endereco;
+
+
+Viu?? O atributo endereco vai receber o parametro endereco... Ou seja:
+
+
+O atributo do tipo endereco vai receber o objeto do tipo endereco;
+------------------------------------------------------------------------------------------------------------------------------------------
+Resumindo:
+
+Subclass(classe filha) -> Herda todos os attributes and methods da Superclass(classe pai) sem precisar declarar novamente. Ela pode também ter attributes and methods adicionais, que a SuperClass não tem.
+
+É só imaginar uma relacao de pai e filho:
+
+O filho herda todas as caracteristicas do pai, além de poder ter também suas proprias caracteristicas.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+-->

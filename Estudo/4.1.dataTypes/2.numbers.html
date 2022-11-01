@@ -1,0 +1,85 @@
+<!--
+Numbers
+integer (Número inteiro)
+
+Posso colocar números positivos ou negativos
+
+A ordem do menor para o maior é:
+
+byte < short < int < long
+
+byte            Até o número 127
+short           Até o número 32767
+int             Até o número 2147483647     Na maioria dos casos usamos int
+long            Usado quando o int não é suficiente.
+
+Por padrão, o java considera qualquer número inteiro como int.
+Quando eu for usar o datatype long eu preciso colocar um "l" no final.
+
+long number = 45665465l;
+
+
+-Crie uma variable long.
+    long number = 45665465l;
+
+--------------------------------------------------------------------------------------------
+Floating Point Types (Números decimais)
+
+Posso colocar números positivos ou negativos
+
+float           Tenho apenas precisao de até 6 dígitos decimais
+double          Tenho uma precisão de até 15 dígitos decimais   Melhor sempre usar double
+
+Por padrão, um número com casas decimais é um número double.
+
+
+
+Sempre que eu usar double eu posso ou não colocar o "d" no final do número:
+double number1 = 33.35d;
+double number1 = 33.35;
+
+
+Sempre que eu usar float eu coloco o "f" no final do número:
+float number1 = 33.35f;
+
+
+Por padrão, o java considera qualquer número inteiro como int.
+Por padrão, o java considera qualquer número decimal como double.
+
+
+-Crie uma variable double com 15 numeros decimais.
+-Crie uma variable float com 15 numeros decimais.
+    O float mostra apenas 6 ou 7 número depois da vírgula, já o double mostrou 15.
+
+Sempre use o double para ter uma precisão maior.
+----------------------------------------------------------------------------------------------------------------------------------------
+Integer.parseInt();
+Transformar uma String em numero.
+
+Precisa conter apenas numeros nessa String.
+
+
+-Crie uma variable String contendo apenas numeros
+    String texto = "456";
+
+
+Como essa String tem apenas numeros, dá pra transformar de boas:
+
+-Crie uma varialbe int que vai receber a string;
+    int number = Integer.parseInt(texto);
+
+-Imprima
+    System.out.println(number);
+
+-Coloque alguma letra na string e imprima novamente. Viu?? Deu erro.
+
+Só é possível fazer a conversao de String pra int, se a String tiver apenas numeros;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Double.parseDouble();
+Transforma uma String em numero;
+
+1- Faça o mesmo exercício de cima, só que com uma variable double;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+-->

@@ -1,0 +1,119 @@
+<!--
+OutputStream
+
+OutputStream é uma abstract class.
+Ela é pai de todas as outras output classes;
+
+Eu não posso criar um objeto dela pois ela é abstract. Então, vou usar suas classes filhas;
+
+
+
+OutputStream
+    FileOutputStream
+    ByteArrayOutputStream
+    FilterOutputStream
+    ObjectOutputStream
+
+
+
+Para escrever em um arquivo é bem melhor usar o BufferedWriter -> FileWriter -> File or Path.toFile();
+
+
+
+
+Outra forma de escrever é usando o OutputStream;
+    Path arquivo = Paths.get(caminho/teste.txt");
+
+    OutputStream fos = new FileOutputStream(arquivo.toFile());
+
+    String conteudo = "Esse é o conteúdo do arquivo. Nice, né?";
+
+    fos.write(conteudo.getBytes());
+    fos.close();
+
+
+
+"Eu crio um objeto Path que vai receber o caminho do arquivo";
+
+Perceba que eu usei a abstract class pai primeiro, e só depois especifiqueo a class que eu vou usar;
+
+"OutputStream" abstract class pai;
+"FileOutputStream" class que eu vou usar;
+
+
+
+"Crio a variable String que vai ser o que eu vou escrever"
+
+
+"Escrevo no arquivo uma String transformado para byte;"
+
+Sempre feche o objeto;
+Terminou de escrever? Fecha!
+Terminou de ler? Fecha!
+
+- Faça o exercicio acima;
+Escreva algo
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-O objetivo aqui é ler um arquivo e escrever esses dados lidos em um outro arquivo;
+
+-Crie um arquivo txt e escreva algumas linhas; Esse é o arquivo que vou ler;
+
+
+    Path arquivo = Paths.get("caminho/ arquivo.txt");
+    Path arquivoNovo = Paths.get("caminho/arquivoNovo.txt");
+
+    InputStream fis = new FileInputStream(arquivo.toFile());
+    OutputStream fos = new FileOutputStream(arquivoNovo.toFile());
+
+    int caractere = 0;
+
+    while((caractere = fis.read()) != -1){
+    fos.write((char)caractere);
+    }
+
+    fis.close();
+    fos.close();
+
+
+"Crio um Path que vai receber o caminho do arquivo que vou ler" ;
+"Crio um Path que vai receber o caminho do arquivo que vou escrever" ;
+
+"Crio um objeto 'FileInputStream" para ler um objeto File;
+"Crio um objeto 'FileOutputStream' para escrever em um objeto File;
+
+"Crio uma variable int que vai receber o proximo byte/caractere do arquivo";
+
+"Crio um loop que funciona assim:"
+"Vou ler o proximo byte do arquivo. Enquanto esse byte for diferente de -1, vou escrever esse byte no arquivo novo;"
+
+"Como não quero escrever bytes e sim characteres, eu uso um casting (char)"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Faça o mesmo exercício de cima usando BufferedReader and BufferedWriter;
+
+    Path arquivo = Paths.get("caminho/arquivo.txt");
+
+    Path arquivoNovo = Paths.get("caminho/arquivoNovo.txt");
+
+    BufferedReader br = new BufferedReader(new FileReader(arquivo.toFile()));
+    BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoNovo.toFile()));
+
+
+    String linhaAtual = "a";
+
+    while((linhaAtual = br.readLine()) != null){
+        bw.write(linhaAtual+"\n");
+    }
+
+    br.close();
+    bw.close();
+    }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-->

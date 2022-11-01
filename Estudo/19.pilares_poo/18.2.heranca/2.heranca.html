@@ -1,0 +1,165 @@
+<!--
+Herdando multiplas classes
+
+Uma class pode ter um filho...
+Esse filho vai herdar todos os atributos e methods do pai.
+E se esse filho tiver um filho também??
+
+Ele vai herdar tudo do pai e também vai herdar tudo de quem ele é descendente.
+
+Imagina...
+
+Class Animal
+    Class Cachorro
+        Class Husky
+
+
+A class Husky vai herdar a pha toda. Vai herdar do seu pai (Cachorro) e vai herdar da classe ancestral (Animal)
+
+Husky É UM Cachorro? SIM;
+Husky É UM Animal? SIM;
+
+
+Um filho vai herdar a pha toda do seu pai.
+
+A class Cachorro herdou tudo da class Animal...
+A class Husky herdou tudo da class Cachorro... Entao...
+Husky também herda de Animal.
+
+
+1- Crie um programa que vai ter essas 3 classes.
+-Crie 1 atributo diferente em cada classe;
+-Crie um objeto "Husky" que vai herdar tudo e imprima o atributo dele, do pai e do ancestral:
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+abstract
+
+
+abstract Class
+public abstract class {}
+
+Uma class abstrata não pode criar objetos. Não posso instanciar objetos dessa classe.
+Para acessar os atributos e methods dessa class abstract eu preciso criar um filho (subclass).
+
+Uso geralmente quando eu sei que não vou precisar criar objetos dessa classe. Vou criar objetos apenas com seus filhos e descendentes.
+
+
+
+Exemplo:
+
+abstract Class Veiculo
+Class Carro
+Class Moto
+Class Bike
+
+
+Imagine que o usuario vai escolher um dos veiculos (Carro,Moto,Bike). Aí eu pergunto pra ele:
+"Qual veiculo voce vai escolher"?
+Ele só pode escolher entre Carro,Moto ou Bike. Não da pra escolher Veiculo. É muito genérico, sacou??
+
+
+Por que eu vou criar um objeto do tipo Veiculo??
+
+Então eu deixo a class Veiculo como abstract.
+Sacou??
+
+Eu protejo a class para que não seja criado nenhum objeto dela.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+abstract methods
+public abstract void();
+
+Funciona igual a class
+
+
+-Quando eu defino um method como abstract, a class também precisa ser abstract
+-Quando eu defino um method como abstract, eu não defino o bloco de código do method. Coloco apenas o parenteses ();
+    public abstract void();
+
+
+-Depois de criar o method abstract, voce precisa colocar esse method no seu filho e colocar o bloco de código com o @Override
+public void(){};
+
+-o method abstract só pode ser usado pelos seus filhos e descendentes.
+
+É como se eu fizese um contrato com o filho da classe....
+
+Olha... O filho dessa classe PRECISA colocar esse method lá. Parecido com uma interface;
+
+
+1-Crie 3 classes
+    "Veiculo" -> Vai ser uma abstract class
+    "Moto"  que é um Veiculo(extends)
+    "Carro" que é um Veiculo(extends)
+
+
+2- Na abstract class "Veiculo", crie um method que suas classes filhas vao usar:
+
+public abstract class Veiculo {
+    //methods
+    public abstract void acelerar();
+}
+
+
+
+3-
+Vá nas classes filhas e use o extends. Ou seja:
+    "Moto"  que é um Veiculo(extends)
+    "Carro" que é um Veiculo(extends)
+
+- SOBREESCREVA (@Override) o method em cada uma das class filhas.
+    @Override
+    public void acelerar(){
+        System.out.println("Hornet tirando de giro e acelerando *Tac Tac*");
+    } 
+
+
+
+4- Tente criar um objeto Veiculo.
+Viu? Não é possível instanciar uma abstract class.
+
+
+5-Instancie as classes filhas "Moto" e "Carro":
+    Moto m1 = new Moto();
+    Carro c1 = new Carro();
+
+    m1.acelerar();
+    c1.acelerar();
+
+
+    
+
+Sacou??
+
+Quando eu crio um method abstract, eu estou fazendo um contrato com a class filho, dizendo:
+
+"Filha, você PRECISA colocar esse method na classe"
+
+------------------------------------------------------------------------------------------------------------------------------------------
+(APENAS LEIA)
+construtor pai e construtor filho
+
+Se eu quisesse, eu poderia criar um construtor padraozao direto no filho e colocaria todas os atributos do pai tambem.
+
+Outra maneira de fazer isso, é criar um construtor padrao no pai....
+
+Aí quando eu criar o construtor no filho, eu menciono o construtor do pai:
+
+public Leao(String nome,int age,String porte){
+    super(nome, age);
+    this.porte = porte;
+
+
+Eu estou dizendo...
+
+Os parâmetros do construtor pai vão receber os parametros do construtor filho.
+Sacou??
+------------------------------------------------------------------------------------------------------------------------------------------
+
+-->

@@ -1,0 +1,128 @@
+<!--
+BufferedWriter
+Maneira mais otimizada de escrever em um arquivo.
+
+A ordem é assim:
+BufferedWriter -> FileWriter -> File -> o caminho do arquivo
+
+Eu leio assim:
+"BufferedWriter vai receber como argumento um objeto FileWriter"
+"FileWriter vai receber como argumento um objeto File"
+"File vai receber como argumento o caminho do arquivo"
+
+
+Quando eu crio um objeto BufferedWriter eu preciso passar no constructor um objeto FileWriter;
+Quando eu crio um objeto FileWriter eu preciso passar no constructor um objeto File;
+Quando eu crio um objeto File eu preciso passar no constructor o caminho do arquivo;
+
+
+1- Instancie a class File e especifique o caminho do arquivo como argumento;
+
+    File arquivo = new File("C:/Users/Gabriel/Desktop/praticando.txt");
+
+Nao esqueca de importar;
+
+2- Instancie a class FileWriter;
+   FileWriter editarArquivo = new FileWriter(arquivo,true);
+
+Perceba que eu coloquei 2 argumentos.
+    1º argumento -> objeto file
+    2º argumento -> booleano para acrescentar em baixo do texto antigo
+
+Eu poderia colocar o caminho do arquivo como argumento, que ele criaria um objeto File automaticamente. 
+Como eu já criei um objeto File, vou usar ele mesmo.
+
+3- Use o try catch pra tratar o erro IOException ou lance com o throws no method main;
+
+4- Instancie a class BufferedWriter;
+    BufferedWriter arquivoEditar = new BufferedWriter(editarArquivo);
+
+
+5- Escreva no arquivo.
+Coloque mais uma linha no arquivo. Use o objeto BufferedWriter:
+    arquivoEditar.write("\nSegunda linha");
+    arquivoEditar.close();
+
+Depois de usar o method .write(); eu preciso fechar. Senão dá pau.
+
+
+Perceba que eu usei o method write no objeto BufferedWriter;
+Eu poderia também, usar o method write no objeto FileWriter; 
+Mesma coisa;
+
+
+6-Escreva mais uma linha:
+    arquivoEditar.write("Segunda linha\n");
+    arquivoEditar.write("Terceira linha\n");
+    arquivoEditar.close();
+
+7- Mude o 2º argumento do objeto FileWriter para false.
+-Execute o programa
+
+Viu?? Agora o conteudo do arquivo foi sobreescrito.
+
+Esse argumento é bem importante.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Colocando todas as posicoes de uma array(vetor) em um arquivo
+
+
+0- Crie uma array String com 4 items;
+    String[] names = {"Paulo","Maria","Clara","Amanda"};
+
+
+
+Em vez de criar um File, depois criar um objeto FileWriter, depois criar um objeto BufferedWriter....
+
+Vamos criar os objetos dentro dos contructors
+
+
+
+1- Crie direto um objeto BufferedWriter:
+    BufferedWriter editarArquivo = new BufferedWriter();
+
+
+
+2- Crie um objeto FileWriter dentro do constructor do BufferedWriter:
+    BufferedWriter editarArquivo = new BufferedWriter(
+        new FileWriter("C:/Users/Gabriel/Desktop/praticando.txt",true)
+    );
+
+Coloque sempre o 2º argumento no objeto FileWriter;
+
+
+3- Trate o erro dessas classes:
+    try{
+        BufferedWriter editarArquivo = new BufferedWriter(
+            new FileWriter("C:/Users/Gabriel/Desktop/praticando.txt",true)
+        );
+    }
+    catch(IOException e){
+        System.out.println("Erro. Arquivo não encontrado.");
+    } 
+
+
+4- Escreva a primeira posicao da array no arquivo, usando o method .write();
+    editarArquivo.write("\n" + names[0]);
+    editarArquivo.close();
+
+E para escrever todos as posicoes??? Easy!!!
+
+Basta usar o for each loop:
+
+
+5- Crie um loop e escreva toads as posicoes no arquivo:
+    for(String i : names){
+        editarArquivo.write("\n" + i);
+    }
+    editarArquivo.close();
+
+Sempre feche o objeto File;
+
+
+
+6- Abra o arquivo e veja... Todas as posicoes da array aparecem no arquivo.
+
+Easy!!
+------------------------------------------------------------------------------------------------------------------------------------------
+-->

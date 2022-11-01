@@ -1,0 +1,214 @@
+<!--
+
+Para criar um method comum a syntax é:
+<modifier> <retorno> nomeDoMethod()
+
+ex1:
+public String getNome(){
+    return nome;
+}
+
+ex2:
+public void setNome(String nome){
+    this.nome = nome;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+constructor
+No method constructor eu não preciso colocar o retorno. Vai ser apenas o <modifier> e a className().
+
+Syntax:
+<modifier> ClassName()
+
+public Personagem(){}
+
+O Construtor sempre vai ter o nome da Class.
+
+
+Assim que eu crio um objeto, o próximo código que será executado é o method construtor.
+
+Por padrão, o java automaticamente já cria um construtor vazio sem parametros.
+
+
+Mas pra quê criar um constructor??
+
+O constructor nos permite criar objetos com valores dos atributos diferentes.
+Se eu nao tivesse constructor, sempre que eu criasse um objeto, eles teriam os mesmos valores. Aí eu precisaria usar o method set pra modificar cada atributo.
+------------------------------------------------------------------------------------------------------------------------------------------------
+(APENAS LEIA)
+this  -> Se refere ao objeto atual
+super -> Se refere ao objeto pai
+
+Imagine que eu tenha uma class "Pessoa" que tem apenas 1 atributo "nome";
+
+Aí eu crio um objeto do tipo "Pessoa";
+    Pessoa p1 = new Pessoa();
+
+
+Quando eu escrevo:
+    this.nome;
+
+É como se eu estivesse escrevendo
+    p1.nome;
+
+Sacou??
+
+O this se refere ao objeto atual.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+criando vários construtores
+
+Para fazer isso, eu apenas altero o tipo ou a quantidade de parâmetros
+
+-Crie uma class Pessoa com os atributos:
+    String name;
+    int age;
+    String corPreferida;
+
+
+-Crie um construtor sem parametro
+-Crie um construtor com o parametro name;
+-Crie um construtor com o parametro name,age;
+-Crie um construtor com o parametro name,age,corPreferida;
+
+
+
+-SOBREESCREVA o method "toString();" para imprimir todos os atributos.
+Use o botao direito. Faça a IDE trabalhar pra voce.
+
+-Crie um objeto na class Programa > não coloque parâmetros e chame o metodo "status".
+
+-Apague o objeto e crie outro, preenchendo com 1 parametro.
+-Apague o objeto e crie outro, preenchendo com 2 parametro.
+-Apague o objeto e crie outro, preenchendo com 3 parametro.
+
+Se ligou?
+
+
+--------------------------------------------------------------------------------------------
+constructor pai e constructor filho
+
+Crie 2 classes:
+
+    Classe Pessoa
+        //atributes
+        String name;
+        int age;
+        String corPreferida;
+
+
+    Classe Atleta extends Pessoa
+        String esportePraticado;
+        int medalhas;
+
+
+-Coloque heranca na classe atleta. Ou seja:
+A classe atleta extends a classe Pessoa, ou seja:
+A classe atleta é uma pessoa;
+
+Eu não quero criar um objeto Pessoa, quero criar um objeto Atleta.
+Mas quero aproveitar os atributos de Pessoa.
+
+
+-SOBREESCREVA o method "toString();" e mostre os atributos de Pessoa
+-SOBREESCREVA o method "toString();" e mostre os atributos de Atleta
+
+
+-Agora vamos criar o construtor na classe Atleta:
+
+
+
+//constructors
+
+    //constructor 1
+    public Atleta(String name,int age,String corPreferida){
+        super(name,age,corPreferida);
+    };
+
+
+    Aqui eu digo que, assim que eu criar um objeto Atleta, vou preencher apenas o construtor super.
+
+
+    //constructor 2
+    public Atleta(String name,int age,String corPreferida,String esportePreferido, int medalhas){
+        super(name,age,corPreferida);
+        this.esportePreferido = esportePreferido;
+        this.medalhas = medalhas;
+    }
+
+    Aqui, eu preencho o construtor super e depois preencho os atributos de Atleta.
+
+
+Crie 1 objeto da classe Atleta no method main;
+
+Perceba que eu posso preencher os parametros dessas duas formas;
+
+Eu posso criar varios construtores....Vai depender de como vou preencher meus parametros.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IMPORTANTE
+Criando um atributo do tipo de uma class;
+
+Aqui, não vamos usar hercança. NÃO vamos usar extends.
+
+Imagine que eu queira criar um objeto Pessoa e mostrar todos os atributos dela.
+
+E eu gostaria que Pessoa tivese os mesmo atributos de endereço.
+
+Em vez de usar heranca, eu posso criar um atributo do tipo Endereço.
+
+
+
+1- Crie 2 classes
+    Classe Pessoa
+        //atibutes
+        String nome;
+        int age;
+        Endereco endereco;
+
+    Classe Endereco
+    //atributes
+        String rua;
+        numeroRua;
+        bairro
+
+-Crie um construtor para Pessoa
+public Pessoa(String nome,int age,Endereco endereco){
+    this.nome = nome;
+    this.age = age;
+    this.endereco = endereco;
+   }
+
+Perceba que o atributo this.endereco recebe o OBJETO endereco.
+Quando eu estou criando o construtor e tiver algum atributo do tipo de uma classe que eu criei, eu faço o padraozin.
+
+"O atributo tal recebe o parametro tal"
+
+
+-Crie um method para mostrar todos os atributos da class Pessoa
+public void toString(){
+    System.out.printf("Name: %s\n",this.nome);
+    System.out.printf("Age: %d\n",this.age);
+    System.out.printf("Rua: %s\n",this.endereco.rua);
+    System.out.printf("Numero da rua: %s\n",this.endereco.numeroRua);
+    System.out.printf("Bairro: %s\n",this.endereco.bairro); 
+
+-Agora sim , eu posso especificar o que será mostrado do objeto.
+this.endereco.rua   ou
+this.endereco.getRua();
+
+Se ligou???
+
+
+-Crie um objeto Endereco;
+-Crie um objeto Pessoa;
+
+No construtor do objeto "Pessoa", informe o objeto "endereco".
+
+-Chame o method "status" para mostrar todos os atributos
+
+-->

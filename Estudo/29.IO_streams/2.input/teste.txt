@@ -1,0 +1,6 @@
+Conteudo do arquivo;
+
+Conteudo dois;
+
+E assim por diante;
+Fim;

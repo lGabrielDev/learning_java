@@ -1,0 +1,2 @@
+Esse é o conteúdo do arquivo. Nice, né?
+Esse é o conteúdo;

@@ -1,0 +1,246 @@
+<!--
+serialization and deserialization
+
+serialization -> é o processo de converter um objeto em uma byte stream (fluxo de byte);
+
+deserialization -> é o processo de converter uma byte stream (fluxo de byte) em um objeto;
+
+
+Quando eu serialization um objeto, eu transformo o objeto em um formato stream que pode ser armazenado/transferido para outros computadores;
+
+
+Imagine que eu queira transferir um objeto por rede... Eu preciso transformar esse objeto em um arquivo stream. Sacou??
+
+Geralmente, esse arquivo é em formato JSON.
+
+
+
+
+
+Vale lembrar.. Quando eu começar a aprender streams, temos a inputStream and outputStream.
+
+input   ->  inputando dados para o computador ler
+output  ->  saindo dados do computador;
+
+ex:
+Se eu quero que o computador leia um arquivo, eu preciso inputar;
+Se eu quero que o computador escreva e salve um arquivo, eu vou dar um output;
+
+
+Basicamente, quando eu quero serializar ou deserializar eu faço assim:
+
+
+
+
+
+
+serialization
+
+FileOutputStream fos = new FileOutputStream("arquivo.tal");
+ObjectOutputStream oos = new ObjectOutputStream("fos");
+
+oos.writeObject(objeto_que_sera_transformado);
+oos.close;
+
+FileOutputStream   -> representa o arquivo;
+ObjectOutputStream -> É com essa classe que eu faço a transformação; Tanto é que o method "writeObject()" é da class "ObjectOutputStream";
+
+
+
+
+
+
+deserialization
+
+FileInputStream fis = new FileInputStream("arquivo.bin");
+ObjectInputStream ois = new ObjectInputStream(fis);
+
+ClassDoObjeto objeto = (ClassDoObjeto) ois.readObject();
+ois.close;
+
+
+
+FileInputStream   -> representa o arquivo para armazenar os dados serializados;
+ObjectInputStream -> É com essa classe que eu faço a transformação; Tanto é que o method "readObject()" é da class "ObjectInputStream";
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Praticando!
+
+serialization
+
+Vamos criar um objeto de uma classe e estabeler os atributos desse objeto.
+Depois, vamos transformar esse objeto em uma stream de bytes (Serialization);
+
+
+1- Crie uma class "Usuario" com apenas 2 attributes:
+    .String login;
+    .String password;
+
+
+    -Crie o constructor e os getters and setters, padraozin.
+    -Crie o method toString para imprimir todos os attributes;
+
+
+
+Sempre que eu vou transformar um objeto em stream de bytes, eu preciso implementar a interface "Serializable";
+
+
+2- Implemente a interface "Serializable" na class do objeto ("Usuario");
+
+    public class Usuario implements Serializable{}
+    import java.io.Serializable;
+
+
+3-Instancie essa class no method main; Imprima o method toString(); e veja se tudo está certin.
+
+Ok, criamos nosso objeto "u1";
+
+
+Vamos transformar ele em uma stream de bytes;
+Como quero criar um arquivo, eu vou dar um output;
+Se eu quisesse ler um arquivo, eu daria um input;
+
+
+4- Crie um objeto "FileOutputStream";
+    FileOutputStream arquivo = new FileOutputStream("caminho_do_arquivo/arquivo.json");
+
+No constructor desse objeto, eu passo como a argumento o caminho do arquivo que vou criar;
+
+
+5- Crie um objeto "ObjectOutputStream";
+    ObjectOutputStream objetoArquivo = new ObjectOutputStream(arquivo);
+
+
+Perceba que aqui eu preciso passar um objeto do tipo "OutputStream";
+
+
+-Veja a imagem "output_stream.png";
+Não precisa decorar... Apenas dê um bizu;
+
+
+
+
+6- Escreva um objeto nesse arquivo:
+
+Escreve no objeto do tipo "ObjectOutputStream";
+
+    objetoArquivo.writeObject(u1);
+
+Perceba que eu coloquei o objeto "u1" que eu tinha criado, lembra?
+
+
+
+7- Feche os dois outputStream
+    objetoArquivo.close();
+    
+
+
+8- Imprima uma mensagem para dizer que foi criado o arquivo com sucesso;
+    System.out.println("Objeto salvo com sucesso!");
+
+9- Rode o programa;
+
+
+Pronto! Fizemos nossa serialization. Transformamos um objeto em uma stream de bytes;
+
+Viu?? O arquivo ".JSON" foi criado.
+
+
+
+
+deserialization
+
+Agora, vamos fazer o contrário.
+Vamos transformar esse arquivo ".JSON", que é uma stream de bytes, em um objeto;
+
+
+Não apague nada;
+
+(A partir de agora, faça tudo no projeto novo);
+
+9- Crie outro projeto;
+ESSE PROJETO PRECISA TER O MESMO NOME DO PROJETO ANTERIOR;
+
+Se no anterior eu tinha "src/main/java/br/com/leekbiel/projeto"...
+Nesse aqui também vai ter o mesmo nome "src/main/java/br/com/leekbiel/projeto";
+
+
+
+
+O NOME DO PACOTE E O NOME DA CLASS TÊM QUE TER O MESMO NOME;
+
+
+
+Abra um outro vsCode; Fica melhor para trabalhar;
+Cada projeto em um vsCode;
+
+
+    -Crie a class main do Programa;
+    -Crie uma class "Usuario" com o mesmo nome da class do projeto anterior e copie tudo da class "Usuario" do primeiro projeto;
+
+
+
+Pronto. Temos a mesma class com todos os attributes,tudo igual; Mas ainda não criamos um objeto;
+
+
+O objetivo aqui é transformar o arquivo ".JSON" (stream de bytes) em um objeto;
+
+
+10- Vá no method main e instancie um objeto da class "Usuario" mas não coloque nenhum valor.
+
+    Usuario u2 = null;
+
+Eu não instanciei. Apenas declarei o objeto.
+
+
+
+Quando eu precisava transformar um objeto em uma stream de bytes, eu outputei;
+
+Agora, eu preciso inputar a stream de bytes para transformar em objeto;
+
+
+11- Crie um objeto "FileIutputStream";
+    FileInputStream arquivo = new FileInputStream("caminho_do_arquivo_jason/u1.json");
+
+No constructor desse objeto, eu passo como a argumento o caminho do arquivo que vou ler;
+
+
+5- Crie um objeto "ObjectInputStream";
+    ObjectInputStream objetoArquivo = new ObjectInputStream(arquivo);
+
+
+Perceba que aqui eu preciso passar um objeto do tipo "IutputStream";
+
+
+
+Agora sim, o objeto que recebia null, vai receber a leitura desse arquivo .JSON;
+
+
+6- Atribua um valor para o objeto "u2";
+
+    u2 = (Usuario) objetoArquivo.readObject();
+
+Perceba que eu estou usando casting;
+Toda aquela leitura do objeto vai ser transformada no tipo "Usuario";
+
+7- Imprima esse novo objeto "u2";
+
+Viu?? Ele conseguiu ler o arquivo .json ,ou seja... Foi feita a deserialization com sucesso!
+
+
+
+
+
+
+
+Faça tudo denovo de uma maneira mais simples;
+Faça tudo no mesmo projeto.
+Crie um objeto que vai ser "serialization";
+Crie outro objeto que vai receber a leitura do arquivo .json ("deserialization");
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-->

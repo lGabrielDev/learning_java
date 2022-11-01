@@ -1,0 +1,177 @@
+<!--
+HashMap
+É uma lista com keys and values
+
+É como se eu estivesse criando uma lista com 2 campos (key,value)
+
+Aqui não temos posicao. Navegamos através de keys and values;
+
+Aqui nos maps, não temos ordem na lista. Os items são adicionados em uma ordem aleatoria.
+
+
+Syntax:
+HashMap<Integer,String> lista = new HashMap<>();   ou
+
+Map<Integer,String> lista = new HashMap<>();
+
+Eu estou criando um objeto do tipo HashMap list, onde o objeto key vai ser de tal classe, e o objeto value vai ser de tal classe.
+
+
+
+-Crie uma lista HashMap, onde a key vai ser o nome de uma pessoa(String) e o value vai ser o valor em conta(Integer).
+
+    Map<String,Integer> listaBanco = new HashMap<>();
+    
+    listaBanco.put("Paulo", 100);
+    listaBanco.put("Amanda", 500);
+    listaBanco.put("Fernanda", 200);
+
+-importe a class HashMap do package java.util:
+    import java.util.HashMap;
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+methods do HashMap
+Os method vao ser quase iguais os da ArrayList:
+
+.put();
+.get();     -> O Parâmetro vai ser o objeto key
+.remove();  -> O Parâmetro vai ser o objeto key
+.clear();
+.size();
+.containsKey();
+.containsValue();
+.replace();
+.keySet();   -> Retornar todas as keys
+.values();   -> Retornar todos os values
+
+
+Só que em vez de usar .add(); eu uso o .put();
+
+
+-Coloque 3 objetos na HashMap list :
+    listaBanco.put("Gabriel",500);
+    listaBanco.put("Amanda",1500);
+    listaBanco.put("Joana",3000);
+
+
+
+-Imprima todos os objetos da lista
+    System.out.println(listaBanco);
+
+
+A partir do momento que eu tenho keys iguais, a lista vai desconsiderar o objeto anterior.
+
+Se na minha lista eu tinha 3 posicoes.
+Agora, vou ter 2 posicoes.
+
+Eu não posso ter keys com o mesmo valor. 
+Lembra da "primary key"? Mesma fita.
+
+
+-Imprima o objeto com a key "Marina";
+    System.out.println(listaBanco.get("Marina"));
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+.containsKey();
+.containsValue();
+
+Crie uma HashMap list de usuarios e senhas cadastrados.
+
+-Crie uma HashMap list:
+    HashMap<String,String> listaSenhas = new HashMap<String,String>();
+
+-Coloque 3 objetos na lista
+    listaSenhas.put("leekbiel","123abcarroz");
+    listaSenhas.put("joaozinBolado","474988");
+    listaSenhas.put("maria@12","mariazinha123");
+
+-Imprima todos os objetos da lista
+    System.out.println(listaSenhas);
+
+
+
+.containsKey();
+-Verifique se a lista possui tal key.
+    System.out.println(listaSenhas.containsKey("leekbiel"));
+    true
+
+
+.containsValue();
+-Verifique se a lista possui tal valor.
+    System.out.println(listaSenhas.containsValue("mariazinha123"));
+
+
+Na ArrayList só tem 1 objeto por posicao. Por isso eu uso apenas contains(); Eu estou procurando o value do objeto.
+
+Na HashMap eu preciso informar o que eu estou buscando...Key ou value.
+
+Easy!
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------.replace();
+
+-Troque a senha da key leekbiel
+    listaSenhas.replace("leekbiel","123");
+    System.out.println(listaSenhas);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+.keySet();  -> Mostra todas as keys
+.values();  -> Mostra todas os values
+
+
+    System.out.println(listaSenhas.keySet());
+    System.out.println("\n");
+    System.out.println(listaSenhas.values());
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Resumo:
+
+ArrayList  -> tem apenas 1 objeto value, trabalha com posicoes e permite valores iguais.
+LinkedList -> igual a ArrayList, mas com alguns methods a mais.
+HashSet    -> igual a ArrayList, mas não permite valores duplicados.
+HashMap    -> tem 2 objetos (key,value) e trabalha com keys and values;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-Agora crie uma HashMap list com uma classe que voce mesmo criou.
+
+-Crie uma class "Pessoa" com 2 atributos
+    String usuario;
+    String senha;
+
+
+    Pessoa p1 = new Pessoa("leekbiel","123");
+    Pessoa p2 = new Pessoa("amandinha","456");
+    Pessoa p3 = new Pessoa("robertinha","789");
+
+    HashMap<String,String> listaUsuarios = new HashMap<String,String>();
+    listaUsuarios.put(p1.usuario,p1.senha);
+    listaUsuarios.put(p2.usuario,p2.senha);
+    listaUsuarios.put(p3.usuario,p3.senha);
+
+    System.out.println(listaUsuarios); 
+
+
+Sacou??
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Usando loop para imprimir todas as keys and values
+-Crie um HashSet e adicione 4 items.
+    Map<String,String> lista = new HashMap<>();
+        lista.put("1", "Rodrigo");
+        lista.put("2", "Rodrigo");
+        lista.put("3", "Carlos");
+        lista.put("4", "Patrícia");
+
+-Use um for each loop para imprimir todas as keys and values
+
+for(String key : lista.keySet()){
+    System.out.println(key+"= "+lista.get(key));
+}
+
+
+Perceba que o item 1 e 2 tem o mesmo valor e eles aparecem na lista. Isso porque somente as keys não podem ter valores duplicados. Os values podem.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aqui no HashMap, NÃO temos ordem. Os items são armazenados de forma aleatoria. Tanto é, que aqui eu não navego por posicao(index), eu navego por key.
+
+Se eu quiser uma lista de HashMap ORDENADA com posicoes(index), eu vou usar uma LinkedHashMap;
+-->

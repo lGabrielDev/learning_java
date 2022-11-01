@@ -1,0 +1,66 @@
+<!--
+bubble sort
+
+
+bubble sort é uma forma de ordenar minha estrutura.
+Ordenar do maior para o menor e vice versa.
+
+Como funciona:
+Imagina que eu tenho uma Array int de 6 posicoes.
+
+    int[] numbers = {5,8,3,7,2,6}; 
+
+O que o bubble sorte faz é o seguinte:
+Ele vai comparar a posicao 0 com a posicao 1. Se a posicao 0 for maior que a posicao 1 eles trocam de lugar.
+Depois é feito a mesma coisa....Posicao 1 é maior que a posicao 2? Se sim, troquem de lugar. Posicao 2 é maior que a posicao 3? Se sim, troquem de lugar.....
+
+Veja a imagem png.
+
+
+
+
+Como criar um bubble sort?
+
+-Crie uma array com 6 números desordenados:
+    int[] numbers = {5,8,3,7,2,6};
+
+-Crie um loop dentro de outro (nested loop)
+
+-No outer loop(loop externo), a condicao vai ser que o contador i sendo menor do que a quantidade total de posicoes.
+    for(int i = 0; i<numbers.length; i++)
+
+-No inner(loop interno), a condicao vai ser que o contador j sendo menor do que a quantidade total de posicoes -1;
+    for(int j =0; j<numbers.length-1; j++)
+
+-Crie um if dentro do for de dentro. Esse if vai fazer a troca de posicao. Se a primeira posicao for maior que a proxima, elas trocam de posicao.
+
+    int[] numbers = {5,8,3,7,2,6};
+    int temporario;
+    
+    for(int i = 0; i<numbers.length; i++){
+        for(int j =0; j<numbers.length-1; j++){
+            if(numbers[j] > numbers[j+1]){
+                temporario = numbers[j];
+                numbers[j] = numbers[j+1];
+                numbers[j+1] = temporario;
+            }
+        }
+    }
+
+
+
+E faça a troca. A lógica é bem simples. Veja a imagem do lado "paint"
+
+
+-Use outro for externo e imprima os valores.
+Viu?? Eles foram ordenados.
+
+
+
+Para ordenar da forma inversa "descending", é só inverter o sinal do if:
+    numbers[j] > numbers[j+1]
+    numbers[j] < numbers[j+1]
+
+
+Easy!
+-->

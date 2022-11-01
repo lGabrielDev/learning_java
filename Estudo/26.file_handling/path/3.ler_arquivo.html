@@ -1,0 +1,65 @@
+<!--
+Ler arquivos com java.
+
+1º forma:
+BufferedReader
+Essa é a maneira antiga, mas ainda é bem nice de usar:
+
+Como ja vimos antes, é bem suave usar o "BufferedReader";
+
+Mas como o BufferedReader só aceita um FileReader que só aceita um File... Eu preciso transformar meu objeto Path em File;
+
+
+
+1- Crie um arquivo ".txt" e escreva algumas linhas;
+
+2- Crie um objeto Path que vai receber o caminho desse arquivo:
+
+3- Crie um FileReader que vai receber um objeto Path transformado para File.
+    FileReader fr = new FileReader(arquivo.toFile());
+
+4- Crie um BufferedReader que vai receber esse FileReader;
+    BufferedReader br = new BufferedReader(fr);
+
+5- Crie uma String representando a linha atual e crie um loop para imprimir todas as linhas do arquivo:
+
+    String linhaAtual = br.readLine();
+
+    while(linhaAtual != null){
+        System.out.println(linhaAtual);
+        linhaAtual = br.readLine();
+    } 
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2º forma:
+Files.readAllLines();
+
+Criando uma List<String> e armazenando todas as linhas do arquivo;
+
+1- Crie uma String com o caminho do arquivo;
+    String caminho = "caminho/arquivo_tal.txt";
+
+2- Crie um objeto Path que vai receber essa String;
+    Path arquivo = Paths.get(caminhoArquivo);
+
+3- Crie uma List<String> que vai receber todas as linhas do arquivo;
+    List<String> linhasDoArquivo = Files.readAllLines(arquivo);
+
+4- Crie um for each para imprimir todos os itens da lista;
+    for(String i : linhasDoArquivo){
+        System.out.println(i);
+    }
+
+Essa forma é bem nice também.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+-->

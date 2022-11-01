@@ -1,0 +1,171 @@
+ <!--
+Write To a File
+Para escrever em um arquivo, eu uso a class FileWriter;
+Basta criar um objeto do tipo "FileWriter" e usar o method "write()"
+
+
+
+Sempre que eu quero escrever em um arquivo, eu preciso pensar:
+    1- Defino o arquivo
+    2- Escrevo nesse arquivo
+    3- Fecho o arquivo
+
+
+    
+
+1- Vou importar a class FileWriter e a IOException
+    import java.io.FileWriter;
+    import java.io.IOException;
+
+2- Crie um objeto da class "FileWriter";
+    Quando eu crio um objeto do tipo FileWriter, eu preciso dizer qual é o arquivo que eu quero escrever. Esse arquivo, eu passo como argumento no constructor.
+        1-Posso passar o caminho do arquivo;
+        2-Posso passar o objeto do tipo File;
+
+    Vamos passar o caminho do arquivo:
+    FileWriter arquivo = new FileWriter("C:caminhoDoArquivo\\caminho\\etc\\praticando.txt");      
+
+
+3- Como eu quero modificar um arquivo, ele precisa primeiro existir.
+Se ele não existir, vai dar pau.
+
+Então, vamos criar um try catch nesse "FileWriter" :
+
+    try{
+        FileWriter arquivo = new FileWriter("C:\\Gabriel\\1.Study\\programacao\\02.Java\\praticando\\src\\main\\java\\br\\com\\leekbiel\\projeto\\praticando.txt");
+
+        arquivo.write("Escrevendo a linha 1\nEscrevendo a linha 2\nEscrevendo a linha 3");
+
+        arquivo.close();
+    }
+    catch(IOException e){
+        System.out.println("Um erro aconteceu.");
+    }
+
+
+
+"Java, tente fazer isso aqui:"
+"Crie um objeto do tipo 'FileWriter"
+"Use o method '.write()' para escrever nesse arquivo"
+"Fechei o objeto 'FileWritter'"
+
+
+SEMPRE FECHE O OBJETO 'FileWritter'. É igual no objeto Scanner;
+
+
+-Execute o programa
+Easy!
+
+
+Viu??
+A class "FileWriter" automaticamente criou um arquivo.
+
+
+Se eu tentasse usar um nome de arquivo que já existe, não seria criado nenhum arquivo, mas eu conseguiria alterar o arquivo existente.
+
+
+
+Agora que o arquivo já está criado, vamos alterar seu conteudo.
+
+- Altere o conteudo do method .write(); e altere o conteudo do arquivo.
+
+-Execute o programa;
+
+
+Viu?? Ele alterou o conteudo do arquivo.
+
+write();  -> Escreve no arquivo
+append(); -> Escreve no final do arquivo
+
+
+append significa acrescentar
+
+
+
+
+
+
+-Apague tudo, inclusive o arquivo txt criado.
+
+-Crie um objeto do tipo "FileWriter" e execute o programa apenas.
+
+    try{
+        FileWriter file = new FileWriter("C:/Gabriel/1.Study/programacao/02.Java/praticando/src/main/java/br/com/leekbiel/projeto/praticando.txt");
+    }
+    catch(IOException e){
+        System.out.println("Erro");
+    } 
+
+Viu?? Só o fato de instanciar um objeto do tipo "FileWriter", o arquivo é insta criado.
+
+
+
+File       -> Para criar um arquivo eu preciso usar o method .createNewFile();
+FileWriter -> Se o arquivo não existir, ele é automaticamente criado quando crio um objeto.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Acrescentando conteudo no arquivo, sem apagar o que ja tinha.
+Basta eu colocar mais um argumento no constructor do FileWriter. Esse argumento vai ser um valor booleano "true";
+
+1-Crie um FileWriter
+    try{
+        FileWriter arquivo = new FileWriter("C:/Users/Gabriel/Desktop/praticando.txt");
+        arquivo.write("Conteudo do arquivo\n");
+        arquivo.close();
+    }
+    catch(IOException e){
+        System.out.println("Arquivo não existe.");
+    }  
+
+"Usei o method  '.write()' para escrever no arquivo"
+
+-Execute o programa
+
+-Agora, altere o conteudo do method .write();
+Viu?? Ele apagou tudo  e sobreescreveu.
+
+Para permanecer o conteudo antigo, eu coloco o valor booleano TRUE no constructor do FileWriter:
+        FileWriter arquivo = new FileWriter("caminho do arquivo",true);
+        arquivo.write("Testando\n");
+        arquivo.close();
+
+-Abra o arquivo.
+Viu?? Agora sim. Sempre que eu rodar o programa, o method .write(); vai acrescentar no final do arquivo, sem apagar o conteudo antigo.
+
+Easy!!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Ao invés de passar o caminho do arquivo no constructor da class FileWriter, vamos passar um objeto do tipo File;
+
+
+1- Crie um arquivo File e especifique no constructor qual é o arquivo que voce quer manipular
+    File arquivo = new File("C:/Users/Gabriel/Desktop/praticando.txt");
+
+2- Vamos alterar esse arquivo.
+-Crie um objeto da class FileWriter. No constructor não vamos passar o caminho do arquivo, mas sim o objeto File que criamos:
+    FileWriter modificarArquivo = new FileWriter(arquivo,true);
+
+    Esse TRUE é o argumento para adicionar em baixo do conteudo do arquivo. Não sobreescrever.
+
+-Lance uma exception com o throws IOException no method main
+-Altere o conteudo do arquivo:
+    FileWriter modificarArquivo = new FileWriter(arquivo,true);
+    modificarArquivo.write("Conteudo adicional\n");
+    modificarArquivo.close();
+
+
+Viu?? Existe uma hierarquia:
+1- File              ->   Instancia um objeto file;
+2- FileWriter        ->   Escreve em um objeto file;
+3- BufferedWriter    ->   Escreve em um objeto file mais otimizado;  
+
+1- File              ->   Instancia um objeto file;
+2- FileReader        ->   Lê/scaneia um objeto file;
+3- BufferedReader    ->   Lê/scaneia um objeto file mais otimizado;
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-->

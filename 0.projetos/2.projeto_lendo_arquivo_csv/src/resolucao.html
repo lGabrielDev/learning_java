@@ -1,0 +1,197 @@
+<!--
+(COLOAR NO GITHUB E FAZER UM VIDE EXPLICANDO E POSTAR NO LINKEDIN)
+(Quando for fazer o video, altere os campos para não ficar igual a do professor)
+Armazenando campos do arquivo em uma ArrayList
+Essa nossa ArrayList vai receber objetos de uma classe que vamos criar;
+Os campos do arquivo vão se tornar os attributes desse objeto. Sacou??
+
+Vamos lá!
+
+1-Vá no excel e crie um arquivo csv com os campos:
+    Nome	Idade	Profissao
+    Gabriel	25	500.50
+    Paula	28	400.30
+    Amanda	32	315.60
+
+Vai ficar assim:
+    Nome;Idade;Profissao
+    Gabriel;25;500.50
+    Paula;28;400.30
+    Amanda;32;315.60
+
+
+2- Vamos criar a class "Usuario" que vai ter os attributes:
+    String name;
+    int age;
+    double value;
+    
+Esses attributes vão receber os campos do arquivo. Sacou??
+
+3-Crie os getters and setters, e crie o constructor pra esse classe "Usuario". Padraozin.
+
+
+Show! Classe criada, agora vamos ler nosso arquivo.
+
+
+
+4- Crie uma variable String que vai receber o carminho do arquivo. Fica mais fácil de trabalhar assim. 
+    String caminho = "C:/Users/Gabriel/Desktop/praticando.csv";
+
+
+5- Crie a ArrayList que vai receber items do tipo "Usuario"
+    List<Usuario> lista = new ArrayList<>();
+
+
+6- Crie o BufferReader pra ler o arquivo:
+    try{
+        BufferedReader br = new BufferedReader(new FileReader(caminho));
+    }
+
+
+7- Crie a variable String "linha" que vai receber a proxima linha;
+    String linha = br.readLine();
+
+
+8- Como eu não quero armazenar o cabeçalho, eu vou novamente para a proxima linha;
+    String linha = br.readLine();
+    linha = br.readLine();
+
+Agora nao temos o cabeçalho. Estamos na primeira linha;
+
+
+9- Vamos criar um while para imprimir as linhas:
+    String linha = br.readLine();
+    linha = br.readLine();
+
+     while(linha != null){
+        System.out.println(linha);
+        linha = br.readLine();
+    }
+
+Show, tudo certo!
+
+
+
+10- Vamos criar uma array para armazenar cada campo da linha;
+-Vamos criar variable para armazenar cada posicao dessa array
+
+
+Essas variables vao ter o dataType correto do campo;
+Ex:
+Name é String
+Age é Integer
+Value é Double
+
+
+    String[] informacoes = linha.split(";");
+    String name = informacoes[0];
+    Integer age = informacoes[1];
+    Double value = informacoes[2];
+
+
+Mas tem um problema... Tudo que está dentro da array é String. Eu preciso converter o campo "idade" e o campo "value" para os datatype corretos:
+
+11- Use o cast e transforme...
+age    ->  de String para Integer;
+value  ->  de String para Double;
+
+Use os methods .parseInt(); e parseDouble();
+
+
+
+
+12- Agora sim, podemos criar um objeto. Ainda dentro do while loop, crie um objeto da class "Usuario";
+
+    Usuario usuario = new Usuario(name, age, value);
+
+    Perceba que, no constructor eu passo como argumento as variable criadas acima.
+
+13- Adicione esse objeto a Arraylist;
+    lista.add(usuario);
+
+
+14- Fora do while, Imprima todos da lista:
+    System.out.println(lista);
+
+Perceba que printou o local hash de cada item;
+
+
+15- SOBREESCREVA o method "toString();" na class Usuario;
+    @Override
+    public String toString() {
+        return "Usuario [age=" + age + ", name=" + name + ", value=" + value + "]";
+    }
+
+
+16- Crie um for each para imprimir todos os items da ArrayList:
+
+    for(Usuario i : lista){
+        System.out.println(i.toString());
+    }
+
+Easy!!!
+
+
+
+
+
+
+
+
+
+Código completo:
+
+public class Programa {
+    public static void main(String[] args){
+        String caminho = "C:/Users/Gabriel/Desktop/praticando.csv";
+
+        List<Usuario> lista = new ArrayList<>();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(caminho));
+            String linha = br.readLine();
+            linha = br.readLine();
+
+            while(linha != null){
+                String[] informacoes = linha.split(";");
+                String name = informacoes[0];
+                Integer age = Integer.parseInt(informacoes[1]);
+                Double value = Double.parseDouble(informacoes[2]);
+
+                Usuario usuario = new Usuario(name, age, value);
+
+                lista.add(usuario);
+
+                linha = br.readLine();
+            }
+
+            for(Usuario i : lista){
+                System.out.println(i.toString());
+            }
+        }
+        catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+    }  
+}
+
+
+Lendo, fica assim:
+"Crio uma String que vai armazenar o caminho do arquivo"
+"Crio uma ArrayList que vai receber items do tipo 'Usuario' "
+"Crio um BufferedReader para ler o arquivo"
+"Crio uma variable String que vai receber a proxima linha (cabeçalho)"
+"variable recebe a proxima linha (primeira linha de dados)"
+"Crio um while e ...  Divido os campos separados por ';' e coloco em cada posicao da array"
+"Crio uma variable para cada campo e faço a conversao para o dataType corret"
+"Crio um objeto do tipo 'Usuario', e coloco como argumento as varaibles de cima "
+"Adiciono esse objeto para a ArrayList";
+"Depois de fazer o loop com todas as linhas..."
+"Eu imprimo todos os items da lista"
+
+
+
+Basicamente, eu transformei cada linha em um objeto e adicionei esse objeto na lista;
+Transformando cada campo da linha em um attribute;
+
+Easy!!!
+-->
