@@ -4,7 +4,7 @@ BufferedReader
 Maneira mais otimizada de ler/scanear um arquivo.
 
 A ordem é assim:
-BufferedReader -> FileReader -> File -> o caminho do arquivo
+BufferedReader -> FileReader -> File -> o caminho do arquivo;
 
 Eu leio assim:
 "BufferedReader vai receber como argumento um objeto FileReader"
@@ -22,8 +22,8 @@ Vamos ler um arquivo.
     praticando.txt
 
 1- Crie um objeto da class BufferedReader;
-    BufferedReader lerArquivo = new BufferedReader(
-        new FileReader("C:/Users/Gabriel/Desktop/praticando.txt")
+    BufferedReader br = new BufferedReader(
+        new FileReader("caminhoDoArquivo/praticando.txt")
     );
 
 Perceba que eu criei o FileReader dentro do constructor do BufferedReader;
@@ -33,7 +33,7 @@ E eu criei o file dentro do contructor do FileReader;
 
 2-Trate os erros:
     try{
-        BufferedReader lerArquivo = new BufferedReader(
+        BufferedReader br = new BufferedReader(
             new FileReader("C:/Users/Gabriel/Desktop/praticando.txt")
         );
     }
@@ -46,12 +46,12 @@ E eu criei o file dentro do contructor do FileReader;
     
 3- Leia a primeira linha do arquivo. Use o method .readLine();
 
-    System.out.println(lerArquivo.readLine());
+    System.out.println(br.readLine());
 
 
 4- Leia 2 linhas do arquivo:
-    System.out.println(lerArquivo.readLine());
-    System.out.println(lerArquivo.readLine());
+    System.out.println(br.readLine());
+    System.out.println(br.readLine());
 
     Perceba que, o method ".readLine()" lê a proxima linha;
 
@@ -68,10 +68,10 @@ E eu criei o file dentro do contructor do FileReader;
 
 
     String linha;
-    while((linha = lerArquivo.readLine()) != null){
+    while((linha = br.readLine()) != null){
         System.out.println(linha);
     }
-    lerArquivo.close();
+    br.close();
 
 Perceba que....
 
@@ -97,14 +97,14 @@ import java.io.IOException;
 public class Programa{
     public static void main(String[] args){
         try{
-            BufferedReader lerArquivo = new BufferedReader(
+            BufferedReader br = new BufferedReader(
                 new FileReader("C:/Users/Gabriel/Desktop/praticando.txt") 
             );
             String linha;
-            while((linha = lerArquivo.readLine()) != null){
+            while((linha = br.readLine()) != null){
                 System.out.println(linha);
             }
-            lerArquivo.close();
+            br.close();
         }
         catch(IOException e){
             System.out.println("Erro. Arquivo não encontrado.");
@@ -128,41 +128,40 @@ Uma forma mais fácil e organizada de fazer, seria assim:
     File arquivo = new File("caminhoDoArquivo");
 
 3- Crie um objeto FileReader:
-    FileReader leituraPadrao = new FileReader(arquivo);
+    FileReader fr = new FileReader(arquivo);
 
 4- Crie um objeto BufferedReader
 
-    BufferedReader leituraOtimizada = new BufferedReader(leituraPadrao);
+    BufferedReader br = new BufferedReader(fr);
 
 
 5- Leia a primeira linha do arquivo
-    System.out.println(leituraOtimizada.readLine());
+    System.out.println(br.readLine());
 
 
 6- Imprima todas as linhas do arquivo.
 
-- Primeiro, crie uma variable String que vai receber a proxima linha do arquivo, que no caso é a primeira linha.
+- Primeiro, crie uma variable String que vai receber a proxima linha do arquivo;
 
-    String linha = leituraOtimizada.readLine();
+    String linhaAtual = br.readLine();
 
 
 - Crie um while loop.
 
-     String linha = "a";
+        while(linhaAtual != null){
+            System.out.println(linhaAtual);
+            linhaAtual = br.readLine();
+        }
+        br.close();
 
-    while(linha != null){
-        linha = leituraOtimizada.readLine();
-        System.out.println(linha);
-    }
-    leituraOtimizada.close();
+    
 
 
 Olha que fácil...
-"Criei a variable String com um valor qualquer 'a' "
-"Enquanto essa variable for diferente de null, faz isso..."
-"A variable vai receber a proxima linha do arquivo e depois vai pintar essa linha"
-"Entra no loop denovo..."
-"A variable vai receber a proxima linha e depois printar essa linha"
+"Criei a variable String recebendo a proxima linha do arquivo";
+"Enquanto a linha atual for diferente de null....";
+"Vou imprimir a linha atual"
+"A variable recebe a proxima linha do arquivo"
 
 Sacou??
 

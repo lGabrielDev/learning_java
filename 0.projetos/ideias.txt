@@ -27,3 +27,16 @@ A ideia nesse projeto é aplicar o conhecimento do BufferedReader, sacou?
 
 
 --------------------------------------------------------------------------------------------------
+Ideia 3
+
+Criar repositorios simples sobre manipulacao de arquivo.
+
+Ex:
+
+repositorio 1 - Como criar um arquivo com a class File;
+
+repositorio 2 - Como escrever em um arquivo com a class BufferedWriter;
+
+repositorio 3 - Como ler todas as linhas de um arquivo com a class BufferedReader;
+
+etc...
