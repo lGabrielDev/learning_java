@@ -18,16 +18,16 @@ Quando eu crio um objeto File eu preciso passar no constructor o caminho do arqu
 
 1- Instancie a class File e especifique o caminho do arquivo como argumento;
 
-    File arquivo = new File("C:/Users/Gabriel/Desktop/praticando.txt");
+    File arquivo = new File("caminhoDoArquivo/arquivo1.txt");
 
 Nao esqueca de importar;
 
 2- Instancie a class FileWriter;
-   FileWriter editarArquivo = new FileWriter(arquivo,true);
+   FileWriter bw = new FileWriter(arquivo,true);
 
 Perceba que eu coloquei 2 argumentos.
     1º argumento -> objeto file
-    2º argumento -> booleano para acrescentar em baixo do texto antigo
+    2º argumento -> booleano para acrescentar em baixo do texto antigo;
 
 Eu poderia colocar o caminho do arquivo como argumento, que ele criaria um objeto File automaticamente. 
 Como eu já criei um objeto File, vou usar ele mesmo.
@@ -35,13 +35,13 @@ Como eu já criei um objeto File, vou usar ele mesmo.
 3- Use o try catch pra tratar o erro IOException ou lance com o throws no method main;
 
 4- Instancie a class BufferedWriter;
-    BufferedWriter arquivoEditar = new BufferedWriter(editarArquivo);
+    BufferedWriter bw = new BufferedWriter(bw);
 
 
 5- Escreva no arquivo.
 Coloque mais uma linha no arquivo. Use o objeto BufferedWriter:
-    arquivoEditar.write("\nSegunda linha");
-    arquivoEditar.close();
+    bw.write("\nSegunda linha");
+    bw.close();
 
 Depois de usar o method .write(); eu preciso fechar. Senão dá pau.
 
@@ -52,9 +52,9 @@ Mesma coisa;
 
 
 6-Escreva mais uma linha:
-    arquivoEditar.write("Segunda linha\n");
-    arquivoEditar.write("Terceira linha\n");
-    arquivoEditar.close();
+    bw.write("Segunda linha\n");
+    bw.write("Terceira linha\n");
+    bw.close();
 
 7- Mude o 2º argumento do objeto FileWriter para false.
 -Execute o programa
@@ -74,18 +74,18 @@ Colocando todas as posicoes de uma array(vetor) em um arquivo
 
 Em vez de criar um File, depois criar um objeto FileWriter, depois criar um objeto BufferedWriter....
 
-Vamos criar os objetos dentro dos contructors
+Vamos criar os objetos dentro dos contructors;
 
 
 
 1- Crie direto um objeto BufferedWriter:
-    BufferedWriter editarArquivo = new BufferedWriter();
+    BufferedWriter bw = new BufferedWriter();
 
 
 
 2- Crie um objeto FileWriter dentro do constructor do BufferedWriter:
-    BufferedWriter editarArquivo = new BufferedWriter(
-        new FileWriter("C:/Users/Gabriel/Desktop/praticando.txt",true)
+    BufferedWriter bw = new BufferedWriter(
+        new FileWriter("caminhoDoArquivo",true)
     );
 
 Coloque sempre o 2º argumento no objeto FileWriter;
@@ -93,7 +93,7 @@ Coloque sempre o 2º argumento no objeto FileWriter;
 
 3- Trate o erro dessas classes:
     try{
-        BufferedWriter editarArquivo = new BufferedWriter(
+        BufferedWriter bw = new BufferedWriter(
             new FileWriter("C:/Users/Gabriel/Desktop/praticando.txt",true)
         );
     }
@@ -103,8 +103,8 @@ Coloque sempre o 2º argumento no objeto FileWriter;
 
 
 4- Escreva a primeira posicao da array no arquivo, usando o method .write();
-    editarArquivo.write("\n" + names[0]);
-    editarArquivo.close();
+    bw.write("\n" + names[0]);
+    bw.close();
 
 E para escrever todos as posicoes??? Easy!!!
 
@@ -113,9 +113,9 @@ Basta usar o for each loop:
 
 5- Crie um loop e escreva toads as posicoes no arquivo:
     for(String i : names){
-        editarArquivo.write("\n" + i);
+        bw.write("\n" + i);
     }
-    editarArquivo.close();
+    bw.close();
 
 Sempre feche o objeto File;
 
