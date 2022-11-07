@@ -90,7 +90,7 @@ append significa acrescentar
 -Crie um objeto do tipo "FileWriter" e execute o programa apenas.
 
     try{
-        FileWriter file = new FileWriter("C:/Gabriel/1.Study/programacao/02.Java/praticando/src/main/java/br/com/leekbiel/projeto/praticando.txt");
+        FileWriter file = new FileWriter("caminhoDoArquivo");
     }
     catch(IOException e){
         System.out.println("Erro");
@@ -107,6 +107,7 @@ FileWriter -> Se o arquivo não existir, ele é automaticamente criado quando cr
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Acrescentando conteudo no arquivo, sem apagar o que ja tinha.
+
 Basta eu colocar mais um argumento no constructor do FileWriter. Esse argumento vai ser um valor booleano "true";
 
 1-Crie um FileWriter
@@ -142,19 +143,19 @@ Ao invés de passar o caminho do arquivo no constructor da class FileWriter, vam
 
 
 1- Crie um arquivo File e especifique no constructor qual é o arquivo que voce quer manipular
-    File arquivo = new File("C:/Users/Gabriel/Desktop/praticando.txt");
+    File arquivo = new File("caminhoDoArquivo/praticando.txt");
 
 2- Vamos alterar esse arquivo.
 -Crie um objeto da class FileWriter. No constructor não vamos passar o caminho do arquivo, mas sim o objeto File que criamos:
-    FileWriter modificarArquivo = new FileWriter(arquivo,true);
+    FileWriter fw = new FileWriter(arquivo,true);
 
     Esse TRUE é o argumento para adicionar em baixo do conteudo do arquivo. Não sobreescrever.
 
 -Lance uma exception com o throws IOException no method main
 -Altere o conteudo do arquivo:
-    FileWriter modificarArquivo = new FileWriter(arquivo,true);
-    modificarArquivo.write("Conteudo adicional\n");
-    modificarArquivo.close();
+    FileWriter fw = new FileWriter(arquivo,true);
+    fw.write("Conteudo adicional\n");
+    fw.close();
 
 
 Viu?? Existe uma hierarquia:
