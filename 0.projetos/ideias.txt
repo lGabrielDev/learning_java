@@ -40,3 +40,16 @@ repositorio 2 - Como escrever em um arquivo com a class BufferedWriter;
 repositorio 3 - Como ler todas as linhas de um arquivo com a class BufferedReader;
 
 etc...
+-----------------------------------------------------------------------------
+Criar artigos simples para mostrar seu conhecimento:
+
+-exceptions try catch
+-exceptions com loop - do try catch and if else try catch
+-serialization and deserialization
+-heranca - Criar um exemplo usando pessoa class pai, paciente e medico classes filhas
+-polimorfismo
+
+--------------------------------------------------------------------
+
+Criar uma página html e css para mostrar um conhecimento basico de front
+-----------------------------------------
