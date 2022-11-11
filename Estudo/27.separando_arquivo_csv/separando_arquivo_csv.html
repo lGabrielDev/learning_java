@@ -129,7 +129,7 @@ Fácil!
 Lendo fica assim:
 "A variable 'linha' vai receber a proxima linha "
 "Enquanto essa linha não for null, vou fazer o seguite:"
-"A partir de cada vírgula, separe as strings.
+"A partir de cada vírgula, separe as Strings.
 
 Se eu tenho "Gabriel,25"...
 "O 'Gabriel' vai ficar na posicao da array 0 e o '25' vai ficar na posicao 1". Se eu tivesse outra virgula e mais uma informacao, ela ficaria na posicao 2. Sacou??
@@ -169,12 +169,20 @@ Por isso eu preciso imprimir as posicoes DENTRO do while.
 
 Se eu tentasse imprimir fora do while, ia imprimir apenas 1 dos items. Sacou??
 
-
+** IMPORTANTEEEEEE
 
 10- E se eu quisesse imprimir todos os campos??? Easy!!
 Basta colocar tudo no mesmo print
 
-    System.out.println("Nome: " + valoresSeparados[0] + "\tIdade: "+ valoresSeparados[1]);
+    while(linhaAtual != null){
+                listaCorreta = linhaAtual.split(";");
+                System.out.printf("%s  %-18s  %-18s  %-84s  %-7s  %s",listaCorreta[0],listaCorreta[1],listaCorreta[2],listaCorreta[3],listaCorreta[4],listaCorreta[5]);
+                System.out.println();
+                linhaAtual = br.readLine();
+            }
+            br.close();
+    
+** IMPORTANTEEEEEE
 
 Esse exercicio é importante!!! Bom demais!
 Eu estou dizendo:
