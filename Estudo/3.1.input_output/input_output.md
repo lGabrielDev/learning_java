@@ -92,7 +92,7 @@ Vamos usar um objeto da class **Scanner**
 
 <br>
 
-- Trate os erros de input. Se o usuario escrever uma String vai dar pau.
+- Trate os erros de input. Se o usuario escrever uma **String** vai dar pau.
   
   :bulb:Use o do while com try catch
 
@@ -250,142 +250,158 @@ public static void main(String[] args){
 
 ### Exercício 3
 
-:pencil2:
+:pencil2: Faça um programa onde o usuário vai responder 3 perguntas e no final será printado as respostas dele na tela.
 
-<!--
+As perguntas vão ser:
 
+- Qual seu elo? (Bronze,Silver,Gold,Platine,Diamond,Master,Challenger) -> **<span style="color:#DC60A6">String</span>**
+- Qual seu tier? (1,2,3,4,5) **<span style="color:#DC60A6">Integer</span>**
+- Qual seu campeão favorito? **<span style="color:#DC60A6">String</span>**
 
-2-
--Crie um programa onde o usuario vai responder algumas perguntas e no final será exibida uma mensagem com as respostas.
+O resultado vai ser algo assim:
 
-Perguntas:
+Seu elo é <span style="color:tomato;">&lt;elo&gt;</span> <span style="color:tomato;">&lt;tier&gt;</span> e seu campeão favorito é <span style="color:tomato;">&lt;champion&gt;</span>. <br>
+Seu elo é <span style="color:tomato">Silver</span> <span style="color:tomato">3</span> e seu campeão favorito é <span style="color:tomato">Ezreal</span>.
 
--Qual seu elo? 
--Input
-Se a resposta for:
-Bronze  -> Elo baixo
-Prata   -> Elo baixo
-Gold    -> Elo baixo
-Platina -> Elo baixo
-Diamante -> Elo alto
-Mestre -> Elo alto
-Challenger -> Picudo
+<br>
 
+Código completo:
 
+<br>
 
--Qual seu tier(1,2,3,4 ou 5)? (int)
--Input
+```java
+public class Programa{
+    public static void main(String[] args){
+        String elo = "a";
+        Integer tier = 0;
+        String favoriteChampion = "a";
 
--Qual seu champion favorito? (String)
--Input
+        Scanner scan = new Scanner(System.in);
 
-//Frase contendo todas as respotas acima:
-"Seu elo is <elo> <tier> e seu campeao favorito is <champion>"
+        System.out.print("Digite seu elo: ");
+        elo = scan.nextLine();
 
+        System.out.print("Digite seu tier: ");
+        tier = scan.nextInt();
+        scan.nextLine();
 
--Feche o objeto Scanner criado.
-objectname.close();
-    
-
-
-
-
-Quando eu estou trabalhando com loops e input de usuario, e o programa nao funcionar direito...
-
-As vezes pode ser por que voce não limpou o scanner.
-use o .nextLine(); quando precisar.
-------------------------------------------------------------------------------------------------------------------------------------------
-
-Diferença entre .next() and nextLine();
-
-.next(); -> Retorna a primeira palavra digitada apenas;
-
-.nextLine(); -> Retorna a linha inteira digitada. BEM MELHOR;
-
-SEMPRE USE O nextLine();
+        System.out.print("Digite seu campeão favorito: ");
+        favoriteChampion = scan.nextLine();
 
 
--Crie um programa onde o usuario vai digitar uma frase e depois imprima essa frase.
+        switch(elo){
+            case "Bronze":
+            case "Prata":
+            case "Gold":
+            case "Platina":
+            case "Diamond":
+                System.out.printf("\nSeu elo é %s %d e seu campeão favorito é %s.",elo,tier,favoriteChampion);
+                System.out.println("\nSeu elo é baixo.");
+                break;
 
--Use primeiro o .next();
--Troque para o .nextLine();
+            case "Master":
+            case "Challenger":
+                System.out.printf("\nSeu elo é %s %d e seu campeão favorito é %s.",elo,tier,favoriteChampion);
+                System.out.println("\nSeu elo é alto.");
+                break;
+        }
+        scan.close();
+    }    
+}
+```
 
-	Scanner scan = new Scanner(System.in);
-	String frase;
+<br>
 
-	System.out.print("Escreva uma frase: ");
-	fraseDigitada = scan.nextLine();
-	System.out.println(fraseDigitada);
+:warning: Sempre feche o objeto Scanner.
 
-    
-Se a minha variable vai receber mais de 1 palavra, eu vou usar o nextLine();
+<br>
 
--troque para next. Viu?? Pegou apenas a primeira palavra.
-------------------------------------------------------------------------------------------------------------------------------------------
-Quando eu dou um input de int e depois dou um input de String, vai dar bosta.
+:bulb: Se o input não funcionar por algum motivo, limpe o buffer do Scanner.
 
-Isso porque....
-Sempre que eu digito um integer/double,etc... e dou "enter", é como se eu tivesse digitado assim:
+Use o `.nextLine();` quando precisar.
 
+<hr>
+<br>
+
+### Difference between `.next();` and `.nextLine();`
+
+`.next();` -> Retorna apenas a primeira palavra digitada;
+
+`.nextLine();` -> Retorna a linha inteira digitada. BEM MELHOR;
+
+:bulb: Geralmente usamos o `.nextLine();`
+
+<hr>
+<br>
+
+### Inputando um **Integer** e depois uma **String**
+
+Sempre que você inputa um integer/double e dá `enter`, é como se você tivesse digitado assim:
+
+```java
 17
 \n
+```
 
-Exemplo:
-1-
-Crie um programa onde vai perguntar a idade e depois o nome do usuario.
+Então,o próximo `.nextLine();` que você usar, vai considerar essa quebra de linha `\n`
 
-	Scanner scan = new Scanner(System.in);
-	int idade;
-	String nome;
+Imagina um programa que vai perguntar ao usuário sua idade e depois seu nome...
 
-	System.out.print("Digite sua idade: ");
-	idade = scan.nextInt();
-	System.out.println("Voce tem "+idade+" anos de idade");
-
-	System.out.print("Digite seu nome: ");
-	nome = scan.nextLine();
-	System.out.print("Olá "+ nome);
-
-Viu que deu ruim?? O nextLine(), considerou a quebra de linha (\n) do nextInt anterior.
-
-Pra resolver esse problema é fácil.
-
--Consuma aquele \n usando o .nextLine();
-	Scanner scan = new Scanner(System.in);
-        int idade;
-        String nome;
+```java
+public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int age;
+        String name;
 
         System.out.print("Digite sua idade: ");
-        idade = scan.nextInt();
-        System.out.println("Voce tem "+idade+" anos de idade");
+        age = scan.nextInt();
+        System.out.println("Voce tem "+age+" anos de idade");
 
         System.out.print("Digite seu nome: ");
-        scan.nextLine();
-        nome = scan.nextLine();
-        System.out.print("Olá "+ nome);
+        name = scan.nextLine();
+        System.out.print("Olá "+ name);
+
+        scan.close();
+    }
+```
+
+Viu que deu ruim?? `O nextLine();`, considerou a quebra de linha `\n` do `nextInt();` anterior.
+
+Para resolver o problema, é só consumir essa quebra de linha.
 
 
-Se ligou??
-Eu consumo aquele \n do nextInt() anterior.
+```java
+ public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int age;
+        String name;
 
-Resumindo:
-Deu pau no seu input, COMA o "\n" usando o .nextLine() antes do input;
-	scan.nextLine();  			-> Comendo o \n
-	nome = scan.nextLine();		-> Inputando
+        System.out.print("Digite sua idade: ");
+        age = scan.nextInt();
+        scan.nextLine(); // Consumindo a quebra de linha
+        System.out.println("Voce tem "+age+" anos de idade");
 
+        System.out.print("Digite seu nome: ");
+        name = scan.nextLine();
+        System.out.print("Olá "+ name);
 
+        scan.close();
+    }
+```
 
+Se ligou?? Você "comeu" aquele `\n` do `nextInt()` anterior.
 
-2- Coloque mais 2 perguntas no programa:
-	-Numero favorito: 
-	-Esporte favorito?
+:bulb: Resumindo:
 
+Deu pau no seu input, "COMA" o `\n` usando o `.nextLine();` antes do input
 
-Resumindo:
-	Inputou um dado do tipo numero(int,double,float,short,etc...) , coma o /n;
--->
+```java
+scan.nextLine();
+```
+<hr>
+<br>
 
 
 
 <!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/3.1.input_output/input_output.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>****
+<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/3.variables/1.variables.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
