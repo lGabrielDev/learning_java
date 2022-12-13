@@ -1,120 +1,123 @@
-<!--
-casting
+<h1 align="center"> Casting (fundição) <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center"></h1>
 
-Ordem de tamanhos dos tipos primitivos:
-    byte -> short -> char -> int -> long -> float -> double
+## Introduction
 
+Casting é quando você faz a alteração de um **primitive datatype to another primitive datatype**
 
-
-Perceba que a ordem é do menor para o maior.
-Essa ordem representa quantos bytes eles ocupam da memoria do computador.
-Sendo o byte o que ocupa menos, e o double o que ocupa mais.
+Ex: Mudar de short para int, mudar de int para double, mudar de int para long, etc...
 
 
+Existem 2 formas de fazer essa conversão:
 
-Transformando um tipo primitivo em outro tipo primitivo
+- automatically -> converting a smaller type to a larger type size
+  `byte` -> `short` -> `char` -> `int` -> `long` -> `float` -> `double`
 
-Se eu quiser transformar um tipo primitivo em outro tipo primitivo maior, eu posso fazer sem problema nenhum:
+    <br>
 
-1-Transformando int em double   
--Crie uma variable com tipo primitivo menor (int).
--Crie uma variable com tipo primitivo maior(double), que vai receber a variable int.
+- manually -> converting a larger type to a smaller size type
+  `double` -> `float` -> `long` -> `int` -> `char` -> `short` -> `byte`
 
+  <br>
 
-Transformando um int em double
-    int number = 10;
-        double transformando = number;
-        System.out.println(transformando);
-
-Como eu estou transformando um tipo primitivo menor em um maior, a transformação acontece automaticamente. Bem tranquilo.
+  Essa ordem representa quantos bytes eles ocupam da memoria do computador.
+    Sendo o `byte` o que ocupa menos, e o `double` o que ocupa mais.
 
 
+<hr>
+<br>
 
-Agora...
+## automatically
 
-Se eu quiser transformar um tipo primitivo maior em um tipo primitivo menor, eu preciso informar para o java:
+Se estamos tentando fazer a conversão de um primitive datatype menor para um maior, a conversão é feita automaticamente.
 
-2-Transformando double em int
-
--Crie uma variable com tipo primitivo maior (double)
--Crie uma variable com tipo primitivo menor(int), que vai receber a variable anterior.
--Especifique a transformacao usando o "(int)";
-
-    double number = 10.35;
-    int transformacao  = (int)number;
-    System.out.println(transformacao);
+```java
+short number1 = 55;
+long number2 = number1;
+```
 
 
+```java
+int number1 = 50;
+double number2 = number1;
+```
 
-Resumindo:
-Eu posso transformar um tipo primitivo em outro MAIOR. (int to double safe)
 
-Agora... Para transformar um maior para um menor(double to int) eu preciso especificar com "(type que eu quero alterar)";
+Estamos transformando um primitive datatype **menor para um maior**.
+A converão é feita automaticamente. Easy!
 
+
+<hr>
+<br>
+
+## manually
+
+Se estamos tentando fazer a conversão de um primitive datatype MAIOR para um menor, precisamos fazer a conversão de forma manual.
+
+
+Basta castar, usando o `(primitive type)` antes da variable.
+```java
+int number1 = 50;
+short number2 = (short) number1;
+```
+
+```java
+double number1 = 50.2;
+int number2 = (int) number1;
+
+System.out.println(number2);
+50  // result
+```
+
+<br>
 
 Só pensar assim:
 
-"Dá pra transformar numero inteiro(int) em numero quebrado(double)"
-    10 -> 10.0
+"Dá pra transformar numero inteiro(`int`) em numero decimal(`double`)?"
 
-"Agora... Não dá pra transformar numero quebrado para numero inteiro"
-    10.5 -> X
+10 -> 10.0 (sim)
 
-Eu preciso castar;
------------------------------------------------------------------------------------------------------------------------------------------
-Transformando String em int
-Integer.parseInt();
-Double.parseDouble();
-Float.parseFloat();
-etc...
+<br>
 
--Crie uma variable com uma String "50";
--Crie outra variable com um numero int;
--Imprima a soma das duas variables:
+"Agora... Não dá pra transformar numero decimal para numero inteiro"
 
-    String numeroErrado = "50";
-    int numero = 50;
-    System.out.println(numero + numeroErrado);
+10.5 -> X (não)
 
-Retornou 5050;
+Aqui, precisamos castar.
 
-Isso aconteceu porque quando eu somo uma String e um int o resultado sempre sera uma String.
+10.5 -> 10
 
--Use o Integer.parseInt(); e transforme a String em int.
-    System.out.println(numero + Integer.parseInt(numeroErrado));
+<hr>
+<br>
 
-Easy!!
+## Transformando **String to number** and **number to String**
 
 
-Lembrando que se a String tivesse letras,caracteres, etc... Ia dar bosta.
+### String to number
 
-Só vai funcionar se String tiver apenas numeros;
+```java
+String texto = "55";
+
+Integer number1 = Integer.parseInt(texto);
+Double number2 = Double.parseDouble(texto);
+Float number3 = Float.parseFloat(texto);
+```
+<br>
+<br>
 
 
-------------------------------------------------------------------------------------------------------------------------------------------
-Transformando int para String
-String.valueOf()
+### number to String
+
+```java
+double number1 = 50;
+int number2 = 50;
+
+String number3 = String.valueOf(number1);
+String number4 = String.valueOf(number2);
+```
+
+<br>
+<br>
 
 
--Crie uma variable int
--Crie uma variable String que vai receber a variable int.
-Vai dar bosta, porque eu não posso transformar um int em String.
-    int numero = 50;
-    String texto = numero;
-
--Use o method String.valueOf(); e transforme em String.
-    int numero = 50;
-    String texto = String.valueOf(numero); 
-
-    System.out.println(texto.getClass());
-
-----------------------------------------------------------------------------------------------------------------------------------------Resumindo:
-Para transformar String em numeros, eu uso:
-    Integer.parseInt();
-    Double.parseDouble();
-    Float.parseFloat();
-
-Para transformar numeros em String, eu uso:
-    String.valueOf();
-------------------------------------------------------------------------------------------------------------------------------------------
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/4.3.padrao_inicializacao/padrao_inicializacao.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
