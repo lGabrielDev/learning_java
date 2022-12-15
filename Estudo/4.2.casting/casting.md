@@ -1,6 +1,9 @@
-<h1 align="center"> Casting (fundição) <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center"></h1>
+<h1 align="center">
+  Casting (fundição)
+  <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center">
+</h1>
 
-## Introduction
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
 
 Casting é quando você faz a alteração de um **primitive datatype to another primitive datatype**
 

@@ -1,6 +1,14 @@
+<h1 align="center">
+  Casting (fundição)
+  <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center">
+</h1>
+
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
+
+
 <!--
 
-Por padrão, sempre que eu crio um objeto do tipo primitivo GLOBAL ele vêm com valores padrao.
+Por padrão, sempre que criamos uma primitive variable de escopo GLOBAL, ela vêm com um valor padrao.
 
 
 int,double,float(qualquer type de número) -> 0
@@ -54,3 +62,10 @@ Se eu crio uma variable global eu não preciso colocar valor, pois o java automa
 Agora, se essa variable é local, eu PRECISO colocar um valor de inicialização.
     
 -->
+
+<br>
+<br>
+
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/4.3.wrapper_classes/wrapper_classes.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
