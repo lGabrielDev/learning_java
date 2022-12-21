@@ -6,10 +6,10 @@
 A estrutura de repetição (loops) são usados para repetir um bloco de código.
 
 
-- `while`
-- `do while`
-- `for`
-- `for each`
+- [`while`](#while)
+- [`do while`](#do-while)
+- [`for`](#for)
+- [`for each`](#for-each)
 
 <hr>
 <br>
@@ -18,7 +18,6 @@ A estrutura de repetição (loops) são usados para repetir um bloco de código.
 Enquanto a condição for true, o bloco de código vai se repetir. Quando a condição der false, o loop encerra.
 
 ### Syntax: <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="20px" align="center">
-
 ```java
 while(condition){
 // code block to be executed;
@@ -223,7 +222,7 @@ Perceba que esse contador `i` é a posicao da minha array.
 <br>
 
 ### Exercício 2
-Faça o mesmo exercício acima, mas com uma arraylist:
+:pencil2: Faça o mesmo exercício acima, mas com uma arraylist:
 
 ```java
 List<String> animals = new ArrayList<>();
@@ -339,11 +338,11 @@ while();
 
 ## Relembrando <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
-- `while` or `do while` --> usado quando não temos um número específico de vezes que queremos loopar
-- `for` --> usado quando temos um número de vezes definido
+- `while` or `do while` --> usado quando não temos um número específico de vezes que queremos loopar;
+- `for` --> usado quando temos um número de vezes definido;
 
 
-Imagina um programa onde se o usuario errar o login, vai aparecer uma mensagem de erro pra ele. Um usuário pode errar várias vezes... Entao, vou usar o `while` or do `while`.
+Imagina um programa onde se o usuario errar o login, vai aparecer uma mensagem de erro pra ele. Um usuário pode errar várias vezes... Entao, vou usar o `while` or `do while`.
 
 Se queremos apenas 3 tentativas de login, vamos usar o `for`.
 

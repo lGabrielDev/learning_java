@@ -1,101 +1,127 @@
-<!--
+<h1 align="center">
+    Object-Oriented Programming 
+    <img src="https://cdn-icons-png.flaticon.com/512/4248/4248159.png" alt="image icon" width="90px" align="center"> <br>
+    (Programação orientado a objetos)
+</h1>
 
-COLOCAR A IMAGEM AQUI
+Java é uma linguagem orientada a objetos. Aos olhos do java, tudo pode ser considerado um objeto.
+
+Todo objeto contêm:
+- attributes --> Características de um objeto.
+- methods --> Ações que esse objeto pode fazer.
+
+Esses objetos são criados a partir de uma class. Um objeto é uma instância de uma class.
+
+<hr>
+<br>
+
+## Class <img  src="https://cdn-icons-png.flaticon.com/512/7627/7627943.png" alt="blueprint icon" width="30px" align="center">
+- é o molde que cria os objetos.
+  
+- é a Blueprint dos objetos
+  
+- Define os attributes and methods que os objetos dessa class terão.
+
+- Uma Class nada mais é do que um arquivo `.java`. Então, o nome da Class terá o mesmo nome do arquivo `.java`
+
+- Nome de Class, escrevemos em MAIÚSCULO `Carros.java`
+
+![image](https://qph.cf2.quoracdn.net/main-qimg-c55aa8a9aaecb3c0d472d9bb769af176-lq)
+
+Quando criamos um objeto, estamos "instanciado" uma class em forma de um objeto.
+
+<br>
+
+<img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="center">
+
+- **Class/Interface** --> Letras MAIÚSCULAS.
+- **object/attributes/methods** --> letras minúsculas.
 
 
-Object-Oriented Programming. (Programação orientado a objetos)
+<hr>
+<br>
 
 
-object
-attribute -> Caracteristicas de um objeto;
-methods   -> Acoes que esse objeto pode fazer;
+## Criando uma Class
+:pencil2: Crie uma **Class** "Carro" com os seguintes attributes and methods:
 
-Praticamente tudo pode ser um objeto...
-
-Ex:
-Garrafa
-
-Garrafa é um objeto
-
+```java
 //attributes
-    String color = "black";
-    boolean empty = false;
-    int quantidade = 750;
+private String marca = "fiat";
+private String modelo = "uno";
+private String color = "Black";
+private int year = 2020;
+private int price = 50000;
+
+//constructors
+...
+
+//getters and setters
+...
 
 //methods
-drink(){
-    sysout("Voce bebeu agua");
+public static void acelerar(){
+    sysout("Voce está dirigindo o carro");
 }
 
-derramar(){
-    sysout("Voce derramou agua");
+public static void frear(){
+    sysout("Voce freiou o carro");
 }
+```
+
+<img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="left">
+
+Como boa prática, sempre deixamos nossos attributes como `private` e encapsulamos com os `getters and setters`.
 
 
+Beleza, criamos nossa Class. Vamos criar nossos objetos.
 
+<hr>
+<br>
 
-Esses objetos são criados a partir de uma class;
-Um objeto é uma instância de uma classe;
+## Criando um objeto
+Vamos criar um objeto do tipo **Carro**
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sempre que vamos criar um objeto, vamos criar na Class onde se encontra o `main method`.
 
-Class (Clasifica um objeto)
-É o molde que cria os objetos.
+### Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="25px" align="center">
 
-
-Quando eu crio um objeto, eu estou "instanciando" uma class em forma de um objeto.
-
-Class -> Define os atributos e methods dos objetos dessa class.
-É a blue print do meu objeto.
-É o molde do meu objeto.
-É o esquema de como vai ser meu objeto.
-
--Olhe a imagem "java-class-objects.jpg"
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Criando um objeto
-Vamos criar um objeto do tipo Carro;
-
-1-Primeiro, crie a class "Carro" com os attributes:
-    //attributes
-    String marca = "fiat";
-    String modelo = "uno";
-    String color = "Black";
-    int year = 2020;
-    int price = 50000;
-
-
-2-Crie os methods
-    //methods
-    public void acelerar(){
-        sysout("Voce está dirigindo o carro");
-    }
-
-    public void frear(){
-        sysout("Voce freiou o carro");
-    }
-
-
-
-
-3-Crie um objeto no method main:
-
-Syntax:
+```java
 ClassName objeto = new ClassName();
+```
+
+- `ClassName objeto` --> Estamos declarando um objeto da class tal.
+
+- `new` --> Estamos instanciando o objeto. Quando escrevemos `new` computador reserva um espaço na memória ram para esse objeto.
+
+- `ClassName()` --> Constructor;
+
+<br>
+<br>
+
+:pencil2: Crie 2 objetos da class **Cars** e imprima todos os attributes.
 
 
-ClassName objeto    -> Estou declarando o objeto.
-new                 -> Estou instanciando o objeto. Quando eu escrevo "new", o computador reserva um espaço na memória ram para esse objeto.
+:warning: Antes de utilizar uma Class, precisamos importar o package dessa Class. A própria *IDE* nos ajuda, clicando na :bulb:
 
-ClassName()         -> Constructor
+```java
+import main.java.br.com.leekbiel.projeto.classes.Cars;
+```
 
+```java
+public static void main(String[] args){
+Cars car1 = new Cars();
+Cars car2 = new Cars("Ferrari","f450","red",2022,5000000);
 
-Carro c1 = new Carro();
+System.out.println(car1.toString());
+System.out.println("\n\n"+car2.toString());
+}  
+```
 
+<br>
+<br>
 
-4- Imprima 2 atributos 2 methods do objeto.
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/12.packages/index.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
