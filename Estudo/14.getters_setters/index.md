@@ -1,151 +1,172 @@
-<!--
-get and set methods
+<h1 align="center">
+    getters and setters
+    <img src="https://cdn-icons-png.flaticon.com/512/2800/2800586.png" alt="image icon" width="90px" align="center">
+</h1>
 
-Como boa prática, sempre vou deixar meus atributos como private.
-Se eu quiser acessá-los, uso um method public.
+The Encapsulation serve para proteger attributes sensíveis dos usuários.
 
-get and set methods são usados para get(pegar) e set(setar/definir) o valor de um atributo private.
+Para encapsular nossos attributes/variables, precisamos:
 
-
-get method -> Pegar o valor do atributo;
-
-set method -> Definir o valor do atributo;
-
-Para criar um method, eu sigo a syntax:
-
-<modifier> <retorno> nomeDoMethod()
-
-se tiver void, não terá o return.
+- Declare os attributes com o modifier `private`
+- Criar `get` and `set` methods.
 
 
+Assim, se quisermos acessar esses attributes em outra Class, usamos os **getters and setters methods com o modifier `public`.**
 
 
+- `get method` --> Pegar/obter o valor de um attribute
+- `set method` --> Setar/definir o valor de um attribute
 
+<hr>
+<br>
 
-1-Crie um projeto com 2 packages, contendo 1 class em cada 1.
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="32px" align="center">
 
-    Pacote1
-        Class Programa
-    Pacote2
-        Class Personagem
+```java
+<modifier> <retorno> methodName()
+// se o retorno for 'void', sabemos que não terá retorno.
+```
 
+```java
+//attributes
+private String name = "Amanda";
 
-- Na Class Personagem coloque os atributos:
-    //attributes
-    String nome;
-    int forca;
-    double xp;
+//get
+public String getName(){
+    return this.name;
+};
 
-
-- Coloque esses atributos como private
-    private String nome;
-    private int forca;
-    private double xp
-
--Crie os methods get and set para o atributo "nome"
-
-// getMethod
-    public String getNome(){
-        return nome;
-    }
-
-Perceba que, como vou usar o "return", eu preciso tirar o void e colocar o datatype desse return.
-
-
-// setMethod
-    public void setNome(String name){
-        this.nome = name;
-    }
-
-Perceba que, como não vou usar o "return", vou deixar como void.
-Eu crio o parametro String "name" ou seja...
-
-
-O atributo "nome" do objeto atual, vai receber o parametro nome.
-
-
-
-
-
--Class "Programa" > method main () > crie um objeto
-
-import leekbiel.pacote2.Personagem;     Não esqueca de importar
-Personagem p1 = new Personagem();
-
--Chame os methods set and get e imprima na tela
-
-p1.setNome("Hulk");
-System.out.println(p1.getNome()); 
-
-
-eu poderia criar uma variable e atribuir o valor ao method
-
-String nome = p1.getNome();
-System.out.println(nome); 
-
-
-
-
-
-
--Crie setters and getters para os outros 2 atributos:
-
-
-// nome
-    public String getNome(){
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-// forca
-    public int getForca() {
-        return forca;
-    }
-
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
-// xp
-    public double getXp() {
-        return xp;
-    }
-
-    public void setXp(double xp) {
-        this.xp = xp;
-    }
-    
-
-
-- Class Programa > methods main > Set os valores desses atributos e imprima eles numa mesma frase:
-
-champion.setNome("Lucian");
-champion.setForca(12);
-champion.setXp(73.40d);
-
-System.out.format("Nome: %s  /Forca: %d  /XP: %.2f",champion.getNome(),champion.getForca(),champion.getXp());
-
-
-
-Se eu quisesse setar todos de uma vez, eu faria assim:
-
--Crio um method com os parametros que eu vou setar....
-
-E depois coloco o this.atributo vai receber o parâmetro tal.
-
-
-public void setAtributos(String nome,int forca,String classe,float xp){
-    this.nome = nome;
-    this.forca = forca;
-    this.classe = classe;
-    this.xp = xp;
-    statusGeral();
+//set
+public void setName(String name){
+    this.name = name;
 }
+```
 
+<hr>
+<br>
 
-Zica, né??
+## Praticando :pencil2:
 
--Crie um method toString(); e imprima todos os attributes;
+1. Crie uma class "Pessoas" com os seguintes attributes:
 
--->
+    ```java
+    public class Pessoas {
+        //attributes
+        private String name;
+        private Integer age;
+        private Double xp;
+    }
+    ```
+    Não esqueca deixá-los como `private`.
+
+<br>
+
+2. Crie os getters and setters methods:
+   ```java
+        public class Pessoas {
+        // attributes
+        private String name;
+        private Integer age;
+        private Double xp;
+
+        // constructors
+            // Constructor vazio
+        public Pessoas(){} 
+
+            //Constructor preenchendo todos os attributes
+        public Pessoas(String name, Integer age, Double xp){
+            this.name = name;
+            this.age = age;
+            this.xp = xp;
+        }
+
+        // getters and setters
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return this.age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public Double getXp() {
+            return xp;
+        }
+
+        public void setXp(Double xp) {
+            this.xp = xp;
+        }
+
+        //toStringMethod
+        @Override
+        public String toString() {
+            return "Pessoas [name=" + name + ", age=" + age + ", xp=" + xp + "]";
+        }
+
+    }
+   ```
+
+   - Como o get method retorna o valor do attribute, precisamos informar o datatype do retorno (String,Integer,Double,Carro,Object,etc...).
+
+   - Como no set method não retorna nenhum valor, deixamos o retorno como `void`.
+
+<br>
+
+3. Vá na class do main method , crie um objeto da class "Pessoas" ,**set** o valor de todos os attributes e imprima com o `toStringMethod()`.
+    
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Pessoas p1 = new Pessoas();
+
+            p1.setName("Paulo");
+            p1.setAge(44);
+            p1.setXp(45.53);
+
+            System.out.println(p1.toString());
+        }   
+    }
+    ```
+
+<br>
+
+4. Ao invés de setar um por um, crie um method lá na class "Pessoas" para setar todos os attributes de uma vez:
+
+    ```java
+    //class Pessoas
+    public void setAllAttributes(String name, Integer age, Double xp){
+            this.name = name;
+            this.age = age;
+            this.xp = xp;
+        }
+    // Criamos um method igual a um constructor. Easy!
+    ```
+
+    ```java
+    //Class Programa
+    public class Programa{
+        public static void main(String[] args){
+            Pessoas p1 = new Pessoas();
+
+        p1.setAllAttributes("Maria", 52, 60.73);
+
+            System.out.println(p1.toString());
+        }   
+    }
+    ```
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/15.constructor_static/1.constructor.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

@@ -17,6 +17,8 @@ Os modificadores de acesso, são usados para especificar o nível de visibilidad
 
 - `private` -->  Os attributes/methods só podem ser acessados pela class que o criou.
 
+<br>
+<br>
 
 :warning: O modifier de uma Class só pode ser `default` or `public`. Os modifiers `private` and `protected` usamos para attributes and methods. 
 
