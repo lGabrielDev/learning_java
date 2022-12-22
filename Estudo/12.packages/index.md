@@ -1,106 +1,89 @@
-<!-- (Apenas leitura..Não precisa exercitar) 
-packages
-São as pastas do meu projeto
+<h1 align="center">
+    Packages
+    <img src="https://cdn-icons-png.flaticon.com/512/2821/2821739.png" alt="image icon" width="90px" align="center">
+</h1>
+
+## Introduction
+
+Para o java, os diretórios/pastas são chamados de packages.
+
+| sistema operacional | pasta |
+| :---                | :---  |
+| Linux               | directories|
+| Windows             | folders |
+| git                 | repositories |
+| **java**            | **packages** |
 
 
-Quando eu crio um projeto, é gerado uma pasta "src". Essa pasta é o pacote padrão.
-
-Não é recomendado criar classes direto no "src". 
-
-Quando eu crio um projeto, o pacote principal vai ser o dominio da empresa ao contrário.
-
-Se eu trabalho no google, vai ser
-
-br/com/google
+Dentro desses packages/diretórios temos as classes.
 
 
-src
-    br/
-        com/
-            google/
-                pacote1
-                pacote2
-                pacote3
+Sempre que criamos um projeto, é gerado um package `src`. Esse diretório é o package padrão.
 
-Sacou??
+:warning: Não é recomendado criar classes direto na pasta `src`. Geralmente seguimos essa estrutura de diretórios:
 
-Se uma Class estiver dentro de um pacote, obrigatoriamente eu preciso colocar na primeira linha dessa Class o package que ela está.
+```txt
+src/main/java/br/com/empresaTal/nomeDoProjeto/classes
+src/main/java/br/com/empresaTal/nomeDoProjeto/interfaces
+etc...
+```
+<hr>
+<br>
 
-Os packets são em minúsculo;
+## Configure Classpath
+Sempre que criamos um projeto, precisamos configurar o **classpath** desse projeto. Ou seja, informar o diretório/package `src/`.
 
+Assim que criar o projeto, informe para a IDE(vsCode) qual é a pasta `src/` do projeto.
 
+```vscode
+CTRL + SHIFT + P
+"Configure Classpath"
+```
 
+<hr>
+<br>
 
-SEMPRE QUE CRIAR UM PROJETO JAVA, ADICIONE O DIRETORIO "SRC" NO CLASSPATH;
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(Faça)
-1-
--Crie um projeto
--Crie o packet principal "leekbiel" dentro de src
+## Informando o package
+Sempre que criamos uma Class, precisamos informar o package que ela está.
 
-Crie a a pasta principal como "leekbiel"
+```java
+package main.java.br.com.leekbiel.projeto.classes;
+```
 
+Se uma Class estiver dentro de um package, obrigatoriamente precisamos colocar na primeira linha dessa Class o package que ela está.
+<hr>
+<br>
 
--Crie os packets nessa hierarquia:
+## Importando uma class
+Sempre que queremos utilizar uma Class , precisamos importá-la.
 
-leekbiel/
-    videos/
-        Filme.java
-        Serie.java
-        Anime.java
-    interface_grafica/
-        TelaPrincipal.java
-        botoes/
-            BotaoStart.java
-            BotaoReiniciar.java
+- Class Scanner
+- Class Math
+- Class ArrayList
+- Class Cars ou qualquer outra Class...
 
-   
+```java
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+//etc...
+```
 
-Referenciando o objeto;
-Na Class "Filmes", crie 3 atributos:
-
-    String nome;
-    String genero;
-    int nota;
-
-Na Class "Principal" crie um objeto da class Filme:
-
-Filme f1 = new Filme();
-
-Deu ruim....
-
-Como a class "Filme" está em um package diferente da class "Principal", eu preciso referenciar o caminho da classe.
-
-leekbiel.videos.Filme f1 = new leekbiel.videos.Filme();
-
-Agora da bom!
-
-Mas fica bem ruim de ler o código. Então... Basta importar a class.
+:bulb: Aqui, também informamos no início da Class, lá em cima.
 
 
-Importando a class
+<br>
 
-Uma forma mais simples, seria importando a class.
+### Importando todas as classes de um package
+Ao invés de informar uma class específica, informamos o `*`:
+```java
+import java.util.*;
+```
 
-import leekbiel.videos.Filme;
+<br>
+<br>
 
-
-
-
-
-
-
-Importando todas as class de um package
-
-import leekbiel.videos.*;
-
-Aqui, eu pego todas as classes do packet
-
--Crie um objeto de cada class (Filme,Serie,Anime) e import o packet inteiro.
-
-    import leekbiel.videos.*;
-    Filme f1 = new Filme();
-    Serie a1 = new Serie();
-    Serie s1 = new Serie();
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/13.modifiers/index.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
