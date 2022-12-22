@@ -7,7 +7,7 @@
 
 Para o java, os diretórios/pastas são chamados de packages.
 
-| sistema operacional | pasta |
+| sistema operacional | pasta <img src="https://cdn-icons-png.flaticon.com/512/3767/3767094.png" alt="folder icon" width="20px" align="center"> |
 | :---                | :---  |
 | Linux               | directories|
 | Windows             | folders |
