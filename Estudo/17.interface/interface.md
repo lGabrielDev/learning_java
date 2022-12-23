@@ -1,163 +1,258 @@
-<!--    
-interface
-Um contrato de regras que uma class deve seguir. Tudo que está em interface PRECISA estar na classe.
-Como uma class nao pode dar mais de um extends (heranca), uma opcção é a interface. Aqui eu posso usar multiplas interfaces.
+<h1 align="center">
+    interface
+    <img src="https://cdn-icons-png.flaticon.com/512/2666/2666501.png" alt="image icon" width="90px" align="center">
+</h1>
+
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
+`interface` é um contrato de regras que deve ser seguido por uma Class. A Class que implementar essa interface É OBRIGADA a utilizar todos os methods descritos no contrato.
+
+:bulb: Uma Class pode implementar várias interfaces.
+
+Para uma class implementar uma interface, vamos usar a keyword `implements`.
+
+<hr>  
+<br>
+
+## Características de uma interaface <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
+
+- Não podemos criar um objeto.
+
+- Nao podemos ter constructors, obviamente porque nao podemos criar objetos.
+
+- Os methods na interface nao tem body `{}`. Quem vai criar o corpo desses methods é a class que implementar esse contrato.
+
+- Por padrao, os methods são `abstract` (sem corpo) e `public`.
+
+<hr>  
+<br>
+
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
+A syntax é igualzinho a criação de uma class. Só que ao invés de `class`, vamos usar `interface`.
+
+### Criando uma class
+```java
+<modifier> class <ClassName>
+public class Pessoas
+```
+
+### Criando uma interface
+```java
+<modifier> interface <InterfaceName>
+public interface Gritos
+```
+
+<hr>  
+<br>
 
 
-Syntax:
-<modifier> interface <interfaceName>
+## Implementando 1 interface
 
-public interface Animal{
+1. Crie uma interface "Animal", que será nosso contrato. Crie 2 methods nesse contrato.
 
-}
-
-O arquivo continua sendo ".java"
-
-Para implementar a interface em uma class eu uso a keyword "implements"
-
-
-Quando eu crio uma interface...
-
--Não posso criar um objeto;
--Os methods na interface nao tem body {};
--Por padrao, os methods são abstract e public;
--Nao pode ter construtor, obviamente porque nao posso criar objetos;
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-abstract class X interface
-
-abstract class:
--Uma class pode ter apenas 1 extends. Ela pode herdar de 1 class apenas.
--Posso criar tanto methods com corpo ou methods abstract sem corpo;
-
-
-
-interface:
--Posso usar varias interfaces em 1 classe.
--Posso criar apenas methods sem corpo {}.
-
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------
-Usando apenas 1 interface
-    -Crie uma interface
-        .Crie um method sem corpo {};
-    
-public interface Animal{
-    public void emitirSom();
-}
-
--Crie uma class e implemente a interface.  Não esquece do @Override.
--Use o import
-
-public class Cachorro implements Animal{
-    @Override
-    public void emitirSom(){
-        System.out.println("Barulho de cachorro");
+    ```java
+    public interface Animal {
+        //methods do contrato
+        public String barulho();
+        public String mordida();
     }
-}
+    ```
+<br>
 
-Na interface eu deixei meu method sem corpo.
-Quando eu implemento a interface na classe eu PRECISO colocar o method e dizer o corpo desse method.
-------------------------------------------------------------------------------------------------------------------------------------------------
-Usando várias interfaces
--Crie mais 2 interfaces cada uma com 1 method.
+2. Crie uma class "Cachorro" e implement os methods da interface/contrato.
+   ```java
+    public class Cachorro implements Animal{
+        //attributes
+        private String name;
+        private String raca;
 
--Implement essas 2 interfaces na class Cachorro. Não esquece do @Override.
-    public class Cachorro implements Animal,interface2,interface3
+        //constructors
+        public Cachorro(String name, String raca){
+            this.name = name;
+            this.raca = raca;
+        }
 
--Agora vamos ter 3 interfaces na class Cachorro.
+        //getters and setters
+        public String getName(){
+            return this.name;
+        }
 
--Crie um objeto Cachorro e chame os 3 methods.
+        public void setName(String name){
+            this.name = name;
+        }
 
-System.out.println(c.emitirSom()); 
-System.out.println(c.emitirSom2()); 
-System.out.println(c.emitirSom3()); 
+        public String getRaca(){
+            return this.raca;
+        }
+        
+        public void setRaca(String raca){
+            this.raca = raca;
+        }
 
+        //toString() method
+        @Override
+        public String toString(){
+            return String.format("\n\nName: %s\nRaça: %s",this.name,this.raca);
+        }
 
-Não esquece de colocar o import se as interfaces estiverem em outro package.
-------------------------------------------------------------------------------------------------------------------------------------------------------
-Exemplo 2:
+        //methods implementados da interface/contrato "Animal"
 
-1- Crie 2 interface
-    "Presa"
-    "Predador"
+        @Override
+        public String barulho() {
+            return "AU AU!! Sou um cachorro latindo!! AU AU!!";
+        }
 
-2- Crie um method para cada interface. Esses methods serão obrigatorios nas classes que usarem essa interface
-.
-
-    public interface Predador{
-        //methods
-        public void hunting();
+        @Override
+        public String mordida() {
+            return "Estou mordendo sua perna. AU AU!";
+        }
     }
+   ```
+   :bulb: A partir do momento que implementamos uma interface, a própria IDE(VS Code) nos ajuda dizendo que temos que implementar os methods do contrato :bulb:. Aqui sim, devemos escrever o corpo `{}` desses methods.
 
+<br>
 
-    public interface Presa {
-        //methods
-        public void fugindo();
+3. Crie um objeto da class "Cachorro" no method main, e imprima os methods implementados:
+
+    ```java
+        public class Programa{
+        public static void main(String[] args){
+            Cachorro jake = new Cachorro("Jake","Husky");
+            System.out.println(jake); //toString() method, é a mesma coisa.
+            System.out.println(jake.barulho());
+            System.out.println(jake.mordida());
+        } 
     }
+    ```
+<hr>  
+<br>
 
-Beleza, criei minhas interfaces.
+## Implementando multiple interfaces
+Basta, separá-las por `,` (comma).
+1. Crie mais 2 interfaces/contratos cada uma contendo apenas 1 method.
 
+    ### interface2
 
-3-Crie 2 classes
-    "Leao"
-    "Zebra"
-
-
-4- implements a interface "Presa" na class "Zebra"
-    public class Zebra implements Presa{};
-
-5- SOBREESCREVE o method da interface:
-    @Override
-    public void fugindo() {
-        System.out.println("A zebra está fugindo do predador!");
+    ```java
+    public interface Interface2 {
+        //methods do contrato
+        public String cachorroMijando();
     }
-}
+    ```
+    <br>
 
-
-6- Faça o mesmo para a class "Leao";
--Implemente a interface
--Use o method herdado dessa interface
-
-7- Crie um objeto de cada class e chame os methods:
-
-    Zebra z1 = new Zebra();
-    Leao l1 = new Leao();
-
-    z1.fugindo();
-    l1.hunting();
-
-
-8- Crie outra class "Peixe"
-Peixe pode ser tanto presa quanto predador... Vai depender do tamanho do peixe.
-
--implements as duas interfaces na class "Peixe":
-    public class Peixe implements Predador,Presa{}
-
-Perceba que eu preciso importar os methods das 2 interfaces. Sou OBRIGADO a usar os methods das interfaces:
-
-    @Override
-    public void fugindo() {
-        System.out.println("Peixe está fugindo");
+    ### interface3
+    ```java
+    public interface Interface3{
+        //methods do contrato
+        public String cachorroCorrendo();
     }
+    ```
 
-    @Override
-    public void hunting() {
-        System.out.println("Peixe está caçando");
+    :warning: Não esquece de importar o package da interface que for usar.
+
+<br>
+
+2. Implemente essas duas interfaces na class "Cachorro":
+
+    ```java
+    public class Cachorro implements Animal, Interface2, Interface3{
+        //attributes
+        private String name;
+        private String raca;
+
+        //constructors
+        public Cachorro(String name, String raca){
+            this.name = name;
+            this.raca = raca;
+        }
+
+        //getters and setters
+        public String getName(){
+            return this.name;
+        }
+
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public String getRaca(){
+            return this.raca;
+        }
+        
+        public void setRaca(String raca){
+            this.raca = raca;
+        }
+
+        //toString() method
+        @Override
+        public String toString(){
+            return String.format("\n\nName: %s\nRaça: %s",this.name,this.raca);
+        }
+
+
+        //methods implementados da interface/contrato "Animal"
+        @Override
+        public String barulho() {
+            return "AU AU!! Sou um cachorro latindo!! AU AU!!";
+        }
+
+        @Override
+        public String mordida() {
+            return "Estou mordendo sua perna. AU AU!";
+        }
+
+
+        //methods implementados da interface/contrato "Interface2"
+        @Override
+        public String cachorroMijando(){
+            return "Dog peeing";
+        }
+
+
+        //methods implementados da interface/contrato "Interface3"
+        @Override
+        public String cachorroCorrendo(){
+            return "Run dog, run!";
+        }
     }
+    ```
+<br>
+
+3. Crie um objeto da class/tipo "Cachorro", e chame todos os methods implementados.
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Cachorro c1 = new Cachorro("Jake","Husky");
+            
+            System.out.println(c1); //or c1.toString(); --> mesma coisa.
+            System.out.println("\n" + c1.barulho() + "\n");
+            System.out.println(c1.mordida() + "\n");
+            System.out.println(c1.cachorroMijando() + "\n");
+            System.out.println(c1.cachorroCorrendo() + "\n");
+        } 
+    }
+    ```
+<hr>  
+<br>
+
+## interface x abstract class
+
+### `abstract class` 
+- Uma class pode dar `extends` somente 1 vez. Podendo herdar apenas de 1 class.
+- Podemos criar tanto methods com corpo, quanto `abstract` methods sem corpo `{}`.
+
+<br>
+
+### `interface`
+- Uma class pode `implements` várias interfaces.
+- Só podemos criar methods sem corpo `{}`.
 
 
-9- Crie um objeto "Peixe" e chame os 2 methods.
-    Peixe p1 = new Peixe();
-    p1.fugindo();
-    p1.hunting();
+<br>
+<br>
 
-Easy!!
-------------------------------------------------------------------------------------------------------------------------------------------------------
-Resumindo.... É um modelo do que uma class deve fazer.
-
-Quando uma class implementa uma interface, ela é OBRIGADA a seguir aqueles methods.
-   
-------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/18.enum/enum.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
