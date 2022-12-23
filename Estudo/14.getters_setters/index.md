@@ -120,7 +120,7 @@ public void setName(String name){
 
 <br>
 
-3. Vá na class do main method , crie um objeto da class "Pessoas" ,**set** o valor de todos os attributes e imprima com o `toStringMethod()`.
+3. Vá na class do main method , crie um objeto da class "Pessoas" , **set** o valor de todos os attributes e imprima com o `toString()`.
     
     ```java
     public class Programa{
