@@ -1,410 +1,522 @@
-<!--
+<h1 align="center">
+    enum
+    <img  src="https://cdn-icons-png.flaticon.com/512/7627/7627943.png" alt="blueprint icon" width="100px" align="center">
+</h1>
 
-1-Chamando um atributo de outra classe, sem precisar criar um objeto.
+## constants
+- `constant` --> final variable(variáveis que não podem ter o valor alterado). Não podemos atribuir outro valor a essa variable, pois elas já possuem um valor final setado.
 
-Syntax:
-    ClassName.attribute;
+  
+<br>
 
--Crie uma class qualquer
-    -Crie apenas 1 atributo static final. Ou seja, uma variable que terá o valor permanente(final) e poderá ser chamado sem precisar criar um objeto(static).
-
-        static final String nome = "jake";
-
-    Perceba que eu precisei inicializar a variable com algum valor. Isso porque estou definindo uma variable como final. Ela precisa ter algum valor, já que não podera ser alterado esse valor. È um variable final.
-
-
--Imprima esse atributo no method main
-
+:pencil2: Crie uma ****final variable****, e tente alterar o valor dela.
+```java
+public class Programa{
     public static void main(String[] args){
-        System.out.println(Animal.nome);
+        final String NAME = "Gabriel";
+        NAME = "Paulo"; // not possible
     }
-
-static -> Objetos dessa class compartilham o mesmo attribute e voce nao precisa criar um objeto para chamá-lo.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-enum - Enumeradores
-enum -> É um conjunto(set) de valores fixos;
-
-Constantes -> São final variables. Ou seja, são variaveis onde o valor não vai mudar.
-Ex: dias da semana(SEGUNDA,TERCA,QUARTA,ETC....)
-
-Sempre que for criar uma constante(final variable) eu coloco com letras MAIÚSCULA(UPPERCASE).
-
-
-O enum é utilizado quando eu tenho tipos de dados que nao vao ser alterados;
-
-Ex:
-Se eu criar uma class onde um dos attributes é o genero da pessoa...
-
-Gênero só existe 2 (M,F); Então.... esse attribute, eu colocaria com o datatype enum;
-
-Ex:
-Uma class onde um dos attributes é a classe do personagem:
-Classes sao definidas... Warrior,mage,ninja,etc... São valores fixos;
-
-Sacou???
-
-
-
-
-Syntax:
-    public enum nomeTal{}
-
-Percebe que, para criar um enum eu faço a mesma coisa como se tivesse criando uma class ou uma interface.
-
-Vamos criar um enum:
-
-1- Crie um arquivo enum (como se estivesse criando uma class)
-
-    public enum Level {
-    
-    }
-
-2- Coloque as constantes (final variables)
-
-    public enum Level {
-    LOW,MEDIUM,HIGH
 }
+```
+<br>
 
-3- Deixe mais organizado
+### Exemplos de constants:
 
-public enum Level {
-    LOW,
-    MEDIUM,
-    HIGH
-}
+- Dias da semana (MONDAY, TUESDAY, WEDNESDAY, etc...)
+- Elos no lol (BRONZE, SILVER, GOLD, PLATINE, etc...)
+- Classes do mmorpg (ASSSASIN, GUNNER, WARRIOR, NINJA, ARCHER, etc...)
+- Armas de um mmorpg (SWORD, SWORD AND SHIELD, KATANA, etc...)
+- Gênero/sexo (MALE, FEMALE)
+- Sabores de sorvete (MORANGO, CHOCOLATE, COCO, LIMÃO, etc...)
+  
+Se ligou?? São valores fixos, que não serão alterados.
+
+:warning: Como boa prática, escrevemos o nome de uma **constant** em UPPERCASE LETTERS.
+
+<br>
+<hr>
+
+## enum
+
+`enum` funciona igualzinho a uma class, contendo attributes, constructors, getters and setters methods e outros methods, a diferença é que podemos ter constants (`static final variables`).
+
+<br>
+
+Da mesma forma que criamos uma **class** ou uma **interface**, vamos criar uma **enum**.
+
+<br>
+
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
+A syntax é igualzinho a criação de uma class ou uma interface. Só que ao invés de `class`, vamos usar `enum`.
+
+### Criando uma class
+```java
+<modifier> class <ClassName>
+public class Pessoas{}
+```
+
+### Criando uma interface
+```java
+<modifier> interface <InterfaceName>
+public interface Gritos{}
+```
+
+### Criando uma enum de constants
+```java
+<modifier> enum <EnumName>
+public enum Weapons{}
+```
+
+:bulb: Nome de Class sempre em MAIÚSCULO.
+
+<br>
+
+- Nome de `Class`, `Interface`, `Enum` --> MAIÚSCULO
+- Nome de `variables`/`attributes`/`objects`/`methods`/ --> minúsculo
+
+<hr>
+<br> 
+
+## Características da enum class <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
+
+- Possui o mesmo conteúdo de uma class comum. Porém, contêm as constants (`static final variables`)
+- O constructor da enum class é sempre `private`.
+- Na enum, passamos os argumentos do constructor da constant ali mesmo. Diferente da class normal, que passamos quando criamos o objeto.
+
+  
+<hr>  
+<br>
 
 
-Por padrão, todas as constantes do enum já vem como public static final;
+## Criando uma enum de constants simples
 
+:pencil2: Crie um a `enum` que vai conter as seguintes constants, que representam a força de um personagem:
 
+1. Crie a **enum** class:
+- LOW
+- MEDIUM
+- HIGH
 
-4- Crie um objeto do tipo enum
-    Level l1 = Level.LOW;
-
-Com enum eu NÃO uso o "new"; Apenas escreve enumName "." atributo que eu quero pegar.
-
-enum não é um objeto, onde eu uso o "new";
-enum é um enum.
-
-
-5-Imprima essa variable:
-    Level l1 = Level.LOW;
-    
-    System.out.println(l1);
-
-
-6- Crie um switch case para essa variable;
-    Se ela for igual a constante tal da enum faça isso
-    Se ela for igual a constante tal da enum faça aquilo, etc...
-
-    switch(l1){
-        case LOW:
-            System.out.println("É level baixo");
-            break;
-        case MEDIUM:
-            System.out.println("É level médio");
-            break;
-        case HIGH:
-            System.out.println("É level alto");
-            break;
-}
-
-Easy!
-
-
-
-7- Apague tudo e crie esse enum na mesma class do programa principal:
-
-public class App{
-    //enum
-    public enum Level{
+    ```java
+    //enum class
+    public enum Forca{
+        //constants
         LOW,
         MEDIUM,
-        HIGH
+        HIGH;
+
+        //attributes
+
+        //constructors
+
+        //methods...
     }
 
+    // Isso é a mesma coisa que isso:
+
+
+    //class normal
+    public class Teste {
+        //attributes
+        public static final String LOW = "level baixo";
+        public static final String MEDIUM = "level medio";
+        public static final String HIGH = "level alto";
+    }
+    ```
+    :bulb: Na **enum** class, todo attribute é uma `static final variable`.
+
+<br>
+
+2. Crie um objeto enum e atribua uma dessas 3 constants:
+   
+   ```java
+        public class Programa{
+        public static void main(String[] args){
+            Forca naruto = Forca.HIGH; // Como é um static attribute, acessamos diretamente pela Class
+            System.out.println(naruto);
+        }
+    }
+   ```
+<br>
+
+1. Crie um `switch case` para printar uma mensagem na tela. Se naruto for `HIGH` printa tal coisa, se naruto for `MEDIUM` printar outra, etc...
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Forca naruto = Forca.MEDIUM;
+            
+            switch(naruto){
+                case HIGH:
+                    System.out.println("Naruto é bem forte!");
+                    break;
+                case MEDIUM:
+                    System.out.println("Naruto tem uma força mé...");
+                    break;
+                case LOW:
+                    System.out.println("Naruto é fraqui...");
+                    break;
+            }
+        }
+    }   
+    ```
+<hr>  
+<br>
+
+## Criando uma enum dentro da class do main method
+Vai funcionar igualzin. Só criar a enum dentro da class.
+
+```java
+public class Programa{
+
+    //enum class
+    public enum Forca{
+        //constants
+        HIGH,
+        MEDIUM,
+        LOW;
+
+        //attributes
+    }
+
+    //main method
     public static void main(String[] args){
-        Level l1 = Level.LOW;
-        System.out.println(l1);
+        Forca naruto = Forca.LOW;
+        System.out.println(naruto);
     }
 }
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Exemplo 2:
-1-Crie um arquivo enum com 3 constantes(final variables)
-
-   public enum Level {
-    //constantes
-    LOW,
-    MEDIUM,
-    HIGH
-}
+```
+<hr>  
+<br>
 
 
-2-Crie uma class que vai conter apenas 1 atributo. Esse atributo vai ser do tipo do enum criado.
-    public class Personagem {
-    // attributes
-    Level forca;
-}
-    Esse atributo é do tipo enum "Level". Ou seja, ele só pode ter 3 valores(LOW,MEDIUM,HIGH);
+## Utilizando uma enum em uma class
 
-    Se eu colocar int vai dar bosta, se eu colocar String vai dar bosta.
-    Ele é um atributo do tipo enum "Level";
+:pencil2:Vamos criar uma class "Pessoa" onde um dos attributes será o "sexo". Esse attribute "sexo" será do tipo enum.
 
+1. Crie uma enum contendo as constants:
+   - Male
+   - Female
 
+    ```java
+    public enum Gender {
+        //constants
+        MALE,
+        FEMALE;
 
-3- Crie um construtor nessa class. Assim que eu instanciar um objeto "Personagem" eu atribua um valor a esse atributo.
+        //attributes
+        
+        //...
 
-public class Personagem {
-    // attributes
-    Level forca;
-
-    //constructor
-    public Personagem(Level forca){
-        this.forca = forca;
     }
-}
+    ```
 
+<br>
 
+2. Crie uma class "Pessoa", onde um dos attributes será do tipo "Gender".
 
-4- Crie um objeto do tipo Personagem e atribua um valor no construtor
-    Personagem goku = new Personagem(Level.HIGH);
+    ```java
+    public class Pessoa {
+        //attributes
+        private String name;
+        private Integer age;
+        private Gender sexo; // DALE
 
-5- Imprima o artibuto do objeto:
-        System.out.println(goku.forca);
-
-Percebeu o quao importante é o enum???
-
-(só imagine, não precisa fazer)
-Imagina que voce criou uma class "Personagem" e lá tem um atributo "classePersonagem";
-
-Se eu criar um enum com apenas 3 classes (NINJA, WARRIOR, MAGE);
-Somente essas constantes podem ser atribuidas a esse atributo. Sacou???
-
-
-
-Outro exemplo:
-Imagine que eu criei uma class "Pessoa" e essa classe tem o atributo "genero".
-
-São apenas 2 generos(MASCULINO, FEMININO)
-Então, eu crio um enum com essas duas constantes.
-
-Aí, esssa variable "genero" só poderá ser atribuído essas 2 constantes.
-
-
-Se ligou????
-
-
--Faça esse exemplo do genero.
-    Pessoa p1 = new Pessoa("Gabriel",25,Genero.MALE);
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Atribuindo valor pra cada constante
-
-Crie um enum onde vai ter algumas constantes "veiculos". Cada veiculo vai ter uma velocidade.
-
-
-1- Crie um enum "Veiculos" onde terá apenas 3 constantes.
-public enum Veiculos {
-    //constants
-    BIKE,
-    CAR,
-    JATO
-}
-
-
-2- Atribua um valor para cada constante
-    //constants
-    BIKE(40),
-    CAR(500),
-    JATO(7000)
-
-
-3-Crie um atributo com o mesmo tipo de dado da constant.
-    int speed;
-
-
-
-4-Crie um construtor.
-
-    private Veiculos(int speed){
-        this.speed = speed;
-    }
-
-Perceba que o modifier está "private".
-No enum, o constructor tem o modifier sempre em "private";
-
-"O meu atributo 'speed' vai receber o parametro 'speed'."
-Esse parametro automaticamente é informado quando eu uso a constante.
-Lembra? 
-
-BIKE(40),
-CAR(500),
-JATO(7000);
-
-Esse valor entre parenteses é o construtor.
-Quando eu crio uma constante e passo o constructor, é como se eu tivesse criando um objeto enum e estabelecendo os argumentos, sacou?
-
-
-
-
-
-
-
-5- Crie um objeto enum no method main e imprima a consante e o valor dessa constante
-    Veiculos v1 = Veiculos.BIKE;
-
-    System.out.println(v1);
-    System.out.println(v1.speed);
-
-
-
-
--Apague tudo
-
-
-6-
--Crie um enum com 2 constantes (HEROI,VILAO)
--Atribua uma String no construtor de cada constant
--Crie uma variable com o mesmo tipo do constructor
--Crie o constructor
-
-    public enum Personagem {
-    //constants
-    HEROI("bonzinho"),
-    VILAO("do mal");
-
-    //attributes
-    String status;
-
-    //constructor
-    private Personagem(String status){
-        this.status = status;
-    }
-}
-
-Perceba que o modifier do constructor está "private".
-No enum, o constructor tem o modifier sempre em "private";
-
-
--Crie um objeto do tipo enum criado
-    public static void main(String[] args){
-        Personagem p1 = Personagem.HEROI;
-
-        System.out.println(p1);
-        System.out.println(p1.status);
-    }
-
-
-
-O enum funciona quase igual uma classe...
-A diferenca é que eu posso ter constantes (final variables). Por isso que eu passo os attrirbutos delas alí no enum mesmo, e não quando eu crio um objeto enum.
-
-Quando eu crio uma constante com (), eu estou instanciando ali mesmo.
-
-Na enum, eu passo os argumentos do constructor ali mesmo. Diferente da class, que eu passo quando crio um objeto.
-
--Apague tudo
-
-
-
-
-Se ligou????
-
-Quando eu instancio um objeto de uma class eu passo o construtor no method main
-
-O construtor do enum é diferente. Eu passo direto no enum.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(IMPORTANTE... faça!)
-
-Criando vários constructor
-
-Vamos criar um enum, ou seja.... Variables com valores já setados e que eu sei que não vai mudar.
-
-
-
-A ideia é criar um enum com classes de um jogo (mago,warrior,lancer,gunner).
-
-1- Crie um enum "ClassesPersonagem";
-2- Crie as constants (variaveis com valor final que nao vai mudar)
-    //constantes
-    WARRIOR,
-    NINJA,
-    MAGE,
-    GUNNER;
-
-3- Agora, crie os attributes que toda classe possui.
-
-    String weapon;
-    int forca;
-    int defesa;
-    String regiao;
-
-
-
-4- Crie o constructor
-    //constructors
-
-    private ClassesPersonagem(String weapon, int forca,int defesa, String regiao){
-        this.weapon = weapon;
-        this.forca = forca;
-        this.defesa = defesa;
-        this.regiao = regiao;
-    }
-
-
-Lembre-se que o modificador do constructor enum é SEMPRE private;
-
-5- Passe os argumentos desse constructor nas constants:
-    //constantes
-    WARRIOR("Sword and shield", 5,8,"Palácio"),
-    NINJA("Katana",7,6,"Templo sombrio"),
-    MAGE("Bastao",8,3,"Templo da luz"),
-    GUNNER("Metralhadora",8,3,"City");
-
-Easy!
-
-
--Boas práticas....
--Deixe todos os attributes como private e crie os getters and setters
-
-
-6- Agora, vamos criar uma class "Personagem";
-
-7- Crie os attributes:
-    //attributes
-    String name;
-    Integer age;
-    ClassesPersonagem classe;
-
-Perceba que eu criei um attributo do tipo enum, ou seja.... Só será permitido aquelas classes do enum... Sacou??
-Eu LIMITO  o que pode ser escrito ali. SACOU??
-
-
-
-
-8- Boas práticas... Coloque o modifier private e crie os getters and setters;
-
-
-9- Crie o constructor:
-     //constructors
-        public Personagem(String name, int age, ClassesPersonagem classe){
+        //constructors
+        public Pessoa(String name, Integer age, Gender sexo){
             this.name = name;
+            this.age = age;
+            this.sexo = sexo;
+        }
+
+        //getters and setters
+        public String getName(){
+            return this.name;
+        }
+
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(Integer age) {
             this.age = age;
         }
 
-10- Crie um objeto "Personagem" e imprima todos os attributes:
+        public Gender getSexo(){
+            return this.sexo;
+        }
 
-        Personagem p1 = new Personagem("Pedrin11", 16, ClassesPersonagem.GUNNER);
+        public void setSexo(Gender sexo){
+            this.sexo = sexo;
+        }
 
-        System.out.println(p1.getName());
-        System.out.println(p1.getAge());
-        System.out.println(p1.getClasse());
+        //toString method
+        @Override
+        public String toString(){
+            return String.format("\n\nName: %s\nAge: %d\nGênero: %s",this.name,this.age,this.sexo);
+        }
+    }
+    ```
 
-        System.out.println("\t"+p1.getClasse()+":");
-        System.out.println(p1.getClasse().getWeapon());
-        System.out.println(p1.getClasse().getForca());
-        System.out.println(p1.getClasse().getDefesa());
-        System.out.println(p1.getClasse().getRegiao());
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+<br>
+
+3. Crie um objeto "Pessoa" e imprima todos os attributes.
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Pessoa p1 = new Pessoa("Gabriel",25,Gender.MALE);
+            System.out.println(p1.toString()); // ou apenas System.out.println(p1);
+        }
+    }
+    ```
+    :bulb: Perceba que acessamos o attribute "sexo" do tipo "Gender" in a static way (diretamente pela class).
+
+<hr>
+<br>
+
+## Atribuindo um valor para uma constant
+Igualzinho a uma class normal, aqui na **enum** class também podemos criar **attributes**, **constructors**, **getters and setters** e **methods**.
+
+A diferença é que aqui, passamos os argumentos diretamente dentro das constants. É como se as constants fossem objetos, sacou??
+
+
+- Em uma class comum, o method constructor é chamado assim que criamos um objeto.
+
+- Na enum class é diferente. O method constructor é chamado dentro da enum class, quando declaramos uma constant.
+
+
+:pencil2:
+
+1.  Crie uma enum class "Veiculos"  contendo 3 constants:
+
+- BIKE
+- CAR
+- JATO
+
+    ```java
+    public enum Veiculos {
+        //constants
+        BIKE,
+        CAR,
+        JATO;
+
+        //attributes
+
+        //constructors
+
+        //getters and setters
+
+        //toString method
+    }
+    ```
+    <br>
+
+    Vamos dizer, que queremos saber a velocidade de cada veículo.
+
+2. Vamos atribuir um valor a essas constants. Cria uma variable e faça todo o procedimento que voce faria em uma class normal. Crie o constructor, getters and setters, etc...
+
+    ```java
+    public enum Veiculos {
+        //constants
+        BIKE(50),
+        CAR(170),
+        JATO(500);
+
+        //attributes
+        public Integer speed;
+
+        //constructors
+        private Veiculos(Integer speed){ // os constructors da enum class sempre serão `private`
+            this.speed = speed;
+        }
+
+        //getters and setters
+        public Integer getSpeed(){
+            return this.speed;
+        }
+
+        public void setSpeed(Integer speed){
+            this.speed = speed;
+        }
+
+        //toString method
+        @Override
+        public String toString(){
+            return String.format("Speed %d",this.speed);
+        }
+    }
+    ```
+
+:bulb: Quando criamos uma constant e passamos os argumentos do constructor, é como tivessemos criando um objeto enum e estabelecendo os argumentos, sacou?
+
+Se ligou?? A constant funciona igualzinho a um objeto. Se criamos um constructor, somos obrigados a preencher os argumentos desse objeto.
+
+
+Easy! :sunglasses:
+
+
+<hr>
+<br>
+
+
+## Atribuindo valores para multiples constant
+Imagina um **rpg de mesa**, onde o usuário vai criar um personagem pra ele jogar. Um dos attributes desse personagem é a "classeDoPersonagem". Esse attribute será do tipo **enum class**, ou seja, só temos algumas classes para o jogador escolher.
+
+<br>
+
+1. Crie uma **enum class** para armazenar todos as classes do nosso mmorpg:
+
+- Warrior
+- Ninja
+- Mage
+
+    ```java
+    public enum ClasseDoPersonagem {
+        //constants
+        WARRIOR("Warior",5,8,"Cidade da luz"),
+        NINJA("Ninja",7,5,"Floresta sombria"),
+        MAGE("Mage",8,4,"Bosque das fadas");
+
+        //attributes
+        String name;
+        Integer forca;
+        Integer defesa;
+        String regiao;
+
+
+        //constructors
+        private ClasseDoPersonagem(String name,Integer forca, Integer defesa, String regiao){
+            this.name = name;
+            this.forca = forca;
+            this.defesa = defesa;
+            this.regiao = regiao;
+        }
+
+        //getters and setters
+        public Integer getForca() {
+            return forca;
+        }
+
+        public void setForca(Integer forca) {
+            this.forca = forca;
+        }
+
+        public Integer getDefesa() {
+            return defesa;
+        }
+
+        public void setDefesa(Integer defesa) {
+            this.defesa = defesa;
+        }
+
+        public String getRegiao() {
+            return regiao;
+        }
+
+        public void setRegiao(String regiao) {
+            this.regiao = regiao;
+        }
+
+        //toString() Method
+        @Override
+        public String toString(){
+            return String.format("Name: %s\nForca: %d\nDefesa: %d\nRegião: %s",this.name,this.forca,this.defesa,this.regiao);
+        }
+    }
+    ```
+    Perceba que nós passamos os argumentos do constructor diretamente nas constants.
+
+    Sempre que um usuário escolher a class "Warior", os attributes dessa class já foram setados. Se ligou??
+
+<br>
+
+2. Cria uma class "Personagem", que representa a conta de um usuário no "WOW".
+
+    ```java
+        public class Personagem {
+        //attributes
+        String name;
+        Integer age;
+        String email;
+        ClasseDoPersonagem classeEscolhida; // enum bolado criado
+
+        //constructors
+        public Personagem(String name, Integer age, String email, ClasseDoPersonagem classeEscolhida){
+            this.name = name;
+            this.age = age;
+            this.email = email;
+            this.classeEscolhida = classeEscolhida;
+        }
+
+        //getters and setters
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public ClasseDoPersonagem getClasseEscolhida(){
+            return this.classeEscolhida;
+        }
+
+        public void setClasseEscolhida(ClasseDoPersonagem classeEscolhida){
+            this.classeEscolhida = classeEscolhida;
+        }
+
+        //toString method
+        @Override
+        public String toString(){
+            return String.format("\n\n=== Dados do personagem ===\nName: %s\nAge: %d\nEmail: %s\n=== Dados da classe ===\n%s",this.name,this.age,this.email,this.classeEscolhida);
+        }
+    }
+    ```
+<br>
+
+3. Crie um objeto "Personagem" e passe os argumentos do constructor.
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Personagem p1 = new Personagem("bielzinho123",25,"bielzin@gmail.com",ClasseDoPersonagem.NINJA);
+            Personagem p2 = new Personagem("amandinhaBolada",29,"amanda222@gmail.com",ClasseDoPersonagem.MAGE);
+
+            System.out.println(p1);
+            System.out.println("\n");
+            System.out.println(p2);
+        }
+    }
+    ```
+
+    O procedimento de criar um constructor e passar os argumentos é igualzinho a de uma class comum. Só que aqui na enum class, passamos os argumentos assim que declaramos a constant.
+
+    :sunglasses:
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/18.1.encapsulation/encapsulation.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

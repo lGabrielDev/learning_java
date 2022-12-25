@@ -53,3 +53,25 @@ Criar artigos simples para mostrar seu conhecimento:
 
 Criar uma página html e css para mostrar um conhecimento basico de front
 -----------------------------------------
+
+--------------------------------------------------------------------------------------------------
+Ideia 4
+
+Criar um programinha onde o usuário vai escolher uma class para seu personagem no mmorpg.
+
+O attriute "classeDoPersonagem" vai ser do tipo enum class. Easy!
+
+Antes de o usuário escolher a "classe", podemos printar na tela as info de cada classe.
+
+Colocar um botao de "confirmar escolha de classe". Ex:
+
+1. Usuario escolhe a classe "Ninja"
+
+2. Aparece as opcoes:
+    - Mostrar status da classe "Ninja"
+    - Escolher outra classe
+
+3. Confirmar escolha da classe?
+
+
+4. Classe escolhida com sucesso! Dale!
