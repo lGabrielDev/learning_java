@@ -7,8 +7,8 @@
 Java é uma linguagem orientada a objetos. Aos olhos do java, tudo pode ser considerado um objeto.
 
 Todo objeto contêm:
-- attributes --> Características de um objeto.
-- methods --> Ações que esse objeto pode fazer.
+- **attributes** --> Características de um objeto.
+- **methods** --> Ações que esse objeto pode fazer.
 
 Esses objetos são criados a partir de uma class. Um objeto é uma instância de uma class.
 
@@ -94,7 +94,7 @@ ClassName objeto = new ClassName();
 
 - `new` --> Estamos instanciando o objeto. Quando escrevemos `new` computador reserva um espaço na memória ram para esse objeto.
 
-- `ClassName()` --> Constructor;
+- `ClassName()` --> Estamos chamando o method constructor.
 
 <br>
 <br>

@@ -1,175 +1,326 @@
-<!--
+<h1 align="center">
+    Encapsulation (getters and setters)
+    <img src="https://cdn-icons-png.flaticon.com/512/2800/2800586.png" alt="encapsulation icon" width="90px" align="center">
+</h1>
 
-Pilares da POO
+Na programação orientada a objetos, existem 3 pilares:
 
-1-encapsulation
-2-inheritance(Herança)
-3-polymorphism
+- **encapsulation**
+- **inheritance(Herança)**
+- **polymorphism**
 
-------------------------------------------------------------------------------------------------------------------------------------------
-(FAÇA)
-encapsulation
-É um recurso para proteger algum atributo
+<br>
 
-Para proteger esse atributo, eu deixo ele private e coloco dentro de um method.
+The Encapsulation serve para proteger attributes sensíveis dos usuários.
 
+Para encapsular nossos attributes/variables, precisamos:
 
-Basicamente, eu deixo o attribute com o modifier private e o coloco dentro de um method. Isso é encapsulation.
-
-Eu protejo meu attribute, encapsulando ele.
-Assim, se eu quiser acessar ou modificar o attribute eu vou precisar usar os methods getters and setters.
-
+- Declare os attributes com o modifier `private`
+- Criar `get` and `set` methods.
 
 
-this  -> Se refere ao objeto da classe atual
-super -> Se refere ao objeto da super Class (Pai)
+Assim, se quisermos acessar esses attributes em outra Class, usamos os **getters and setters methods com o modifier `public`.**
 
 
-1- Crie uma class "Carro" com os attributes:
-    //attributes
-    String marca;
-    String modelo;
-    int ano;
+- `get method` --> Pegar/obter o valor de um attribute
+- `set method` --> Setar/definir o valor de um attribute
 
-2- Crie um constructor
+<hr>
+<br>
 
-public Carro(String marca,String modelo, int ano){
-    this.marca = marca;
-    this.modelo = modelo;
-    this.ano = ano;
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="32px" align="center">
+
+```java
+<modifier> <retorno> methodName()
+// se o retorno for 'void', sabemos que não terá retorno.
+```
+
+```java
+//attributes
+private String name = "Amanda";
+
+//get
+public String getName(){
+    return this.name;
+};
+
+//set
+public void setName(String name){
+    this.name = name;
 }
+```
 
-3- Proteja os attributes, deixando eles como "private":
-    //attributes
-    private String marca;
-    private String modelo;
-    private int ano;
+<hr>
+<br>
 
+## Praticando :pencil2:
 
-4- Crie os methods getters and setters, para voce poder acessar esses attributes de qualquer outra class:
-    //getters and setters
+1. Crie uma class "Pessoas" com os seguintes attributes:
 
-    public String getMarca(){
-        return this.marca;
+    ```java
+    public class Pessoas {
+        //attributes
+        private String name;
+        private Integer age;
+        private Double xp;
     }
+    ```
+    Não esqueca deixá-los como `private`.
 
-    public void setMarca(String marca){
-        this.marca = marca;
+<br>
+
+2. Crie os getters and setters methods:
+   ```java
+        public class Pessoas {
+        // attributes
+        private String name;
+        private Integer age;
+        private Double xp;
+
+        // constructors
+            // Constructor vazio
+        public Pessoas(){} 
+
+            //Constructor preenchendo todos os attributes
+        public Pessoas(String name, Integer age, Double xp){
+            this.name = name;
+            this.age = age;
+            this.xp = xp;
+        }
+
+        // getters and setters
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return this.age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public Double getXp() {
+            return xp;
+        }
+
+        public void setXp(Double xp) {
+            this.xp = xp;
+        }
+
+        //toStringMethod
+        @Override
+        public String toString() {
+            return "Pessoas [name=" + name + ", age=" + age + ", xp=" + xp + "]";
+        }
+
     }
+   ```
 
-    etc...
+   - Como o get method retorna o valor do attribute, precisamos informar o datatype do retorno (String,Integer,Double,Carro,Object,etc...).
 
-5- Agora que eu tenho os methods getters and setters, eu posso alterar meu constructor.
--Chame os methods getters and setters no constructor.
+   - Como no set method não retorna nenhum valor, deixamos o retorno como `void`.
 
-    //constructor
-    public Carro(String marca,String modelo, int ano){
-        this.setMarca(marca);
-        this.setModelo(modelo);
-        this.setAno(ano);
+<br>
+
+3. Vá na class do main method , crie um objeto da class "Pessoas" , **set** o valor de todos os attributes e imprima com o `toString()`.
+    
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Pessoas p1 = new Pessoas();
+
+            p1.setName("Paulo");
+            p1.setAge(44);
+            p1.setXp(45.53);
+
+            System.out.println(p1.toString());
+        }   
     }
+    ```
 
-6- Crie um objeto dessa class e imprima todos os attributes;
-    Carro c1 = new Carro("Chevrolet","Camaro",2000);
+<br>
 
-    System.out.println(c1.getMarca());
-    System.out.println(c1.getModelo());
-    System.out.println(c1.getAno());
+4. Ao invés de setar um por um, crie um method lá na class "Pessoas" para setar todos os attributes de uma vez:
 
+    ```java
+    //class Pessoas
+    public void setAllAttributes(String name, Integer age, Double xp){
+            this.name = name;
+            this.age = age;
+            this.xp = xp;
+        }
+    // Criamos um method igual a um constructor. Easy!
+    ```
 
-Não apague
-------------------------------------------------------------------------------------------------------------------------------------------------
-(Faça)
+    ```java
+    //Class Programa
+    public class Programa{
+        public static void main(String[] args){
+            Pessoas p1 = new Pessoas();
 
-Copiando os attributes de um objeto pra outro objeto
+            p1.setAllAttributes("Maria", 52, 60.73);
 
-Use o mesmo exemplo acima.
-
-
-1- Crie 2 objetos com valorer diferentes:
-        Carro c1 = new Carro("Fiat","Uno",2004);
-        Carro c2 = new Carro("Chevrolet","Camaro",2020);
-
-
-5- Imprima os valores de cada um:
-    System.out.println(c1.getMarca());
-    System.out.println(c1.getModelo());
-    System.out.println(c1.getAno());
-    System.out.println("-------------");
-    System.out.println(c2.getMarca());
-    System.out.println(c2.getModelo());
-    System.out.println(c2.getAno());
-
-
-6- Copie os valores dos attributos do primeiro objeto para o segundo objeto.
-Se eu fizesse assim:
-    c2 =  c1;
-    Eu estaria dizendo que..."O local onde o c2 está armazenado recebe o local onde o c1 está armazenado."
-
-    Eu estaria copiando o valor de alocao do objeto, e não os attributos.
-
-
-A maneira correta seria criar um method copy. Vamos lá!
-
-7- Crie um method copy:
-    public void copy(Carro carroCopiado){
-        this.marca = carroCopiado.marca;
-        this.modelo = carroCopiado.modelo;
-        this.ano = carroCopiado.ano;
+            System.out.println(p1.toString());
+        }   
     }
+    ```
 
-O que eu estou dizendo é:
-"O attribute 'marca' do objeto atual vai receber o attributo 'marca' do objeto parametro"
-
-Quando eu chamar o method 'copy', eu estou dizendo:
-"Todos os attributes desse objeto vao receber todos os attributes do objeto parametro"
+<hr>
+<br>
 
 
-8- Chame o method "copy" e copie os attributos do objeto 1 para o objeto 2:
-    c2.copy(c1);
+## Copiar os attributes de um objeto para outro objeto <img src="https://cdn-icons-png.flaticon.com/512/1834/1834056.png" alt="files icon" width="50px" align="center">
 
-Sacou??
+Se fizéssemos assim:
+```java
+c2 = c1; // ERRADO
+```
+No exemplo acima, o local onde o `c2` está armazenado recebe o local onde o `c1` está armazenado.
 
--Imprima novamente os attributes:
-Viu?? Agora eles possuem os mesmos valores.
+A maneira certa de copiar attributes de um objeto e passar para outro seria criando um method `copy()`.
+
+<br>
+
+1. Crie uma class "Pessoa":
+    ```java
+    public class Pessoa {
+        //attributes
+        String name;
+        Integer age;
+        String country;
+
+        //constructor
+        public Pessoa(String name, Integer age, String country) {
+            this.name = name;
+            this.age = age;
+            this.country = country;
+        }
+
+        //getters and setters
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
+        }
 
 
-9-Outra forma, seria copiar diretamente no constructor
-
--Apague os dois objetos.
--Crie o primeiro objeto:
-    Carro c1 = new Carro("Ferrari","F8",2020);
-
-Beleza. Tenho 1 constructor para colocar os attributes.....
-
-
--Vamos criar outro constructor para copiar os attributes de um outro objeto.
-Assim, eu posso escolher. Quando eu criar um objeto, eu posso escolher se vou preencher os attributes com valores novos, ou se vou copiar de um outro objeto.
-
-    public Carro(Carro carroCopiado){
-        copy(carroCopiado);
+        //toString() method
+        @Override
+        public String toString(){
+            return String.format("Name: %s\nAge: %d\nCountry: %s",this.name,this.age,this.country);
+        }
     }
+    ```
+<br>
 
-Sacou??
+2. Crie o method `copy();`
 
-10- Crie o segundo objeto e coloque o objeto que vc vai copiar
-    Carro c2 = new Carro(c1);
-
-11- Imprima os attributos do objeto 1 e do objeto 2;
-
-Viu??? Voce copiou os attributos de um objeto e colocou em outro.
-
-
-Outra maneira que daria certo, seria escrever o method copy diretamente no constructor:
-
-    public Carro(Carro carroCopiado){
-        this.marca = carroCopiado.marca;
-        this.modelo = carroCopiado.modelo;
-        this.ano = carroCopiado.ano;
+    ```java
+    //copy() method
+    public void copy(Pessoa objetoCopiado){
+        this.name = objetoCopiado.getName();
+        this.age = objetoCopiado.getAge();
+        this.country = objetoCopiado.getCountry();
+        //O attribute do objeto atual recebe o attribute do objeto informado no parâmetro
     }
+    ```
+
+    Quando chamamos esse method `copy()`, estamos dizendo: "Os attributes do objeto atual, vao receber os attributes do objeto informado no parâmetro."
+
+<br>
+
+1. Crie 2 objetos com valores dos attributes diferentes. Depois, copia os attributes de um para o outro. No final, os 2 objetos vao ter os mesmos valores nos attributes.
+
+    ```java
+        public class Programa{
+        public static void main(String[] args){
+            Pessoa p1 = new Pessoa("Paulo",44,"Brazil");
+            Pessoa p2 = new Pessoa("Amanda",35,"USA");
+
+            //valores dos attributes diferentes
+            System.out.println(p1.toString() + "\n");
+            System.out.println(p2.toString());
+
+            //copiamos os attributes 
+            p1.copy(p2);
+            System.out.println("\n\n");
+
+            //valores dos attributes iguais
+            System.out.println(p1.toString() + "\n");
+            System.out.println(p2.toString());
+        } 
+    }
+    ```
 
 
-Mas... Criar o method copy é bem melhor.
-Eu posso copiar os attributos de um no outro em qualquer momento, e não apenas na criacao do objeto.
+<br>
+<br>
 
--->
+## Copiando direto no constructor
+Outra forma de copiar attributes de um objeto para outro objeto seria utilizando o constructor. Assim que criarmos um objeto, podemos passsar os argumentos padraozin **OU podemos passar um objeto.**
+
+1. Crie mais um constructor na class "Pessoa"
+
+    ```java
+    public Pessoa(Pessoa objetoCopiado){
+            this.name = objetoCopiado.name;
+            this.age = objetoCopiado.age;
+            this.country = objetoCopiado.country;
+        }
+    ```
+
+    Agora, assim que criamos um objeto, temos a opção de passar um objeto.
+
+<br>
+
+2. Crie mais um objeto e copie os attributes de outro objeto.
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Pessoa p1 = new Pessoa("Paulo",44,"Brazil");
+            Pessoa p2 = new Pessoa(p1);
+
+            System.out.println(p1.toString());
+            System.out.println("\n");
+            System.out.println(p2.toString());
+        }
+    }
+    ```
+
+    :bulb: É legal ter os dois tipos. 
+
+    - Criando um constructor, podemos copiar um objeto assim que criamos um objeto.
+    - Criando um method `copy()` podemos copiar os attributes de um objeto a qualquer momento.
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/19.pilares_poo/18.2.heranca/1.heranca.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

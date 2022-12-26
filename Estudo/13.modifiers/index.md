@@ -31,6 +31,6 @@ Os modificadores de acesso, são usados para especificar o nível de visibilidad
 <br>
 
 <!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/14.getters_setters/index.md">
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/15.constructor_static/1.constructor.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

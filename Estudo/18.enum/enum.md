@@ -6,7 +6,6 @@
 ## constants
 - `constant` --> final variable(variáveis que não podem ter o valor alterado). Não podemos atribuir outro valor a essa variable, pois elas já possuem um valor final setado.
 
-  
 <br>
 
 :pencil2: Crie uma ****final variable****, e tente alterar o valor dela.
@@ -79,7 +78,7 @@ public enum Weapons{}
 
 ## Características da enum class <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
 
-- Possui o mesmo conteúdo de uma class comum. Porém, contêm as constants (`static final variables`)
+- Possui o mesmo conteúdo de uma class comum. Porém, contêm as constants (`static final variables`).
 - O constructor da enum class é sempre `private`.
 - Na enum, passamos os argumentos do constructor da constant ali mesmo. Diferente da class normal, que passamos quando criamos o objeto.
 
@@ -123,7 +122,7 @@ public enum Weapons{}
         public static final String HIGH = "level alto";
     }
     ```
-    :bulb: Na **enum** class, todo attribute é uma `static final variable`.
+    :bulb: Na **enum** class, toda constant é uma `static final variable`.
 
 <br>
 
@@ -274,7 +273,7 @@ public class Programa{
         }
     }
     ```
-    :bulb: Perceba que acessamos o attribute "sexo" do tipo "Gender" in a static way (diretamente pela class).
+    :bulb: Perceba que passamos o parâmetro "sexo" do tipo "Gender" in a static way (diretamente pela class).
 
 <hr>
 <br>
@@ -318,14 +317,14 @@ A diferença é que aqui, passamos os argumentos diretamente dentro das constant
 
     Vamos dizer, que queremos saber a velocidade de cada veículo.
 
-2. Vamos atribuir um valor a essas constants. Cria uma variable e faça todo o procedimento que voce faria em uma class normal. Crie o constructor, getters and setters, etc...
+2. Vamos atribuir um valor a essas constants. Cria um attribute e faça todo o procedimento que voce faria em uma class normal. Crie o constructor, getters and setters, etc...
 
     ```java
     public enum Veiculos {
         //constants
         BIKE(50),
         CAR(170),
-        JATO(500);
+****        JATO(500);
 
         //attributes
         public Integer speed;
@@ -364,8 +363,8 @@ Easy! :sunglasses:
 <br>
 
 
-## Atribuindo valores para multiples constant
-Imagina um **rpg de mesa**, onde o usuário vai criar um personagem pra ele jogar. Um dos attributes desse personagem é a "classeDoPersonagem". Esse attribute será do tipo **enum class**, ou seja, só temos algumas classes para o jogador escolher.
+## Atribuindo valores para multiple constants
+Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personagem pra ele jogar. Um dos attributes desse personagem é a "classeDoPersonagem". Esse attribute será do tipo **enum class**, ou seja, só temos algumas classes para o jogador escolher.
 
 <br>
 
@@ -510,13 +509,13 @@ Imagina um **rpg de mesa**, onde o usuário vai criar um personagem pra ele joga
     }
     ```
 
-    O procedimento de criar um constructor e passar os argumentos é igualzinho a de uma class comum. Só que aqui na enum class, passamos os argumentos assim que declaramos a constant.
+    O procedimento de criar um constructor e passar os argumentos é igualzinho a de uma class comum. Só que aqui na enum class, passamos os argumentos assim que declaramos a constant. Os objetos aqui, são as constants.
 
     :sunglasses:
 <br>
 <br>
 
 <!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/18.1.encapsulation/encapsulation.md">
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/19.pilares_poo/18.1.encapsulation/encapsulation.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
