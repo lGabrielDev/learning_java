@@ -3,12 +3,16 @@
     <img src="https://cdn-icons-png.flaticon.com/512/2800/2800586.png" alt="encapsulation icon" width="90px" align="center">
 </h1>
 
+## Pilares da POO <img src="https://cdn-icons-png.flaticon.com/512/2058/2058008.png" alt="image icon" width="32px" align="center">
+
 Na programação orientada a objetos, existem 3 pilares:
 
-- **encapsulation**
-- **inheritance(Herança)**
-- **polymorphism**
+- **Encapsulation**
+- Inheritance(Herança)
+- Abstraction
+- Polymorphism
 
+<hr>
 <br>
 
 The Encapsulation serve para proteger attributes sensíveis dos usuários.
