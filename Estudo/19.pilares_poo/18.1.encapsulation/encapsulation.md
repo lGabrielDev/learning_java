@@ -15,6 +15,8 @@ Na programação orientada a objetos, existem 3 pilares:
 <hr>
 <br>
 
+## Encapsulation
+
 The Encapsulation serve para proteger attributes sensíveis dos usuários.
 
 Para encapsular nossos attributes/variables, precisamos:
