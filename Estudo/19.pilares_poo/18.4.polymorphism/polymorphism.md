@@ -1,318 +1,302 @@
-<!--
-polymorphism
-Várias formas de fazer...
-Eu crio o mesmo method de formas diferentes.
+<h1 align="center">
+    Polymorphism
+    <img src="https://static.vecteezy.com/system/resources/previews/009/336/632/original/cartoon-colorful-chameleon-element-png.png" alt="image icon" width="90px" align="center">
+</h1>
 
-No polimorfismo eu tenho 2 tipos:
+## Pilares da POO <img src="https://cdn-icons-png.flaticon.com/512/2058/2058008.png" alt="image icon" width="32px" align="center">
 
-1-@Override (Sobreescrita)   -> Possui os mesmos parâmetros e uso em classes diferentes
-2-Overload  (Sobrecarga)     -> Possui parâmetros diferentes e uso na mesma class
+- Encapsulation
+- Inheritance(Herança)
+- Abstraction
+- **Polymorphism**
 
-------------------------------------------------------------------------------------------------------------------------------------------
+<hr>
+<br>
 
-1- @Override
+## Polymorphism
+Polymorphism significa "many forms" (várias formas). Um method pode ter várias formas. Existem dois tipos de polimorfismo:
 
-Quando eu tenho classes quem tem relação de herança eu posso ter atributos e methods com valores diferentes.
+- `@Override `(Sobrepor) --> Podemos sobreescrever um method da superClass na classe filha.
+  
+<br>
 
+- `Overload` (Sobrecarga) --> Podemos criar methods com nomes iguais, desde que eles tenham parâmetros diferentes. Igual quando criamos vários constructors (quantidade de parametros diferentes ou tipo dos parametros diferente).
 
-Exemplo:
+<hr>
+<br>
 
-Class Animal
-Class Cachorro extends Animal
+## @Override - Sobrepor o method do pai
 
-Imagina que eu crie um method para a Class Animal:
+1. Crie uma class "Animal" com apenas 1 method.
 
-public void emitirSom(){
-    System.out.println("Som de animal");
-}
-
-
-E crie o mesmo method com o @Override para a Class Cachorro
-
-@Override
-public void emitirSom(){
-    System.out.println("AU! AU! AU!);
-}
-
-
-Se eu criar um objeto da Class Cachorro, o som que vai retornar vai ser o do cachorro.
-
-
-Agora...Se EU NÃO criasse o method do som do cachorro, e criasse um objeto cachorro, o som que ia retornar seria o do animal.
-
-Viu?? Poderia ser retornado valores diferentes.
-
-Com atributos é a mesma coisa.
-
-
-1- Crie o exemplo acima.
--Crie a Class Cachorro sem method > crie o objeto Cachorro > Chame o method
--Agora, coloque o methods @Override na Class Cachorro > Crie o objeto Cachorro > Chame o method
-
-
-Viu??
-
-
-
-
-Como boa prática, sempre é bom colocar o @Override para identificar que aquele method está sendo SOBREESCRITO.
-Mas se eu não colocar, também funciona.
-------------------------------------------------------------------------------------------------------------------------------------------
-2- Overloading(Sobrecarga)
-Eu posso criar methods com o mesmo nome desde que eles tenham parâmetros diferentes.
-
-Aí, quando eu chamar o method, o que vai aparecer vai depender do parametro que eu digitar.
-
-Igual no constructor... Eu posso criar vários constructors, desde que eles tenham parametros diferentes.
-
-
-Como vimos antes, o polimorfismo do tipo @Override eu preciso ter herança e crio o mesmo method em classes diferentes com os mesmos parâmetro.
-
-Com o polimorfismo do tipo sobrecarga, eu crio os methods na mesma class com parâmetros diferentes.
-
-
-
--Crie uma class Cachorro
--Crie 1 method mensagem e duplique ela com polimorfismo
-
-public void mensagem(String parametro){
-    System.out.println("Mensagem 1");
-}
-
-public void mensagem(Integer parametro){
-    System.out.println("Mensagem 2");
-}
-
-public void mensagem(String parametro, String parametro2){
-    System.out.println("Mensagem 3");
-}
-
-public void mensagem(String parametro1, int parametro3){
-    System.out.println("Mensagem 4");
-}
-
-public void mensagem(int parametro1, String parametro3){
-    System.out.println("Mensagem 5");
-}
-
-Perceba que eu tenho 5 methods com o mesmo nome. Porém, com parametros diferentes.
--Crie um objeto da Class Cachorro e chame o method.
-
-Qual das mensagens vai vir??
-Depende do parametro que eu colocar. Sacou??
-
--Dê ctrl+space e observe.... Viu?? Depende do parametro que eu colocar.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(IMPORTANTE)
-
-Criando uma array de objetos diferentes
-
-1- Crie uma abstract class "Veiculo"; Ela vai ser a class pai;
-    -Crie um method "acelerando"
-
-        public abstract void acelerando();
-
-Não precisar especificar o corpo. Nas classes filhas voce faz isso.
-
-
-2- Crie 3 subclass(classes filhas) que vao herdar da class pai "Veiculo"
-        "Aviao" extends Veiculo
-        "Carro" extends Veiculo
-        "Moto" extends Veiculo
-
-3- Sobreescreva o method pai nos seus filhos    
-    @Override
-    public void acelerando(){
-        System.out.println("Aviao está acelerando no céu!");
-    }
-
-    -Faça com as outras 2 classes "Carro" e "Moto"
-
-
-Beleza. Tenho minhas subClasses criadas.
-
-4- Crie um objeto de cada class:
-    Carro c1 = new Carro();
-    Moto m1 = new Moto();
-    Aviao a1 = new Aviao();
-
-    c1.acelerando();
-    m1.acelerando();
-    a1.acelerando();
-
-
-
-5- E se eu quisesse criar uma array(vetor) desses objetos...
-
-Se eu tentar criar uma array do tipo "Carro", só vai dar pra colocar objetos do tipo "Carro"...
-Se eu tentar criar uma array do tipo "Moto", só vai dar pra colocar objetos do tipo "Moto"...
-Se eu tentar criar uma array do tipo "Aviao", só vai dar pra colocar objetos do tipo "Aviao"...
-
-
-
-Como são objetos diferentes, eu vou criar uma array do tipo que eles têm em comum...
-
-
-Um "Aviao" é um "Veiculo";
-Um "Carro" é um "Veiculo";
-Um "Moto" é um "Veiculo";
-
-
-
-Sacou?? Por isso eu crio uma class pai "genérica";
-
-Então, vou criar uma array do tipo Veiculo:
-    Veiculo[] listaVeiculos = {c1,m1,a1};
-
--Imprima o method "acelerando" de cada item
-    for(Veiculo i : listaVeiculos){
-        i.acelerando();
-    }
-
-Easy!
-
-Resumindo...
-Polymorphism -> A habilidade de um objeto se identificar de varias formas.
-
-
-O objeto do tipo "Carro" é tanto um "Carro" quanto "Veiculo" quanto um "Object". Ele é considerado os 3 tipos. Sacou??
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(Apenas leia)
-dynamic polymorphism
-
-
-Quando uma class é filha de outra, eu posso criar um objeto da classe pai e instanciar a class filha.
-
-
--Crie 1 SuperClass(pai)
-    "Animal"
--Crie 2 subClasses
-    "Dog" extends "Animal"
-    "Cat" extends "Animal"
-
--Declare um objeto da class "Animal";
-Ao invés de criar um objeto animal..
-    Animal a1 = new Animal();
-
-Eu posso criar um objeto especifico do tipo Animal
-    Animal a1 = new Dog();
-    Animal a2 = new Cat();
-
-Viu??
-
-"Dog" é um "Animal"... Por isso, eu posso instanciar diretamente a class filha.
-
-
-"Cat" extends "Animal"... Por isso, eu posso instanciar diretamente a class filha.
-
-
-Se eu fizesse assim:
-    Dog a1 = new Dog();
-    Cat a2 = new Cat();
-
-    Daria no mesmo também.
-
-
-
-
-Isso é interessante porque eu posso declarar meu objeto.
-    Animal a1;
-E só depois atribuir um valor:
-    Animal a1 = new Dog();    OU
-    Animal a1 = new Cat();
-
-
-
-
-
-Dá pra utilizar em várias situacoes.
-Quando perguntamos ao usuario se ele é boy or girl.... Dependendo do que ele escolher, criamos tal objeto. Sacou?
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(IMPORTANTE)
-Voce pode declarar um objeto e só depois instanciar o tipo desse objeto.
-
-Vamos criar um programinha onde o usuario vai escolher entre 2 classes ("Dog" and "Cat"). Uma vez escolhido, vai imprimir na tela o barulho do animal escolhido.
-
-
-1- Crie 1 class pai
-    "Animal"
-
--Crie um method na class "Animal". Não precisa especificar o que esse method vai fazer.
-
-    public class Animal {
-        public void sound(){
-    };
-}
-
-
-
-2- Crie 2 classes que vao extends a class pai "Animal"
-    "Dog" extends "Animal"
-    "Cat" extends "Animal"
-
-- Sobreescreva o method do pai:
-    @Override
-    public void sound(){
-        System.out.println("Dog goes *BARK*!");
-    };
-
-
-
-    -Faça a mesma coisa para class "Cat";
-        public void sound(){
-            System.out.println("Cat goes MEOW!");
+    ```java
+        public class Animal {
+        //attributes
+        
+        //methods
+        public String barulhoDeAnimal(){
+            return "Barulho de animal padraozin...";
         };
+    }
+    ```
+    Vamos criar classes filhas que vão herdar esse method. Porém, esse method será diferente em cada class filha.
 
+<br>
 
-3- No method main, apenas declare um objeto do tipo Animal.
-    Animal a1;
-
-É igual quando voce declara uma String,int,double,etc... Sem declarar um valor;
-    String texto;
-    int number1;
-
-Sacou?
-
-4- Crie um objeto Scanner:
-        Animal a1;
-
-
-
-    Animal a1;
-        Integer opcaoEscolhida = 0;
-        Boolean inputCorreto = false;
-
-        Scanner scan = new Scanner(System.in);
-        do{
-            try{
-                System.out.println("\n\nEscolha um animal:\n1- Dog\n2- Cat");
-                opcaoEscolhida = scan.nextInt();
-                inputCorreto = true;
-
-                switch(opcaoEscolhida){
-                    case 1:
-                        a1 = new Dog();
-                        System.out.println(a1.emitirSom());
-                        break;
-                    case 2:
-                        a1 = new Cat();
-                        System.out.println(a1.emitirSom());
-                        break;
-                    default:
-                        System.out.println("Opcao inválida.");
-                }
-            }
-            catch(InputMismatchException e){
-                System.out.println("Erro! Por favor, digite um número.");
-                inputCorreto = false;
-                scan.nextLine();
-            }    
+2. Crie 3 classes filhas, que vão herdar da class pai "Animal", e sobreponha o method `barulhoAnimal();`
+    
+    ### Class Dog
+    ```java
+    public class Dog extends Animal{
+        //attributes
+        
+        //Override methods
+        @Override
+        public String barulhoDeAnimal() {
+            return "Au AU AU! I'm a dog!";
         }
-        while(!(inputCorreto) || opcaoEscolhida <= 0 || opcaoEscolhida > 2);
-        scan.close();
+    }
+    ```
 
-(Upar no git esse exemplo depois)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+    :bulb: Como boa prática, sempre é bom colocar o `@Override` para identificar que aquele method está sendo SOBREESCRITO.
+    
+    <br>
+
+    ### Class Cat
+    ```java
+    public class Cat extends Animal{
+        //attributes
+
+        //Override methods
+        @Override
+        public String barulhoDeAnimal() {
+            return "Meow... I'm a cat!";
+        }  
+    }
+    ```
+    <br>
+
+    ### Class Pig
+    ```java
+    public class Pig extends Animal{
+        //attributes
+
+        //methods
+        @Override
+        public String barulhoDeAnimal() {
+            return "fon fon...I'm a pig!";
+        }
+    }
+    ```
+    <br>
+
+    :bulb: A própria IDE te ajuda a implementar os `@Override` methods :bulb:
+
+    <br>
+    <br>
+
+ 3. Crie um objeto de cada class, inclusive da superClass "Animal", e imprima os methods. O method vai fazer uma coisa diferente em cada objeto. Isso é polimorfismo rapá!
+
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Animal a1 = new Animal();
+            Dog d1 = new Dog();
+            Cat c1 = new Cat();
+            Pig p1 = new Pig();
+
+            System.out.println(a1.barulhoDeAnimal());
+            System.out.println(d1.barulhoDeAnimal());
+            System.out.println(c1.barulhoDeAnimal());
+            System.out.println(p1.barulhoDeAnimal());
+        }
+    }
+    ```
+    :bulb: Se quiséssemos que o method fizesse a mesma coisa do pai, era só não sobrepor o method e aproveitar a herança.
+
+<hr>
+<br>
+
+
+## Overload - Escrevendo methods com nomes iguais
+Podemos ter methods com nomes iguais,  desde que eles tenham parâmetros diferentes.
+
+Como vimos antes na criação de constructors, podemos ter o mesmo method com nomes iguais. Basta que esses methods tenham uma quantidade de parâmetros diferente ou tenham tipos de parâmetros diferente.
+
+
+<br>
+
+1. Crie uma class "Cachorro" com 3 methods com o mesmo nome:
+
+    ```java
+    public class Cachorro {
+        //attributes
+
+        //methods
+        public String mensagem(){
+            return String.format("Olá, sou um cachorro.");
+        }
+
+        public String mensagem(String name){
+            return String.format("Olá, sou o cachorro %s.",name);
+        }
+
+        public String mensagem(String name, Integer age){
+            return String.format("Olá, sou o cachorro %s e tenho %d anos de idade.",name,age);
+        }
+
+        public String mensagem(String name, Integer age, String color){
+            return String.format("Olá, sou o cachorro %s, tenho %d anos de idade e minha cor é %s.",name,age,color);
+        }
+    }
+    ```
+
+<br>
+
+2. Crie um objeto do tipo "Cachorro" e chame o method, passando parâmetros diferentes.
+
+    ```java
+        public class Programa{
+        public static void main(String[] args) {
+            Cachorro c1 = new Cachorro();
+
+            System.out.println(c1.mensagem());
+            System.out.println(c1.mensagem("Jake"));
+            System.out.println(c1.mensagem("Jake",4));
+            System.out.println(c1.mensagem("Jake",4,"Grey"));
+        }
+    }
+    ```
+    Funciona igualzin o constructor method. Podemos criar vários, desde que eles tenham parâmetros diferentes.
+
+<br>
+<hr>
+
+## Criando uma array para armazenar objetos diferentes.
+Imagine que temos objetos das classes "Moto", "Carro", "Bike", e queremos armazenar esses objetos em uma array. Como são objetos diferentes não vai dar certo. Uma array pode armazenar apenas 1 tipo de objeto.
+
+Para fazer isso, esses objetos têm que ter uma classe pai em comum. Vamos criar a class "Veiculos". 
+
+- Se criarmos uma array do tipo "Moto" só vamos conseguir armazenar objetos "Moto"...
+- Se criarmos uma array do tipo "Carro" só vamos conseguir armazenar objetos "Carro"...
+- Se criarmos uma array do tipo "Bike" só vamos conseguir armazenar objetos "Bike"...
+
+Agora se criarmos uma array "Veicúlos", vamos conseguir armazenar as classes filhas de boas.
+
+<br>
+
+1. Crie a class "Veiculos"
+
+    ```java
+        public class Veiculos {
+        //attributes
+        
+        //methods
+        public String acelerar(){
+            return "Veicúlo acelerando...";
+        }
+    }
+    ```
+
+<br>
+
+2. Crie as classes filhas
+
+    ### Class Carro
+
+    ```java
+    public class Carro extends Veiculos{
+        //attributes
+    
+        //@Override methods
+        @Override
+        public String acelerar() {
+            return "Vrumm... Carro acelerando!";
+        }
+    } 
+    ```
+    <br>
+
+    ### Class Moto
+    ```java
+    public class Moto extends Veiculos{
+        //attributes
+    
+        //@Override methods
+        @Override
+        public String acelerar() {
+            return "Ratata!! Cortando de giro!!";
+        }
+    }
+    ```
+
+    <br>
+
+    ### Class Bike
+
+    ```java
+    public class Bike extends Veiculos{
+    //attributes
+
+        //@Override methods
+        @Override
+        public String acelerar() {
+            return "Pedalando sem parar!";
+        }
+    }
+    ```
+
+<br>
+
+3. Crie um objeto de cada Class, e depois crie uma array para armazenar esses objetos.
+
+    ```java
+    public class Programa{
+        public static void main(String[] args) {
+            Carro c1 = new Carro();
+            Moto m1 = new Moto();
+            Bike b1 = new Bike();
+
+            Veiculos[] listaDeVeiculos = {c1,m1,b1}; // Se ligou???
+
+            for(Veiculos i : listaDeVeiculos){
+                System.out.println(i.acelerar());
+            }
+        }
+    }
+    ```
+
+    - "Carro" é um "Veículo", por isso conseguimos armazenar na array.
+    - "Moto" é um "Veículo", por isso conseguimos armazenar na array.
+    - "Bike" é um "Veículo", por isso conseguimos armazenar na array.
+
+<hr>
+<br>
+
+## Declarando a classe pai e atribuindo a classe filha
+Podemos criar um objeto filho através do objeto pai.
+
+```java
+public class Programa{
+    public static void main(String[] args) {
+        Carro c1 = new Carro();
+        Moto m1 = new Moto();
+        Bike b1 = new Bike();
+
+
+        Veiculos c2 = new Carro();
+        Veiculos m2 = new Moto();
+        Veiculos b2 = new Bike();
+    }
+}
+```
+
+:bulb: Dá no mesmo.
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/20.equals/equals.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
