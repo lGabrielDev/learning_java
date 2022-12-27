@@ -1,62 +1,100 @@
-<!--
-toString();
-Por padrao, o method "toString();" retorna o local da memória que um objeto está.
+<h1 align="center">
+    toString() method
+    <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
+    <img src="https://cdn-icons-png.flaticon.com/512/3531/3531806.png" alt="image icon" width="90px" align="center">
+</h1>
 
-DICAS!!!!! COLOQUE O String.format() no return. Fica mmuito mais facil .
+Por padrão, o method `toString()` retorna o hashcode de um objeto (o local da memória que esse objeto está armazenado).
 
--Crie uma class "Pessoa" com 1 atributo:
-    String name;
+Esse method vêm da class "Object". Como toda class no java é filha da class "Object", elas herdam esse method.
 
--Crie um objeto dessa class e imprima o method toString();
-    Pessoa p1 = new Pessoa();
-    System.out.println(p1.toString());
+1. Crie uma class "Lutador" com alguns attributes.
 
-Viu?? Ele retornou o local da memoria que o objeto está.
+    ```java
+    public class Lutador {
+        //attributes
+        private String name;
+        private Integer age;
 
--Remova o "toString()" e imprima somente o nome do objeto
-    System.out.println(p1);
+        //constructors
+        public Lutador(String name, Integer age){
+            this.name = name;
+            this.age = age;
 
-Acontece a mesma coisa.
-Sempre que eu tento imprimir o nome do objeto, ele automaticamente chama o method "toString()";
-
-
-Vamos mudar o method "toString()";
--Vá na class "Pessoa" e SOBREESCREVA o method "toString()";
-    @Override
-    public String toString(){
-        return "Name: " + this.name;
+        // getters and settters
+        //...
+        }
     }
+    ```
 
-Poderia fazer assim:
-    @Override
-    public String toString(){
-        return "Name: "+this.name + "\n" +"Age: "+ this.age;
-    }
+<br>
+
+2. Crie um objeto dessa classe. Depois, imprima esse objeto.
+   
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Lutador l1 = new Lutador("Anderson Siva",44);
+            System.out.println(l1); // ou System.out.println(l1.toString()); 
     
--Vá no method main e imprima o method.
-    System.out.println(p1.toString());
+            /* Output:
+               Lutador@6ff3c5b5
+            */
+        }
+    }
+    ```
+    Perceba que retornou o hashcode daquele objeto. Para retornar os attributes, precisamos sobreescrever o method `@Override`.
 
--Apague o method e imprima apenas o nome do objeto
-    System.out.println(p1);
+    <br>
 
-Viu??
+    :bulb: Sempre que printamos um objeto, por baixo dos panos é chamado o method `toString()`. Então, não faz diferença... Podemos printar pelo nome do objeto ou pelo method `toString()`. É a mesma coisa.
 
-Sempre que eu tento imprimir o nome do objeto, ele automaticamente chama o method "toString()";
+<br>
 
-Por isso, quando eu chamo apenas o nome do objeto, ele imprime a mesma coisa.
+3. Sobreponha o method `toString()` na class "Lutador". 
 
-Quando quiser criar um method para retornar todos os atributos, use SEMPRE o toString();
+    ```java
+    //toString method
+    @Override
+    public String toString() {
+        return String.format("Name: %s\nAge: %d",this.name, this.age);
+    }
+    ```
 
-Boas práticas!
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Agora sim, ao invés de retornar o hashcode do objeto, vai retornar a representação desse objeto em String. Ou seja, vai retornar todos os attributes desse objeto.
 
+    ```java
+    public class Programa{
+        public static void main(String[] args){
+            Lutador l1 = new Lutador("Anderson Siva",44);
+            System.out.println(l1); // ou System.out.println(l1.toString()); 
+            
+            /* Output:
+                Name: Anderson Silva
+                Age: 44
+            */
+        }
+    }
+    ```
+<hr>
+<br>
 
+## Resumindo: <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
+- O method `toString()` retorna o hashcode do objeto.
+- Para retornar todos os attributes de um objeto, basta sobrepor o method na Class filha `@Override`.
+- Por baixo dos panos, quando chamamos o objeto, estamos chamando o `toString()` method.
+  - ```java
+    System.out.println(objeto) // ou
+    System.out.println(objeto.toString())
 
+    // é a mesma coisa
+    ```
 
+<br>
+<br>
 
-
-
-
-
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
