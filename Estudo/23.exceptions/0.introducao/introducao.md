@@ -1,71 +1,62 @@
-<!--
-Exception
-São os erros que acontecem no meu programa.
-Sempre que um erro(exception) ocorre, meu programa é finalizado e os códigos depois do erro não são executados.
+<h1 align="center">
+    Exceptions
+    <img src="https://cdn-icons-png.flaticon.com/512/1331/1331428.png" alt="image icon" width="90px" align="center">
+</h1>
 
-Um exemplo simples seria dividir um número por 0.
+As **exceptions** são os erros que acontecem no programa.
 
--Crie um sysout e divida um numero por 0.
-    System.out.println(10/0);
--Rode o programa:
+No Java, sempre que um erro acontece, o programa é interrompido e é gerado um erro.
 
-    Exception in thread "main" java.lang.ArithmeticException: / by zero
-            at main.java.br.com.leekbiel.projeto.App.main(App.java:5) 
+O termo usado no Java, é: "Java will throw an **exception**".
 
-Sempre lemos a exception de baixo pra cima.
-A linha de baixo informa o package onde ocorreu > qual foi a classe > qual o method > linha que aconteceu o erro.
+```java
+public class Programa{
+    public static void main(String[] args){
+        System.out.println(5/0); // vai popar um erro.
+        System.out.println("Olá, mundo!"); // esse código não será executado
+    }
+}
+```
+Aqui, temos uma ArithmeticException. Não podemos dividir um número por 0.
 
-Na linha de cima, mostra o package/diretório (java.lang.) > e mostra qual a classe da exception (ArithmeticException)
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-(Apenas leia)
-
-NullPointerException
-Acontece quando eu esqueco de colocar o "= new ClassName()";
-    Cliente c1 = null;
-
-Aqui, o meu objeto "c1" da class "Cliente" tem valor null. Vai dar pau.
-Para resolver, vamos colocar o new:
-
-    Cliente c1 = new Cliente();
-
-SEMPRE QUE EU CRIAR UM OBJETO, EU PRECISO COLOCAR O NEW.
-    Class object = new Class();
+Se não tratarmos a exception(erro), os códigos abaixo dessa exception não são executados.
 
 
+<hr>
+<br>
 
--Crie uma class "Cliente" e coloque 2 attributes(não precisa deixar private):
-    String nome;
-    int age;
+## NullPointerException
+Essa exception ocorre quando não instanciamos um objeto. Quando um objeto tem valor `null`.
 
--Na class do programa, crie um objeto dessa Class.
-    Cliente c1 = new Cliente();
+```java
+Cliente c1 = null;
+```
 
--Sete o valor de um atributo, e imprima na tela:
-    c1.nome = "Gabriel";
-    System.out.println(c1.nome);
+Para corrigir, é só instanciar esse objeto, utilizando o `new`.
 
--Rode o programa.
--remova o "new" do objeto criado por null.
-    Cliente c1 = null;
+```java
+Cliente c1 = new Cliente();
+```
 
-O erro apareceu! Sacou??
-Essa exception acontece porque algum objeto está null;
+<hr>
+<br>
 
-Sempre colocar o new ao criar um objeto.
+## Exception tree (Árvore de exceptions)
 
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Exception tree (árvore)
--Olhe a imagem "exception_tree.png"
-A hierarquia começa com "Throwable" pai de todas.
-
-Errors -> geralmente são erros da máquina do usuário.
-
-Exceptions
-    Checked exceptions -> Erros que o java reconhece enquanto eu estou codando/compilando meu código.
-    
-    Unchecked exceptions(runtime) -> Erros que acontecem quando eu executo meu programa.
+![image](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/exception_tree.jpg?raw=true)
 
 
--->
+- "Throwable é a class pai de todas.
+  - Error --> Erros da máquina do usuário(sem memória, pc deu pau, etc...)
+  - Exception --> Erros no código
+    - Checked exceptions --> Erros que o java reconhece enquanto estamos codando.(`System.out.printBolado`) - Esse command não existe.
+    - Unchecked exceptions(runtime) --> Erros que acontecem quando executamos o programa, no runtime.
+
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/1.try_catch/try_catch.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
