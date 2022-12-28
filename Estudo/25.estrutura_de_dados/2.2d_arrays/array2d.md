@@ -1,335 +1,142 @@
-<!--
+<h1 align="center">
+    Array 2d
+    <img src="https://cdn-icons-png.flaticon.com/512/5519/5519708.png" alt="image icon" width="60px" align="center">
+    <img src="https://cdn-icons-png.flaticon.com/512/5519/5519708.png" alt="image icon" width="60px" align="center">
+</h1>
 
-Multi-Dimensional Arrays or Array 2d
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
 
-Nada mais é do que uma array dentro de outro array.
-Quando eu trabalho com array 2d, eu tenho rows e elementos.
+**2d Array** ou **Multidimensional Arrays** são arrays dentro de uma array.
 
-Assim como na array simples, aqui eu posso criar de 2 formas:
+Funciona igualzinho uma array, normal. Mas aqui, vamos ter `[] []`.
 
+- O primeiro `[]` representa uma array
+- O segundo `[]` representa a posicao dessa array
 
+Primeiro vamos informar quantas arrays vai ter na estrutura, e depois informamos a quantidade de posicoes(index) de cada array.
 
+Igual uma array simples, podemos criar uma array 2d de 2 formas:
 
-1 forma:
+<br>
 
-Criando um objeto com tamanho específico. Ou seja, todas as arrays vão ter o mesmo numero de posicoes.
+## Formas de criar uma array 2d
 
-String[][] personagens = new String[4][2];
+### Definindo o comprimento dentro do `[][]` e depois attribuindo os valores
+Primeiro dizemos quantas arrays vao ser, e depois passamos quantas posicoes(indexes) vao ter essas arrays.
 
-Igualzin na array simples.
+```java
+String[][] names = new String[3][2]; // temos 3 arrays, cada uma contendo 2 positions/indexes
 
-"Vou ter 4 arrays , com 2 posicoes em cada";
+names[0][0] = "Marcelo"; // Acessamos a primeira array, 0 , na posicao 0.
+names[0][1] = "Paulo";
 
-Para atribuir valor as posicoes, funciona igualzin na array simples. Eu só preciso informar qual a row/array que eu estou acessando.
+names[1][0] = "Patrícia"; // Acessamos a array 1, na posicao 0.
+names[1][1] = "Amanda";
 
-    personagens[0][0] = "Goku";
-    personagens[0][1] = "Vegita";
+names[2][0] = "Rodrigo"; // Acessamos a array 2, na posicao 0.
+names[2][1] = "Kleber";
 
-    personagens[1][0] = "Mario";
-    personagens[1][1] = "Luigi";
+System.out.println(Arrays.deepToString(names));
+```
 
-    personagens[2][0] = "Jhin";
-    personagens[2][1] = "Lucian";
+:bulb: Para imprimir todas as posições de uma 2d array, usamos o method `Arrays.deepToString();` da class "Arrays". igualzin quando queremos mostrar todos os attributes de um objeto. Só que aqui, queremos mostrar todas as arrays e todas as posicoes de cada array.
 
-    personagens[3][0] = "Batman";
-    personagens[3][1] = "Joker";
+Essa class "Arrays" têm vários methods interessantes. Ordenar, preencher, etc...
 
+<br>
+<br>
 
-Eu leio assim:
-"Na array 0 na posicao 0 eu atribuo o valor tal"
-"Na array 0 na posicao 1 eu atribuo o valor tal"
+### Definindo os valores diretamente `{ {}, {} , {} }`:
+Igualzin na array normal, podemos setar os valores diretamente:
 
-Se ligou?
+```java
+String[][] names = {
+    {"Paloma","Kleber","Adalberto"}, // possui 3 posicoes/index
+    {"João","Amanda"}, // possui 2 posicoes/index
+    {"Paulo"} // possui apenas 1 posicao/index
+};
 
+System.out.println(Arrays.deepToString(names));
+```
 
+:bulb:O legal de fazer desse jeito, é que podemos ter um número diferente de positions/indexes para cada array.
 
-Se eu quiser saber a length da array 0, eu faço assim:
-    System.out.println(personagens[0].length);
+<hr>
+<br>
 
-"Na array global, acesse a array 0 > qual o total de posicoes dessa array 0;"
+## Acessando um index(position) de uma array 2d
+Basta dizer qual é array `[]` e depois informar a posicao que voce quer `[]` ... Easy!
 
-Easy!
+```java
+String[][] names = {
+    {"Paloma","André"},
+    {"Roberta","Carlos"},
+    {"Rodrigo"}
+};
 
+System.out.println(names[0][1]); // André
+System.out.println(names[1][0]); // Roberta
+System.out.println(names[2][0]); // Rodrigo
+```
 
--Imprima o jhin.
-System.out.println(personagens[2][0]);
+:warning: Uma array sempre começa com index `0`.
 
 
+Quando criamos uma array, é como se tivessemos criado um armário com 5 gavetas. Podemos colocar um valor em cada gaveta.
 
+- Se criamos uma array para armazenar objetos Integer, só vai dar para colocar Integers.
 
--Imprima todas as posicoes, de todas as arrays.
+- Se criamos uma array para armazenar objetos String, só vai dar para colocar String.
 
-    for(int i=0; i<personagens.length; i++){
-            for(int j=0; j<personagens[i].length; j++){
-                System.out.println(personagens[i][j]);
-            }
-        }
+- Se criamos uma array para armazenar objetos "Carro", só vai dar para colocar "Carro".
 
-Aqui, eu precisei criar um loop dentro de outro.
+<hr>
+<br>
 
-O loop de fora acessa cada array
-O loop de dentro acessa cada posicao da array.
+### loopando todos os index[] de uma array 2d com o `for`
+Basta usarmos o tamanho da array ,`.length`, como condição no for
 
+- No loop de fora , `i`, percorremos todas as arrays
+- No loop de dentro, `j`, percorremos cada posicao da array
 
-No for de dentro, eu estou fazendo o seguinte:
-
-Eu estou acessando cada posicao da array.
-    imprima a array 0 na posicao 0;
-    imprima a array 0 na posicao 1;
-O loop de dentro acessa cada elemento da array(row).
-
-Aí o loop de fora se repete:
-    imprima a array 1 na posicao 0;
-    imprima a array 1 na posicao 1;
-
-
-Basicamente, eu estou dizendo:
-"O loop de fora vai se repetir até o numero total de arrays"
-"O loop de dentro vai se repetir até o numero total de posicoes da array tal"
-
-
-personagens.length -> quantas arrays tem.
-personagens[0].length -> quantas posicoes tem na array 0.
-personagens[1].length -> quantas posicoes tem na array 1.
-
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-2 forma:
-curly braces "{}" :
-Diferente da forma anterior, aqui eu posso escolher quantas posicoes cada array vai ter.
-
-    String[][] personagens = {
-        {"Batman","Superman"},
-        {"Patrik","Bob Esponja","Siri cascudo"},
-        {"Lucian","Jinx","Tristana","Alistar","Gangplank"}
-    };
-
-Dá para perceber que eu tenho 3 arrays, com posicoes diferentes.
-A primeira tem 2 posicoes
-A Segunda tem 3 posicoes
-A primeira tem 5 posicoes
-
-Dessa forma, eu posso ter arrays com total de index diferentes.
-
-
--Imprima todas as posicoes com o nested loop:
-
-    for(int i=0; i<personagens.length; i++){
-        System.out.println("Array "+(i+1)+":");
-        for(int j=0; j<personagens[i].length; j++){
-            System.out.print(personagens[i][j]+" ");
-        }
-        System.out.println("\n");
-    }
-
-
-Igual na array simples.
-
-{} -> As arrays podem ter tamanho de posicoes diferentes.
-[] -> As arrays têm o numero de posicoes fixo.
-
-------------------------------------------------------------------------------------------------------------------------------------------
-exercício  (Colocar try catch, caso o usuario digite uma string, etc.... Deixar o código melhor depois.)
-
-(COLOCAR NO GITHUB)
-"Programa de registro de alunos e resultado de aprovacao"
-Descrever no GITHUB que voce tratou erro de input de String e tratamento caso o usuario digite uma nota maior que 10;
-
-
-Crie um programa onde o professor(usuario) vai inputar o nome dos seus alunos.
-Depois, vai informar a nota de cada aluno em cada bimestre.
-Depois, vai tirar as médias dos alunos.
-Por fim, vai imprimir o resultado final. Se o aluno tiver uma media maior que 7 situacao "aprovado", se não "reprovado".
-
-
-
-Passo a passo:
-1- Crie 3 variables (total de alunos, total de bimestre, media minima para passar)
-
-    int totalAlunos = 5;
-    int totalBimestres = 4;
-    int notaMinima = 7;
-
-
-2- Crie 3 arrays.
-    .uma para armazenar os nomes dos alunos(array simples)
-    .uma para armazenar as notas dos alunos em cada bimestre(array 2d)
-    .uma para armazenar as medias dos alunos.(arrray simples)
-
-        String[] nomesAlunos = new String[totalAlunos];
-        double[][] notasAlunos = new double[totalAlunos][totalBimestres];
-        double[] mediasAlunos = new double[totalAlunos];
-
-
-   AS ARRAYS 'double' PRECISAM ESTAR EM MINUSCULO;
-
-3- Instancie um objeto Scanner. (Não esqueca de importar)
-
-
-4- A array nomesAlunos vai receber os nomes que o usuario inputar. Pra isso, é só criar um loop simples com o input do usuario:
-
-    for(int i=0; i<totalAlunos; i++){
-        System.out.println("Informe o nome do "+(i+1)+"º aluno(a):");
-        nomesAlunos[i] = inputUsuario.nextLine();
-        System.out.println(nomesAlunos[i]+ " foi cadastrado(a).\n");
-    }
-
-    System.out.println("Todos os alunos foram cadastrados com sucesso.\n");
-
-    
-
-5- Crie outro for para receber as notas dos alunos. Como é uma array 2d, eu preciso criar aquele nested loop(1 for dentro de outro).
-A array 2d "notasAlunos" vai receber as 4 notas que o usuario digitar.
-
-    System.out.println("Todos os alunos foram cadastrados com sucesso.");
-    System.out.println("Informe as notas por bimestre:\n");
-
-    for(int i=0; i<totalAlunos; i++){
-        System.out.println("\nAluno "+nomesAlunos[i]+":");
-        for(int j=0; j<(totalBimestres); j++){
-            System.out.print((j+1)+"º bimestre: ");
-            notasAlunos[i][j] = inputUsuario.nextDouble();
-        }
-    }
-
-
-6- Vamos tirar a média dessas notas.
-Crie um for dentro de outro.
-
-    for(int i=0; i<totalAlunos; i++){
-        for(int j=0; j<totalBimestres; j++){
-            mediasAlunos[i] += notasAlunos[i][j];
-        }
-        mediasAlunos[i] = mediasAlunos[i]/totalBimestres;
-    }
-
-    AS ARRAYS 'double' PRECISAM ESTAR EM MINUSCULO;
-
-Perceba que eu usei a array "mediasAlunos".
-Então:
-"A média do aluno tal vai receber a soma das 4 notas"
-Fora do loop, eu digo que aquela média, vai receber ela mesma dividio pelo numero de bimestres(4);
-Pronto. Tenho as médias.
-
-
-7-Mostrar situacao dos alunos. Quem foi aprovado? Quem foi reprovado??
-vamos criar um if
-
-    System.out.println("====== Resultado final ======\n");
-    for(int i=0; i<totalAlunos; i++){
-        if(mediasAlunos[i]>notaMinima){
-            System.out.println(nomesAlunos[i] + "->  Media: "+mediasAlunos[i]+ " -> Situacao: Aprovado");
-        }
-        else{
-            System.out.println(nomesAlunos[i] + "->  Media: "+mediasAlunos[i]+ " -> Situacao: reprovado");
-        }   
-    }
-
-
-
-
-
-
-
-
-
-
-    
-
--trate os erros, caso o usuario inpute strings
-
-** Código completo **
-
-
-Scanner scan = new Scanner(System.in);
-        int totalAlunos = 0;
-        int totalBimestre = 4;
-        int notaMinima = 7;
-        String[] nomesAlunos;
-        double[][] notasAlunos;
-        double[] mediasAlunos;
-        boolean numeroCorreto = true;
-
-        do{
-            try{
-                System.out.print("Quantos alunos tem na sala?: ");
-                totalAlunos = scan.nextInt();
-                numeroCorreto = true;
-                scan.nextLine();
-            }
-            catch(Exception e){
-                System.out.println("Erro. Por favor, digite um número.\n");
-                numeroCorreto = false;
-                scan.nextLine();
-            }
-        }
-        while(numeroCorreto == false);
+```java
+public class Programa{
+    public static void main(String[] args){
+        String[][] names = {
+            {"Paloma","André"},
+            {"Roberta","Carlos"},
+            {"Rodrigo"}
+        };
         
-
-        notasAlunos = new double[totalAlunos][totalBimestre];
-        nomesAlunos = new String[totalAlunos];
-
-        //cadstrando nomes dos alunos
-        
-        for(int i=0; i<nomesAlunos.length; i++){
-            System.out.print("Digite o nome do aluno "+(i+1)+": ");
-            nomesAlunos[i] = scan.nextLine();
-            numeroCorreto = true;
-        }
-
-        System.out.println("Nomes registrados com sucesso!\n");
-        System.out.println("Digite as notas dos alunos: \n");
-
-        do{
-            
-                for(int i=0; i<notasAlunos.length; i++){
-                    System.out.println("Aluno "+nomesAlunos[i]+":");
-                    for(int j=0; j<notasAlunos[i].length; j++){
-                        do{
-                            try{
-                                System.out.print((j+1)+"º Bimestre: ");
-                                notasAlunos[i][j] = scan.nextInt();
-                                numeroCorreto = true;
-                            }
-                            catch(Exception e){
-                                System.out.println("Erro. Digite um número.\n");
-                                numeroCorreto = false;
-                                scan.nextLine();
-                            }
-                        }
-                        while(numeroCorreto == false);
-                        
-                    }
-                    System.out.println("\n");
-                    numeroCorreto = true;
-            }
-         
-        }
-        while(numeroCorreto == false);
-
-        //tirando media dos alunos
-        
-        mediasAlunos =  new double[totalAlunos];
-
-        for(int i=0; i<notasAlunos.length; i++){
-            for(int j=0; j<notasAlunos[i].length; j++){
-                mediasAlunos[i] += notasAlunos[i][j];
-            }
-            mediasAlunos[i] /= totalBimestre;
-        }
-
-        //quem foi aprovado/reprovado
-        System.out.println("**** Resultado ****\n");
-
-        for(int i=0; i<notasAlunos.length; i++){
-            if(mediasAlunos[i] < notaMinima){
-                System.out.println(String.format("%s: Reprovado",nomesAlunos[i]));
-            }
-            else{
-                System.out.println(String.format("%s: Aprovado",nomesAlunos[i]));
+        //percorrendo todas as arrays
+        for(int i = 0; i<names.length; i++){
+            System.out.println("Array "+ (i+1) + ":");
+            //percorrendo todas as positions de cada array
+            for(int j = 0; j<names[i].length; j++){
+                System.out.println(names[i][j]);
             }
         }
-------------------------------------------------------------------------------------------------------------------------------------------
+    }   
+}
+```
 
--->
+
+:bulb: Como boas práticas, usamos o `i` para o primeiro loop, e o `j` para o segundo loop.
+
+- names.length -> quantas arrays tem.
+- names[0].length -> quantas posicoes tem na array 0.
+- names[1].length -> quantas posicoes tem na array 1.
+
+
+<br>
+
+:warning: Não dá para loopar array 2d com o `for each`. Use o `for` padraozin mesmo.
+
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/3.array_list/array_list.md">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
