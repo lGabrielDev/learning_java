@@ -227,6 +227,6 @@ for(Integer i : numbers){
 <br>
 
 <!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/BLABLABLA">
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/3.array_list/array_list2d.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

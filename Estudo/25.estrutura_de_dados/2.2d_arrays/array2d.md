@@ -129,9 +129,15 @@ public class Programa{
 
 
 <br>
+<br>
 
-:warning: Não dá para loopar array 2d com o `for each`. Use o `for` padraozin mesmo.
-
+### loopando todos os index[] de uma array 2d com o `for each`
+```java
+for(String[] i : names){
+    System.out.println(Arrays.toString(i));
+}
+// informamos primeiro a estrutura que estamos acessando, `i` representa o index/posicao dessa array, qual é a array
+```
 
 <br>
 <br>
