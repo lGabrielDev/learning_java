@@ -1,277 +1,232 @@
-<!--
-ArrayList ou Dynamic Arrays
-A diferenca de ArrayList e array normal, é que na array tradicional ela tem um tamanho específico.
-Já na ArrayList, o tamanho dela pode aumentar conforme eu coloco ou tiro elementos.
+<h1 align="center">
+    ArrayList
+    <img src="https://cdn-icons-png.flaticon.com/512/4394/4394574.png" alt="image icon" width="60px" align="center">
+</h1>
 
 
-Quando eu crio uma ArrayList, eu estou criando um objeto do tipo lista.
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
+Diferente da array normal, aqui podemos manipular nossos objetos. Podemos remove ou adicionar objetos, sem precisar criar outra ArrayList. Na array normal, não é possível.
 
----------------------------------------------------------------
-Array Tradicional
-Crie 1 array que recebe String com 3 posicoes.
+- `Array` --> Possui um tamanho fixo. Uma vez colocado os objetos, não é possível removê-los ou adicionar mais objetos.
+- `ArrayList` --> Possui um tamanho flexível. Podemos adicionar ou remover objetos em qualquer momento.
 
+<hr>
+<br>
 
-Poderia fazer assim:
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
+Sempre setamos primeiro a interface e depois a classe que vamos usar.
 
-String[] animais = new String[3];
-animais[0] = new String("cachorro");
-animais[1] = new String("gato");
-animais[2] = new String("pássaro");
+```java
+List<String> colors = new ArrayList<>();
+//Interface, datatype da estrutura, nome do objeto , classe que vamos usar
+```
+:bulb: Usamos primeiro a **interface**. Se quisermos alterar o tipo da estrutura, conseguimos sem problemas:
 
-System.out.println(animais[0]);
-System.out.println(animais[1]);
-System.out.println(animais[2]);
+```java
+List<String> colors = new ArrayList<>();
+List<String> colors = new LinkedList<>();
+```
 
-Ou...
-
-
-Poderia fazer assim:
-String[] animais = new String[3];
-animais[0] = "cachorro";
-animais[1] = "gato";
-animais[2] = "pássaro";
-
-System.out.println(animais[0]);
-System.out.println(animais[1]);
-System.out.println(animais[2]);
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-ArrayList
-Para usar a class ArrayList, eu preciso importar o package java.util
+:warning: Não esqueca de importar o package da classe:
+```java
+import java.util.List;
 import java.util.ArrayList;
+```
 
 
-Syntax
-ArrayList<String> animal = new ArrayList<String>();
+Quando criamos um objeto ArrayList, conseguimos usar vários methods para manipular os objetos da nossa estrutura.
 
-Eu faço como se tivesse criando um objeto array, mas em vez de colocar o [] eu coloco <Type>
+<hr>
+<br>
 
+## Adicionando items na ArrayList - `.add()`
+```java
+List<String> colors = new ArrayList<>();
+colors.add("blue");
+colors.add("yellow");
+colors.add("purple");
+colors.add("red");
 
-Maneira tradicional
-String[] animal = new String[3];
+System.out.println(colors.toString()); //ou apenas, System.out.println(colors);
+System.out.println(colors.size()); // tamanho da array
+```
 
+:bulb: Para achar o comprimento de uma lista, vamos usar o `.size()`. Funciona da mesma forma que o `.length()`. 
 
-ArrayList
-ArrayList<String> animal = new ArrayList<String>();
+<hr>
+<br>
 
+## Acessando um item da nossa ArrayList `.get()`:
+Funciona igualzinho uma array. Aqui, também vamos ter os index/posicoes da array:
+```java
+List<String> colors = new ArrayList<>();
+colors.add("blue");
+colors.add("yellow");
+colors.add("purple");
+colors.add("red");
 
+System.out.println(colors.get(0));
+System.out.println(colors.get(1));
+System.out.println(colors.get(2));
+```
 
-Perceba que ArrayList é igual a uma Class...Então ela tem alguns methods..Se liga..
+:bulb: Lembrando que a posicao de uma array sempre começa em index `0`.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-add();
-Adicionar posicoes na array
+<hr>
+<br>
 
-add("valor")
+## Removendo um item da nossa ArrayList `.remove()`;
+```java
+List<String> colors = new ArrayList<>();
+colors.add("blue");
+colors.add("yellow");
+colors.add("purple");
+colors.add("red");
 
--Crie um objeto da class ArrayList e adicione 3 posicoes
+System.out.println(colors.toString()); // "blue","yellow","purple","red";
 
-ArrayList<String> animal = new ArrayList<String>();
-animal.add("Cachorro");
-animal.add("Gato");
-animal.add("Pássaro");
+colors.remove(0); //Passando o index/posicao
+colors.remove("yellow"); // passando o objeto
 
+System.out.println(colors.toString());
+```
 
-Voce consegue mostrar todas as pocicoes, usando o nome da ArrayList:
+:bulb: Perceba que podemos passar tanto o **index/posicao** quanto o **nome do objeto**.
 
-System.out.println(animal);
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-get()
+<hr>
+<br>
 
-Para acessar uma posicao na array, vou usar o method get();
+## Modificando um item/index da lista `.set()`
+```java
+List<String> names = new ArrayList<>();
+names.add("Paulo");
+names.add("Camila");
+names.add("Debora");
 
--Imprima as 3 posicoes
+System.out.println(names.toString());
 
-System.out.println(animal.get(0));
-System.out.println(animal.get(1));
-System.out.println(animal.get(2));
+//alterando o valor de um dos items
+names.set(1,"goku");
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-set();
-Seto/altero o valor de uma posicao.
+System.out.println(names.toString());
+```
 
-Parâmetros:
-(Posicao,"valor novo")
+<hr>
+<br>
 
+## loopando todos os index[] de uma ArrayList com o `for`
+Padraozin... Só que aqui na ArrayList sempre usamos o `.size();` ao invés de `.length()`.
+```java
+List<String> colors = new ArrayList<>();
+colors.add("blue");
+colors.add("yellow");
+colors.add("purple");
+colors.add("red");
 
--Altere o valor da segunda posicao
-
-animal.set(1,"Cavalo");
-
-System.out.println("--------------------------");
-
-System.out.println(animal.get(0));
-System.out.println(animal.get(1));
-System.out.println(animal.get(2));
-
-
-get e set são igualzin no encapsulamento...Zica né?
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-size();
-Mostra quantas posicoes minha ArrayList tem.
-
-Lembra que antes, na array tradicional eu usava o .length();
-
-Aqui eu uso o size();  -> É igualzin o .length();
-
-System.out.println(animal.get(0));
-System.out.println(animal.get(1));
-System.out.println(animal.get(2));
-System.out.println("Total de posicoes da ArrayList: " + animal.size());
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-remove();
-Remove uma posicao da ArrayList.
-Posso tanto remover atraves da posicao, quanto de uma String específica
-
-remove(posicao);    ou
-remove("string");
-
-
-
--remova a primeira posicao da ArrayList;
-
-animais.remove(0);
-System.out.println("-------------------");
-
-System.out.println(animais.get(0));
-System.out.println(animais.get(1));
-
-Perceba que, quando eu removo uma posicao, as outras descem.
-
-Antes eu tinha 3 posicoes, agora que eu removi tenho apenas 2.
-
-Se antes a minha posicao 0 era cachorro...Agora que eu removi cachorro, o gato vira a posicao 0...Sacou??
-
-
-
-Removendo a última posicao:
-
-
--remova a ultima posicao da ArrayList;
-use o size(); para saber a quantidade de posicoes e remova 1.
-
-Se eu tenho 3 posicoes, eu tenho:
-0,1,2;
-
-Se eu quero remover a ultima posicao, eu vou fazer size(); - 1;
-3 - 1 = 2. Sacou??
-
-
-animais.remove(animais.size()-1);
-System.out.println("-------------------");
-
-System.out.println(animais.get(0));
-System.out.println(animais.get(1));
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-clear();
-Remove todas as posicoes;
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-contains();
-Verifica se tem tal valor em alguma posicao da ArrayList;
-
-Ele retornar um valor boolean (true/false)
-
--Crie uma Arraylist e adicione 3 items.
--Crie um if com contains.
-    Se a arraylist contains "joaozinho", eu retorno uma mensagem:
-        "joaozinho está na lista";
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Usando loop na ArrayList
-
-Imagine que eu quero imprimir todas as posicoes da ArrayList.
-
-Vou usar o loop for;
-
-for(int i = 0; i < animais.size(); i++){
-    System.out.println(animais.get(i));
+for(int i = 0; i < colors.size(); i++){
+    System.out.println(colors.get(i));
 }
+```
 
-Enquanto i for menor que o total de posicoes da ArrayList, imprima a posicao.
+<hr>
+<br>
 
-Sacou???
+## loopando todos os index[] de uma ArrayList com o `for each`
+Padraozin...
 
+```java
+List<String> colors = new ArrayList<>();
+colors.add("blue");
+colors.add("yellow");
+colors.add("purple");
+colors.add("red");
 
+for(String i : colors){
+    System.err.println(i);
+}
+/*
+Datatype da estrutura, contador representando uma posicao da lista, nome da array
+*/
+```
 
+<hr>
+<br>
 
-for each loop na ArrayList;
+## Criando uma arrayList com outros objetos
+Uma estrutura ArrayList sempre vai ter o datatype de um objeto. Se for datatype primitive, temos que usar wrapper classes:
+- Integer
+- Double
+- Boolean
+- etc...
 
-for(String i: animais){
+### Integer
+```java
+List<Integer> numbers = new ArrayList<>();
+numbers.add(10);
+numbers.add(200);
+numbers.add(45);
+
+System.out.println(numbers.toString());
+System.out.println(numbers.size());
+```
+<br>
+
+### Outros objetos
+```java
+List<Pessoas> lista = new ArrayList<>();
+        
+lista.add(new Pessoas("Carlos"));
+lista.add(new Pessoas("Amanda"));
+lista.add(new Pessoas("Roberto"));
+```
+Etc... Podemos criar uma lista de qualquer tipo de objeto.
+
+<hr>
+<br>
+
+## Ordenando uma ArrayList
+
+Basta usarmos a class "Collections"
+
+### String
+```java
+List<String> names = new ArrayList<>();
+names.add("Zidane");
+names.add("Paulo");
+names.add("Amanda");
+names.add("Bruno");
+
+//ordenamos em ordem crescente (A,B,C,etc...)
+Collections.sort(names); 
+
+//imprimindo todas os indexes da lista
+for(String i : names){
     System.out.println(i);
 }
+```
+<br>
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Outros types
-Quando eu uso ArrayList eu não posso usar primitive data types.
+### Integer
+```java
+ List<Integer> numbers = new ArrayList<>();
+numbers.add(50);
+numbers.add(100);
+numbers.add(90);
+numbers.add(33);
 
-int
-double
-float
-boolean
-char
+//ordenamos em ordem crescente (1,2,3,etc...)
+Collections.sort(numbers);
 
-Para usá-los eu preciso transformá-los em Wrapper Classes:
-
-Wrapper Classes
-
-int	     ->   Integer
-float	 ->   Float
-double	 ->   Double
-boolean	 ->   Boolean
-char	 ->   Character
-
-
-
-Agora sim, eu consigo criar uma ArrayList com qualquer tipo de datatype.
-
-
-
-1-Crie uma ArrayList com Integer
-
-ArrayList<Integer> numbers = new ArrayList<Integer>();
-numbers.add(72);
-numbers.add(46);
-numbers.add(70);
-numbers.add(25);
-numbers.add(13);
-numbers.add(2);
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-sort();
-Ordena de forma ascending
-
-Para usar o sort(); eu preciso importar o package Collections
-import java.util.Collections;
-
-
--Crie uma ArrayList<Integer> e ordene as posicoes do menor para o maior
-
-
-Collections.sort(animais);
-
-for(int i = 0; i<animais.size(); i++){
-    System.out.println(animais.get(i));
+//imprimindo todas os indexes da lista
+for(Integer i : numbers){
+    System.out.println(i);
 }
+```
 
+<br>
+<br>
 
-
--Altere o type da ArrayList para <String> e faça a mesma coisa.
-
-
-Para ordenar de forma descending, fazemos:
-
-Collections.sort(ArrayName, Collections.reverseOrder());
-
-
-
-Easy!!
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--->
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/BLABLABLA">
+  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
