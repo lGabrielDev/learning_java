@@ -1,72 +1,89 @@
-<!--
-queue data structure  - Estrutura de dados em fila
+<h1 align="center">
+    Queue (fila)
+    <img src="https://cdn-icons-png.flaticon.com/512/5978/5978598.png" alt="image icon" width="60px" align="center">
+</h1>
 
--FIFO -> First In First Out
+## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
 
-A estrutura de fila representa uma fila do mundo real. 
-Imagine uma fila de padaria. O primeiro a chegar, será o primeiro a ser atendido.
+**Queue** é uma estrutura de dados em forma de fila. Representa uma fila do mundo real.
 
+- **FIFO** --> First In First Out
 
+O primeiro a entrar na fila, será o primeiro a ser atendido. O primeiro que entrar na fila do pão, será o primeiro a ser atendido.
 
-Em uma fila temos:
-
-Head -> Cabeça da fila (começo)
-Tail -> Calda da fila  (final)
-
-
-Principais methods:
-
-.offer() -> Adiciona um elemento ao final da fila
-.poll() -> Retira o primeiro elemento da fila
-.peek() -> Quem é o primeiro da fila.
+- **head** (cabeça) --> começo da fila.
+- **tail** (rabo) --> final da fila.
 
 
+<hr>
+<br>
 
-Quando uma pessoa entra na fila, ela entra no FINAL(tail) da fila.
+## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
+Para criar uma estrututra de fila, vamos usar a class **LinkedList();**
 
-No java, não podemos instanciar uma classe Queue. Isso porque, Queue é uma interface e não uma Class.
+```java
+Queue<String> filaDoPao = new LinkedList<>();
+Queue<Integer> numeroDeAtendimento = new LinkedList<>();
+Queue<Pessoa> filaDaPizzaria = new LinkedList<>();
+```
 
-Para usar a estrutura de fila(queue), eu vou usar uma linked list.
+:bulb: Como sempre, primeiro passamos a interface, depois a classe que vamos usar.
 
-Syntax:
-    Queue<String> fila = new LinkedList<>();
-    Queue<String> fila = new LinkedList<String>();     Dá no mesmo.
+<hr>
+<br>
 
-Importe:
-    import java.util.LinkedList;
-    import java.util.Queue;
+## Principais methods <img src="https://cdn-icons-png.flaticon.com/512/1774/1774106.png" alt="imagem" width="50px" align="center">
 
-"Estou criando uma estrutura de fila, que vai armazenar dados do tipo String, e o nome dessa estrutura vai ser 'fila'. "
-
-Como Queue não é uma Class, e sim uma Interface.... Eu preciso instanciar uma class que implements a Interface Queue.
-
-E a class LinkedList faz isso.
-
-Eu instancio uma LinkedList, que é uma Class.
-Sacou??
-
-
-Sempre que eu quiser criar uma fila, eu vinculo ela com a class LinkedList;
-
-------------------------------------------------------------------------------------------------------------------------------------------
-1- Crie uma fila de personagens
-
-    -Crie uma fila
-    -Import a interface Queue e a class LinkedList
-    -add(); 4 personagens
-    -Imprima todos que estao na fila.  -> Use o nome da fila apenas
-    -Imprima o total de personagens na fila.
-    -Remova o primeiro da fila
-    -Imprima o total de personagens na fila.
-    -Imprima todos que estao na fila.
+- `.offer()` -> Adiciona um objeto no começo da fila.
+- `.poll()` -> Retira o primeiro objeto da fila.
+- `.peek()` -> Retorna quem é o primeiro da fila.
 
 
-        System.out.println("Fila atual: "+fila);
-        System.out.println("Total de personagens na fila: "+fila.size());
-        System.out.println(fila.poll() + " foi atendido.");
-        System.out.println("Total de personagens na fila: "+fila.size());
-        System.out.println("Fila atual: "+fila);
-------------------------------------------------------------------------------------------------------------------------------------------
+<br>
+<br>
 
+### Praticando
 
--->
+:pencil2: Crie 4 objetos "Pessoas" e coloque na lista.
+
+```java
+Pessoa p1 = new Pessoa("Roberta");
+
+Queue<Pessoa> filaDoPao = new LinkedList<>();
+
+filaDoPao.offer(p1); // Adicionando na fila um objeto "Pessoa" já criado.
+filaDoPao.offer(new Pessoa("Carlos")); // Criando um objeto "Pessoa" na hora de adicionar na fila.
+filaDoPao.offer(new Pessoa("Patrícia")); // Criando um objeto "Pessoa" na hora de adicionar na fila.
+
+System.out.println(filaDoPao.toString());// Mostrando todos da fila
+System.out.println(filaDoPao.peek()); // Roberta é a primeira da fila
+
+filaDoPao.poll(); // removendo/atendendo o primeiro da fila
+System.out.println(filaDoPao.peek()); // Carlos é o primeiro da fila
+System.out.println(filaDoPao.toString());// Mostrando todos da fila
+```
+
+<hr>
+<br>
+
+## Removendo todos os objetos da fila com o `for`
+Basta criar um `while` loop. Enquanto tiver objetos na fila, vamos remover o primeiro da fila.
+```java
+Queue<Pessoa> filaDoPao = new LinkedList<>();
+filaDoPao.offer(new Pessoa("Camila"));
+filaDoPao.offer(new Pessoa("Pedro"));
+filaDoPao.offer(new Pessoa("Adolfo"));
+filaDoPao.offer(new Pessoa("Carla"));
+
+while(filaDoPao.isEmpty() == false){
+    System.out.println(filaDoPao.poll() + " foi removido(a) da fila.");
+}
+```
+
+<br>
+<br>
+
+<!-- Botão para próxima página -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/5.queue/2.priority_queue/priority_queue.md">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

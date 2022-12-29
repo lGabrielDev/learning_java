@@ -80,14 +80,13 @@ for(String i : livros){
 
 *Use apenas quando for pedido. Vamos usar a pilha que o Java faz mesmo!*
  
-Para ver a classe "PilhaBolada" criada na mão, clique [aqui](https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/4.stack/PilhaBolada.java") .
+Para ver a classe "PilhaBolada" criada na mão, clique [aqui](https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/4.stack/PilhaBolada.java) .
+
 
 <br>
 <br>
 
 <!-- Botão para próxima página -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/5.queue/1.simple_queue/queue.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
-
-
