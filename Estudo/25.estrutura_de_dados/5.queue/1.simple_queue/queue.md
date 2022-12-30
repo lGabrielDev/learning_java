@@ -66,7 +66,7 @@ System.out.println(filaDoPao.toString());// Mostrando todos da fila
 <hr>
 <br>
 
-## Removendo todos os objetos da fila com o `for`
+## Removendo todos os objetos da fila com o `while`
 Basta criar um `while` loop. Enquanto tiver objetos na fila, vamos remover o primeiro da fila.
 ```java
 Queue<Pessoa> filaDoPao = new LinkedList<>();
