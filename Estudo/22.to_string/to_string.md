@@ -84,7 +84,8 @@ Esse method vêm da class "Object". Como toda class no java é filha da class "O
 - O method `toString()` retorna o hashcode do objeto.
 - Para retornar todos os attributes de um objeto, basta sobrepor o method na Class filha `@Override`.
 - Por baixo dos panos, quando chamamos o objeto, estamos chamando o `toString()` method.
-  - ```java
+  
+   ```java
     System.out.println(objeto) // ou
     System.out.println(objeto.toString())
 

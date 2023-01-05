@@ -4,9 +4,9 @@
 </h1>
   
 
-- `if` --> Se a condição tal `()` for true, executa esse código.
-- `else if` --> Se a condição tal `()` for true, executa esse código.
-- `else`    --> Caso contrário, se todas as condições anteriores forem false, executa esse código.
+- `if` --> Se a condição tal `()` for true, execute esse código.
+- `else if` --> Se a condição tal `()` for true, execute esse código.
+- `else`    --> Caso contrário, se todas as condições anteriores forem false, execute esse código.
      
 
 Sempre que trabalhamos com `if else`, o resultado será um valor booleano (**true/false**).
@@ -65,7 +65,7 @@ Usamos essa forma abreviada quando temos apenas 1 condition simples (**if else a
 
 
 
-:pencil2: Crie o mesmo exemplo acima, só que usando o **if shorthand**(forma abreviada).
+:pencil2: Crie o mesmo exemplo acima, só que usando o **if shorthand** (forma abreviada).
 
 ```java
 public static void main(String[] args){
@@ -82,8 +82,8 @@ public static void main(String[] args){
 :bulb: É uma forma mais clean de escrever. Se temos apenas 1 condition, vale a pena fazer dessa forma abreviada.
 
 
-`?` --> Começa o if
-`:` --> Separa o true e o false
+- `?` --> Começa o if
+- `:` --> Separa o true e o false
 
 <hr>
 <br>

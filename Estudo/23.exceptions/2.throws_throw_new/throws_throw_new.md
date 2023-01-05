@@ -148,6 +148,7 @@ Basta criar uma class que vai `extends` a superClass "Exception". Aí na hora de
 
     ```java
     public class Programa{
+        
         //method para checar idade
         public static void checkAge(Integer age) throws MenorDeIdadeException{ //lancamos para o method main tratar
             if(age < 18){

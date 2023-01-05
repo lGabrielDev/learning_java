@@ -24,7 +24,7 @@ Os modificadores de acesso, são usados para especificar o nível de visibilidad
 
 - Class --> `default` or `public`.
 
-- attributes and methods --> `default`,`public`,`protected`,`private`.
+- attributes and methods --> `default`, `public`, `protected`, `private`.
 
 
 <br>

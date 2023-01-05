@@ -7,12 +7,12 @@ A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas imple
 
 
 
-- addFirst()
-- addLast()
-- removeFirst()
-- removeLast()
-- getFirst()
-- getLast()
+- `addFirst()`
+- `addLast()`
+- `removeFirst()`
+- `removeLast()`
+- `getFirst()`
+- `getLast()`
 
 :bulb: Geralmente, sempre vamos usar ArrayList. Usamos LinkedList para trabalharmos com **Queue**.
 

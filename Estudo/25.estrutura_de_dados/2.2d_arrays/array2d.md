@@ -21,7 +21,10 @@ Igual uma array simples, podemos criar uma array 2d de 2 formas:
 
 ## Formas de criar uma array 2d
 
+<br>
+
 ### Definindo o comprimento dentro do `[][]` e depois attribuindo os valores
+
 Primeiro dizemos quantas arrays vao ser, e depois passamos quantas posicoes(indexes) vao ter essas arrays.
 
 ```java

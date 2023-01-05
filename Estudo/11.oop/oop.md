@@ -34,7 +34,7 @@ Quando criamos um objeto, estamos "instanciado" uma class em forma de um objeto.
 
 <img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="center">
 
-- **Class/Interface** --> Letras MAIÚSCULAS.
+- **Class/Interface/Enum** --> Letras MAIÚSCULAS.
 - **object/attributes/methods** --> letras minúsculas.
 
 

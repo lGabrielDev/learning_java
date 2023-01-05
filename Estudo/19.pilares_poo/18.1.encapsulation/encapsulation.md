@@ -5,7 +5,7 @@
 
 ## Pilares da POO <img src="https://cdn-icons-png.flaticon.com/512/2058/2058008.png" alt="image icon" width="32px" align="center">
 
-Na programação orientada a objetos, existem 3 pilares:
+Na programação orientada a objetos, existem 4 pilares:
 
 - **Encapsulation**
 - Inheritance(Herança)
@@ -320,7 +320,7 @@ Outra forma de copiar attributes de um objeto para outro objeto seria utilizando
 
     :bulb: É legal ter os dois tipos. 
 
-    - Criando um constructor, podemos copiar um objeto assim que criamos um objeto.
+    - Criando um constructor, podemos copiar os attributes de um objeto assim que criamos esse objeto.
     - Criando um method `copy()` podemos copiar os attributes de um objeto a qualquer momento.
 
 <br>

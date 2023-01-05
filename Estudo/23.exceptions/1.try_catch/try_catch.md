@@ -52,7 +52,7 @@ public class Programa{
 
 <br>
 
-:bulb: Sempre popar uma exception(erro) no seu programa e mostrar de qual classe ela pertence, usamos ela como parameter no `catch`.
+:bulb: Sempre que popar uma exception(erro) no seu programa e mostrar de qual classe ela pertence, usamos ela como parameter no `catch`.
 
 
 <hr>
@@ -151,7 +151,7 @@ Não vai tentar loopar no final. Sempre loop de poquinho em poquinho.
 <br>
 
 ## Tratando uma exception genérica
-Quando queremos tratar qualquer tipo de exception, vamos usar como parameter no `catch(){}` a class `Exception`. Ela consegue tratar qualquer erro, pois ela é pai das outras class(é só verificar a árvore [denovo](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md/#exception-tree-árvore-de-exceptions)).
+Quando queremos tratar qualquer tipo de exception, vamos usar como parameter no `catch(){}` a class `Exception`. Ela consegue tratar qualquer erro, pois ela é pai das outras exceptions class(é só verificar a árvore [denovo](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md/#exception-tree-árvore-de-exceptions)).
 
 
 :bulb: Se não soubermos qual o nome da class da da exception(erro), basta usar a class genérica `Exception` e dale.

@@ -23,8 +23,7 @@ Sempre que criamos um projeto, é gerado um package `src`. Esse diretório é o 
 :warning: Não é recomendado criar classes direto na pasta `src`. Geralmente seguimos essa estrutura de diretórios:
 
 ```txt
-src/main/java/br/com/empresaTal/nomeDoProjeto/classes
-src/main/java/br/com/empresaTal/nomeDoProjeto/interfaces
+src/main/java/com/companyName/Main.java
 etc...
 ```
 <hr>

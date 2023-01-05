@@ -10,17 +10,15 @@ Linguagem de programação é uma forma de dizer ao computador, através de inst
 
 ### Java
 
-A linguagem java é uma linguagem de programação orientada a objetos.
+É uma linguagem de programação orientada a objetos.
 
 <br>
 
 ### Curiosidades da linguagem Java
 
-- A linguagem Java é propriedade da **Oracle**
-- Um arquivo Java tem a extenção `.java`
-- Java é case-sensitive: 'car' and 'Car' são diferentes
-- JRE
-- sadsa
+- A linguagem Java é propriedade da **Oracle**.
+- Um arquivo Java tem a extenção `.java` .
+- Java é case-sensitive: 'car' and 'Car' são diferentes.
 
 <br>
 <hr>
@@ -30,11 +28,9 @@ A linguagem java é uma linguagem de programação orientada a objetos.
 Para utilizar a linguagem java no seu PC é preciso instalar o <span style="color:tomato">JRE</span> e o <span style="color:tomato">JDK</span>
 
 
-JDE (Java Runtime Environment) -> Ambiente de execução java
+- `JRE` (Java Runtime Environment) -> Usado para executar os programas em java.
 
-JDK (Java development kit) -> Kit desenvolvimento java.
-
->JDE serve para rodar nossa aplicação, e o JDK serve para criarmos o programa. - lGabrielDev
+- `JDK` (Java development kit) -> Usado para criar programas em java.
 
 <br>
 <hr>

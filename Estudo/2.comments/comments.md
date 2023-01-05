@@ -6,8 +6,8 @@
 
 | Comment   | description         |
 | :---      |                 ---:|
-| //        | Line Comment        |
-| /**/      | Bloco de comentário |
+| `//`        | Line Comment        |
+| `/**/`      | Bloco de comentário |
 
 
 <br>

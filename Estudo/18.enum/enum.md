@@ -324,7 +324,7 @@ A diferença é que aqui, passamos os argumentos diretamente dentro das constant
         //constants
         BIKE(50),
         CAR(170),
-****        JATO(500);
+        JATO(500);
 
         //attributes
         public Integer speed;
