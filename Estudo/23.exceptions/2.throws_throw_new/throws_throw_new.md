@@ -180,6 +180,6 @@ Basta criar uma class que vai `extends` a superClass "Exception". Aí na hora de
 <br>
 
 <!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/1.array(vetores)/1.array.md">
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/24.generics/generics.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
