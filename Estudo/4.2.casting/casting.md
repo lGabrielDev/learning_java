@@ -104,6 +104,9 @@ Integer number1 = Integer.parseInt(texto);
 Double number2 = Double.parseDouble(texto);
 Float number3 = Float.parseFloat(texto);
 ```
+
+⚠️ Lembrando que essa String SÓ PODE TER numbers. Senão vai dar pau.
+
 <br>
 <br>
 

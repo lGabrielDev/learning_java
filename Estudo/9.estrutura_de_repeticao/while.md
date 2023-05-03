@@ -52,31 +52,6 @@ for(int i=0; i<4; i++){
     System.out.println("Salve gurizada!");
 }
 ```
-<br>
-<br>
-
-### Exercício 2
-:pencil2: Crie um programa onde o usuário vai inputar o nome dele. Enquanto ele apertar enter e não informar seu nome o programa vai reiniciar.
-
-```java
-public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        String name = ""; // iniciamos a variable com um valor blank(em branco)
-
-        // loop do input do usuário
-        while(name.isBlank()){
-            System.out.print("\nDigite seu nome: ");
-            name = scan.nextLine();
-        }
-        System.out.printf("\n%s cadastrado com sucesso!",name);
-        scan.close();
-    }    
-```
-
-Perceba que usamos o method `isBlank();` da class **String** como condition do `while`. 
-
-:bulb: Dava pra fazer com o `do while` também. Na programação sempre dá para fazer de várias formas...Relax!!
-
 <hr>
 <br>
 
@@ -102,57 +77,7 @@ while (condition);
 ```
 <br>
 
-### Exercício 1
-:pencil2: Crie um programa que some 2 números. Se o usuário quiser rodar o programa novamente, ele vai digitar tal número.
 
-```java
-public static void main(String[] args){
-        Scanner scan =  new Scanner(System.in);
-        Integer number1 = 0;
-        Integer number2 = 0;
-        //booleanos para loopar
-        Boolean rodarProgramaNovamente = false;
-        Boolean opcaoValida = false;
-        Integer opcaoEscolhida = 0;
-        
-        //loop para rodar o programa novamente
-        do{
-            //input do usuário
-            System.out.print("\nDigite o primeiro number: ");
-            number1 = scan.nextInt();
-            System.out.print("\nDigite o segundo number: ");
-            number2 = scan.nextInt();
-            // resultado da soma
-            Integer result = number1 + number2;
-            System.out.printf("\n\n%d + %d = %d",number1,number2,result);
-
-            //loop da opcao escolhida pelo usuario. Se for inválida, vai perguntar novamente
-            do{
-                System.out.println("\n\nDeseja rodar o programa novamente?\n");
-                System.out.println("1- SIM\n2- NÃO");
-                opcaoEscolhida = scan.nextInt();
-
-                switch(opcaoEscolhida){
-                    case 1:
-                        opcaoValida = true;
-                        rodarProgramaNovamente = true;
-                        break;
-                    case 2:
-                        opcaoValida = true;
-                        rodarProgramaNovamente = false;
-                        System.out.println("Programa finalizado.");
-                        break;
-                    default:
-                        System.out.println("Opção inválida. Por favor, escolha novamente:");
-                        opcaoValida = false;
-                }
-            }
-            while(opcaoValida == false);
-        }
-        while(rodarProgramaNovamente);
-        scan.close();
-    }
-```
 <img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="left">
 
 Sempre que estiver trabalhando com loops, crie variables booleanas.

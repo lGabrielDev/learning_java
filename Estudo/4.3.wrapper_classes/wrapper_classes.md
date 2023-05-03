@@ -38,6 +38,8 @@ public static void main(String[] args){
     }
 ```
 
+A conversão é feita automaticamente. Easy!
+
 <br>
 <br>
 

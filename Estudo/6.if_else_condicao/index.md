@@ -88,40 +88,6 @@ public static void main(String[] args){
 <hr>
 <br>
 
-## Trabalhando com várias conditions
-:pencil2: Crie um programa onde o usuário vai inputar a quantidade de medalhas que ele já ganhou. Vamos seguir as conditions:
-
-- 10 medalhas ou mais --> "Monstrão!!"
-- 5 medalhas ou mais --> "brabin!"
-- 2 medalhas ou mais --> "é..."
-- 0 medalhas --> "fraco"
-
-```java
-public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        Integer medalhas;
-
-        //input do usuário
-        System.out.print("Quantas medalhas tienes? ");
-        medalhas = scan.nextInt();
-
-        if(medalhas >= 10){
-            System.out.println("Monstrão");
-        }
-        else if(medalhas >= 5){
-            System.out.println("brabin!");
-        }
-        else if(medalhas >= 2){
-            System.out.println("é...");
-        }
-        else{
-            System.out.println("fraco");
-        }
-        scan.close();
-    }
-```
-<hr>
-<br>
 
 ## If dentro de if (if aninhado)
 :pencil2: Faça um programinha onde o usuário vai digitar um number e será printado uma mensagem. Vamos seguir as conditions:
@@ -155,7 +121,7 @@ public static void main(String[] args){
 <hr>
 <br>
 
-## Exercitando :pencil:
+## Exercitando 📝
 ### Exercício 1
 
 :pencil2:Crie um programa onde vai ser printado uma mensagem dizendo se o usuário vai ou não para praia. As conditions vão ser:
