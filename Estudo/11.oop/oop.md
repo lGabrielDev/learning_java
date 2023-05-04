@@ -92,7 +92,7 @@ ClassName objeto = new ClassName();
 
 - `ClassName objeto` --> Estamos declarando um objeto da class tal.
 
-- `new` --> Estamos instanciando o objeto. Quando escrevemos `new` computador reserva um espaço na memória ram para esse objeto.
+- `new` --> Estamos instanciando o objeto. Quando escrevemos `new`, o computador reserva um espaço na memória ram para esse objeto.
 
 - `ClassName()` --> Estamos chamando o method constructor.
 

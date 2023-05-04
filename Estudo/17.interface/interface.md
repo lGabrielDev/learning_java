@@ -95,7 +95,6 @@ public interface Gritos
         }
 
         //methods implementados da interface/contrato "Animal"
-
         @Override
         public String barulho() {
             return "AU AU!! Sou um cachorro latindo!! AU AU!!";

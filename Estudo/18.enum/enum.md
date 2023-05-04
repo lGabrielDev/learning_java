@@ -12,8 +12,8 @@
 ```java
 public class Programa{
     public static void main(String[] args){
-        final String NAME = "Gabriel";
-        NAME = "Paulo"; // not possible
+        final String name = "Gabriel";
+        name = "Paulo"; // not possible
     }
 }
 ```
@@ -26,7 +26,6 @@ public class Programa{
 - Classes do mmorpg (ASSSASIN, GUNNER, WARRIOR, NINJA, ARCHER, etc...)
 - Armas de um mmorpg (SWORD, SWORD AND SHIELD, KATANA, etc...)
 - Gênero/sexo (MALE, FEMALE)
-- Sabores de sorvete (MORANGO, CHOCOLATE, COCO, LIMÃO, etc...)
   
 Se ligou?? São valores fixos, que não serão alterados.
 
@@ -82,109 +81,7 @@ public enum Weapons{}
 - O constructor da enum class é sempre `private`.
 - Na enum, passamos os argumentos do constructor da constant ali mesmo. Diferente da class normal, que passamos quando criamos o objeto.
 
-  
-<hr>  
-<br>
 
-
-## Criando uma enum de constants simples
-
-:pencil2: Crie um a `enum` que vai conter as seguintes constants, que representam a força de um personagem:
-
-1. Crie a **enum** class:
-- LOW
-- MEDIUM
-- HIGH
-
-    ```java
-    //enum class
-    public enum Forca{
-        //constants
-        LOW,
-        MEDIUM,
-        HIGH;
-
-        //attributes
-
-        //constructors
-
-        //methods...
-    }
-
-    // Isso é a mesma coisa que isso:
-
-
-    //class normal
-    public class Teste {
-        //attributes
-        public static final String LOW = "level baixo";
-        public static final String MEDIUM = "level medio";
-        public static final String HIGH = "level alto";
-    }
-    ```
-    :bulb: Na **enum** class, toda constant é uma `static final variable`.
-
-<br>
-
-2. Crie um objeto enum e atribua uma dessas 3 constants:
-   
-   ```java
-        public class Programa{
-        public static void main(String[] args){
-            Forca naruto = Forca.HIGH; // Como é um static attribute, acessamos diretamente pela Class
-            System.out.println(naruto);
-        }
-    }
-   ```
-<br>
-
-1. Crie um `switch case` para printar uma mensagem na tela. Se naruto for `HIGH` printa tal coisa, se naruto for `MEDIUM` printar outra, etc...
-
-    ```java
-    public class Programa{
-        public static void main(String[] args){
-            Forca naruto = Forca.MEDIUM;
-            
-            switch(naruto){
-                case HIGH:
-                    System.out.println("Naruto é bem forte!");
-                    break;
-                case MEDIUM:
-                    System.out.println("Naruto tem uma força mé...");
-                    break;
-                case LOW:
-                    System.out.println("Naruto é fraqui...");
-                    break;
-            }
-        }
-    }   
-    ```
-<hr>  
-<br>
-
-## Criando uma enum dentro da class do main method
-Vai funcionar igualzin. Só criar a enum dentro da class.
-
-```java
-public class Programa{
-
-    //enum class
-    public enum Forca{
-        //constants
-        HIGH,
-        MEDIUM,
-        LOW;
-
-        //attributes
-    }
-
-    //main method
-    public static void main(String[] args){
-        Forca naruto = Forca.LOW;
-        System.out.println(naruto);
-    }
-}
-```
 <hr>  
 <br>
 
