@@ -77,61 +77,63 @@ Para tratar várias exceptions(erros), basta usar vários `catch(){}`. Cada um v
 
 
 ```java
-public class Programa{
+public class App{
     public static void main(String[] args){
+
         Scanner scan = new Scanner(System.in);
-        Integer number1 = 0, number2 = 0, resultado = 0;
-        Boolean reiniciarPrograma = false;
+        Double number1 = 0d;
+        Double number2 = 0d;
+        Boolean valorCorreto = true;
 
-
-        // loop para tratar o erro de input do number1. Se o usuário inputar uma String.
+        //inputando primeiro number
         do{
             try{
-                System.out.print("Digite um number: ");
-                number1 = scan.nextInt();
-                reiniciarPrograma = false;
+                System.out.print("\nDigite um number: ");
+                number1 = scan.nextDouble();
+                valorCorreto = true;
             }
             catch(InputMismatchException e){
-                System.out.println("Erro. Não é possível digitar uma String.\n");
-                reiniciarPrograma = true;
+                valorCorreto = false;
+                System.out.println("Erro! Digite um number.");
                 scan.nextLine();
             }
         }
-        while(reiniciarPrograma);
+        while(!(valorCorreto));
         
 
-        
-        //loop para tratar o erro de input do number2. Dessa vez, temos duas exceptions: 1- Inputar String, 2- Dividir por 0.
+        //inputando segundo number
         do{
             try{
-                System.out.print("Digite o segundo number: ");
-                number2 = scan.nextInt();
-                reiniciarPrograma = false;
-                
-                if(number2 == 0){
-                    System.out.println("Erro. Não é possível dividir por 0.\n");
-                    throw new ArithmeticException(); // Criamos uma exception
+                System.out.print("\nDigite outro number: ");
+                number2 = scan.nextDouble();
+        
+                //se o segundo number for igual a "0", lancamos uma exception
+                if(number2.equals(0d)){
+                    throw new ArithmeticException(); // lancamos uma exception
                 }
+    
+                valorCorreto = true;
             }
-            //tratando erro de input String
+            //se o usuário digitar uma String
             catch(InputMismatchException e){
-                System.out.println("Erro. Não é possível digitar uma String.\n");
-                reiniciarPrograma = true;
+                valorCorreto = false;
+                System.out.println("Erro! Digite um number.");
                 scan.nextLine();
             }
-            //tratando erro de divisao por 0
+            //se o usuário tentar dividir por "0"
             catch(ArithmeticException e){
-                reiniciarPrograma = true;
+                valorCorreto = false;
+                System.out.println("Erro! Não é possível dividir por 0. Escolhe outro número para dividir.");
                 scan.nextLine();
             }
         }
-        while(reiniciarPrograma);
+        while(!(valorCorreto));
+        
 
-        // Resultado
-        resultado = number1 / number2;
-        System.out.println(String.format("%d / %d = %d",number1,number2,resultado));
-
-        //fechamos objeto Scanner
+        //mostramos o resultado
+        Double result = number1 / number2;
+        
+        System.out.println(String.format("%.0f / %.0f = %.2f", number1, number2, result));
         scan.close();
     }
 }

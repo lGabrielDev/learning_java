@@ -121,7 +121,7 @@ Polymorphism significa "many forms" (várias formas). Um method pode ter várias
 ## Overload - Escrevendo methods com nomes iguais
 Podemos ter methods com nomes iguais,  desde que eles tenham parâmetros diferentes.
 
-Como vimos antes na criação de constructors, podemos ter o mesmo method com nomes iguais. Basta que esses methods tenham uma quantidade de parâmetros diferente ou tenham tipos de parâmetros diferente.
+Como vimos antes, na criação de constructors, podemos ter o mesmo method com nomes iguais. Basta que esses methods tenham uma quantidade de parâmetros diferente ou tenham tipos de parâmetros diferente.
 
 
 <br>

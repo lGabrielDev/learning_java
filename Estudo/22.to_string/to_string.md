@@ -43,7 +43,7 @@ Esse method vêm da class "Object". Como toda class no java é filha da class "O
         }
     }
     ```
-    Perceba que retornou o hashcode daquele objeto. Para retornar os attributes, precisamos sobreescrever o method `@Override`.
+    Perceba que retornou o hashcode daquele objeto. Para retornar os attributes, precisamos sobreescrever o method com o `@Override`.
 
     <br>
 

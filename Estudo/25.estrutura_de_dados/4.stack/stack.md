@@ -9,15 +9,13 @@ Nessa estrutura, usamos o sistema **LIFO** --> Last-In First-Out.
 
 O último item que colocarmos na pilha, vai ser o primeiro a ser retirado.
 
-:bulb: Imagine, uma pilha de livros. Se quisermos retirar o livro que está lá em baixo, precisamos **desempilhar** todos os de cima.
+:bulb: Imagine uma pilha de livros. Se quisermos retirar o livro que está lá em baixo, precisamos **desempilhar** todos os de cima.
 <br>
 
 ## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
 
 ```java
 Stack<String> livros = new Stack<>();
-Stack<Integer> numbers = new Stack<>();
-Stack<Pessoa> pilhaDePessoas = new Stack<>();
 //etc...
 ```
 

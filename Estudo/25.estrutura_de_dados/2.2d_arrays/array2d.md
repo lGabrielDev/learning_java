@@ -8,7 +8,7 @@
 
 **2d Array** ou **Multidimensional Arrays** são arrays dentro de uma array.
 
-Funciona igualzinho uma array, normal. Mas aqui, vamos ter `[] []`.
+Funciona igualzinho uma array normal, mas aqui vamos ter `[] []`.
 
 - O primeiro `[]` representa uma array
 - O segundo `[]` representa a posicao dessa array
@@ -62,7 +62,7 @@ String[][] names = {
 System.out.println(Arrays.deepToString(names));
 ```
 
-:bulb:O legal de fazer desse jeito, é que podemos ter um número diferente de positions/indexes para cada array.
+💡 O legal de fazer desse jeito, é que podemos ter um número diferente de positions/indexes para cada array.
 
 <hr>
 <br>
@@ -136,7 +136,7 @@ public class Programa{
 
 ### loopando todos os index[] de uma array 2d com o `for each`
 ```java
-for(String[] i : names){
+for(String[] i : names){ // vamos percorrer uma lista de Array[]. Sacou?
     System.out.println(Arrays.toString(i));
 }
 // informamos primeiro a estrutura que estamos acessando, `i` representa o index/posicao dessa array, qual é a array

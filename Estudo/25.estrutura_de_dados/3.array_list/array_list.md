@@ -18,7 +18,7 @@ Sempre setamos primeiro a interface e depois a classe que vamos usar.
 
 ```java
 List<String> colors = new ArrayList<>();
-//Interface, datatype da estrutura, nome do objeto , classe que vamos usar
+//Interface <datatype da estrutura> , nome do objeto , classe que vamos usar
 ```
 :bulb: Usamos primeiro a **interface**. Se quisermos alterar o tipo da estrutura, conseguimos sem problemas:
 

@@ -22,7 +22,7 @@ String texto2 = new String("arroz");
 
 System.out.println(texto1.equals(texto2)); //TRUE
 ```
-:bulb: Sempre que instanciamos um objeto com o `new`, vamos usar o `.equals()` para comparar.
+💡 Sempre que instanciamos um objeto com o `new`, vamos usar o `.equals()` para comparar.
 
 <hr>
 <br>
@@ -174,7 +174,7 @@ public Boolean saoIguais(Pessoa obj){
 }
 ```
 
-Não precisamos castar, pois o objeto do parâmetro já é da mesma Classe do objeto atual. :alien:
+Não precisamos castar, pois o objeto do parâmetro já é da mesma Classe do objeto atual. 👽
 
 <br>
 <br>

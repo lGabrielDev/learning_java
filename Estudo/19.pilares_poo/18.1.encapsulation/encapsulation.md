@@ -61,121 +61,34 @@ public void setName(String name){
 
 ## Praticando :pencil2:
 
-1. Crie uma class "Pessoas" com os seguintes attributes:
+1. Crie uma class "Pessoa" com apenas 1 attribute. Depois, crie um getter e um setter para esse attribute.
 
     ```java
-    public class Pessoas {
+    public class Pessoa {
         //attributes
         private String name;
-        private Integer age;
-        private Double xp;
-    }
-    ```
-    Não esqueca deixá-los como `private`.
 
-<br>
 
-2. Crie os getters and setters methods:
-   ```java
-        public class Pessoas {
-        // attributes
-        private String name;
-        private Integer age;
-        private Double xp;
-
-        // constructors
-            // Constructor vazio
-        public Pessoas(){} 
-
-            //Constructor preenchendo todos os attributes
-        public Pessoas(String name, Integer age, Double xp){
-            this.name = name;
-            this.age = age;
-            this.xp = xp;
-        }
-
-        // getters and setters
-        public String getName() {
+        //getters and setters
+        public String getName(){
             return this.name;
         }
 
-        public void setName(String name) {
+        public void setName(String name){
             this.name = name;
         }
-
-        public Integer getAge() {
-            return this.age;
-        }
-
-        public void setAge(Integer age) {
-            this.age = age;
-        }
-
-        public Double getXp() {
-            return xp;
-        }
-
-        public void setXp(Double xp) {
-            this.xp = xp;
-        }
-
-        //toStringMethod
-        @Override
-        public String toString() {
-            return "Pessoas [name=" + name + ", age=" + age + ", xp=" + xp + "]";
-        }
-
     }
-   ```
+    ```
+    💡 Não esqueca de deixar o attribute como `private`.
+
+<br>
+
 
    - Como o get method retorna o valor do attribute, precisamos informar o datatype do retorno (String,Integer,Double,Carro,Object,etc...).
 
    - Como no set method não retorna nenhum valor, deixamos o retorno como `void`.
 
-<br>
 
-3. Vá na class do main method , crie um objeto da class "Pessoas" , **set** o valor de todos os attributes e imprima com o `toString()`.
-    
-    ```java
-    public class Programa{
-        public static void main(String[] args){
-            Pessoas p1 = new Pessoas();
-
-            p1.setName("Paulo");
-            p1.setAge(44);
-            p1.setXp(45.53);
-
-            System.out.println(p1.toString());
-        }   
-    }
-    ```
-
-<br>
-
-4. Ao invés de setar um por um, crie um method lá na class "Pessoas" para setar todos os attributes de uma vez:
-
-    ```java
-    //class Pessoas
-    public void setAllAttributes(String name, Integer age, Double xp){
-            this.name = name;
-            this.age = age;
-            this.xp = xp;
-        }
-    // Criamos um method igual a um constructor. Easy!
-    ```
-
-    ```java
-    //Class Programa
-    public class Programa{
-        public static void main(String[] args){
-            Pessoas p1 = new Pessoas();
-
-            p1.setAllAttributes("Maria", 52, 60.73);
-
-            System.out.println(p1.toString());
-        }   
-    }
-    ```
 
 <hr>
 <br>
@@ -259,7 +172,7 @@ A maneira certa de copiar attributes de um objeto e passar para outro seria cria
 
 <br>
 
-1. Crie 2 objetos com valores dos attributes diferentes. Depois, copia os attributes de um para o outro. No final, os 2 objetos vao ter os mesmos valores nos attributes.
+1. Crie 2 objetos com valores dos attributes diferentes. Depois, copie os attributes de um para o outro. No final, os 2 objetos vao ter os mesmos valores nos attributes.
 
     ```java
         public class Programa{

@@ -27,7 +27,7 @@ Perceba que cada item vai ter dois objetos:
 - `Key` --> Chave única de identificação. Não é permitido chaves duplicadas.
 - `Value` --> Valor dessa chave.
 
-:bulb: Bem parecido com a primary key do psql.
+:bulb: Bem parecido com a primary key do Postgres.
 
 <hr>
 <br>

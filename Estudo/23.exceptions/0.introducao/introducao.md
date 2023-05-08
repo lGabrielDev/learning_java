@@ -19,7 +19,7 @@ public class Programa{
 ```
 Aqui, temos uma ArithmeticException. Não podemos dividir um número por 0.
 
-Se não tratarmos a exception(erro), os códigos abaixo dessa exception não são executados.
+Se não tratarmos a exception(erro), os códigos abaixo dessa exception não serão executados.
 
 
 <hr>
