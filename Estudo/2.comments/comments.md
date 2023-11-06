@@ -36,5 +36,7 @@ public class Programa{
 
 <br>
 
-<!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/3.0.variables/1.variables.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
+<!-- Next Page Button -->
+<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/3.0.variables/1.variables.md">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

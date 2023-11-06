@@ -1,4 +1,3 @@
-<!-- Java logo-->
 <h1 align="center"><img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Ícone do Java" width="160px" align="bottom"></h1>
 
 
@@ -26,7 +25,7 @@ Linguagem de programação é uma forma de dizer ao computador, através de inst
 
 ### Requirements <img src="https://cdn-icons-png.flaticon.com/512/3078/3078994.png" width="46px">
 
-Para utilizar a linguagem java no seu PC é preciso instalar o <span style="color:tomato">JRE</span> e o <span style="color:tomato">JDK</span>
+Para utilizar a linguagem java no seu PC é preciso instalar o **JRE** e o **JDK**.
 
 
 - `JRE` (Java Runtime Environment) -> Usado para executar os programas em java.
@@ -38,12 +37,14 @@ Para utilizar a linguagem java no seu PC é preciso instalar o <span style="colo
 
 ## camelCase
 
-Sempre que for dar nome para uma variable ou method usamos o camel case. A primeira letra de cada palavra é em Maiúsculo.
+Sempre que for dar nome para uma variable ou method usamos o **camalCase**.
+
+A primeira letra de cada palavra é em Maiúsculo.
 
 
-meu<span style="color:tomato">P</span>rimeiro<span style="color:tomato">P</span>rojeto
+- meu**P**rimeiro**P**rojeto
 
-mostrar<span style="color:tomato">S</span>aldo
+- mostrar**S**aldo
 
 <img src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/442f960e-0d91-4b56-8393-37ee455e785f/579b06e3-2139-4343-9b3e-c4d5eb2eca9f/images/1635234987.png" alt="Imagem de um camelo e uma cobra, representando a prática camelCase e snake_case" width="400px" align="center">
 
@@ -89,5 +90,7 @@ public static void main(String[] args){
 <br>
 <br>
 
-<!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/2.comments/comments.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
+<!-- Next Page Button -->
+<a href="https://github.com/lGabrielDev/02.java/tree/main/Estudo/2.comments/comments.md">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>
