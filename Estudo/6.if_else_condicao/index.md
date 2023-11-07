@@ -5,7 +5,7 @@
   
 
 - `if` --> Se a condição tal `()` for true, execute esse código.
-- `else if` --> Se a condição tal `()` for true, execute esse código.
+- `else if` --> Caso contrário, se a condição tal `()` for true, execute esse código.
 - `else`    --> Caso contrário, se todas as condições anteriores forem false, execute esse código.
      
 
@@ -22,10 +22,10 @@ O `if` só quer saber se o teste lógico entre `()` vai ser true or false.
 
 ```java
 if(teste lógico){
-  execute esse bloco de código
+    execute esse bloco de código
 }
 else{
-  execute esse bloco de código
+    execute esse bloco de código
 }
 ```
 
@@ -33,7 +33,7 @@ else{
 <br>
 
 ## Trabalhando com apenas 1 condition
-:pencil2: Crie um programinha onde o usuário vai digitar **sua idade** e o programa vai retornar as mensagens:
+✏️ Crie um programinha onde o usuário vai digitar **sua idade** e o programa vai retornar as mensagens:
 - Se a idade for **maior ou igual a 18** vai retornar "Maior de idade. Você é um adulto!"
 - Caso contrário, se o number for **menor que 18** vai retornar "menor de idade..."
 
@@ -90,32 +90,34 @@ public static void main(String[] args){
 
 
 ## If dentro de if (if aninhado)
-:pencil2: Faça um programinha onde o usuário vai digitar um number e será printado uma mensagem. Vamos seguir as conditions:
+✏️ Faça um programinha onde o usuário vai digitar um number e será printado uma mensagem. Vamos seguir as conditions:
 
 - maior ou igual a 100 --> "Número grandão"
 - menor que 100 --> "Número pequeno"
   - entre 0 e 10 --> "Números fáceis de trabalhar"
 
 ```java
-public static void main(String[] args){
+public class App{
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        Integer numberDigitado = 0;
+        
+        System.out.print("Type a number: ");
+        Integer n1 = scan.nextInt();
 
-        // user inputs his number
-        System.out.print("Digite um number: ");
-        numberDigitado = scan.nextInt();
-
-        if(numberDigitado >= 100){
-            System.out.printf("%d é GRANDÃO",numberDigitado);
+        if(n1 >= 100){
+            System.out.println("Big Number! 100 +");
         }
-        else if(numberDigitado < 100){
-            if(numberDigitado >=0 && numberDigitado <=10){
-                System.out.printf("%d é um número fácil para trabalhar",numberDigitado);
+        else{
+            if(n1 >=0 && n1 <=10){
+                System.out.println("Nice number to work with! 1 - 10");
             }
-            System.out.printf("\n%d é um número pequeno",numberDigitado);
+            else{
+                System.out.println("little big number! 11 - 99");
+            }
         }
         scan.close();
     }
+}
 ```
 
 <hr>
@@ -124,7 +126,7 @@ public static void main(String[] args){
 ## Exercitando 📝
 ### Exercício 1
 
-:pencil2:Crie um programa onde vai ser printado uma mensagem dizendo se o usuário vai ou não para praia. As conditions vão ser:
+✏️ Crie um programa onde vai ser printado uma mensagem dizendo se o usuário vai ou não para praia. As conditions vão ser:
 
 - Se ele tiver gasolina **e** não estiver chovendo --> Usuário vai viajar.
 - Caso contrário --> Usuário fica em casa jogando lol.
@@ -166,7 +168,7 @@ public static void main(String[] args){
 <br>
 
 ### Exercício 2
-:pencil2: O usuário vai digitar um number e o programa vai printar uma mensagem, seguindo as conditions:
+✏️ O usuário vai digitar um number e o programa vai printar uma mensagem, seguindo as conditions:
 
 
 - Se o numero for igual a 0, imprima  --> "É igual a 0"
@@ -175,24 +177,22 @@ public static void main(String[] args){
 
 ```java
 public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        Integer numberDigitado = 0;
+    Scanner scan = new Scanner(System.in);
 
-        // user inputs his number
-        System.out.print("Digite um number: ");
-        numberDigitado = scan.nextInt();
+    System.out.print("Type a number: ");
+    Integer number = scan.nextInt();
 
-        if(numberDigitado == 0){
-            System.out.printf("%d == 0",numberDigitado);
-        }
-        else if(numberDigitado >= 0 ){
-            System.out.printf("%d é maior que 0",numberDigitado);
-        }
-        else{
-            System.out.printf("%d é menor que 0" ,numberDigitado);
-        }
-        scan.close();
+    if(number == 0){
+        System.out.printf("\n0 = 0");
     }
+    else if(number < 0){
+        System.out.printf("\n%d is less than 0", number);
+    }
+    else{
+        System.out.printf("\n%d is more than 0", number);
+    }
+    scan.close();
+}
 ```
 
 
@@ -202,7 +202,7 @@ public static void main(String[] args){
 
 ### Exercício 3
 
-:pencil2: Crie um programa onde o usuário vai inputar um number, e depois o programa vai dizer se é **PAR** ou **ÍMPAR**.
+✏️ Crie um programa onde o usuário vai inputar um number, e depois o programa vai dizer se é **PAR** ou **ÍMPAR**.
 
 ```java
 public static void main(String[] args){
@@ -226,7 +226,7 @@ public static void main(String[] args){
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/7.switch_case_condicao/index.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

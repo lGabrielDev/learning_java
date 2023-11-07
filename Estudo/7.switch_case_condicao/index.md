@@ -29,10 +29,10 @@ switch(variable){
 
 - `default` --> Como se fosse o else. Se nenhuma condição for true, faça isso...
   
-:warning: Se não colocarmos o `break` depois de cada `case`, ele vai escrever os próximos códigos do switch.
+⚠️ Se não colocarmos o `break` depois de cada `case`, ele vai escrever os próximos códigos do switch.
 
 
-:warning: Como estamos trabalhando com a condition de igualdade, **o datatype do case tem que ser igual ao da variable**.
+⚠️ Como estamos trabalhando com a condition de igualdade, **o datatype do case tem que ser igual ao da variable**.
 
 
 <hr>
@@ -52,53 +52,50 @@ switch(variable){
 
 ```java
 public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        Integer numeroDigitado;
+    Scanner scan = new Scanner(System.in);
 
-        // input do usuario
-        System.out.print("Digite um numero: ");
-        numeroDigitado = scan.nextInt();
+    System.out.print("\nType the number: ");
+    Integer weekDay = scan.nextInt();
 
-
-        switch(numeroDigitado){
-            case 1:
-                System.out.println("Sunday");
-                break;
-            case 2:
-                System.out.println("Monday");
-                break;
-            case 3:
-                System.out.println("Tuesday");
-                break;
-            case 4:
-                System.out.println("Wednesday");
-                break;
-            case 5:
-                System.out.println("Thursday");
-                break;
-            case 6:
-                System.out.println("Friday");
-                break;
-            case 7:
-                System.out.println("Saturday");
-                break;
-            default:
-                if(numeroDigitado == 0){
-                    System.out.println("0 não é dia da semana");
-                }
-                else{
-                    System.out.println("Só existem 7 dias na semana.");
-                }
-        }
-        scan.close();
+    switch(weekDay){
+        case 1:
+            System.out.println("Sunday");
+            break;
+        case 2:
+            System.out.println("Monday");
+            break;
+        case 3:
+            System.out.println("Tuesday");
+            break;
+        case 4:
+            System.out.println("Wednesday");
+            break;
+        case 5:
+            System.out.println("Thursday");
+            break;
+        case 6:
+            System.out.println("Friday");
+            break;
+        case 7:
+            System.out.println("Saturday");
+            break;
+        default:
+            if(weekDay == 0){
+                System.out.println("0 is not a week day");
+            }
+            else{
+                System.out.println("There's only 7 days of week");
+            }
     }
+    scan.close();
+}
 ```
 
 Quando utilizamos o `break`, estamos dizendo ao java que queremos parar por ali. Assim que ele encontrar o case, ele vai executar aquele case e sair para fora do switch.
 
 Se não tivéssemos colocado o `break`, seria executado todos os códigos dos outros cases.
 
-:bulb: Perceba que podemos utilizar `if else` dentro do `switch case`. Dá para fazer muitas combinações malucas.
+💡 Perceba que podemos utilizar `if else` dentro do `switch case`. Dá para fazer muitas combinações malucas.
 
 <hr>
 <br>
@@ -121,30 +118,28 @@ Dessa vez, o datatype vai ser String.
 
 ```java
 public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        String diaDaSemana;
+    Scanner scan = new Scanner(System.in);
 
-        // input do usuario
-        System.out.print("Escreva um dia da semana: ");
-        diaDaSemana = scan.nextLine();
+    System.out.print("\nWeek day: ");
+    String weekDay = scan.next();
 
-        switch(diaDaSemana){
-            case "Monday":
-            case "Tuesday":
-            case "Wednesday":
-            case "Thursday":
-            case "Friday":
-                System.out.println("Dia de trabalhar");
-                break;
-            case "Saturday":
-            case "Sunday":
-                System.out.println("Final de semana! Uhu!!!");
-                break;
-            default:
-                System.out.println("Dia da semana não encontrado...");
-        }
-        scan.close();
+    switch(weekDay){
+        case "Sunday":
+        case "Saturday":
+            System.out.println("Weekend");
+            break;
+        case "Monday":
+        case "Tuesday":
+        case "Wednesday":
+        case "Thursday":
+        case "Friday":
+            System.out.println("Weekday - work");
+            break;
+        default:
+            System.out.println("Weekday not found");
     }
+    scan.close();
+}
 ```
 <hr>
 <br>
@@ -160,40 +155,38 @@ public static void main(String[] args){
 - **Nami** --> "SUP"
 - **Soraka** --> "SUP"
 
-Crie um loop também, para que sempre que o usuário digitar um nome de champion que não exista na lista acima, o programa reinicia.
+Crie um loop também, para que sempre que o usuário digitar um nome de champion que não exista na lista acima, o programa reinicie.
 
 ```java
 public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        String favoriteChampion = "a";
-        Boolean championCadastado = false;
+        Boolean correctChampion = true;
 
-        
         do{
-            // input do usuario
-            System.out.print("\nDigite seu lol favorite champion: ");
-            favoriteChampion = scan.nextLine();
-            championCadastado = true;
-    
-            switch(favoriteChampion){
+            correctChampion = true;
+            //user inputs his champion
+            System.out.print("\nChampion: ");
+            String champion = scan.next();
+            
+            switch(champion){
                 case "Lucian":
                 case "Jhin":
-                    System.out.printf("\n%s é ADC",favoriteChampion);
+                    System.out.printf("ADC");
                     break;
                 case "Lux":
                 case "Veigar":
-                    System.out.printf("\n%s é MID",favoriteChampion);
+                    System.out.printf("MID");
                     break;
                 case "Nami":
-                case "Soraka":
-                    System.out.printf("\n%s é SUPP",favoriteChampion);
+                case "Lulu":
+                    System.out.printf("SUP");
                     break;
                 default:
-                    championCadastado = false;
-                    System.out.println("Champion não cadastrado. Por favor, digite novamente.");
+                    System.out.println("Champion not found!");
+                    correctChampion = false;
             }
         }
-        while(!(championCadastado));
+        while(!(correctChampion));
         scan.close();
     }
 ```
@@ -205,7 +198,7 @@ Sempre que estiver trabalhando com loops (`while`, do `while`), crie uma variabl
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/9.estrutura_de_repeticao/while.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

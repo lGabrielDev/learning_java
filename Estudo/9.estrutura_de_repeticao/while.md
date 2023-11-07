@@ -20,7 +20,7 @@ Enquanto a condição for true, o bloco de código vai se repetir. Quando a cond
 ### Syntax: <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="20px" align="center">
 ```java
 while(condition){
-// code block to be executed;
+    // code block to be executed;
 }
 ```
 <br>
@@ -71,7 +71,7 @@ Imagina um programa de um jogo. O jogo precisa rodar pelo menos uma vez. Se o us
 
 ```java
 do {
-  // code block to be executed
+    // code block to be executed
 }
 while (condition);
 ```
@@ -127,7 +127,7 @@ Funciona igual o `for`, mas aqui escrevemos de uma forma mais simples. Geralment
 
 
 ### Exercício 1
-:pencil2:Crie uma array do tipo String, adicione 3 nomes de animais e imprima todas as posicoes.
+:pencil2:Crie uma array do tipo String, adicione 3 nomes de animais e imprima todas as positions.
 
 ```java
 String[] animals = {"leão","tigre","Rato"};
@@ -135,7 +135,9 @@ String[] animals = {"leão","tigre","Rato"};
 for(String i : animals){
     System.out.println(i);
 }
-// primeiro informamos o datatype da array, contador, qual é a array.
+//String --> informamos o datatype dessa array/lista. 
+// i --> Criamos uma variable/objeto correspondendo a cada posicao dessa array/list
+// animals --> Informamos qual é a array/list
 ```
 
 Perceba que esse contador `i` é a posicao da minha array.
@@ -166,7 +168,7 @@ for(String i : animals){
 ## nested loops (loop aninhado)
 Nested loop é um loop dentro de outro loop.
 
-É um for dentro de outro.
+É um `for` dentro de outro.
 
 Quando estamos trabalhando com um loop dentro de outro, precisamos dar nomes diferentes aos contadores. O contador do primeiro loop chamamos de `i`, e o contador do segundo loop chamamos de `j`.
 
@@ -220,8 +222,14 @@ Como nosso contador começa em **0**, tivemos que somar mais **1**.
 - Quantas colunas
 - Quantas linhas
 
-```java
-public static void main(String[] args){
+    ```bash
+    dale    dale    dale    dale    dale    dale    dale    dale    dale    dale
+    dale    dale    dale    dale    dale    dale    dale    dale    dale    dale
+    dale    dale    dale    dale    dale    dale    dale    dale    dale    dale
+    ```
+
+    ```java
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
         //input do usuário
@@ -243,20 +251,20 @@ public static void main(String[] args){
             System.out.println("");
         }
     } 
-```
+    ```
 
-:pencil2: Trate os erros de input com o: 
-```java
-do{
-    try{
+    ✏️ Trate os erros de input com o: 
+    ```java
+    do{
+        try{
 
+        }
+        catch(){
+
+        }
     }
-    catch(){
-
-    }
-}
-while();
-```
+    while();
+    ```
 
 <hr>
 <br>
@@ -264,10 +272,11 @@ while();
 ## Relembrando <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
 - `while` or `do while` --> usado quando não temos um número específico de vezes que queremos loopar;
+
 - `for` --> usado quando temos um número de vezes definido;
 
 
-Imagina um programa onde se o usuario errar o login, vai aparecer uma mensagem de erro pra ele. Um usuário pode errar várias vezes... Entao, vou usar o `while` or `do while`.
+Imagine um programa onde se o usuario errar o login, vai aparecer uma mensagem de erro pra ele. Um usuário pode errar várias vezes... Entao, vou usar o `while` or `do while`.
 
 Se queremos apenas 3 tentativas de login, vamos usar o `for`.
 
@@ -275,7 +284,7 @@ Se queremos apenas 3 tentativas de login, vamos usar o `for`.
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/11.oop/oop.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

@@ -1,6 +1,6 @@
 <h1 align="center">
-  Padrão de inicialização
-  <img src="https://cdn-icons-png.flaticon.com/512/8339/8339934.png" alt="" width="90px" align="center">
+    Padrão de inicialização
+    <img src="https://cdn-icons-png.flaticon.com/512/8339/8339934.png" alt="" width="90px" align="center">
 </h1>
 
 Sempre que criamos uma primitive variable de escopo GLOBAL, ela já vêm com um valor default.
@@ -36,8 +36,8 @@ public class Programa{
 }
 ```
 
-:warning: lembrando que o java atribui valores somente para variables GLOBAIS.
-Se você criar uma variable local, dentro de um method, e não atribuir valor, vai dar erro.
+⚠️ lembrando que o java atribui valores somente para variables GLOBAIS.
+Se você criar uma variable local, dentro de um method, e não atribuir valor, vai dar erro. As variables locais **DEVEM ser inicializadas.**
 
 
 <br>
@@ -52,7 +52,7 @@ Se você criar uma variable local, dentro de um method, e não atribuir valor, v
 <br>
 
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/4.3.wrapper_classes/wrapper_classes.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

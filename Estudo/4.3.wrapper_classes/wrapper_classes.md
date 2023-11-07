@@ -1,9 +1,9 @@
 <h1 align="center">
-  Wrapper Classes
-  <img src="https://cdn-icons-png.flaticon.com/512/2248/2248346.png" alt="" width="90px" align="center">
+    Wrapper Classes
+    <img src="https://cdn-icons-png.flaticon.com/512/2248/2248346.png" alt="" width="90px" align="center">
 </h1>
 
-**Wrapper Classes** são os primitive datatypes transformados em objetos.
+**Wrapper Classes** são os primitive datatypes transformados em Classes.
 
 | Primitive Data Type | Wrapper Class |
 | :---                |           :---|
@@ -18,6 +18,11 @@
 
 
 :bulb: Sempre é melhor utilizar as wrapper classes, pois conseguimos usar os methods desses objetos.
+
+📖 Relembrando:
+
+- **non-primitive datatype** --> São todas as classes, inclusive as wrapper Classes.
+- **Wrapper Classes** --> São os primitive data-types transformados em Classes
 
 <hr>
 <br>
@@ -38,12 +43,12 @@ public static void main(String[] args){
     }
 ```
 
-A conversão é feita automaticamente. Easy!
+Easy! 😎
 
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/5.operators/1.introduction.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

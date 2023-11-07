@@ -1,6 +1,6 @@
 <h1 align="center">
-  Casting (fundição)
-  <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center">
+    Casting (fundição)
+    <img src="https://cdn-icons-png.flaticon.com/512/5568/5568571.png" alt="" width="90px" align="center">
 </h1>
 
 ## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
@@ -45,8 +45,12 @@ double number2 = number1;
 ```
 
 
-Estamos transformando um primitive datatype **menor para um maior**.
-A converão é feita automaticamente. Easy!
+Estamos transformando um primitive datatype **menor para um maior**. A converão é feita automaticamente. Easy!
+
+É só pensar assim:
+
+- Colocar um dado pequeno em uma gaveta grande, dá certo.
+- Agora, colocar um dado grandao em uma gavetinha não dá certo.
 
 
 <hr>
@@ -125,5 +129,7 @@ String number4 = String.valueOf(number2);
 <br>
 
 
-<!-- Botão para próxima página -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/4.3.padrao_inicializacao/padrao_inicializacao.md"><img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right"></a>
+<!-- Next Page Button -->
+<a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/4.3.padrao_inicializacao/padrao_inicializacao.md">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+</a>

@@ -24,7 +24,7 @@ Esses objetos são criados a partir de uma class. Um objeto é uma instância de
 
 - Uma Class nada mais é do que um arquivo `.java`. Então, o nome da Class terá o mesmo nome do arquivo `.java`
 
-- Nome de Class, escrevemos em MAIÚSCULO `Carros.java`
+- Nome de Class escrevemos em MAIÚSCULO `Carros.java`
 
 ![image](https://qph.cf2.quoracdn.net/main-qimg-c55aa8a9aaecb3c0d472d9bb769af176-lq)
 
@@ -43,15 +43,15 @@ Quando criamos um objeto, estamos "instanciado" uma class em forma de um objeto.
 
 
 ## Criando uma Class
-:pencil2: Crie uma **Class** "Carro" com os seguintes attributes and methods:
+✏️ Crie uma **Class** "Carro" com os seguintes attributes and methods:
 
 ```java
 //attributes
 private String marca = "fiat";
 private String modelo = "uno";
 private String color = "Black";
-private int year = 2020;
-private int price = 50000;
+private Integer year = 2020;
+private Double price = 55.000d;
 
 //constructors
 ...
@@ -71,7 +71,7 @@ public static void frear(){
 
 <img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="left">
 
-Como boa prática, sempre deixamos nossos attributes como `private` e encapsulamos com os `getters and setters`.
+Como boa prática, sempre deixamos nossos attributes como `private` e os encapsulamos com os `getters and setters`.
 
 
 Beleza, criamos nossa Class. Vamos criar nossos objetos.
@@ -97,12 +97,16 @@ ClassName objeto = new ClassName();
 - `ClassName()` --> Estamos chamando o method constructor.
 
 <br>
+
+📖 Sempre que criamos um objeto, é chamado o method constructor.
+
+
 <br>
 
-:pencil2: Crie 2 objetos da class **Cars** e imprima todos os attributes.
+✏️ Crie 2 objetos da class **Cars** e imprima todos os attributes.
 
 
-:warning: Antes de utilizar uma Class, precisamos importar o package dessa Class. A própria *IDE* nos ajuda, clicando na :bulb:
+⚠️ Antes de utilizar uma Class, precisamos importar o package dessa Class. A própria *IDE* nos ajuda, clicando na 💡
 
 ```java
 import main.java.br.com.leekbiel.projeto.classes.Cars;
@@ -121,7 +125,7 @@ public static void main(String[] args){
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/12.packages/index.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
