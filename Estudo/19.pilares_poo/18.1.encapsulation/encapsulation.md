@@ -59,7 +59,7 @@ public void setName(String name){
 <hr>
 <br>
 
-## Praticando :pencil2:
+## Praticando ✏️
 
 1. Crie uma class "Pessoa" com apenas 1 attribute. Depois, crie um getter e um setter para esse attribute.
 
@@ -102,7 +102,7 @@ c2 = c1; // ERRADO
 ```
 No exemplo acima, o local onde o `c2` está armazenado recebe o local onde o `c1` está armazenado.
 
-A maneira certa de copiar attributes de um objeto e passar para outro seria criando um method `copy()`.
+A maneira certa de copiar attributes de um objeto e passar para outro objeto, seria criando um method `copy()`.
 
 <br>
 
@@ -231,7 +231,7 @@ Outra forma de copiar attributes de um objeto para outro objeto seria utilizando
     }
     ```
 
-    :bulb: É legal ter os dois tipos. 
+    💡 É legal ter os dois tipos. 
 
     - Criando um constructor, podemos copiar os attributes de um objeto assim que criamos esse objeto.
     - Criando um method `copy()` podemos copiar os attributes de um objeto a qualquer momento.
@@ -239,7 +239,7 @@ Outra forma de copiar attributes de um objeto para outro objeto seria utilizando
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/19.pilares_poo/18.2.heranca/1.heranca.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

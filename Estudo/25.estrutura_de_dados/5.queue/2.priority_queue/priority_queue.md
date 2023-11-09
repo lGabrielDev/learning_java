@@ -108,7 +108,7 @@ Se quiséssemos fazer ao contrário, quem tivesse a menor idade seria atendido p
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/6.linked_list/linked_list.md">
     <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

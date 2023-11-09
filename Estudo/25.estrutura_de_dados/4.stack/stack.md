@@ -84,7 +84,7 @@ Para ver a classe "PilhaBolada" criada na mão, clique [aqui](https://github.com
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/5.queue/1.simple_queue/queue.md">
     <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

@@ -58,7 +58,7 @@ Polymorphism significa "many forms" (várias formas). Um method pode ter várias
     }
     ```
 
-    :bulb: Como boa prática, sempre é bom colocar o `@Override` para identificar que aquele method está sendo SOBREESCRITO.
+    💡 Como boa prática, sempre é bom colocar o `@Override` para identificar que aquele method está sendo SOBREESCRITO. Ou seja, é um method da class pai.
     
     <br>
 
@@ -90,7 +90,7 @@ Polymorphism significa "many forms" (várias formas). Um method pode ter várias
     ```
     <br>
 
-    :bulb: A própria IDE te ajuda a implementar os `@Override` methods :bulb:
+    💡 A própria IDE te ajuda a implementar os `@Override` methods :bulb:
 
     <br>
     <br>
@@ -112,7 +112,7 @@ Polymorphism significa "many forms" (várias formas). Um method pode ter várias
         }
     }
     ```
-    :bulb: Se quiséssemos que o method fizesse a mesma coisa do pai, era só não sobrepor o method e aproveitar a herança.
+    💡 Se quiséssemos que o method fizesse a mesma coisa do pai, era só não sobrepor o method e aproveitar a herança.
 
 <hr>
 <br>
@@ -121,7 +121,7 @@ Polymorphism significa "many forms" (várias formas). Um method pode ter várias
 ## Overload - Escrevendo methods com nomes iguais
 Podemos ter methods com nomes iguais,  desde que eles tenham parâmetros diferentes.
 
-Como vimos antes, na criação de constructors, podemos ter o mesmo method com nomes iguais. Basta que esses methods tenham uma quantidade de parâmetros diferente ou tenham tipos de parâmetros diferente.
+Como vimos antes, na criação dos constructors, podemos ter o mesmo method com nomes iguais. Basta que esses methods tenham uma quantidade de parâmetros diferente ou tenham tipos de parâmetros diferente.
 
 
 <br>
@@ -181,7 +181,7 @@ Para fazer isso, esses objetos têm que ter uma classe pai em comum. Vamos criar
 - Se criarmos uma array do tipo "Carro" só vamos conseguir armazenar objetos "Carro"...
 - Se criarmos uma array do tipo "Bike" só vamos conseguir armazenar objetos "Bike"...
 
-Agora se criarmos uma array "Veicúlos", vamos conseguir armazenar as classes filhas de boas.
+Agora, se criarmos uma array "Veicúlos", vamos conseguir armazenar as classes filhas de boas.
 
 <br>
 
@@ -270,6 +270,8 @@ Agora se criarmos uma array "Veicúlos", vamos conseguir armazenar as classes fi
     - "Moto" é um "Veículo", por isso conseguimos armazenar na array.
     - "Bike" é um "Veículo", por isso conseguimos armazenar na array.
 
+📖 Imagine as possibilidades?? Podemos criar listas/arrays com objetos "diferentes". Claro, desde que eles herdem do mesmo pai.
+
 <hr>
 <br>
 
@@ -291,12 +293,10 @@ public class Programa{
 }
 ```
 
-:bulb: Dá no mesmo.
-
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/20.equals/equals.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

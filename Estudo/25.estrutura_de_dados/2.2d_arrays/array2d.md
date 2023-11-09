@@ -145,7 +145,7 @@ for(String[] i : names){ // vamos percorrer uma lista de Array[]. Sacou?
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/3.array_list/array_list.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

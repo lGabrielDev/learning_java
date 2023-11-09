@@ -179,7 +179,7 @@ Não precisamos castar, pois o objeto do parâmetro já é da mesma Classe do ob
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/21.methods/1.method.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

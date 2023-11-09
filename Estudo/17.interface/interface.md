@@ -6,20 +6,20 @@
 ## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
 `interface` é um contrato de regras que deve ser seguido por uma Class. A Class que implementar essa interface É OBRIGADA a utilizar todos os methods descritos no contrato.
 
-:bulb: Uma Class pode implementar várias interfaces.
+💡 Uma Class pode implementar várias interfaces.
 
 Para uma class implementar uma interface, vamos usar a keyword `implements`.
 
 <hr>  
 <br>
 
-## Características de uma interaface <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
+## Características de uma interface <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
 
 - Não podemos criar um objeto.
 
 - Nao podemos ter constructors, obviamente porque nao podemos criar objetos.
 
-- Os methods na interface nao tem body `{}`. Quem vai criar o corpo desses methods é a class que implementar esse contrato.
+- Os methods na interface são `abstract methods`. Ou seja, nao tem body `{}`. Quem vai criar o corpo desses methods é a class que implementar esse contrato.
 
 - Por padrao, os methods são `abstract` (sem corpo) e `public`.
 
@@ -95,7 +95,7 @@ public interface Gritos
         }
 
         //methods implementados da interface/contrato "Animal"
-        @Override
+        @Override // essa annotation indica que o method abaixo veio de outro lugar. Seja de uma class que herdamos ou de um contrato/interface
         public String barulho() {
             return "AU AU!! Sou um cachorro latindo!! AU AU!!";
         }
@@ -106,7 +106,7 @@ public interface Gritos
         }
     }
    ```
-   :bulb: A partir do momento que implementamos uma interface, a própria IDE(VS Code) nos ajuda dizendo que temos que implementar os methods do contrato :bulb:. Aqui sim, devemos escrever o corpo `{}` desses methods.
+   💡 A partir do momento que implementamos uma interface, a própria IDE(VS Code) nos ajuda dizendo que temos que implementar os methods do contrato. Aqui sim, devemos escrever o corpo `{}` desses methods.
 
 <br>
 
@@ -147,7 +147,7 @@ Basta, separá-las por `,` (comma).
     }
     ```
 
-    :warning: Não esquece de importar o package da interface que for usar.
+    ⚠️ Não esquece de importar o package da interface que for usar.
 
 <br>
 
@@ -183,7 +183,7 @@ Basta, separá-las por `,` (comma).
         }
 
         //toString() method
-        @Override
+        @Override //Essa annotation diz que estamos implementando um method de outro lugar. Seja de uma interface, ou de uma class que herdamos.
         public String toString(){
             return String.format("\n\nName: %s\nRaça: %s",this.name,this.raca);
         }
@@ -239,19 +239,23 @@ Basta, separá-las por `,` (comma).
 
 ### `abstract class` 
 - Uma class pode dar `extends` somente 1 vez. Podendo herdar apenas de 1 class.
-- Podemos criar tanto methods com corpo, quanto `abstract` methods sem corpo `{}`.
+- Podemos criar tanto methods com corpo, quanto `abstract methods` sem corpo `{}`.
 
 <br>
 
 ### `interface`
 - Uma class pode `implements` várias interfaces.
-- Só podemos criar methods sem corpo `{}`.
+- Só podemos criar `abstract methods` sem corpo `{}`.
+
+<br>
+
+📖 Lembrando que todo `abstract method` DEVE ser sobreescrito. Nao importa se ele vem de uma interface ou de uma abstract class, o abstract method precisa ser chamado.
 
 
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/18.enum/enum.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

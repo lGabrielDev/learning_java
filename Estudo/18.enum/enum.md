@@ -4,11 +4,11 @@
 </h1>
 
 ## constants
-- `constant` --> final variable(variáveis que não podem ter o valor alterado). Não podemos atribuir outro valor a essa variable, pois elas já possuem um valor final setado.
+- `constant` --> **final variable** (variables que não podem ter o valor alterado). Não podemos atribuir outro valor a essa variable pois elas já possuem um valor final setado.
 
 <br>
 
-:pencil2: Crie uma ****final variable****, e tente alterar o valor dela.
+✏️ Crie uma ****final variable****, e tente alterar o valor dela.
 ```java
 public class Programa{
     public static void main(String[] args){
@@ -22,21 +22,21 @@ public class Programa{
 ### Exemplos de constants:
 
 - Dias da semana (MONDAY, TUESDAY, WEDNESDAY, etc...)
-- Elos no lol (BRONZE, SILVER, GOLD, PLATINE, etc...)
+- Elos no lol (BRONZE, SILVER, GOLD etc...)
 - Classes do mmorpg (ASSSASIN, GUNNER, WARRIOR, NINJA, ARCHER, etc...)
 - Armas de um mmorpg (SWORD, SWORD AND SHIELD, KATANA, etc...)
-- Gênero/sexo (MALE, FEMALE)
+- Gênero/gender (MALE, FEMALE)
   
-Se ligou?? São valores fixos, que não serão alterados.
+Se ligou?? São valores fixos, que não podem ser alterados.
 
-:warning: Como boa prática, escrevemos o nome de uma **constant** em UPPERCASE LETTERS.
+⚠️ Como boa prática, escrevemos o nome de uma **constant** em UPPERCASE LETTERS.
 
 <br>
 <hr>
 
 ## enum
 
-`enum` funciona igualzinho a uma class, contendo attributes, constructors, getters and setters methods e outros methods, a diferença é que podemos ter constants (`static final variables`).
+`enum` funciona igualzinho a uma class, contendo attributes, constructors, getters and setters methods e outros methods. A diferença é que podemos ter constants (`static final variables`).
 
 <br>
 
@@ -65,7 +65,7 @@ public interface Gritos{}
 public enum Weapons{}
 ```
 
-:bulb: Nome de Class sempre em MAIÚSCULO.
+💡 Nome de Class sempre em MAIÚSCULO.
 
 <br>
 
@@ -77,8 +77,10 @@ public enum Weapons{}
 
 ## Características da enum class <img src="https://cdn-icons-png.flaticon.com/512/4384/4384901.png" alt="imagem" width="50px" align="center">
 
-- Possui o mesmo conteúdo de uma class comum. Porém, contêm as constants (`static final variables`).
+- Possui o mesmo conteúdo de uma class comum. Porém, contêm as CONSTANTS (`static final variables`). Ou seja, variables de valor final, que referenciamos pela Class(``in a static way``).
+
 - O constructor da enum class é sempre `private`.
+
 - Na enum, passamos os argumentos do constructor da constant ali mesmo. Diferente da class normal, que passamos quando criamos o objeto.
 
 
@@ -88,7 +90,7 @@ public enum Weapons{}
 
 ## Utilizando uma enum em uma class
 
-:pencil2:Vamos criar uma class "Pessoa" onde um dos attributes será o "sexo". Esse attribute "sexo" será do tipo enum.
+✏️ Vamos criar uma class "Person" onde um dos attributes será o "gender". Esse attribute "gender" será do tipo enum.
 
 1. Crie uma enum contendo as constants:
    - Male
@@ -109,20 +111,20 @@ public enum Weapons{}
 
 <br>
 
-2. Crie uma class "Pessoa", onde um dos attributes será do tipo "Gender".
+2. Crie uma class "Person", onde um dos attributes será do tipo "Gender".
 
     ```java
     public class Pessoa {
         //attributes
         private String name;
         private Integer age;
-        private Gender sexo; // DALE
+        private Gender gender; // DALE
 
         //constructors
-        public Pessoa(String name, Integer age, Gender sexo){
+        public Pessoa(String name, Integer age, Gender gender){
             this.name = name;
             this.age = age;
-            this.sexo = sexo;
+            this.gender = gender;
         }
 
         //getters and setters
@@ -142,18 +144,18 @@ public enum Weapons{}
             this.age = age;
         }
 
-        public Gender getSexo(){
-            return this.sexo;
+        public Gender getgender(){
+            return this.gender;
         }
 
-        public void setSexo(Gender sexo){
-            this.sexo = sexo;
+        public void setgender(Gender gender){
+            this.gender = gender;
         }
 
         //toString method
         @Override
         public String toString(){
-            return String.format("\n\nName: %s\nAge: %d\nGênero: %s",this.name,this.age,this.sexo);
+            return String.format("\n\nName: %s\nAge: %d\nGênero: %s",this.name,this.age,this.gender);
         }
     }
     ```
@@ -170,7 +172,7 @@ public enum Weapons{}
         }
     }
     ```
-    :bulb: Perceba que passamos o parâmetro "sexo" do tipo "Gender" in a static way (diretamente pela class).
+    💡 Perceba que passamos o parâmetro "gender" do tipo "Gender" in a static way (diretamente pela class).
 
 <hr>
 <br>
@@ -178,7 +180,7 @@ public enum Weapons{}
 ## Atribuindo um valor para uma constant
 Igualzinho a uma class normal, aqui na **enum** class também podemos criar **attributes**, **constructors**, **getters and setters** e **methods**.
 
-A diferença é que aqui, passamos os argumentos diretamente dentro das constants. É como se as constants fossem objetos, sacou??
+A diferença é que aqui passamos os argumentos diretamente dentro das constants. É como se as constants fossem objetos, sacou??
 
 
 - Em uma class comum, o method constructor é chamado assim que criamos um objeto.
@@ -248,12 +250,12 @@ A diferença é que aqui, passamos os argumentos diretamente dentro das constant
     }
     ```
 
-:bulb: Quando criamos uma constant e passamos os argumentos do constructor, é como tivessemos criando um objeto enum e estabelecendo os argumentos, sacou?
+💡 Quando criamos uma constant e passamos os argumentos do constructor, é como tivessemos criando um objeto enum e estabelecendo os argumentos, sacou?
 
 Se ligou?? A constant funciona igualzinho a um objeto. Se criamos um constructor, somos obrigados a preencher os argumentos desse objeto.
 
 
-Easy! :sunglasses:
+Easy! 😎
 
 
 <hr>
@@ -327,11 +329,11 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
     ```
     Perceba que nós passamos os argumentos do constructor diretamente nas constants.
 
-    Sempre que um usuário escolher a class "Warior", os attributes dessa class já foram setados. Se ligou??
+    Sempre que um usuário escolher a class "Warior", os attributes dessa class já estão setados. Se ligou??
 
 <br>
 
-2. Cria uma class "Personagem", que representa a conta de um usuário no "WOW".
+2. Cria uma class "Personagem", que represente a conta de um usuário no "WOW".
 
     ```java
         public class Personagem {
@@ -406,13 +408,19 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
     }
     ```
 
-    O procedimento de criar um constructor e passar os argumentos é igualzinho a de uma class comum. Só que aqui na enum class, passamos os argumentos assim que declaramos a constant. Os objetos aqui, são as constants.
+    O procedimento de criar um constructor e passar os argumentos é igualzinho a de uma class comum. Só que aqui na enum class, passamos os argumentos assim que declaramos a constant. As constants sao nossas instancias.
 
-    :sunglasses:
+    <br>
+
+    📖 É só pensar assim... Na enum class, criamos os attributes como se fosse em uma class normal. Só que aqui, nós instanciamos os objetos diretamente na propria enum class, sendo as constants nossas instancias de objetos.
+
+
+    😎
+
 <br>
 <br>
 
-<!-- Botão para próxima página -->
+<!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/19.pilares_poo/18.1.encapsulation/encapsulation.md">
   <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
