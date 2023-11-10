@@ -47,7 +47,7 @@ Esse method vêm da class "Object". Como toda class no java é filha da class "O
 
     <br>
 
-    :bulb: Sempre que printamos um objeto, por baixo dos panos é chamado o method `toString()`. Então, não faz diferença... Podemos printar pelo nome do objeto ou pelo method `toString()`. É a mesma coisa.
+    💡 Sempre que printamos um objeto, por baixo dos panos é chamado o method `toString()`. Então, não faz diferença... Podemos printar pelo nome do objeto ou pelo method `toString()`. É a mesma coisa.
 
 <br>
 
@@ -82,7 +82,7 @@ Esse method vêm da class "Object". Como toda class no java é filha da class "O
 ## Resumindo: <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
 - O method `toString()` retorna o hashcode do objeto.
-- Para retornar todos os attributes de um objeto, basta sobrepor o method na Class filha `@Override`.
+- Para retornar todos os attributes de um objeto, basta sobrepor o `toSrting()` method (`@Override`).
 - Por baixo dos panos, quando chamamos o objeto, estamos chamando o `toString()` method.
   
    ```java
@@ -97,5 +97,5 @@ Esse method vêm da class "Object". Como toda class no java é filha da class "O
 
 <!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

@@ -3,7 +3,7 @@
     <img src="https://cdn-icons-png.flaticon.com/512/576/576509.png" alt="image icon" width="90px" align="center">
 </h1>
 
-Sempre que acontece uma exception(erro), o programa é finalizado e o restante dos códigos não são executados. Para o programa continuar funcionando, precisamos tratar essas exceptions.
+Sempre que acontece uma exception(erro), o programa é finalizado e o restante do código não é executado. Para o programa continuar funcionando, precisamos tratar essas exceptions.
 
 Para tratar as exceptions, vamos usar o `try catch`.
 
@@ -32,7 +32,7 @@ finally{
 
 <br>
 
-:pencil2: Crie uma array de 5 posicoes e tente atribuir um valor na posicao 200. Não vai dar, porque a posicao 200 não existe nessa array. Trate esse erro com o `try catch`:
+✏️ Crie uma array de 5 posicoes e tente atribuir um valor na posicao 200. Não vai dar, porque a posicao 200 não existe nessa array. Trate esse erro com o `try catch`:
 
 ```java
 public class Programa{
@@ -48,11 +48,11 @@ public class Programa{
 }
 ```
 
-:bulb: Como boas práticas, o nome do objeto da class Exception sempre vai ser `e` .
+💡 Como boas práticas, o nome do objeto da class Exception sempre vai ser `e` .
 
 <br>
 
-:bulb: Sempre que popar uma exception(erro) no seu programa e mostrar de qual classe ela pertence, usamos ela como parameter no `catch`.
+💡 Sempre que popar uma exception(erro) no seu programa e mostrar de qual classe ela pertence, usamos ela como parameter no `catch`.
 
 
 <hr>
@@ -63,7 +63,7 @@ Para tratar várias exceptions(erros), basta usar vários `catch(){}`. Cada um v
 
 <br>
 
-:pencil2: Crie um programa onde o usuário vai dividir um número por outro. Depois, trate as exceptions:
+✏️ Crie um programa onde o usuário vai dividir um número por outro. Depois, trate as exceptions:
 
 ### Tratando o primeito input(number1):
 - Se o usuário inputar uma `String` 
@@ -79,63 +79,71 @@ Para tratar várias exceptions(erros), basta usar vários `catch(){}`. Cada um v
 ```java
 public class App{
     public static void main(String[] args){
-
         Scanner scan = new Scanner(System.in);
-        Double number1 = 0d;
-        Double number2 = 0d;
-        Boolean valorCorreto = true;
+        Integer number1 = 0;
+        Integer number2 = 0;
 
-        //inputando primeiro number
-        do{
-            try{
-                System.out.print("\nDigite um number: ");
-                number1 = scan.nextDouble();
-                valorCorreto = true;
-            }
-            catch(InputMismatchException e){
-                valorCorreto = false;
-                System.out.println("Erro! Digite um number.");
-                scan.nextLine();
-            }
-        }
-        while(!(valorCorreto));
+        number1 = number1Input(scan, number1);
+        number2 = number2Input(scan, number2);
         
-
-        //inputando segundo number
-        do{
-            try{
-                System.out.print("\nDigite outro number: ");
-                number2 = scan.nextDouble();
-        
-                //se o segundo number for igual a "0", lancamos uma exception
-                if(number2.equals(0d)){
-                    throw new ArithmeticException(); // lancamos uma exception
-                }
-    
-                valorCorreto = true;
-            }
-            //se o usuário digitar uma String
-            catch(InputMismatchException e){
-                valorCorreto = false;
-                System.out.println("Erro! Digite um number.");
-                scan.nextLine();
-            }
-            //se o usuário tentar dividir por "0"
-            catch(ArithmeticException e){
-                valorCorreto = false;
-                System.out.println("Erro! Não é possível dividir por 0. Escolhe outro número para dividir.");
-                scan.nextLine();
-            }
-        }
-        while(!(valorCorreto));
-        
-
-        //mostramos o resultado
-        Double result = number1 / number2;
-        
-        System.out.println(String.format("%.0f / %.0f = %.2f", number1, number2, result));
+        //result
+        Integer result = number1 / number2;
+        System.out.println(String.format("%d / %d = %d", number1, number2, result));
         scan.close();
     }
+    
+
+    //number1 input
+    public static Integer number1Input(Scanner scan, Integer number1){
+        Boolean correctInput = false;
+        do{
+            System.out.print("Number 1: ");
+            try{
+                number1 = scan.nextInt();
+                correctInput = true;
+            }
+            //if the user input Strings
+            catch(InputMismatchException e){
+                System.out.println("Please, type a number; \n");
+                correctInput = false;
+                scan.nextLine();
+            }
+        }
+        while(!(correctInput));
+        return number1;
+    };
+    
+    
+    //number2 input
+    public static Integer number2Input(Scanner scan, Integer number2){
+        Boolean correctInput = false;
+        do{
+            System.out.print("Number 2: ");
+            try{
+                number2 = scan.nextInt();
+                //division / 0
+                if(number2 == 0){
+                    throw new ArithmeticException(); //lancamos um erro
+                }
+                else{
+                    correctInput = true;
+                }
+            }
+            //if the user input Strings
+            catch(InputMismatchException e){
+                System.out.println("Please, type a number; \n");
+                correctInput = false;
+                scan.nextLine();
+            }
+            catch(ArithmeticException e){
+                System.out.println("Division by zero not allowed\n");
+                correctInput = false;
+                scan.nextLine();
+            }
+        }
+        while(!(correctInput));
+        return number2;
+    };
 }
 ```
 
@@ -145,9 +153,11 @@ O segredo é loopar de um por um:
 
 Não vai tentar loopar no final. Sempre loop de poquinho em poquinho.
 
+Perceba que foi criado um method para cada input. Sempre separe seu código em vários methods. Assim, fica mais fácil de entender e de dar manutenção.
+
 <br>
 
-:bulb: Geralmente, usamos o `finally{}` para fechar objetos. Nesse caso, não precisamos usar.
+💡 Geralmente, usamos o `finally{}` para fechar objetos. Nesse caso, não precisamos usar.
 
 <hr>
 <br>
@@ -156,7 +166,7 @@ Não vai tentar loopar no final. Sempre loop de poquinho em poquinho.
 Quando queremos tratar qualquer tipo de exception, vamos usar como parameter no `catch(){}` a class `Exception`. Ela consegue tratar qualquer erro, pois ela é pai das outras exceptions class(é só verificar a árvore [denovo](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md/#exception-tree-árvore-de-exceptions)).
 
 
-:bulb: Se não soubermos qual o nome da class da da exception(erro), basta usar a class genérica `Exception` e dale.
+💡 Se não soubermos qual o nome da Class da exception(erro), basta usar a class genérica `Exception` e dale.
 
 Sempre que vamos tratar exceptions no nosso programa, vamos tratar uma por uma e depois tratamos as exceptions genéricas.
 
@@ -180,15 +190,11 @@ catch(Exception e){
 
 <img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="center"> Primeiro tratamos as exceptions específicas e no final tratamos a genérica.
 
-<hr>
-<br>
-
-
 
 <br>
 <br>
 
 <!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/2.throws_throw_new/throws_throw_new.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
