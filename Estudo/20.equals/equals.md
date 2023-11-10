@@ -28,12 +28,17 @@ System.out.println(texto1.equals(texto2)); //TRUE
 <br>
 
 ## Comparando objetos de uma class que criamos
-Sempre que usamos o `.equals` para comparar objetos de uma class que criamos("Pessoa", "Jogador", "Animal", etc...), o que é comparado é o local da memória em que esses objetos estão armazenados. Cada objeto fica armazenado em um local diferente. Portanto, sempre vai retornar FALSE.
+Sempre que usamos o `.equals` para comparar objetos de uma class que criamos("Pessoa", "Jogador", "Animal", etc...), o que é comparado é o local da memória em que esses objetos estão armazenados. Sempre que criamos um novo objeto, esse objeto é armazenado em um espaço único na memória. Assim, sempre que compararmos se dois objetos estao armazenados no mesmo local, vai dar FALSE.
+
+Tanto é que, quando não sobreescrevemos o `toString()` method, ele retorna o valor hash em que o objeto está alocado na memória. Tendo cada objeto, uma "gaveta/espaco" na memória diferente.
 
 
 Por padrão, toda class do java é filha da class `"Object"`. Então, quando criamos uma class "Pessoa", ela insta tem relação de herança com a superClass "Object". Assim, a class "Pessoa" vai herdar o method `.equals` da classe pai "Object".
 
-Assim, nós podemos sobreescrever o method `.equals` da classe pai "Object" e setar qual ou quais os attributes que vamos comparar.
+Assim, nós podemos sobreescrever o method `.equals`, da classe pai "Object" e setar qual ou quais os attributes que vamos comparar.
+
+
+
 
 <hr>
 <br>
@@ -77,7 +82,7 @@ Um objeto só vai ser igual a outro, se esse attribute for igual.
         //.equals() method da class pai "Object"
         @Override
         public boolean equals(Object obj) {
-            Pessoa p = (Pessoa) obj;
+            Pessoa p = (Pessoa) obj; //Castamos o objeto recebido para o mesmo Class do objeto atual
             
             if(this.name.equals(p.name)){
                 return true;
@@ -88,7 +93,7 @@ Um objeto só vai ser igual a outro, se esse attribute for igual.
     ```
 
     Entendendo o method:
-    - Implementamos o abstract method `.equals()` da classe pai "Object". :bulb: Use a IDE para implementar:bulb:.
+    - Implementamos o abstract method `.equals()` da classe pai "Object". 💡 *Use a IDE para implementar*
   
     - Esse method retorna um valor booleano.
     
@@ -96,7 +101,7 @@ Um objeto só vai ser igual a outro, se esse attribute for igual.
 
     - Criamos um objeto "Pessoa" chamado "p", que recebe o objeto informado no parâmetro transformado para a class "Pessoa". Agora sim, podemos fazer a lógica de comparação.
 
-    - Se o attribute "name" do objeto atual for igual ao attribute "name" do objeto informado no parâmetro, eles são iguais, retornamos true. Easy! :sunglasses:
+    - Se o attribute "name" do objeto atual for igual ao attribute "name" do objeto informado no parâmetro, eles são iguais, retornamos true. Easy! 😎
 
 
 <br>
@@ -162,7 +167,7 @@ Dois objetos da classe "Pessoa" só serão iguais ser tiverem todos os attribute
 <br>
 
 ## Criando nosso próprio method .equals()
-Ao invés de sobreescrever o method `.equals`, nós podemos criar nosso próprio method de comparação. Como era um method implementado, nós não podíamos alterar o tipo do objeto do parâmetro. Agora que vamos criar nosso próprio, podemos.
+Ao invés de sobreescrever o method `.equals`, nós podemos criar nosso próprio method de comparação. Como era um method implementado, nós não podíamos alterar o tipo do objeto do parâmetro. Agora que vamos criar nosso próprio method, podemos.
 
 ```java
 // method igual o .equals()
@@ -181,5 +186,5 @@ Não precisamos castar, pois o objeto do parâmetro já é da mesma Classe do ob
 
 <!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/21.methods/1.method.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

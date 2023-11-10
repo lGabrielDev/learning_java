@@ -270,7 +270,7 @@ Agora, se criarmos uma array "Veicúlos", vamos conseguir armazenar as classes f
     - "Moto" é um "Veículo", por isso conseguimos armazenar na array.
     - "Bike" é um "Veículo", por isso conseguimos armazenar na array.
 
-📖 Imagine as possibilidades?? Podemos criar listas/arrays com objetos "diferentes". Claro, desde que eles herdem do mesmo pai.
+📖 Imagine as possibilidades... Podemos criar listas/arrays com objetos "diferentes". Claro, desde que eles herdem do mesmo pai.
 
 <hr>
 <br>
