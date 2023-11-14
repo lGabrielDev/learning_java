@@ -21,7 +21,6 @@ Igual uma array simples, podemos criar uma array 2d de 2 formas:
 
 ## Formas de criar uma array 2d
 
-<br>
 
 ### Definindo o comprimento dentro do `[][]` e depois attribuindo os valores
 
@@ -42,7 +41,7 @@ names[2][1] = "Kleber";
 System.out.println(Arrays.deepToString(names));
 ```
 
-:bulb: Para imprimir todas as posições de uma 2d array, usamos o method `Arrays.deepToString();` da class "Arrays". igualzin quando queremos mostrar todos os attributes de um objeto. Só que aqui, queremos mostrar todas as arrays e todas as posicoes de cada array.
+💡 Para imprimir todas as posições de uma 2d array, usamos o method `Arrays.deepToString();` da class "Arrays". igualzin quando queremos mostrar todos os attributes de um objeto. Só que aqui, queremos mostrar todas as arrays e todas as posicoes de cada array.
 
 Essa class "Arrays" têm vários methods interessantes. Ordenar, preencher, etc...
 
@@ -82,7 +81,7 @@ System.out.println(names[1][0]); // Roberta
 System.out.println(names[2][0]); // Rodrigo
 ```
 
-:warning: Uma array sempre começa com index `0`.
+⚠️ Uma array sempre começa com index `0`.
 
 
 Quando criamos uma array, é como se tivessemos criado um armário com 5 gavetas. Podemos colocar um valor em cada gaveta.
@@ -124,7 +123,7 @@ public class Programa{
 ```
 
 
-:bulb: Como boas práticas, usamos o `i` para o primeiro loop, e o `j` para o segundo loop.
+💡 Como boas práticas, usamos o `i` para o primeiro loop, e o `j` para o segundo loop.
 
 - names.length -> quantas arrays tem.
 - names[0].length -> quantas posicoes tem na array 0.
@@ -143,9 +142,37 @@ for(String[] i : names){ // vamos percorrer uma lista de Array[]. Sacou?
 ```
 
 <br>
+Outra forma de fazer:
+
+```java
+//percorremos uma array de arrays
+for(String[] i: names){//'i' represeta cada position. Ou seja, representa uma array
+    //percorremos uma array
+    for(String j : i){
+        System.out.println(j);
+    }
+    System.out.println();
+}
+```
+
+<br>
+Outra forma de fazer:
+
+```java
+//percorremos uma array de arrays
+for(String[] i: names){//'i' represeta cada position. Ou seja, representa uma array
+    //percorremos uma array
+    for(int j=0; j<i.length; j++){
+        System.out.println(i[j]);
+    }
+    System.out.println();
+}
+```
+
+<br>
 <br>
 
 <!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/3.array_list/array_list.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

@@ -9,7 +9,7 @@ Nessa estrutura, usamos o sistema **LIFO** --> Last-In First-Out.
 
 O último item que colocarmos na pilha, vai ser o primeiro a ser retirado.
 
-:bulb: Imagine uma pilha de livros. Se quisermos retirar o livro que está lá em baixo, precisamos **desempilhar** todos os de cima.
+💡 Imagine uma pilha de livros. Se quisermos retirar o livro que está lá em baixo, precisamos **desempilhar** todos os de cima.
 <br>
 
 ## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
@@ -69,7 +69,7 @@ for(String i : livros){
 }
 ```
 
-:bulb: Lembrando que nós podemos usar todos os outros methods da interface `List` (`.contains();`, `.get();`, etc...). Isso porque, a class "Stack" `extends` a class "Vector", e a class "Vector" `implements` a interface "List".
+💡 Lembrando que nós podemos usar todos os outros methods da interface `List` (`.contains();`, `.get();`, etc...). Isso, porque a class "Stack" `extends` a class "Vector", e a class "Vector" `implements` a interface "List".
 
 <hr>
 <br>

@@ -34,9 +34,9 @@ for(String i : jogadores){
     System.out.println(i);
 }
 ```
-:bulb: Primeiro passamos a interface "Set" e depois a class "HashSet".
+💡 Primeiro passamos a interface "Set" e depois a class "HashSet".
 
-:warning: Aqui, não temos o method `.get()`. Obviamente porque aqui não temos posicoes/index. Acessamos os items através dos valores.
+⚠️ Aqui, não temos o method `.get()`. Obviamente, porque aqui não temos posicoes/index. Acessamos os items através dos valores.
 
 <br>
 <br>

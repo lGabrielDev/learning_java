@@ -3,7 +3,7 @@
     <img src="https://cdn-icons-png.flaticon.com/512/2137/2137598.png" alt="image icon" width="60px" align="center">
 </h1>
 
-PriorityQueue é uma estrutura de fila com prioridade. Funciona igualzinho uma fila, mas aqui vamos ter uma preferência do menor para o maior:
+*PriorityQueue* é uma estrutura de fila com prioridade. Funciona igualzinho uma fila, mas aqui vamos ter uma preferência do menor para o maior:
 
 - String --> A,B,C,...
 - Integer --> 1,2,3,4...
@@ -17,7 +17,7 @@ Sempre que removermos com o `.poll()`, vai ser respeitado a ordem do menor prime
 Queue<String> filaDoPao = new PriorityQueue<>();
 ```
 
-:bulb: Primeiro informamor a interface, depois informamos a class que vamos usar.
+💡 Primeiro informamor a interface, depois informamos a class que vamos usar.
 
 <br>
 <br>
@@ -37,9 +37,8 @@ System.out.println(filaDoPao.poll()); // Zetsu foi atendida e removida da fila
 
 // Foi priorizado a ordem alfabetica do menor para o maior. Se fosse number, o menor valor também seria prioridade.
 
-
 ```
-<br>
+
 <br>
 
 ## Estrutura de fila com prioridade -> Integer
@@ -103,7 +102,9 @@ Nós precisamos definir. Se não, vai dar uma exception. O próprio java diz par
     - `0` --> Prioridade neutra. Será atendido quem chegou primeiro. Padraozin.
     - `1` --> Maior valor, não tem prioridade.
 
-Se quiséssemos fazer ao contrário, quem tivesse a menor idade seria atendido primeiro, era só inverter os números ou inverter o operador `>`. Easy! :sunglasses:
+Se quiséssemos fazer ao contrário, quem tivesse a menor idade seria atendido primeiro, era só inverter os números ou inverter o operador `>`. Easy! 😎
+
+⚠️ Precisa ser essa combination, senão não funciona. (`-1, 0, 1`) .
 
 <br>
 <br>

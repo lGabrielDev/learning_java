@@ -12,7 +12,7 @@ Aqui na estrutura **HashMap**, acessamos os items através da **key/value**. Ou 
 - `value` --> valor desse item
 
 
-:warning: Cuidado ao adicionar items com keys iguais. Se tiverem values diferentes, vai permanecer o último inserido.
+⚠️ Cuidado ao adicionar items com keys iguais. Se tiverem values diferentes, vai permanecer o último inserido.
 
 <hr>
 <br>
@@ -27,7 +27,7 @@ Perceba que cada item vai ter dois objetos:
 - `Key` --> Chave única de identificação. Não é permitido chaves duplicadas.
 - `Value` --> Valor dessa chave.
 
-:bulb: Bem parecido com a primary key do Postgres.
+💡 Bem parecido com a primary key do Postgres.
 
 <hr>
 <br>
@@ -35,7 +35,7 @@ Perceba que cada item vai ter dois objetos:
 ## Adicionando items na estrutura
 Para adicionar items, vamos usar o method `.put()`.
 
-:pencil2: Crie uma estrutura que vai armazenar objetos "Pessoa"
+✏️ Crie uma estrutura que vai armazenar objetos "Pessoa"
 ```java
 Map<Integer,Pessoa> lista = new HashMap<>();
 lista.put(1, new Pessoa("Pedro"));
@@ -99,7 +99,7 @@ System.out.println(lista.keySet());
 ```
 
 <br>
-<br>
+
 
 ### Mostrando todos os values
 ```java
@@ -114,7 +114,17 @@ System.out.println(lista.values());
 
 <br>
 
-:warning: Não dá para usar o `for` normal, obviamente, porque aqui não tem positions/index.
+### Mostrando as key e os values, juntos
+
+```java
+System.out.println(lista.toString()); //padraozin, OU
+
+for(Long i : lista.keySet()){
+    System.out.println(String.format("%d --> %s", i ,lista.get(i))); //Acessamos cada key e depois acessamos o value dessa key
+}
+```
+
+⚠️ Não dá para usar o `for` normal, obviamente, porque aqui não tem positions/index.
 
 Existem vários outros methods, mas não é necessário usar agora. Quando precisarmos, usaremos.
 

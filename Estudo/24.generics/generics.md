@@ -338,6 +338,11 @@ public class App {
         }
         ```
 
+        📖 Poderíamos fazer da mesma forma com uma `List<T>`.
+    
+    <br>
+    <br>
+
 ## Relembrando <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
 - `generic Class`:
@@ -353,5 +358,5 @@ public class App {
 
 <!-- Next page button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/1.array(vetores)/1.array.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

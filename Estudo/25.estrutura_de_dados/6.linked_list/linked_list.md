@@ -3,7 +3,7 @@
     <img src="https://cdn-icons-png.flaticon.com/512/282/282100.png" alt="image icon" width="60px" align="center">
 </h1>
 
-A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas implementam a interface **List**. A diferença é que aqui na LinkedList temos algum methods adicionais:
+A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas implementam a interface **List**. A diferença é que aqui na LinkedList temos alguns methods adicionais:
 
 
 
@@ -14,7 +14,7 @@ A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas imple
 - `getFirst()`
 - `getLast()`
 
-:bulb: Geralmente, sempre vamos usar ArrayList. Usamos LinkedList para trabalharmos com **Queue**.
+💡 Geralmente, sempre vamos usar ArrayList. Usamos LinkedList para trabalharmos com **Queue**.
 
 
 <br>

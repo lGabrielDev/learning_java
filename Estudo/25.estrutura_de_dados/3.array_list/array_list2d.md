@@ -22,7 +22,7 @@ List<List<Integer>> listaDeNumbers = new ArrayList<>();
 <br>
 <br>
 
-## :pencil2: Praticando :pencil2:
+✏️ Praticando :pencil2:
 
 1. Crie 3 listas do tipo String.
    ```java

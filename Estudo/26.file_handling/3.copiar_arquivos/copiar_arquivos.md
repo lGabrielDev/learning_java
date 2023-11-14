@@ -1,15 +1,8 @@
 
 <h1 align="center">Copiando arquivos utilizando Java</h1>
 
-## Objetivo
-Copiar um arquivo utilizando linguagem Java.
+*APENAS LEIA*
 
-<br>
-
-## Requisitos  
-* JDK instalado.
-
-<br> 
 
 ## Introdução
 

@@ -1,68 +1,102 @@
-package main.java.br.com.leekbiel.projeto.classes;
+package main.java.com.studyCompany;
+import java.util.ArrayList;
 
-public class PilhaBolada {
+public class StackNaMao <T> {
     //attributes
-    String[] personagens; // representa a nossa pilha
-    Integer topo; // representa a posição atual do topo
+    private ArrayList<T> pilha; //podemos criar uma pilha de qualquer Classe.
+    private Integer topo;//quem esta no topo da nossa pilha
+    private Integer tamanhoDaPilha;
+
 
     //constructor
-    public PilhaBolada(){
-        this.personagens = new String[2]; // Definimos o tamanho da array
-        this.topo = -1; //Se eu coloco um item na pilha, ele tem posicao 0. Logo, a posicao "-1" quer dizer que a pilha está vazia.
+    public StackNaMao(Integer tamanhoDaPilha){
+        this.topo = -1; //Sempre que criarmos uma pilha, o topo dessa pilha começa em -1. Assim, sabemos que a pilha está vazia. Se no topo da pilha tiver 0 ou mais, quer dizer que existe algum item na pilha.
+        this.tamanhoDaPilha = tamanhoDaPilha; //usuario escolhe o tamanho da pilha
+        this.pilha = new ArrayList<>();//Iniciamos o objeto para nao dar nenhum problema
     }
 
 
-    //methods da pilha
+    //getters and setters
+    public Integer getTamanhoDaPilha(){
+        return tamanhoDaPilha;
+    }
 
-    //.isempty() --> Verificar se a pilha está vazia.
+     public ArrayList<T> getPilha() {
+        return pilha;
+    }
+
+
+    // **** STACK METHDOS ****
+
+    //isEmpty
     public Boolean isEmpty(){
-        if(this.topo == -1){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return topo == -1; //forma mais simples de retornar um booleano.
+        //poderia ser assim:
+        // if(topo == -1){
+        //     return true;
+        // }
+        // return false;
     }
-        
 
-    //.isFull() --> Verificar se a pilha está cheia.
+
+   
+
+    //isFull
     public Boolean isFull(){
-        if(this.topo == (personagens.length-1)){ // this.topo == 9. Como a posição 10 não existe (0,1,2,3,4,5,6,7,8,9), a ultima posicao é a 9.
-            return true;
-        }
-        else{
-            return false;
-        }
+        return topo == (tamanhoDaPilha -1);
+        //poderia ser assim:
+        // if(topo == (pilha.size() -1)){
+        //     return true;
+        // }
+        // return false;
     }
 
 
-    //.peek() --> Verificar quem está no topo da pilha
-    public String peek(){
-        return personagens[topo];
-    }
-
-
-    //.push() --> Inserir mais um objeto na pilha
-    public void push(String personagem){
-        if(isFull()){
-            throw new RuntimeException("A pilha está cheia. Não é possível adicionar mais nenhum item.");
-        }
-        else{
-            topo ++;
-            personagens[topo] = personagem;
-        }
-    }
-
-
-    //.pop() --> Remove quem está no topo da pilha.
-    public String pop(){
+    //peek --> Mostra quem está no topo da pilha
+    public T peek(){
         if(isEmpty()){
-            throw new RuntimeException("A pilha está vazia. Não há o que remover.");
+            return null; // Ao invés de retornar null, poderíamos ter lancado uma exception
         }
-        else{
-            String p = personagens[topo];
-            topo --;
-            return p; //retornamos 
+        return this.pilha.get(topo); //Retornamos quem esta no topo da nossa lista
+    }
+
+
+    //push --> Adiciona 1 item no topo da pilha
+    public T push(T itemParaColocarNaPilha){
+        if(isFull()){
+            throw new RuntimeException("The stack is full! Remove an item if you want push this item.");
         }
+        this.topo ++;
+        this.pilha.add(itemParaColocarNaPilha); //adicionamos esse item na pilha
+        return itemParaColocarNaPilha; //retornamos esse item
+    }
+
+    
+    //pop --> remove quem tiver no topo da pilha
+    public T pop(){
+        if(isEmpty()){
+            throw new RuntimeException("You cannot 'pop' an item because the stack is empty");
+        }
+        T itemDoTopo = this.pilha.get(topo); //salvamos o item antes de remover. Assim, conseguimos informar para o usuario o item que foi removido.
+        this.pilha.remove((int) topo); //removemos o item do topo. Poderíamos ter removido pelo index. 'this.pilha.remove((int) topo);' --> esse method remove() temos que passar como argumento um int primitive. Por isso precisamos castar.
+        topo --; //a pilha está menor
+        return itemDoTopo;
+        
+    }
+
+
+
+    //list all items
+    public String listarLivros(){
+        if(isEmpty()){
+            return "Stack is empty";
+        }
+
+        String stringBooks = "";
+
+        for(int i=(this.pilha.size()-1); i>=0; i--){ //listamos de forma reversa. Assim, conseguimos visualizar melhor a ordem da pilha
+            stringBooks += this.pilha.get(i) + "\n";
+        }
+        return stringBooks;
     }
 }

@@ -8,6 +8,7 @@
 Diferente da array normal, aqui podemos manipular nossos objetos. Podemos remove ou adicionar objetos, sem precisar criar outra ArrayList. Na array normal, não é possível.
 
 - `Array` --> Possui um tamanho fixo. Uma vez colocado os objetos, não é possível removê-los ou adicionar mais objetos.
+
 - `ArrayList` --> Possui um tamanho flexível. Podemos adicionar ou remover objetos em qualquer momento.
 
 <hr>
@@ -20,18 +21,15 @@ Sempre setamos primeiro a interface e depois a classe que vamos usar.
 List<String> colors = new ArrayList<>();
 //Interface <datatype da estrutura> , nome do objeto , classe que vamos usar
 ```
-:bulb: Usamos primeiro a **interface**. Se quisermos alterar o tipo da estrutura, conseguimos sem problemas:
+
+💡 Usamos primeiro a **interface**. Se quisermos alterar o tipo da estrutura, conseguimos sem problemas:
 
 ```java
 List<String> colors = new ArrayList<>();
 List<String> colors = new LinkedList<>();
 ```
 
-:warning: Não esqueca de importar o package da classe:
-```java
-import java.util.List;
-import java.util.ArrayList;
-```
+Perceba que a class **List** possui attributes genericos. Por isso, precisamos informar no `<>` qual a class que vamos utilizar.
 
 
 Quando criamos um objeto ArrayList, conseguimos usar vários methods para manipular os objetos da nossa estrutura.
@@ -51,7 +49,7 @@ System.out.println(colors.toString()); //ou apenas, System.out.println(colors);
 System.out.println(colors.size()); // tamanho da array
 ```
 
-:bulb: Para achar o comprimento de uma lista, vamos usar o `.size()`. Funciona da mesma forma que o `.length()`. 
+💡 Para achar o comprimento de uma lista, vamos usar o `.size()`. Funciona da mesma forma que o `.length()`. 
 
 <hr>
 <br>
@@ -70,7 +68,7 @@ System.out.println(colors.get(1));
 System.out.println(colors.get(2));
 ```
 
-:bulb: Lembrando que a posicao de uma array sempre começa em index `0`.
+💡 Lembrando que a posicao de uma array sempre começa em index `0`.
 
 <hr>
 <br>
@@ -91,7 +89,7 @@ colors.remove("yellow"); // passando o objeto
 System.out.println(colors.toString());
 ```
 
-:bulb: Perceba que podemos passar tanto o **index/posicao** quanto o **nome do objeto**.
+💡 Perceba que podemos passar tanto o **index/posicao** quanto o **nome do objeto**.
 
 <hr>
 <br>
@@ -145,7 +143,7 @@ for(String i : colors){
     System.err.println(i);
 }
 /*
-Datatype da estrutura, contador representando uma posicao da lista, nome da array
+Datatype da estrutura, contador representando cada posicao da lista, nome da array
 */
 ```
 
@@ -153,7 +151,7 @@ Datatype da estrutura, contador representando uma posicao da lista, nome da arra
 <br>
 
 ## Criando uma arrayList com outros objetos
-Uma estrutura ArrayList sempre vai ter o datatype de um objeto. Se for datatype primitive, temos que usar wrapper classes:
+Uma estrutura ArrayList sempre vai ter o datatype **Non-Primitive**. Se for datatype primitive, temos que usar wrapper classes:
 - Integer
 - Double
 - Boolean
@@ -208,7 +206,7 @@ for(String i : names){
 
 ### Integer
 ```java
- List<Integer> numbers = new ArrayList<>();
+List<Integer> numbers = new ArrayList<>();
 numbers.add(50);
 numbers.add(100);
 numbers.add(90);
@@ -223,10 +221,12 @@ for(Integer i : numbers){
 }
 ```
 
+📖 Se quisesse imprimir de forma reversa, era só ordenar e depois imprimir do ultimo index até o index 0.
+
 <br>
 <br>
 
 <!-- Next Page Button -->
 <a href="https://github.com/lGabrielDev/02.java/blob/main/Estudo/25.estrutura_de_dados/3.array_list/array_list2d.md">
-  <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
+    <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>

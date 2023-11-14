@@ -9,7 +9,7 @@
 
 - **FIFO** --> First In First Out
 
-O primeiro a entrar na fila, será o primeiro a ser atendido. O primeiro que entrar na fila do pão, será o primeiro a ser atendido.
+O primeiro que entrar na fila do pão, será o primeiro a ser atendido.
 
 - **head** (cabeça) --> começo da fila.
 - **tail** (rabo) --> final da fila.
@@ -27,7 +27,7 @@ Queue<Integer> numeroDeAtendimento = new LinkedList<>();
 Queue<Pessoa> filaDaPizzaria = new LinkedList<>();
 ```
 
-:bulb: Como sempre, primeiro passamos a interface, depois a classe que vamos usar.
+💡 Como sempre, primeiro passamos a interface, depois a classe que vamos usar.
 
 <hr>
 <br>
@@ -44,7 +44,7 @@ Queue<Pessoa> filaDaPizzaria = new LinkedList<>();
 
 ### Praticando
 
-:pencil2: Crie 4 objetos "Pessoas" e coloque na lista.
+✏️ Crie 4 objetos "Pessoas" e coloque na lista.
 
 ```java
 Pessoa p1 = new Pessoa("Roberta");
