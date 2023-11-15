@@ -133,6 +133,6 @@ Existem vários outros methods, mas não é necessário usar agora. Quando preci
 <br>
 
 <!-- Next Page Button -->
-<a href="https://github.com/lGabrielDev/02.java/blob/main/BLABLABLA">
+<a href="../../26.file_handling/1.ler_arquivos/0.introduction.md">
     <img src="https://cdn-icons-png.flaticon.com/512/8175/8175884.png" alt="Next page button" width="50px" align="right">
 </a>
