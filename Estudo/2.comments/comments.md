@@ -4,15 +4,15 @@
 
 <br>
 
-| Comment   | description         |
-| :---      |                 ---:|
-| `//`        | Line Comment        |
-| `/**/`      | Bloco de comentário |
+| Comment  | description         |
+| :---     |                 ---:|
+| `//`     | Line Comment        |
+| `/**/`   | Bloco de comentário |
 
 
 <br>
 
-:pencil2: Imprima uma String com o `println()` e faça um comentário em cima, explicando a linha do código abaixo.
+✏️ Imprima uma String com o `println()` e faça um comentário em cima, explicando a linha do código abaixo.
 
 ```java
 public class Programa{
