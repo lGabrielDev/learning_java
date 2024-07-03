@@ -30,13 +30,13 @@ while(condition){
 
 ```java
 public static void main(String[] args){
-        Integer i = 0;
-        do{
-            i++;
-            System.out.println("Salve gurizada!");
-        }
-        while(i < 4);
+    Integer i = 0;
+
+    while(i < 4){
+        i = i + 1;
+        System.out.println("Salve!");
     }
+}
 ```
 
 <img src="https://cdn-icons-png.flaticon.com/512/2810/2810051.png" alt="imagem" width="50px" align="left">
@@ -252,8 +252,11 @@ Como nosso contador começa em **0**, tivemos que somar mais **1**.
         }
     } 
     ```
+    <br>
+    <br>
 
-    ✏️ Trate os erros de input com o: 
+    ✏️ Trate os erros de input com o `do while` + `try catch`: 
+    
     ```java
     do{
         try{
@@ -264,6 +267,75 @@ Como nosso contador começa em **0**, tivemos que somar mais **1**.
         }
     }
     while();
+    ```
+
+
+    ```java
+    import java.util.Scanner;
+    import methods.MethodInsano;
+
+    public class App{
+
+        public static void main(String[] args){
+            Scanner scan =  new Scanner(System.in);
+
+            String character = "a";
+
+            Integer columns = 0,
+                    rows = 0;
+
+            //character
+            System.out.print("\nCharacter: ");
+            character = scan.nextLine();
+
+            //columns
+            columns = MethodInsano.checkIfIsANumber(scan, "Column");
+
+            //rows
+            rows = MethodInsano.checkIfIsANumber(scan, "Rows");
+            
+            for(int i = 0; i<rows; i++){
+                
+                for(int j = 0; j<columns; j++){
+                    System.out.print(character + "\t");
+                }
+                System.out.println();
+            }
+            scan.close();
+        }
+    }
+    ```
+    
+    <br>
+
+    ```java
+    package methods;
+    import java.util.InputMismatchException;
+    import java.util.Scanner;
+
+    public class MethodInsano {
+        
+        //input only numbers
+        public static Integer checkIfIsANumber(Scanner scan, String nomeDoCampo){
+            Integer columns = 0;
+            Boolean correctInput = true;
+
+            do{
+                System.out.printf("%s: ", nomeDoCampo);
+                try{
+                    columns = scan.nextInt();
+                    correctInput = true;
+                }
+                catch(InputMismatchException e){
+                    System.out.println("ERRO! Digite um number!\n");
+                    correctInput = false;
+                    scan.nextLine();
+                }
+            }
+            while(correctInput == false);
+            return columns;
+        }
+    }
     ```
 
 <hr>

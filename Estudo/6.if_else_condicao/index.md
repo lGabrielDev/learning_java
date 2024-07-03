@@ -124,50 +124,8 @@ public class App{
 <br>
 
 ## Exercitando 📝
+
 ### Exercício 1
-
-✏️ Crie um programa onde vai ser printado uma mensagem dizendo se o usuário vai ou não para praia. As conditions vão ser:
-
-- Se ele tiver gasolina **e** não estiver chovendo --> Usuário vai viajar.
-- Caso contrário --> Usuário fica em casa jogando lol.
-
-Percebe que o usuário só vai viajar, se as duas condition forem true.
-
-```java
-public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        Boolean temGasolina = false;
-        Boolean estaChovendo = false;
-
-
-        //perguntas feitas ao usuário
-        System.out.print("Seu carro tem gasolina? ");
-        temGasolina = scan.nextBoolean();
-
-        System.out.print("\nEstá chovendo? ");
-        estaChovendo = scan.nextBoolean();
-
-        
-        if(temGasolina && !(estaChovendo)){
-            System.out.println("Vá viajar, seu viajadeiro!!");
-        }
-        else if(temGasolina && estaChovendo){
-            System.out.println("Está chovendo...Vai jogar lol.");
-        }
-        else if(!(temGasolina) && estaChovendo == false){
-            System.out.println("Seu carro não tem gasolina...Vai jogar lol.");
-        }
-        else{
-            System.out.println("Seu carro não tem gasolina e está chovendo...Fique jogando lol.");
-        }
-        scan.close();
-    }
-```
-
-<br>
-<br>
-
-### Exercício 2
 ✏️ O usuário vai digitar um number e o programa vai printar uma mensagem, seguindo as conditions:
 
 
@@ -200,7 +158,7 @@ public static void main(String[] args){
 <br>
 
 
-### Exercício 3
+### Exercício 2
 
 ✏️ Crie um programa onde o usuário vai inputar um number, e depois o programa vai dizer se é **PAR** ou **ÍMPAR**.
 
