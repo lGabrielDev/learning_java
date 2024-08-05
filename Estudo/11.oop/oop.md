@@ -113,13 +113,33 @@ import main.java.br.com.leekbiel.projeto.classes.Cars;
 ```
 
 ```java
-public static void main(String[] args){
-    Cars car1 = new Cars();
-    Cars car2 = new Cars("Ferrari","f450","red",2022,5000000);
+public class App{
+    public static void main(String[] args){
 
-    System.out.println(car1.toString());
-    System.out.println("\n\n"+car2.toString());
-}  
+        //car 1 --> Preenchendo os attributes pelos methods 'setters()'
+        Car c1 = new Car();
+            c1.setMarca("FIAT");
+            c1.setModelo("UNO");
+            c1.setColor("RED");
+            c1.setYear(2018);
+            c1.setPrice(70000d);
+
+
+        //car 2 --> Preenchendo os attributes direto no constructor()
+        Car c2 = new Car(
+            "chevrolet",
+            "b45",
+            "Grey",
+            2022,
+            140000d
+        );
+
+
+        System.out.println(" **** Carros comprados: ****");
+        System.out.println(c1.toString());
+        System.out.println(c2.toString());
+    }
+}
 ```
 
 <br>
