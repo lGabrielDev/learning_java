@@ -36,7 +36,11 @@ Se ligou?? São valores fixos, que não podem ser alterados.
 
 ## enum
 
-`enum` funciona igualzinho a uma class, contendo attributes, constructors, getters and setters methods e outros methods. A diferença é que podemos ter constants (`static final variables`).
+`enum` é uma class que representa um grupo de **constantes**.
+
+Funciona igualzinho a uma class, contendo attributes, constructors, getters and setters methods e outros methods. A diferença é que podemos ter constants (`static final variables`).
+
+Use **enums** quando tiver valores que você sabe que não vão mudar, como dias do mês, dias, cores, baralho de cartas, etc.
 
 <br>
 
@@ -219,33 +223,48 @@ A diferença é que aqui passamos os argumentos diretamente dentro das constants
 2. Vamos atribuir um valor a essas constants. Cria um attribute e faça todo o procedimento que voce faria em uma class normal. Crie o constructor, getters and setters, etc...
 
     ```java
-    public enum Veiculos {
-        //constants
-        BIKE(50),
-        CAR(170),
-        JATO(500);
+    package Classes.enums;
+
+    public enum Vehicles {
+        //CONSTANTS
+        BIKE("bike", "bike é insana para ir ao trabalho sem gastar dinheiro", 60),
+        CAR("car", "car é insano para ter conforto", 200),
+        JATO("airplane", "airplane é insano para olhar para o céu", 400);
 
         //attributes
-        public Integer speed;
+        private final String name; //como são variables que não vao mudar o valor, deixamos como final mesmo.
+        private final String description;
+        private final Integer maxSpeedInKmPerHr;
 
         //constructors
-        private Veiculos(Integer speed){ // os constructors da enum class sempre serão `private`
-            this.speed = speed;
+        private Vehicles(String name, String description, Integer maxSpeedInKmPerHr){
+            this.name = name;
+            this.description = description;
+            this.maxSpeedInKmPerHr = maxSpeedInKmPerHr;
         }
 
         //getters and setters
-        public Integer getSpeed(){
-            return this.speed;
+        public String getName(){
+            return this.name;
         }
 
-        public void setSpeed(Integer speed){
-            this.speed = speed;
+        public String getDescription() {
+            return description;
         }
 
-        //toString method
+        public Integer getMaxSpeedInKmPerHr() {
+            return maxSpeedInKmPerHr;
+        }
+
+        //toString()
         @Override
         public String toString(){
-            return String.format("Speed %d",this.speed);
+            return
+                String.format(
+                    "Vehicle name: %s\n" +
+                    "Description: %s\n" +
+                    "Max Speed in km/h: %d\n", this.name, this.description, this.maxSpeedInKmPerHr
+                );
         }
     }
     ```
@@ -274,56 +293,53 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
 - Mage
 
     ```java
-    public enum ClasseDoPersonagem {
-        //constants
-        WARRIOR("Warior",5,8,"Cidade da luz"),
-        NINJA("Ninja",7,5,"Floresta sombria"),
-        MAGE("Mage",8,4,"Bosque das fadas");
+    public enum FightClass{
+        //CONSTANTS
+        WARRIOR("Warrior", "castelo da luz", 5, 10),
+        GUNNER("Gunner", "Piltover", 9, 4),
+        NINJA("Ninja", "floresta das sombras", 7, 5);
 
         //attributes
-        String name;
-        Integer forca;
-        Integer defesa;
-        String regiao;
-
+        private final String name;
+        private final String region;
+        private final Integer strength;
+        private final Integer defense;
 
         //constructors
-        private ClasseDoPersonagem(String name,Integer forca, Integer defesa, String regiao){
+        private FightClass(String name, String region, Integer strength, Integer defense){
             this.name = name;
-            this.forca = forca;
-            this.defesa = defesa;
-            this.regiao = regiao;
+            this.region = region;
+            this.strength = strength;
+            this.defense = defense;
+        }
+        
+        //getters --> Apenas os getters, porque na teoria esses valores 'final' não podem mudar
+        public String getName() {
+            return name;
         }
 
-        //getters and setters
-        public Integer getForca() {
-            return forca;
+        public String getRegion() {
+            return region;
         }
 
-        public void setForca(Integer forca) {
-            this.forca = forca;
+        public Integer getStrength() {
+            return strength;
         }
 
-        public Integer getDefesa() {
-            return defesa;
+        public Integer getDefense() {
+            return defense;
         }
 
-        public void setDefesa(Integer defesa) {
-            this.defesa = defesa;
-        }
-
-        public String getRegiao() {
-            return regiao;
-        }
-
-        public void setRegiao(String regiao) {
-            this.regiao = regiao;
-        }
-
-        //toString() Method
+        //toString()
         @Override
-        public String toString(){
-            return String.format("Name: %s\nForca: %d\nDefesa: %d\nRegião: %s",this.name,this.forca,this.defesa,this.regiao);
+        public String toString() {
+            return
+                String.format(
+                    "Name: %s\n" +
+                    "Region %s\n" +
+                    "Strength name: %d\n" +
+                    "Defense: %d\n", this.name, this.region, this.strength, this.defense
+                );
         }
     }
     ```
@@ -336,19 +352,20 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
 2. Cria uma class "Personagem", que represente a conta de um usuário no "WOW".
 
     ```java
-        public class Personagem {
+    package Classes.enums.mmoExample;
+
+    public class Player {
+
         //attributes
-        String name;
-        Integer age;
-        String email;
-        ClasseDoPersonagem classeEscolhida; // enum bolado criado
+        private String name;
+        private String email;
+        private FightClass fightClass; //Como só existe um número limitado de classes, usamos o enum
 
         //constructors
-        public Personagem(String name, Integer age, String email, ClasseDoPersonagem classeEscolhida){
+        public Player(String name, String email, FightClass fightClass){
             this.name = name;
-            this.age = age;
             this.email = email;
-            this.classeEscolhida = classeEscolhida;
+            this.fightClass = fightClass;
         }
 
         //getters and setters
@@ -360,14 +377,6 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
             this.name = name;
         }
 
-        public Integer getAge() {
-            return age;
-        }
-
-        public void setAge(Integer age) {
-            this.age = age;
-        }
-
         public String getEmail() {
             return email;
         }
@@ -376,18 +385,23 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
             this.email = email;
         }
 
-        public ClasseDoPersonagem getClasseEscolhida(){
-            return this.classeEscolhida;
+        public FightClass getFightClass() {
+            return fightClass;
         }
 
-        public void setClasseEscolhida(ClasseDoPersonagem classeEscolhida){
-            this.classeEscolhida = classeEscolhida;
+        public void setFightClass(FightClass fightClass) {
+            this.fightClass = fightClass;
         }
 
-        //toString method
+        //toString()
         @Override
-        public String toString(){
-            return String.format("\n\n=== Dados do personagem ===\nName: %s\nAge: %d\nEmail: %s\n=== Dados da classe ===\n%s",this.name,this.age,this.email,this.classeEscolhida);
+        public String toString() {
+            return
+                String.format(
+                    "Name: %s\n"+
+                    "Email: %s\n"+
+                    "Class: %s\n", this.name, this.email, this.getFightClass().getName()
+                );
         }
     }
     ```
@@ -396,15 +410,32 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
 3. Crie um objeto "Personagem" e passe os argumentos do constructor.
 
     ```java
-    public class Programa{
-        public static void main(String[] args){
-            Personagem p1 = new Personagem("bielzinho123",25,"bielzin@gmail.com",ClasseDoPersonagem.NINJA);
-            Personagem p2 = new Personagem("amandinhaBolada",29,"amanda222@gmail.com",ClasseDoPersonagem.MAGE);
+    public class App{
 
-            System.out.println(p1);
-            System.out.println("\n");
-            System.out.println(p2);
-        }
+        public static void main(String[] args){
+            FightClass f1 = FightClass.NINJA;
+
+            Player p1 = new Player(
+                "rodolfin123",
+                "rodolfin123@gmail.com",
+                f1
+            );
+
+
+            //ou, passamos o enum direto:
+            
+            Player p2 = new Player(
+                "mariazinha123",
+                "mariazinha123@gmail.com",
+                FightClass.WARRIOR
+            );
+
+            System.out.println(p1.toString());
+            System.out.println(p1.getFightClass().toString() + "\n");
+
+            System.out.println(p2.toString());
+            System.out.println(p2.getFightClass().toString() + "\n");
+            }
     }
     ```
 
@@ -412,10 +443,7 @@ Imagina um **mmorpg(WOW, tera, etc...)**, onde o usuário vai criar um personage
 
     <br>
 
-    📖 É só pensar assim... Na enum class, criamos os attributes como se fosse em uma class normal. Só que aqui, nós instanciamos os objetos diretamente na propria enum class, sendo as constants nossas instancias de objetos.
-
-
-    😎
+    📖 É só pensar assim... Na enum class, criamos os attributes como se fosse em uma class normal. Só que aqui, nós instanciamos os objetos diretamente na propria enum class. Sendo as constants nossas instancias de objetos. 😎
 
 <br>
 <br>
