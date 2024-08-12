@@ -35,7 +35,7 @@ Tanto é que, quando não sobreescrevemos o `toString()` method, ele retorna o v
 
 Por padrão, toda class do java é filha da class `"Object"`. Então, quando criamos uma class "Pessoa", ela insta tem relação de herança com a superClass "Object". Assim, a class "Pessoa" vai herdar o method `.equals` da classe pai "Object".
 
-Assim, nós podemos sobreescrever o method `.equals`, da classe pai "Object" e setar qual ou quais os attributes que vamos comparar.
+Assim, nós podemos sobrescrever o method `.equals`, da classe pai "Object" e setar qual ou quais os attributes que vamos comparar.
 
 
 
@@ -50,7 +50,7 @@ Um objeto só vai ser igual a outro, se esse attribute for igual.
 
 <br>
 
-2. Vamos sobreescrever o method `.equals()` da class pai "Object":
+2. Vamos sobrescrever o method `.equals()` da class pai "Object":
     
     ```java
     public class Pessoa {
@@ -93,7 +93,7 @@ Um objeto só vai ser igual a outro, se esse attribute for igual.
     ```
 
     Entendendo o method:
-    - Implementamos o abstract method `.equals()` da classe pai "Object". 💡 *Use a IDE para implementar*
+    - Sobrescrevemos o method `.equals()` da classe pai "Object". 💡 *Use a IDE para implementar*
   
     - Esse method retorna um valor booleano.
     
@@ -151,14 +151,13 @@ Um objeto só vai ser igual a outro se todos os attributes forem iguais.
 ```java
 //.equals() method da class pai "Object"
 @Override
-public boolean equals(Object obj) {
-    Pessoa p = (Pessoa) obj;
-    
-    if(this.name.equals(p.name) && this.age.equals(p.age)){
-        return true;
+    public boolean equals(Object obj) {
+        Person p = (Person) obj;
+        return
+            this.getName().equals(p.getName()) &&
+            this.getAge() == p.getAge();
     }
-    return false;
-} 
+    //perceba que nao precisamos usar o if else. Usamos direto o return. Fica mais clean.
 ```
 
 Dois objetos da classe "Pessoa" só serão iguais ser tiverem todos os attributes iguais. 
@@ -167,7 +166,7 @@ Dois objetos da classe "Pessoa" só serão iguais ser tiverem todos os attribute
 <br>
 
 ## Criando nosso próprio method .equals()
-Ao invés de sobreescrever o method `.equals`, nós podemos criar nosso próprio method de comparação. Como era um method implementado, nós não podíamos alterar o tipo do objeto do parâmetro. Agora que vamos criar nosso próprio method, podemos.
+Ao invés de sobrescrever o method `.equals`, nós podemos criar nosso próprio method de comparação. Como era um method implementado, nós não podíamos alterar o tipo do objeto do parâmetro. Agora que vamos criar nosso próprio method, podemos.
 
 ```java
 // method igual o .equals()
@@ -180,6 +179,10 @@ public Boolean saoIguais(Pessoa obj){
 ```
 
 Não precisamos castar, pois o objeto do parâmetro já é da mesma Classe do objeto atual. 👽
+
+<br>
+
+💡 Sempre prefira sobrescrever o método ``equals()`` da classe Object. Isso é fundamental porque muitas bibliotecas e estruturas de dados do Java, como Listas e HashSets, usam equals() para comparar objetos.
 
 <br>
 <br>

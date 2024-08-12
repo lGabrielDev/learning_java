@@ -212,7 +212,7 @@ Outra forma de copiar attributes de um objeto para outro objeto seria utilizando
         }
     ```
 
-    Agora, assim que criamos um objeto, temos a opção de passar um objeto.
+    Agora, assim que criamos um objeto temos a opção de passar um objeto.
 
 <br>
 
