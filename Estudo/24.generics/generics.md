@@ -168,180 +168,195 @@ Digamos que queremos criar um attribute de class generic que possua apenas numbe
 
 
 ## Generic methods
-Assim como generic attributes, também temos os generic methods. Ao invés de setar um parâmetro com determinada Class, podemos setar um parâmetro de Class Generic.
+Assim como trabalhamos com generic attributes/variables nas clases, podemos trabalhar com generic attributes nos methods. 
 
-Imagine que voce queira criar um method que imprima 4x uma mensagem. Você teria que criar um method para cada datatype certo?
+💡 Para trabalharmos com generics variables nos methods, precisamos criá-las antes do retorno do method.`<T>`. 
+
+### ✏️ Praticando: ✏️
+
+#### Task 1
+
+✏️ Crie um method generic para printar todas as positions/indexes de uma array.
+
+<br>
 
 ```java
-public abstract class PrintMethods {
-    
-    //method para printar uma String
-    public static void print4Times(String text){
-        for(int i = 0; i<4 ;i++){
-            System.out.println(text);
+public class InsaneMethods {
+    //attributes
+
+    //print all positions
+    public static <T> void printAll(T[] insaneList){
+        for(T i : insaneList){
+            System.out.println(i);
         }
-    }
-
-
-    //etc...
-}
-
-public class App {
-    public static void main(String[] args) {
-        PrintMethods.print4Times("a"); //ok
-        PrintMethods.print4Times(55); //argumento errado
-        PrintMethods.print4Times(66d); //argumento errado
-    }
-}
-```
-
-Olha o trabalhão... Teríamos que criar um method para atender cada tipo de argumento que o usuário passar.
-
-Para resolver esse problema, basta criar 1 único method onde o parâmetro terá uma generic Class.
-
-```java
-public static <T> void print4Times(T text){ //Quando chamarmos esse method, vamos passar um objeto de QUALQUER class
-    for(int i = 0; i<4 ;i++){
-        System.out.println(text);
-    }
-}
-
-
-public class App {
-    public static void main(String[] args) {
-        PrintMethods.print4Times("a"); //ok
-        PrintMethods.print4Times(55);  //ok
-        PrintMethods.print4Times(66d); //ok
-    }
-}
-```
-
-💡 Sempre precisamos informar, antes do retorno, que o method possui parâmetros generics `<T>`. 
-
-<br>
-<br>
-
-### Praticando ✏️
-
-1. Crie um method generic para printar todas as positions/indexes de uma array.
-
-    ```java
-    public abstract class PrintMethods {
-        
-        //print all array positions
-        public static <T> void printAll(T[] lista){ //vamos passar como argumento uma array qualquer.
-            for(T i : lista){
-                System.out.println(i);
-            }
-        }
-    }
-    ```
-
-    ```java
-        public class App {
-        public static void main(String[] args) {
-            String[] names = {"Carlos", "Jack", "Jake", "Patricia"};
-            Integer[] numbers = {1,50,600,800,63};
-            Person[] persons = {
-                new Person("Amanda", 44),
-                new Person("Rosana", 22),
-                new Person("Jose", 70)
-            };
-            
-
-
-            PrintMethods.printAll(names);
-            PrintMethods.printAll(numbers);
-            PrintMethods.printAll(persons);
-        }
-    }
-    ```
-
-<br>
-<br>
-
-2. Crie um method generic para retornar a primeira position de uma array. *Aqui, vamos precisar retornar um objeto generic.*
-
-    ```java
-    //print the first position of an array
-    public static <T> T printFirstIndex(T[] lista){ //perceba que vamos retornar um objeto de qualquer class.
-        return lista[0];
+        System.out.println();
     } 
-    ```
+    //criamos a variable generic antes do retorno e depois utilizamos essa variable como parametro.
+}
 
-    ```java
-        public class App {
-        public static void main(String[] args) {
-            String[] names = {"Carlos", "Amanda", "Patrick", "Batman"};
-            Integer[] numbers = {4,6,8,9,10};
-
-            System.out.println(PrintMethods.printFirstIndex(names));
-            System.out.println(PrintMethods.printFirstIndex(numbers));
-        }
+//Main Class
+public class App{
+    public static void main(String[] args){
+       Integer[] list1 = {4,9,8,5,6}; 
+       String[] list2 = {"arroz", "batata", "carne", "doce"}; 
+       Character[] list3 = {'c','c','&'};
+       
+       InsaneMethods.printAll(list1);
+       InsaneMethods.printAll(list2);
+       InsaneMethods.printAll(list3);
     }
-    ```
+}
+```
+
+📖 Percebe a vantagem? Ao invés de criarmos vários methods para atender parametros diferentes, criamos apenas 1 method. Isso é generics rapá!
+
 
 <br>
+<hr>
+
+#### Task 2
+
+✏️ Imagine que voce queira criar um method para somar 2 números.
+
+Se você parar pra pensar, você teria que criar 1 method para cada datatype
+
+```java
+public class InsaneMethods {
+    //attributes
+
+    //sum 2 numbers - Integer
+    public static Integer sum(Integer n1, Integer n2){
+        return n1 + n2;
+    }
+
+    //sum 2 numbers - Float
+    public static Float sum(Float n1, Float n2){
+        return n1 + n2;
+    }
+
+    //sum 2 numbers - Double
+    public static Double sum(Double n1, Double n2){
+        return n1 + n2;
+    }
+}
+
+
+//main class
+public class App{
+    public static void main(String[] args){
+        System.out.println(InsaneMethods.sum(5, 5));
+        System.out.println(InsaneMethods.sum(5d, 5d));
+        System.out.println(InsaneMethods.sum(5f, 5f)); 
+    }
+}
+```
+
 <br>
 
-3. Crie um method para somar 2 numeros genericos. Nao importa se voce passar Double/Integer/Long/Float, o method sempre vai retornar um Double.
+Olha o trabalhão... Teríamos que criar um method para atender cada tipo de argumento que o usuário passasse.
 
-    ```java
-    public abstract class PrintMethods {
-        //sum 2 numbers
-        public static <T extends Number> Double sum(T n1, T n2){
-            return n1.doubleValue() + n2.doubleValue(); //esses methods foram herdados da Class pai "Number". Eles transformam um numero generic em Double.
-        }
+Para resolver esse problema, basta trabalharmos com uma variable generica no method.
+
+```java
+public class InsaneMethods {
+    //attributes
+
+    //sum 2 numbers - generic datatype
+    public static <T extends Number> Double sum(T n1, T n2){ //Importante lembrar que não é possível utilizar os operadores aritméticos/matemáticos com classes genéricas. Por isso, retornamos um Double.
+        return n1.doubleValue() + n2.doubleValue(); //primeiro transformamos as classes genericas em alguma classe de número. Só depois, conseguimos somar. Esses methods foram herdados da Class pai "Number". Eles transformam um numero generic em Double.
     }
-    ```
+}
 
-    ```java
-    public class App {
-        public static void main(String[] args) {
-            Integer n1 = 50;
-            Long n2 = 40l;
-
-            System.out.println(PrintMethods.sum(n1, n2)); //perceba que somamos um "Integer" + "Long". Zica né? 
-        }
+//Main Class
+public class App{
+    public static void main(String[] args){
+        
+        System.out.println(InsaneMethods.sum(5, 5));
+        System.out.println(InsaneMethods.sum(5d, 5d));
+        System.out.println(InsaneMethods.sum(5f, 5f));
+        System.out.println(InsaneMethods.sum(5l, 5l));
+        System.out.println(InsaneMethods.sum(5f, 5d));
+        //etc...
     }
-    ```
+}
+```
 
-    <br>
-    <br>
+💡 Para trabalharmos com generics variables nos methods, precisamos criá-las antes do retorno do method.`<T>`. 
 
-    4. Crie um method para somar uma array/varios numeros.
+<br>
 
-        ```java
-        public abstract class PrintMethods {
-            //sum 2 numbers --> Usando '...' como array
-            @SafeVarargs //annotation para nao dar pau nas varargs '...'
-            public static <T extends Number> Double sum(T... numbers){
-                Double result = 0d;
+📖 Percebeu? Para evitar duplicar methods, simplesmente trabalhamos com methods genericos.
 
-                for(T i : numbers){
-                    result += i.doubleValue();  
-                }
-                return result;
-            }
+<br>
+<hr>
 
-            //OU
+#### Task 3
 
-            //sum 2 numbers --> Usando array[] normal
-            public static <T extends Number> Double sum(T[] numbers){
-            Double result = 0d;
+✏️ Crie um method generic para retornar a primeira position de uma array. *Aqui, vamos precisar retornar um objeto generic.*
 
-            for(T i : numbers){
-                result += i.doubleValue();  
-                }
-                return result;
-            }
-        }
-        ```
+```java
+public class InsaneMethods {
+    //attributes
 
-        📖 Poderíamos fazer da mesma forma com uma `List<T>`.
+    //print all positions
+    public static <T> T firstPosition(T[] insaneList){
+        return insaneList[0];
+    }
     
-    <br>
-    <br>
+}
+
+//Main Class
+public class App{
+    public static void main(String[] args){
+       Integer[] list1 = {4,9,8,5,6}; 
+       String[] list2 = {"arroz", "batata", "carne", "doce"}; 
+       Character[] list3 = {'c','c','&'};
+       
+       System.out.println(InsaneMethods.firstPosition(list1) + "\n");
+       System.out.println(InsaneMethods.firstPosition(list2) + "\n");
+       System.out.println(InsaneMethods.firstPosition(list3));
+    }
+}
+```
+
+
+<br>
+<hr>
+
+#### Task 4
+
+✏️ Crie um method para somar uma array/varios numeros.
+
+```java
+//utilizando varargs ...
+@SafeVarargs //annotation para nao dar pau no varargs
+public static <T extends Number> Double sum(T... insaneNumbers){ // ... podemos passar qualquer tamamnho de array
+    Double result = 0d;
+    for(T i : insaneNumbers){
+        result += i.doubleValue(); //transformamos o objeto genérico em um double. Só dá pra usar operadores matemáticos com primitive datatypes(double, long, int, float, etc...)
+    }
+    return result;
+} 
+
+
+//ou
+
+
+//utilizando arrays simples
+public static <T extends Number> Double sum(T[] insaneNumbers){
+    Double result = 0d;
+    for(T i : insaneNumbers){
+        result += i.doubleValue();
+    }
+
+    return result;
+} 
+```
+  
+📖 Poderíamos fazer da mesma forma com uma `List<T>`.
+    
+<br>
+<br>
 
 ## Relembrando <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center">
 
@@ -351,9 +366,7 @@ public class App {
 
 <br>
 
-- `generic method` -->  Sempre que temos um method que possui parâmetros generics, precisamos informar **antes do retorno do method**.
-
-
+- `generic method` -->  Sempre que temos um method que vai trabalhar com uma variable generica, precisamos criar essa variable generica **antes do retorno do method**.
 
 
 <!-- Next page button -->

@@ -151,7 +151,7 @@ O segredo é loopar de um por um:
 - Crie o input do number1 e já faça o tratamento + while loop.
 - Crie o input do number2 e já faça o tratamento + while loop.
 
-Não vai tentar loopar no final. Sempre loop de poquinho em poquinho.
+Não vai tentar loopar no final. Sempre loop de pouquinho em pouquinho.
 
 Perceba que foi criado um method para cada input. Sempre separe seu código em vários methods. Assim, fica mais fácil de entender e de dar manutenção.
 
@@ -163,7 +163,7 @@ Perceba que foi criado um method para cada input. Sempre separe seu código em v
 <br>
 
 ## Tratando uma exception genérica
-Quando queremos tratar qualquer tipo de exception, vamos usar como parameter no `catch(){}` a class `Exception`. Ela consegue tratar qualquer erro, pois ela é pai das outras exceptions class(é só verificar a árvore [denovo](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md/#exception-tree-árvore-de-exceptions)).
+Quando queremos tratar qualquer tipo de exception, vamos usar como parameter no `catch(){}` a class `Exception`. Ela consegue tratar qualquer erro porque ela é pai das outras exceptions class(é só verificar a árvore [denovo](https://github.com/lGabrielDev/02.java/blob/main/Estudo/23.exceptions/0.introducao/introducao.md/#exception-tree-árvore-de-exceptions)).
 
 
 💡 Se não soubermos qual o nome da Class da exception(erro), basta usar a class genérica `Exception` e dale.
