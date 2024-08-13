@@ -71,40 +71,59 @@ Nós precisamos definir. Se não, vai dar uma exception. O próprio java diz par
 1. Implemente a interface "Comparable" na class dos objetos que estão na fila.
 
     ```java
-    public class Pessoa implements Comparable<Pessoa> // Perceba que precisamos repetir o nome da class "<Pessoa>"
+    public class Pessoa implements Comparable <Person> // Como essa interface usa generics<>, precisamos informar qual é essa classe genérica. Nesse caso, vamos comparar a class "Person"
     ```
 
 <br>
 
-2. Como implementamos uma interface, precisamos chamar todos os **abstract methods** dessa interface. Essa interface possui apenas 1 abstract method. Sobreescreva o method `.compareTo()`.
+2. Como implementamos uma interface, precisamos chamar todos os **abstract methods(methods sem corpo)** dessa interface. Essa interface possui apenas 1 abstract method. Sobreescreva o method `.compareTo()`.
 
     ```java
     //methods implementados da interface "Comparable"
     @Override
-    public int compareTo(Pessoa o) {
-        if(this.age > o.age){ // Se o objeto atual tiver a idade maior, ele terá prioridade
-            return -1; // -1 é menor que 0 e 1, portanto vai ter prioridade
+    public int compareTo(Person p2) {
+        if(this.age > p2.age){
+            return -1; //-1 é a maior prioridade
         }
-        else if(this.age == o.age){
-            return 0;
-        }
-        else{
+        else if(this.age < p2.age){
             return 1;
         }
+        return 0;
     }
+    //Nesse caso, as pessoas de MAIOR idade vao ser atendidas primeiro (-1)
     ```
 
     É dentro desse method que vamos setar qual será o attribute que vamos usar como prioridade na nossa fila. Nesse caso, usamos idade.
 
     Poderíamos usar o attribute "name" da mesma forma. A prioridade seria ordem alfabetica.
 
-    - `-1` --> Menor valor, tem prioridade.
+    - `-1` --> Prioridade na fila. Vai ser atendido primeiro.
+    - `1` --> Não tem prioridade.
     - `0` --> Prioridade neutra. Será atendido quem chegou primeiro. Padraozin.
-    - `1` --> Maior valor, não tem prioridade.
 
 Se quiséssemos fazer ao contrário, quem tivesse a menor idade seria atendido primeiro, era só inverter os números ou inverter o operador `>`. Easy! 😎
 
-⚠️ Precisa ser essa combination, senão não funciona. (`-1, 0, 1`) .
+⚠️ -1 é a prioridade.
+
+<br>
+<br>
+
+### Comparando um attribute String
+Para comparar o attribute name por exemplo, vamos utilizar o method `compareTo()` da Class String.
+
+```java
+@Override
+public int compareTo(Person p2) {
+    return p2.name.compareTo(this.name); //Ordem alfabetica -> A, B, C...
+}
+
+//or
+
+
+public int compareTo(Person p2) { //Ordem reversa -> Z, Y, X...
+    return p2.name.compareTo(this.name);
+}
+```
 
 <br>
 <br>

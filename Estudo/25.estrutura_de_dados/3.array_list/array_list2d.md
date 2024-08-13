@@ -5,7 +5,7 @@
 </h1>
 
 
-Aqui, vamos ter uma estrutura que armazena listas. Vamos ter uma lista de listas.
+Aqui vamos ter uma estrutura que armazena listas. Vamos ter uma lista de listas.
 
 ## Syntax <img src="https://cdn-icons-png.flaticon.com/512/1442/1442581.png" alt="curly braces icon" width="30px" align="center">
 
@@ -96,8 +96,11 @@ for(int i = 0; i<armárioDeListas.size(); i++){
 ## Percorrendo todas os items das listas com o `for each`
 ```java
 //Lopando todos os items de cada lista
-for(List<String> i : armárioDeListas){
-    System.out.println(i.toString());
+for(List<String> i : listas){
+    System.out.println();
+    for(String j : i){
+        System.out.println(j);
+    }
 }
 ```
 <br>

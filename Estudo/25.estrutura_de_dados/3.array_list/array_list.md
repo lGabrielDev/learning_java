@@ -5,7 +5,7 @@
 
 
 ## Introduction <img src="https://cdn-icons-png.flaticon.com/512/1436/1436664.png" alt="imagem" width="50px" align="center">
-Diferente da array normal, aqui podemos manipular nossos objetos. Podemos remove ou adicionar objetos, sem precisar criar outra ArrayList. Na array normal, não é possível.
+Diferente da array normal, aqui podemos manipular nossos objetos. Podemos remover ou adicionar objetos, sem precisar criar outra ArrayList. Na array normal, não é possível.
 
 - `Array` --> Possui um tamanho fixo. Uma vez colocado os objetos, não é possível removê-los ou adicionar mais objetos.
 
@@ -140,7 +140,7 @@ colors.add("purple");
 colors.add("red");
 
 for(String i : colors){
-    System.err.println(i);
+    System.out.println(i);
 }
 /*
 Datatype da estrutura, contador representando cada posicao da lista, nome da array

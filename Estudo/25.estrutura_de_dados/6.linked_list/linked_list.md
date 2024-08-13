@@ -5,8 +5,6 @@
 
 A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas implementam a interface **List**. A diferença é que aqui na LinkedList temos alguns methods adicionais:
 
-
-
 - `addFirst()`
 - `addLast()`
 - `removeFirst()`
@@ -15,7 +13,6 @@ A estrutura LinkedList, funciona igualzinho a estrutura ArrayList. As duas imple
 - `getLast()`
 
 💡 Geralmente, sempre vamos usar ArrayList. Usamos LinkedList para trabalharmos com **Queue**.
-
 
 <br>
 <br>
