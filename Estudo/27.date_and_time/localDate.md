@@ -234,7 +234,7 @@ Aqui, podemos escolher a forma que vamos exibir nossas datas e horas.
 
 Vamos precisar fazer 2 passos:
 
-1. Criar um objeto da Class `DateTimeFormatter` e usar o method  `ofPattern()` para defirnir a formatacao padrao de data
+1. Criar um objeto da Class `DateTimeFormatter` e usar o method  `ofPattern()` para definir a formatacao padrao de data.
 
 2. Vamos usar o method `.format()` para retornar uma String formatada de uma data. Basta criarmos uma String para armazenar.
 
@@ -244,37 +244,26 @@ Vamos precisar fazer 2 passos:
 ✏️ Faça algumas formatacoes em uma data
 
 ```java
-public class Main{
+public class App{
     public static void main(String[] args){
-        LocalDate d1 = LocalDate.of(2015,8,2);
 
-        //formatacao 1
-        DateTimeFormatter formatacaoPadrao = DateTimeFormatter.ofPattern("d/M/yy"); 
-        String d1Formatada = formatacaoPadrao.format(d1);
-        System.out.println("Formatacao 1: " + d1Formatada);
+        LocalDate date1 = LocalDate.now();
 
-        //formatacao 2
-        formatacaoPadrao = DateTimeFormatter.ofPattern("dd/M/yy");
-        d1Formatada = formatacaoPadrao.format(d1);
-        System.out.println("Formatacao 2: " + d1Formatada); 
+        //formatação 1
+        DateTimeFormatter formatador1 = DateTimeFormatter.ofPattern("dd-MMMM-yy");
+        String dataFormatada1 = formatador1.format(date1);
 
-        //formatacao 3
-        formatacaoPadrao = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
-        d1Formatada = formatacaoPadrao.format(d1);
-        System.out.println("Formatacao 3: " + d1Formatada);
+        //formatação 2
+        DateTimeFormatter formatador2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String dataFormatada2 = formatador2.format(date1);
 
-        //formatacao 4
-        formatacaoPadrao = DateTimeFormatter.ofPattern("dd/MMMM/yyyy --> EEEE");
-        d1Formatada = formatacaoPadrao.format(d1);
-        System.out.println("Formatacao 3: " + d1Formatada);
+        //formatação 3
+        DateTimeFormatter formatador3 = DateTimeFormatter.ofPattern("yyyy/MMMM/dd");
+        String dataFormatada3 = formatador3.format(date1);
 
-        /* 
-        Formatacao 1: 2/8/15
-        Formatacao 2: 02/8/15
-        Formatacao 3: 02/Aug/2015
-        Formatacao 3: 02/August/2015 --> WEDNESDAY
-        etc...
-        */
+        System.out.println(dataFormatada1); // 22-August-24
+        System.out.println(dataFormatada2); // 2024-08-22
+        System.out.println(dataFormatada3); // 2024/August/22
     }
 }
 ```
@@ -285,24 +274,27 @@ public class Main{
 ✏️ Faça algumas formatacoes em uma hora
 
 ```java
-public class Main{
+public class App{
     public static void main(String[] args){
-        LocalTime hora = LocalTime.of(21,5,59);
 
-        //formatacao 1
-        DateTimeFormatter formatacaoPadrao = DateTimeFormatter.ofPattern("hh:mm:ss a"); //09:05:59 PM
-        String horaFormatada = formatacaoPadrao.format(hora);
-        System.out.println(horaFormatada);
+       LocalTime t = LocalTime.of(0, 32, 12);
 
-        //formatacao 2
-        formatacaoPadrao = DateTimeFormatter.ofPattern("HH:mm:ss a"); //21:05:59 PM
-        horaFormatada = formatacaoPadrao.format(hora);
-        System.out.println(horaFormatada);
+       //formatacao 1
+       DateTimeFormatter formater1 = DateTimeFormatter.ofPattern("HH:mm:ss a");
+       String dateFormatadinha1 = formater1.format(t);
 
-        //formatacao 2 3
-        formatacaoPadrao = DateTimeFormatter.ofPattern("HH:mm:ss"); //21:05:59
-        horaFormatada = formatacaoPadrao.format(hora);
-        System.out.println(horaFormatada);
+       //formatacao 2
+       DateTimeFormatter formater2 = DateTimeFormatter.ofPattern("hh:mm:ss a");
+       String dateFormatadinha2 = formater2.format(t);
+
+       //formatacao 3
+       DateTimeFormatter formater3 = DateTimeFormatter.ofPattern("HH:mm:ss");
+       String dateFormatadinha3 = formater3.format(t);
+
+
+       System.out.print(dateFormatadinha1 + "\n"); // 00:32:12 AM
+       System.out.print(dateFormatadinha2 + "\n"); // 12:32:12 AM
+       System.out.print(dateFormatadinha3);        // 00:32:12 
     }
 }
 ```
@@ -314,19 +306,19 @@ public class Main{
 ✏️ Faça uma formatacao de uma date e hora
 
 ```java
-public class Main{
+public class App{
     public static void main(String[] args){
-        LocalDate data = LocalDate.of(2023,5,14);
-        LocalTime hora = LocalTime.now();
-        LocalDateTime dataEHora = LocalDateTime.of(data, hora);
 
-        //Antes da formatacao
-        System.out.println("\nAntes da formatacao:" + dataEHora);
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        LocalDateTime dateTimeToday = LocalDateTime.of(date, time);
 
-        //Depois da formatacao --> Padrao BR
-        DateTimeFormatter formatacaoPadrao = DateTimeFormatter.ofPattern("dd/MMMM/YYYY -> HH:mm:ss");
-        String dateEHoraFormatada = formatacaoPadrao.format(dataEHora);
-        System.out.println(dateEHoraFormatada);
+        
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MMMM/yyyy ----> HH:mm:ss a");
+        String dateTimeFormatadinho = formatador.format(dateTimeToday);
+        
+        System.out.println(dateTimeToday); // 2024-08-22T15:25:19
+        System.out.println(dateTimeFormatadinho); // 22/August/2024 ----> 15:25:19 PM
     }
 }
 ```
@@ -375,6 +367,9 @@ public class Main{
 
 - Se quiséssemos converter os anos e meses para saber o total de dias entre duas datas.... Ou
 - Se quiséssemos converter os anos para saber o total de meses entre duas datas, nós utilizaríamos a Class **ChronoUnit**.
+
+
+Poderíamos tentar fazer essas conversões na mão, mas como cada mês tem dias diferentes (30 ou 31), nós precisamos usar o **ChronoUnit** para ter precisão.
 
 
 <hr>

@@ -34,14 +34,14 @@ Pô, tranquilo. Como são objetos Integers e possuem apenas 1 attribute, o java 
 
 Mas, e se tivêssemos um objeto complexo(Pessoa, Carro, Endereco, etc...)? Por qual attribute o java iria ordenar??
 
-A resposta é simples. Ele não consegue. Nós precisamos informá-lo qual é o attribute que queremos comparar.
+A resposta é simples. Ele não consegue. Nós precisamos informar qual é o attribute que queremos comparar.
 
 
 <hr>
 <br>
 
 ## Comparator
-Antes de entendo como o comparator funciona, crie uma Class "Pessoa" com os seguintes attributes:
+Antes de entender como o comparator funciona, crie uma Class "Pessoa" com os seguintes attributes:
 
 ```java
 private String name;
@@ -65,7 +65,7 @@ Esse é o passo a passo para comparar/ordenar um objeto complexo:
 2. Nessa class, informamos o tipo do objeto complexo que vamos comparar `<T>`
 3. Na hora de ordenar, informamos:
     - a lista que queremos ordenar
-    - informamos o comparator que vamos utilizar
+    - o comparator que vamos utilizar
 
 <br>
 
@@ -285,3 +285,17 @@ Assim, podemos ter VÁRIAS Comparators Classes para cada attribute que desejamos
 <br>
 
 💡 Sempre que estiver comparando um attribute String, use o `compareTo()`.
+
+
+<hr>
+<br>
+
+## <img src="https://cdn-icons-png.flaticon.com/512/201/201652.png" alt="imagem" width="50px" align="center"> Relembrando
+
+- **Comparable**:
+A comparação é definida diretamente na própria classe do objeto. Usamos o método `compareTo()` para escolher qual atributo será o padrão de comparação. Isso significa que, toda vez que compararmos objetos dessa classe, a ordem será sempre baseada nesse atributo específico.
+
+<br>
+
+- **Comparator**:
+Aqui, temos algo mais legal. Podemos criar múltiplos comparadores, cada um para um atributo diferente da classe. Isso permite que, na hora de comparar ou ordenar objetos dessa classe, possamos escolher qual atributo usar para a comparação.
