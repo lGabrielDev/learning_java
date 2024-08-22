@@ -52,7 +52,7 @@ private Double salary;
 
 <br>
 
-Perceba que temos um objeto complexo, contendo vários attributes. O java não consegue identificar qual vai ser o attribute que vamos usar para ordenar uma lista de Pessoas. Por isso, precisamos trabalhar com o `Comparator` e informar o attribute que vamos usar para comparar.
+Perceba que temos um objeto complexo, contendo vários attributes. O java não consegue identificar qual vai ser o attribute que vamos usar para ordenar. Por isso, precisamos criar nossas Classes Comparators.
 
 O interessante é que podemos criar vários **comparators** para cada attribute que desejamos ordenar. Olha que beleza!
 
@@ -72,7 +72,7 @@ Esse é o passo a passo para comparar/ordenar um objeto complexo:
 ✏️ Crie um **comparator** para comparar o "name" das pessoas. Depois, ordene essa lista de pessoas:
 
 
-### Criando a class Comparator
+### Criando uma class Comparator
 
 ```java
 //Class Comparator
@@ -92,7 +92,7 @@ public class NameComparator implements Comparator<Person>{ //informamos a Class 
 
 <br>
 
-### Ordenando, utilizando a comparator que acabamos de criar
+### Ordenando utilizando a comparator que acabamos de criar
 
 ```java
 public class Main{
@@ -129,10 +129,8 @@ Easy! 😎
 <br>
 
 ## Criando várias comparators
-O legal, é que podemos criar várias comparators para cada attribute que desejamos ordenar.
 
-
-✏️ Crie uma comparator para os outros attributes:
+✏️ Crie uma comparator para cada um dos attributes:
 
 
 - sexo
@@ -169,7 +167,6 @@ public class ComparatorSexo implements Comparator<Person> { //informamos a class
     for(Person i : personas){
         System.out.println(i.toString());
     }
-
 
     //lista ordenada
     System.out.println("\n ================ Lista ordenada: ================");
@@ -298,4 +295,4 @@ A comparação é definida diretamente na própria classe do objeto. Usamos o m�
 <br>
 
 - **Comparator**:
-Aqui, temos algo mais legal. Podemos criar múltiplos comparadores, cada um para um atributo diferente da classe. Isso permite que, na hora de comparar ou ordenar objetos dessa classe, possamos escolher qual atributo usar para a comparação.
+Aqui, temos algo mais legal. Podemos criar múltiplos comparators, cada um para um atributo diferente da classe. Isso permite que, na hora de comparar ou ordenar objetos dessa classe, possamos escolher qual atributo usar para a comparação.
